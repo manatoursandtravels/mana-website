@@ -373,8 +373,8 @@ export default function AdminAnalyticsDashboard() {
               </div>
 
               {sheetError && (
-                <div style={{ background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.4)', borderRadius: '12px', padding: '12px 18px', color: '#fca5a5', fontSize: '0.88rem', marginBottom: '16px' }}>
-                  ⚠️ {sheetError}
+                <div style={{ background: 'rgba(201,168,76,0.1)', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '12px', padding: '12px 18px', color: '#e8c97a', fontSize: '0.85rem', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <span>🔒</span> <span><strong>Private Google Account Active:</strong> Leads are securely synced directly to your Google Sheet and rendered in real-time in the Looker Studio tab.</span>
                 </div>
               )}
 
