@@ -131,7 +131,9 @@ export default function HomePage() {
           <div className={styles.heroContent}>
             <div className={styles.heroPill}>
               <span className={styles.heroPillDot} />
-              <span>⭐ 5.0 Google Rated · Kadapa&apos;s Premier Travel Partner</span>
+              <span className={styles.pillHighlight}>⭐ 5.0 Google Rated</span>
+              <span className={styles.pillDivider}>·</span>
+              <span className={styles.pillSub}>Kadapa&apos;s Premier Travel Partner</span>
             </div>
 
             <h1 className={styles.heroH1}>
