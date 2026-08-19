@@ -1,0 +1,364 @@
+/* ═══════════════════════════════════════════════════════════════════
+   Self-Drive Fleet Showcase — Luminous Executive Cards & Spec Grid
+   ═══════════════════════════════════════════════════════════════════ */
+
+.fleetWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 2.5vw, 32px);
+  width: 100%;
+}
+
+.card {
+  background: #FFFFFF;
+  border-radius: var(--r-3xl);
+  overflow: hidden;
+  border: 1.5px solid rgba(14, 19, 31, 0.08);
+  box-shadow: 0 16px 40px rgba(14, 19, 31, 0.06);
+  transition: all var(--dur-slow) var(--ease-luxury);
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: var(--brass);
+  box-shadow: 0 28px 64px rgba(14, 19, 31, 0.14), 0 4px 16px rgba(184, 142, 62, 0.15);
+}
+
+/* ── Image Container & Floating Tags ── */
+.imgContainer {
+  position: relative;
+  height: 240px;
+  background: var(--pearl-subtle);
+  overflow: hidden;
+}
+
+.carImg {
+  object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease-luxury);
+}
+
+.card:hover .carImg {
+  transform: scale(1.06);
+}
+
+.imgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(14, 19, 31, 0.45) 0%, rgba(14, 19, 31, 0) 40%, rgba(14, 19, 31, 0.6) 100%);
+  pointer-events: none;
+}
+
+.floatingTop {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+
+.badge {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: var(--r-pill);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.badgePopular {
+  background: linear-gradient(135deg, var(--brand-red) 0%, #B91C1C 100%);
+  color: #FFFFFF;
+}
+
+.badgeFamily {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  color: #FFFFFF;
+}
+
+.badgeVip {
+  background: linear-gradient(135deg, #D4AF37 0%, #99732B 100%);
+  color: #0E131F;
+}
+
+.ratingBadge {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  font-size: 0.74rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+}
+
+.floatingBottom {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  z-index: 2;
+}
+
+.categoryPill {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--brass-border);
+  color: var(--charcoal-900);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ── Content Body ── */
+.body {
+  padding: clamp(20px, 2.5vw, 28px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.carName {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.32rem;
+  color: var(--charcoal-900);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.carSubtitle {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--brass-dark);
+}
+
+/* ── 2x3 Visual Specs Grid ── */
+.specsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  background: var(--pearl-bg);
+  border: 1px solid var(--pearl-border);
+  border-radius: var(--r-xl);
+  padding: 12px;
+}
+
+.specItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.specIcon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.specContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.specLabel {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--charcoal-500);
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.specValue {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--charcoal-800);
+  line-height: 1.2;
+  margin-top: 2px;
+}
+
+.bestFor {
+  font-size: 0.84rem;
+  color: var(--charcoal-600);
+  line-height: 1.5;
+  background: #FFFDF9;
+  border-left: 3px solid var(--brass);
+  padding: 8px 12px;
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+}
+
+/* ── Pricing & Deposit Strip ── */
+.pricingStrip {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 12px 14px;
+  background: linear-gradient(135deg, var(--pearl-bg) 0%, #FFFFFF 100%);
+  border: 1.5px solid var(--brass-border);
+  border-radius: var(--r-xl);
+  margin-top: auto;
+}
+
+.priceCol {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.priceSubLabel {
+  font-size: 0.70rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--charcoal-500);
+  letter-spacing: 0.05em;
+}
+
+.priceMain {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.currency {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--brand-blue);
+}
+
+.priceNum {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 900;
+  color: var(--charcoal-900);
+  line-height: 1;
+}
+
+.pricePer {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--charcoal-500);
+}
+
+.fuelTag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #065F46;
+}
+
+.depositCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.depositLabel {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--charcoal-500);
+  text-transform: uppercase;
+}
+
+.depositVal {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--brass-dark);
+}
+
+/* ── Actions ── */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.waBtn {
+  width: 100%;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.86rem;
+  padding: 12px 18px;
+  border-radius: var(--r-pill);
+  gap: 8px;
+}
+
+.secondaryBtn {
+  background: none;
+  border: none;
+  color: var(--charcoal-600);
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  padding: 4px;
+  transition: color var(--dur-fast) ease;
+}
+
+.secondaryBtn:hover {
+  color: var(--brand-blue);
+  text-decoration: underline;
+}
+
+/* ── Safety Strip ── */
+.safetyStrip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  background: #FFFFFF;
+  border: 1.5px solid var(--brass-border);
+  border-radius: var(--r-2xl);
+  padding: 16px 22px;
+  box-shadow: 0 8px 24px rgba(14, 19, 31, 0.04);
+}
+
+.safetyItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.84rem;
+  color: var(--charcoal-700);
+}
+
+.safetyIcon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+/* ── Responsiveness ── */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    max-width: 550px;
+    margin: 0 auto;
+  }
+  .safetyStrip {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}

@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import BookingForm from '@/components/BookingForm';
 import SelfDrivePricingMatrix from '@/components/SelfDrivePricingMatrix';
+import SelfDriveFleetShowcase from '@/components/SelfDriveFleetShowcase';
 import Link from 'next/link';
 import { BUSINESS, RATES } from '@/lib/constants';
 import { SelfDriveIllustration } from '@/components/Illustrations';
@@ -315,57 +316,18 @@ export default function SelfDriveLandingPage() {
       </section>
 
       {/* ══ 3. VEHICLE FLEET SELECTION ══ */}
-      <section className="section" style={{ background: 'var(--pearl-bg)' }}>
+      <section className="section" style={{ background: 'var(--pearl-bg)' }} id="fleet">
         <div className="container">
           <div className="section-header">
-            <span className="eyebrow">✦ Our Sanitized Fleet ✦</span>
+            <span className="eyebrow">✦ Spotless Sanitized Fleet ✦</span>
             <h2>Select Your Self-Drive Vehicle</h2>
             <div className="divider" />
-            <p>Every car is professionally serviced, deep-sanitized, and safety-inspected before every handover. What you see is what you get.</p>
+            <p>
+              Every car is professionally serviced, deep-sanitized, and safety-inspected before every handover. What you see is strictly what you get — backed by written guarantees.
+            </p>
           </div>
 
-          <div className={styles.fleetGrid}>
-            {fleetOptions.map((car, i) => (
-              <div key={i} className={styles.fleetCard}>
-                <div className={styles.fleetImgWrap}>
-                  <Image src={car.img} alt={car.name} fill quality={82} style={{ objectFit: 'cover' }} />
-                </div>
-                <div className={styles.fleetBody}>
-                  <div>
-                    <span className="badge badge--brass">{car.category}</span>
-                    <h3 className={styles.fleetTitle} style={{ marginTop: '8px' }}>
-                      {car.name}
-                    </h3>
-                  </div>
-
-                  <div className={styles.fleetSpecs}>
-                    {car.specs.map((spec, sIndex) => (
-                      <span key={sIndex} className={styles.fleetSpecPill}>
-                        {spec}
-                      </span>
-                    ))}
-                  </div>
-
-                  <p style={{ fontSize: '0.88rem', color: 'var(--charcoal-600)' }}>{car.bestFor}</p>
-
-                  <div className={styles.fleetPriceRow}>
-                    <div>
-                      <div className={styles.fleetPrice}>{car.dailyPrice}</div>
-                      <div style={{ fontSize: '0.75rem', color: 'var(--charcoal-500)' }}>Per Day (Fuel on you)</div>
-                    </div>
-                    <a
-                      href={`https://wa.me/${BUSINESS.whatsapp}?text=${encodeURIComponent(`Hi Pavan, I want to rent the ${car.name} for self-drive.`)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn--primary btn--sm"
-                    >
-                      Book on WhatsApp
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <SelfDriveFleetShowcase />
         </div>
       </section>
 
