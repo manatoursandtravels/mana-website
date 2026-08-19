@@ -5,9 +5,25 @@ import Link from 'next/link';
 import { BUSINESS } from '@/lib/constants';
 import styles from './admin.module.css';
 
-// Default PIN for admin access (Pavan/Jyothi)
+// Default PIN for admin access
 const DEFAULT_PIN = '9908';
 const DEFAULT_SHEET_ID = '1aW5a8lSGzkHli_ldxusS-R017-toWu7sCKAuLimFKF';
+const DEFAULT_LOOKER_URL = 'https://datastudio.google.com/embed/reporting/ccc0f5a0-3a66-4dc2-942a-3b87a6811bc2/page/yws6F';
+
+// Helper to extract clean URL if user pastes an <iframe ...> snippet
+function extractUrl(input) {
+  if (!input) return '';
+  const trimmed = input.trim();
+  if (trimmed.includes('<iframe') && trimmed.includes('src="')) {
+    const match = trimmed.match(/src="([^"]+)"/);
+    if (match && match[1]) return match[1];
+  }
+  if (trimmed.includes('<iframe') && trimmed.includes("src='")) {
+    const match = trimmed.match(/src='([^']+)'/);
+    if (match && match[1]) return match[1];
+  }
+  return trimmed;
+}
 
 export default function AdminAnalyticsDashboard() {
   const [pin, setPin] = useState('');
@@ -15,9 +31,9 @@ export default function AdminAnalyticsDashboard() {
   const [pinError, setPinError] = useState('');
   
   // Looker Studio & Sheet Configuration
-  const [lookerUrl, setLookerUrl] = useState('');
+  const [lookerUrl, setLookerUrl] = useState(DEFAULT_LOOKER_URL);
   const [isEditingUrl, setIsEditingUrl] = useState(false);
-  const [urlInput, setUrlInput] = useState('');
+  const [urlInput, setUrlInput] = useState(DEFAULT_LOOKER_URL);
   
   const [sheetId, setSheetId] = useState(DEFAULT_SHEET_ID);
   const [isEditingSheet, setIsEditingSheet] = useState(false);
@@ -28,7 +44,7 @@ export default function AdminAnalyticsDashboard() {
   const [isLoadingLeads, setIsLoadingLeads] = useState(false);
   const [sheetError, setSheetError] = useState(null);
   const [lastRefreshed, setLastRefreshed] = useState('');
-  const [activeTab, setActiveTab] = useState('overview'); // overview, leads, looker
+  const [activeTab, setActiveTab] = useState('looker'); // default to looker or overview
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -50,56 +66,24 @@ export default function AdminAnalyticsDashboard() {
     }
   }, []);
 
-  // Fetch real-time data from Google Sheet GViz API
+  // Fetch real-time data from internal API route
   const fetchSheetData = async (targetSheetId = sheetId) => {
     if (!targetSheetId) return;
     setIsLoadingLeads(true);
     setSheetError(null);
 
     try {
-      // Use Google Visualization JSON feed
-      const url = `https://docs.google.com/spreadsheets/d/${targetSheetId}/gviz/tq?tqx=out:json`;
-      const res = await fetch(url);
-      const text = await res.text();
-      
-      // GViz returns a JSON wrapped in a callback: /*O_o*/ google.visualization.Query.setResponse({...});
-      const jsonStart = text.indexOf('{');
-      const jsonEnd = text.lastIndexOf('}');
-      if (jsonStart === -1 || jsonEnd === -1) {
-        throw new Error('Google Sheet sharing must be set to "Anyone with the link can view"');
-      }
+      const res = await fetch(`/api/crm/leads?sheetId=${encodeURIComponent(targetSheetId)}`);
+      const data = await res.json();
 
-      const jsonString = text.substring(jsonStart, jsonEnd + 1);
-      const data = JSON.parse(jsonString);
-
-      if (data.table && data.table.rows) {
-        // Map rows to clean lead objects
-        const cols = data.table.cols.map((c) => (c ? c.label || '' : ''));
-        const parsedLeads = data.table.rows.map((r, rIdx) => {
-          const cells = r.c.map((cell) => (cell ? cell.v || cell.f || '' : ''));
-          return {
-            id: rIdx + 1,
-            timestamp: cells[0] || '',
-            name: cells[1] || 'Direct Lead',
-            phone: cells[2] || '',
-            service: cells[3] || 'General Inquiry',
-            tripType: cells[4] || '',
-            pickup: cells[5] || '',
-            destination: cells[6] || '',
-            travelDate: cells[7] || '',
-            returnDate: cells[8] || '',
-            passengers: cells[9] || '',
-            notes: cells[10] || '',
-            source: cells[11] || '',
-            status: cells[12] || 'New Lead',
-          };
-        }).filter(lead => lead.name || lead.phone || lead.service);
-
-        setLeads(parsedLeads);
+      if (data.success && data.leads) {
+        setLeads(data.leads);
+      } else if (data.error) {
+        setSheetError(data.error);
       }
     } catch (err) {
       console.error('Error fetching sheet data:', err);
-      setSheetError(err.message || 'Unable to connect to Google Sheet. Make sure Link Sharing is enabled (Viewer).');
+      setSheetError('Unable to connect to Google Sheet. Make sure Link Sharing is enabled (Viewer).');
     } finally {
       setIsLoadingLeads(false);
       setLastRefreshed(new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit' }));
@@ -135,9 +119,11 @@ export default function AdminAnalyticsDashboard() {
 
   const handleSaveLookerUrl = (e) => {
     e.preventDefault();
-    setLookerUrl(urlInput.trim());
+    const cleanUrl = extractUrl(urlInput);
+    setLookerUrl(cleanUrl);
+    setUrlInput(cleanUrl);
     if (typeof window !== 'undefined') {
-      localStorage.setItem('mana_looker_studio_url', urlInput.trim());
+      localStorage.setItem('mana_looker_studio_url', cleanUrl);
     }
     setIsEditingUrl(false);
   };
@@ -145,7 +131,6 @@ export default function AdminAnalyticsDashboard() {
   const handleSaveSheetId = (e) => {
     e.preventDefault();
     let raw = sheetInput.trim();
-    // Extract ID if full URL pasted
     if (raw.includes('/d/')) {
       const match = raw.match(/\/d\/([a-zA-Z0-9_-]+)/);
       if (match && match[1]) raw = match[1];
@@ -159,11 +144,9 @@ export default function AdminAnalyticsDashboard() {
   };
 
   // Compute live statistics from actual leads
-  const totalLeadsCount = leads.length > 0 ? leads.length : 2;
   const pilgrimageCount = leads.filter(l => l.service && (l.service.toLowerCase().includes('pilgrimage') || l.service.toLowerCase().includes('tirupati') || l.service.toLowerCase().includes('sightseeing'))).length;
   const selfDriveCount = leads.filter(l => l.service && (l.service.toLowerCase().includes('self') || l.service.toLowerCase().includes('drive') || l.service.toLowerCase().includes('membership'))).length;
   const partnerCount = leads.filter(l => l.service && (l.service.toLowerCase().includes('partner') || l.service.toLowerCase().includes('attachment'))).length;
-  const outstationCount = leads.filter(l => l.service && (l.service.toLowerCase().includes('outstation') || l.service.toLowerCase().includes('airport'))).length;
 
   if (!isAuthenticated) {
     return (
@@ -236,11 +219,11 @@ export default function AdminAnalyticsDashboard() {
         {/* ══ NAVIGATION TABS ══ */}
         <div style={{ display: 'flex', gap: '12px', marginBottom: '24px', flexWrap: 'wrap' }}>
           <button
-            onClick={() => setActiveTab('overview')}
-            className={`${styles.logoutBtn} ${activeTab === 'overview' ? styles.activeTabBtn : ''}`}
-            style={activeTab === 'overview' ? { background: 'linear-gradient(135deg, #c9a84c, #a07830)', color: '#fff', fontWeight: 700, borderColor: '#e8c97a' } : {}}
+            onClick={() => setActiveTab('looker')}
+            className={`${styles.logoutBtn} ${activeTab === 'looker' ? styles.activeTabBtn : ''}`}
+            style={activeTab === 'looker' ? { background: 'linear-gradient(135deg, #c9a84c, #a07830)', color: '#fff', fontWeight: 700, borderColor: '#e8c97a' } : {}}
           >
-            📊 Executive Overview &amp; KPIs
+            📈 Google Looker Studio Live Embed
           </button>
           <button
             onClick={() => setActiveTab('leads')}
@@ -250,11 +233,11 @@ export default function AdminAnalyticsDashboard() {
             📋 Live Incoming Leads Table ({leads.length})
           </button>
           <button
-            onClick={() => setActiveTab('looker')}
-            className={`${styles.logoutBtn} ${activeTab === 'looker' ? styles.activeTabBtn : ''}`}
-            style={activeTab === 'looker' ? { background: 'linear-gradient(135deg, #c9a84c, #a07830)', color: '#fff', fontWeight: 700, borderColor: '#e8c97a' } : {}}
+            onClick={() => setActiveTab('overview')}
+            className={`${styles.logoutBtn} ${activeTab === 'overview' ? styles.activeTabBtn : ''}`}
+            style={activeTab === 'overview' ? { background: 'linear-gradient(135deg, #c9a84c, #a07830)', color: '#fff', fontWeight: 700, borderColor: '#e8c97a' } : {}}
           >
-            📈 Google Looker Studio Embed
+            📊 Executive Overview &amp; KPIs
           </button>
         </div>
 
@@ -263,198 +246,117 @@ export default function AdminAnalyticsDashboard() {
           <div className={styles.kpiCard}>
             <div className={styles.kpiIcon}>👥</div>
             <div className={styles.kpiLabel}>Total CRM Inquiries</div>
-            <div className={styles.kpiValue}>{leads.length > 0 ? leads.length : '2 (Live)'}</div>
-            <div className={styles.kpiChange}>⚡ Synced from Google Sheet</div>
+            <div className={styles.kpiValue}>{leads.length > 0 ? `${leads.length}` : '2 (Live)'}</div>
+            <div className={styles.kpiChange}>⚡ Real-Time Google Sheet Sync</div>
           </div>
 
           <div className={styles.kpiCard}>
             <div className={styles.kpiIcon}>🛕</div>
             <div className={styles.kpiLabel}>Pilgrimage &amp; Sightseeing</div>
-            <div className={styles.kpiValue}>{pilgrimageCount > 0 ? `${pilgrimageCount} Leads` : '68% Share'}</div>
+            <div className={styles.kpiValue}>{pilgrimageCount > 0 ? `${pilgrimageCount}` : '68% Share'}</div>
             <div className={styles.kpiChange}>Tirupati &amp; Gandikota Circuits</div>
           </div>
 
           <div className={styles.kpiCard}>
             <div className={styles.kpiIcon}>🔑</div>
             <div className={styles.kpiLabel}>Self-Drive Inquiries</div>
-            <div className={styles.kpiValue}>{selfDriveCount > 0 ? `${selfDriveCount} Leads` : '28% Share'}</div>
+            <div className={styles.kpiValue}>{selfDriveCount > 0 ? `${selfDriveCount}` : '28% Share'}</div>
             <div className={styles.kpiChange}>+₹800 Promo Conversion</div>
           </div>
 
           <div className={styles.kpiCard}>
             <div className={styles.kpiIcon}>🤝</div>
             <div className={styles.kpiLabel}>Partner Attachments</div>
-            <div className={styles.kpiValue}>{partnerCount > 0 ? `${partnerCount} Partners` : 'Active'}</div>
+            <div className={styles.kpiValue}>{partnerCount > 0 ? `${partnerCount}` : 'Active'}</div>
             <div className={styles.kpiChange}>70% Revenue Share Pipeline</div>
           </div>
 
           <div className={styles.kpiCard}>
             <div className={styles.kpiIcon}>⭐</div>
-            <div className={styles.kpiLabel}>Customer Trust</div>
+            <div className={styles.kpiLabel}>Customer Rating</div>
             <div className={styles.kpiValue}>5.0 ★</div>
-            <div className={styles.kpiChange}>Google Verified Rating</div>
+            <div className={styles.kpiChange}>Google Verified Trust</div>
           </div>
         </section>
 
-        {/* ══ TAB 1: EXECUTIVE OVERVIEW & CHARTS ══ */}
-        {activeTab === 'overview' && (
-          <>
-            {/* Sheet Connection Status Banner */}
-            <div style={{
-              background: 'rgba(255,255,255,0.03)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '16px',
-              padding: '18px 24px',
-              marginBottom: '28px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              flexWrap: 'wrap',
-              gap: '16px'
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <span style={{ fontSize: '1.8rem' }}>📗</span>
-                <div>
-                  <div style={{ color: '#fff', fontWeight: 700, fontSize: '0.95rem' }}>
-                    Connected Sheet: <span style={{ color: '#e8c97a' }}>MANA Bookings &amp; Leads CRM</span>
-                  </div>
-                  <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.82rem' }}>
-                    Spreadsheet ID: <code style={{ color: '#93c5fd' }}>{sheetId}</code> · {leads.length} Records Loaded
-                  </div>
+        {/* ══ TAB 1: GOOGLE LOOKER STUDIO EMBED ══ */}
+        {activeTab === 'looker' && (
+          <section className={styles.embedSection}>
+            <div className={styles.embedCard}>
+              <div className={styles.embedHeader}>
+                <div className={styles.embedTitle}>
+                  <span>📊 Google Looker Studio Real-Time Analytics</span>
+                  <span className={styles.embedBadge}>Live Sync Active</span>
+                </div>
+                <div style={{ display: 'flex', gap: '8px' }}>
+                  <button
+                    onClick={() => setIsEditingUrl(!isEditingUrl)}
+                    className={styles.logoutBtn}
+                    style={{ fontSize: '0.8rem', padding: '6px 12px' }}
+                  >
+                    {isEditingUrl ? '✕ Close URL Bar' : '⚙️ Change Report URL'}
+                  </button>
+                  {lookerUrl && (
+                    <a
+                      href={lookerUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.logoutBtn}
+                      style={{ fontSize: '0.8rem', padding: '6px 12px' }}
+                    >
+                      Open Fullscreen ↗
+                    </a>
+                  )}
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '10px' }}>
-                <button
-                  onClick={() => setIsEditingSheet(!isEditingSheet)}
-                  className={styles.logoutBtn}
-                  style={{ fontSize: '0.8rem' }}
-                >
-                  {isEditingSheet ? '✕ Cancel' : '⚙️ Change Sheet ID'}
-                </button>
-                <a
-                  href={`https://docs.google.com/spreadsheets/d/${sheetId}/edit`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.pinBtn}
-                  style={{ width: 'auto', padding: '8px 16px', fontSize: '0.85rem', textDecoration: 'none' }}
-                >
-                  Open in Google Sheets ↗
-                </a>
-              </div>
+              {/* URL Config Bar */}
+              {isEditingUrl && (
+                <form onSubmit={handleSaveLookerUrl} style={{ padding: '16px 24px', background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.08)', display: 'flex', gap: '10px' }}>
+                  <input
+                    type="text"
+                    required
+                    placeholder="Paste Looker Studio Embed URL or complete <iframe> code..."
+                    value={urlInput}
+                    onChange={(e) => setUrlInput(e.target.value)}
+                    style={{
+                      flex: 1,
+                      background: 'rgba(255,255,255,0.08)',
+                      border: '1px solid rgba(255,255,255,0.2)',
+                      borderRadius: '8px',
+                      padding: '10px 14px',
+                      color: '#fff',
+                      fontSize: '0.88rem',
+                    }}
+                  />
+                  <button type="submit" className={styles.pinBtn} style={{ width: 'auto', padding: '10px 20px', fontSize: '0.88rem' }}>
+                    Save &amp; Embed
+                  </button>
+                </form>
+              )}
+
+              {/* Looker Studio Report Display */}
+              {lookerUrl ? (
+                <div style={{ position: 'relative', width: '100%', minHeight: '650px', background: '#13151c' }}>
+                  <iframe
+                    src={lookerUrl}
+                    style={{ width: '100%', height: '700px', border: 'none', display: 'block' }}
+                    frameBorder="0"
+                    allowFullScreen
+                    title="MANA Looker Studio Report"
+                  />
+                </div>
+              ) : (
+                <div className={styles.embedPlaceholder}>
+                  <div className={styles.embedPlaceholderIcon}>📈</div>
+                  <h3 className={styles.embedPlaceholderTitle}>Embed Your Google Looker Studio Report</h3>
+                  <p className={styles.embedPlaceholderDesc}>
+                    Click <strong>⚙️ Change Report URL</strong> above and paste your Looker Studio embed link.
+                  </p>
+                </div>
+              )}
             </div>
-
-            {isEditingSheet && (
-              <form onSubmit={handleSaveSheetId} style={{ padding: '16px 24px', background: 'rgba(255,255,255,0.04)', borderRadius: '12px', border: '1px solid rgba(201,168,76,0.3)', marginBottom: '24px', display: 'flex', gap: '10px' }}>
-                <input
-                  type="text"
-                  required
-                  placeholder="Paste Google Sheet URL or Spreadsheet ID"
-                  value={sheetInput}
-                  onChange={(e) => setSheetInput(e.target.value)}
-                  style={{
-                    flex: 1,
-                    background: 'rgba(255,255,255,0.08)',
-                    border: '1px solid rgba(255,255,255,0.2)',
-                    borderRadius: '8px',
-                    padding: '8px 14px',
-                    color: '#fff',
-                    fontSize: '0.88rem',
-                  }}
-                />
-                <button type="submit" className={styles.pinBtn} style={{ width: 'auto', padding: '8px 18px', fontSize: '0.88rem' }}>
-                  Save &amp; Sync Sheet
-                </button>
-              </form>
-            )}
-
-            {sheetError && (
-              <div style={{ background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.4)', borderRadius: '12px', padding: '14px 20px', color: '#fca5a5', fontSize: '0.88rem', marginBottom: '24px' }}>
-                ⚠️ <strong>Note on Google Sheet Sharing:</strong> To allow real-time reading, please open your Google Sheet $\rightarrow$ click the blue <strong>Share</strong> button on top right $\rightarrow$ change General Access from <em>Restricted</em> to <strong>Anyone with the link (Viewer)</strong>.
-              </div>
-            )}
-
-            {/* Performance Informatics Cards */}
-            <div className={styles.sectionLabel}>📊 Core Performance Informatics</div>
-            <div className={styles.dataGrid}>
-              {/* Chart Card 1: Service Demand Distribution */}
-              <div className={styles.dataCard}>
-                <div className={styles.dataCardTitle}>
-                  <span>🚖</span> Service Inquiries Breakdown
-                </div>
-
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '12px' }}>
-                  <div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '6px', color: 'rgba(255,255,255,0.7)' }}>
-                      <span>Pilgrimage &amp; Sightseeing Tours</span>
-                      <span style={{ fontWeight: 700, color: '#e8c97a' }}>50%</span>
-                    </div>
-                    <div style={{ height: '8px', background: 'rgba(255,255,255,0.08)', borderRadius: '4px', overflow: 'hidden' }}>
-                      <div style={{ height: '100%', width: '50%', background: 'linear-gradient(90deg, #c9a84c, #e8c97a)' }}></div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '6px', color: 'rgba(255,255,255,0.7)' }}>
-                      <span>Local Sightseeing &amp; Day Packages</span>
-                      <span style={{ fontWeight: 700, color: '#60a5fa' }}>50%</span>
-                    </div>
-                    <div style={{ height: '8px', background: 'rgba(255,255,255,0.08)', borderRadius: '4px', overflow: 'hidden' }}>
-                      <div style={{ height: '100%', width: '50%', background: 'linear-gradient(90deg, #2563eb, #60a5fa)' }}></div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '6px', color: 'rgba(255,255,255,0.7)' }}>
-                      <span>Self-Drive Car Rentals</span>
-                      <span style={{ fontWeight: 700, color: '#34d399' }}>Active</span>
-                    </div>
-                    <div style={{ height: '8px', background: 'rgba(255,255,255,0.08)', borderRadius: '4px', overflow: 'hidden' }}>
-                      <div style={{ height: '100%', width: '35%', background: 'linear-gradient(90deg, #059669, #34d399)' }}></div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '6px', color: 'rgba(255,255,255,0.7)' }}>
-                      <span>Outstation Intercity &amp; Airport Drops</span>
-                      <span style={{ fontWeight: 700, color: '#a78bfa' }}>Active</span>
-                    </div>
-                    <div style={{ height: '8px', background: 'rgba(255,255,255,0.08)', borderRadius: '4px', overflow: 'hidden' }}>
-                      <div style={{ height: '100%', width: '30%', background: 'linear-gradient(90deg, #7c3aed, #a78bfa)' }}></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Chart Card 2: Operational Velocity */}
-              <div className={styles.dataCard}>
-                <div className={styles.dataCardTitle}>
-                  <span>⚡</span> Real-Time Operational Velocity
-                </div>
-
-                <div className={styles.dataRow}>
-                  <span className={styles.dataRowLabel}>Average First Response Time</span>
-                  <span className={`${styles.dataRowVal} ${styles.brassVal}`}>&lt; 10 Minutes</span>
-                </div>
-                <div className={styles.dataRow}>
-                  <span className={styles.dataRowLabel}>WhatsApp Dispatch Ratio</span>
-                  <span className={styles.dataRowVal}>95.4%</span>
-                </div>
-                <div className={styles.dataRow}>
-                  <span className={styles.dataRowLabel}>Weekly ₹800 Promo Conversion</span>
-                  <span className={`${styles.dataRowVal} ${styles.brassVal}`}>31.5%</span>
-                </div>
-                <div className={styles.dataRow}>
-                  <span className={styles.dataRowLabel}>70% Partner Revenue Retention</span>
-                  <span className={styles.dataRowVal}>100%</span>
-                </div>
-                <div className={styles.dataRow}>
-                  <span className={styles.dataRowLabel}>Primary Hub Location</span>
-                  <span className={styles.dataRowVal}>Kadapa Central Hub</span>
-                </div>
-              </div>
-            </div>
-          </>
+          </section>
         )}
 
         {/* ══ TAB 2: LIVE INCOMING LEADS TABLE ══ */}
@@ -466,9 +368,15 @@ export default function AdminAnalyticsDashboard() {
                   <span>📋</span> Live Incoming Bookings &amp; Inquiries ({leads.length} Records)
                 </div>
                 <button onClick={() => fetchSheetData()} className={styles.logoutBtn} style={{ fontSize: '0.8rem' }}>
-                  🔄 Sync from Sheet Now
+                  {isLoadingLeads ? '⏳ Refreshing...' : '🔄 Sync from Sheet Now'}
                 </button>
               </div>
+
+              {sheetError && (
+                <div style={{ background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.4)', borderRadius: '12px', padding: '12px 18px', color: '#fca5a5', fontSize: '0.88rem', marginBottom: '16px' }}>
+                  ⚠️ {sheetError}
+                </div>
+              )}
 
               {leads.length > 0 ? (
                 <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.88rem' }}>
@@ -570,100 +478,159 @@ export default function AdminAnalyticsDashboard() {
           </section>
         )}
 
-        {/* ══ TAB 3: GOOGLE LOOKER STUDIO EMBED ══ */}
-        {activeTab === 'looker' && (
-          <section className={styles.embedSection}>
-            <div className={styles.embedCard}>
-              <div className={styles.embedHeader}>
-                <div className={styles.embedTitle}>
-                  <span>📊 Google Looker Studio Real-Time Analytics</span>
-                  <span className={styles.embedBadge}>Auto-Sync Enabled</span>
-                </div>
-                <div style={{ display: 'flex', gap: '8px' }}>
-                  <button
-                    onClick={() => setIsEditingUrl(!isEditingUrl)}
-                    className={styles.logoutBtn}
-                    style={{ fontSize: '0.8rem', padding: '6px 12px' }}
-                  >
-                    {isEditingUrl ? '✕ Cancel' : '⚙️ Configure Report URL'}
-                  </button>
+        {/* ══ TAB 3: EXECUTIVE OVERVIEW & CHARTS ══ */}
+        {activeTab === 'overview' && (
+          <>
+            {/* Sheet Connection Status Banner */}
+            <div style={{
+              background: 'rgba(255,255,255,0.03)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: '16px',
+              padding: '18px 24px',
+              marginBottom: '28px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: '16px'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <span style={{ fontSize: '1.8rem' }}>📗</span>
+                <div>
+                  <div style={{ color: '#fff', fontWeight: 700, fontSize: '0.95rem' }}>
+                    Connected Sheet: <span style={{ color: '#e8c97a' }}>MANA Bookings &amp; Leads CRM</span>
+                  </div>
+                  <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.82rem' }}>
+                    Spreadsheet ID: <code style={{ color: '#93c5fd' }}>{sheetId}</code> · {leads.length} Records Synced
+                  </div>
                 </div>
               </div>
 
-              {isEditingUrl && (
-                <form onSubmit={handleSaveLookerUrl} style={{ padding: '16px 24px', background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.08)', display: 'flex', gap: '10px' }}>
-                  <input
-                    type="url"
-                    required
-                    placeholder="Paste Looker Studio Embed URL (e.g. https://lookerstudio.google.com/embed/reporting/...)"
-                    value={urlInput}
-                    onChange={(e) => setUrlInput(e.target.value)}
-                    style={{
-                      flex: 1,
-                      background: 'rgba(255,255,255,0.08)',
-                      border: '1px solid rgba(255,255,255,0.2)',
-                      borderRadius: '8px',
-                      padding: '8px 14px',
-                      color: '#fff',
-                      fontSize: '0.88rem',
-                    }}
-                  />
-                  <button type="submit" className={styles.pinBtn} style={{ width: 'auto', padding: '8px 18px', fontSize: '0.88rem' }}>
-                    Save &amp; Embed
-                  </button>
-                </form>
-              )}
+              <div style={{ display: 'flex', gap: '10px' }}>
+                <button
+                  onClick={() => setIsEditingSheet(!isEditingSheet)}
+                  className={styles.logoutBtn}
+                  style={{ fontSize: '0.8rem' }}
+                >
+                  {isEditingSheet ? '✕ Cancel' : '⚙️ Change Sheet ID'}
+                </button>
+                <a
+                  href={`https://docs.google.com/spreadsheets/d/${sheetId}/edit`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.pinBtn}
+                  style={{ width: 'auto', padding: '8px 16px', fontSize: '0.85rem', textDecoration: 'none' }}
+                >
+                  Open in Google Sheets ↗
+                </a>
+              </div>
+            </div>
 
-              {lookerUrl ? (
-                <iframe
-                  src={lookerUrl}
-                  className={styles.embedIframe}
-                  frameBorder="0"
-                  allowFullScreen
-                  title="MANA Looker Studio Report"
+            {isEditingSheet && (
+              <form onSubmit={handleSaveSheetId} style={{ padding: '16px 24px', background: 'rgba(255,255,255,0.04)', borderRadius: '12px', border: '1px solid rgba(201,168,76,0.3)', marginBottom: '24px', display: 'flex', gap: '10px' }}>
+                <input
+                  type="text"
+                  required
+                  placeholder="Paste Google Sheet URL or Spreadsheet ID"
+                  value={sheetInput}
+                  onChange={(e) => setSheetInput(e.target.value)}
+                  style={{
+                    flex: 1,
+                    background: 'rgba(255,255,255,0.08)',
+                    border: '1px solid rgba(255,255,255,0.2)',
+                    borderRadius: '8px',
+                    padding: '8px 14px',
+                    color: '#fff',
+                    fontSize: '0.88rem',
+                  }}
                 />
-              ) : (
-                <div className={styles.embedPlaceholder}>
-                  <div className={styles.embedPlaceholderIcon}>📈</div>
-                  <h3 className={styles.embedPlaceholderTitle}>Connect Your Live Google Looker Studio Report</h3>
-                  <p className={styles.embedPlaceholderDesc}>
-                    Your website lead CRM is already actively pushing leads to Google Sheets in real-time. Link your Looker Studio report to visualize trends, revenue breakdowns, and regional booking maps seamlessly here.
-                  </p>
+                <button type="submit" className={styles.pinBtn} style={{ width: 'auto', padding: '8px 18px', fontSize: '0.88rem' }}>
+                  Save &amp; Sync Sheet
+                </button>
+              </form>
+            )}
 
-                  <div className={styles.setupSteps}>
-                    <div className={styles.setupStep}>
-                      <div className={styles.setupStepNum}>1</div>
-                      <div>
-                        Open <strong><a href="https://lookerstudio.google.com" target="_blank" rel="noopener noreferrer" style={{ color: '#e8c97a', textDecoration: 'underline' }}>lookerstudio.google.com</a></strong> and click <strong>Create → Report</strong>.
-                      </div>
+            {/* Performance Informatics Cards */}
+            <div className={styles.sectionLabel}>📊 Core Performance Informatics</div>
+            <div className={styles.dataGrid}>
+              {/* Chart Card 1: Service Demand Distribution */}
+              <div className={styles.dataCard}>
+                <div className={styles.dataCardTitle}>
+                  <span>🚖</span> Service Inquiries Breakdown
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '12px' }}>
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '6px', color: 'rgba(255,255,255,0.7)' }}>
+                      <span>Pilgrimage &amp; Sightseeing Tours</span>
+                      <span style={{ fontWeight: 700, color: '#e8c97a' }}>50%</span>
                     </div>
-                    <div className={styles.setupStep}>
-                      <div className={styles.setupStepNum}>2</div>
-                      <div>
-                        Select <strong>Google Sheets</strong> as your Data Source and select the <strong>MANA Bookings &amp; Leads CRM</strong> sheet.
-                      </div>
-                    </div>
-                    <div className={styles.setupStep}>
-                      <div className={styles.setupStepNum}>3</div>
-                      <div>
-                        Click <strong>File → Embed Report</strong>, enable embedding, copy the embed link, and paste it using the <strong>⚙️ Configure Report URL</strong> button above!
-                      </div>
+                    <div style={{ height: '8px', background: 'rgba(255,255,255,0.08)', borderRadius: '4px', overflow: 'hidden' }}>
+                      <div style={{ height: '100%', width: '50%', background: 'linear-gradient(90deg, #c9a84c, #e8c97a)' }}></div>
                     </div>
                   </div>
 
-                  <div style={{ marginTop: '24px' }}>
-                    <button
-                      onClick={() => setIsEditingUrl(true)}
-                      className={styles.pinBtn}
-                      style={{ display: 'inline-block', width: 'auto', padding: '12px 28px' }}
-                    >
-                      Paste Looker Studio Embed URL →
-                    </button>
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '6px', color: 'rgba(255,255,255,0.7)' }}>
+                      <span>Local Sightseeing &amp; Day Packages</span>
+                      <span style={{ fontWeight: 700, color: '#60a5fa' }}>50%</span>
+                    </div>
+                    <div style={{ height: '8px', background: 'rgba(255,255,255,0.08)', borderRadius: '4px', overflow: 'hidden' }}>
+                      <div style={{ height: '100%', width: '50%', background: 'linear-gradient(90deg, #2563eb, #60a5fa)' }}></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '6px', color: 'rgba(255,255,255,0.7)' }}>
+                      <span>Self-Drive Car Rentals</span>
+                      <span style={{ fontWeight: 700, color: '#34d399' }}>Active</span>
+                    </div>
+                    <div style={{ height: '8px', background: 'rgba(255,255,255,0.08)', borderRadius: '4px', overflow: 'hidden' }}>
+                      <div style={{ height: '100%', width: '35%', background: 'linear-gradient(90deg, #059669, #34d399)' }}></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '6px', color: 'rgba(255,255,255,0.7)' }}>
+                      <span>Outstation Intercity &amp; Airport Drops</span>
+                      <span style={{ fontWeight: 700, color: '#a78bfa' }}>Active</span>
+                    </div>
+                    <div style={{ height: '8px', background: 'rgba(255,255,255,0.08)', borderRadius: '4px', overflow: 'hidden' }}>
+                      <div style={{ height: '100%', width: '30%', background: 'linear-gradient(90deg, #7c3aed, #a78bfa)' }}></div>
+                    </div>
                   </div>
                 </div>
-              )}
+              </div>
+
+              {/* Chart Card 2: Operational Velocity */}
+              <div className={styles.dataCard}>
+                <div className={styles.dataCardTitle}>
+                  <span>⚡</span> Real-Time Operational Velocity
+                </div>
+
+                <div className={styles.dataRow}>
+                  <span className={styles.dataRowLabel}>Average First Response Time</span>
+                  <span className={`${styles.dataRowVal} ${styles.brassVal}`}>&lt; 10 Minutes</span>
+                </div>
+                <div className={styles.dataRow}>
+                  <span className={styles.dataRowLabel}>WhatsApp Dispatch Ratio</span>
+                  <span className={styles.dataRowVal}>95.4%</span>
+                </div>
+                <div className={styles.dataRow}>
+                  <span className={styles.dataRowLabel}>Weekly ₹800 Promo Conversion</span>
+                  <span className={`${styles.dataRowVal} ${styles.brassVal}`}>31.5%</span>
+                </div>
+                <div className={styles.dataRow}>
+                  <span className={styles.dataRowLabel}>70% Partner Revenue Retention</span>
+                  <span className={styles.dataRowVal}>100%</span>
+                </div>
+                <div className={styles.dataRow}>
+                  <span className={styles.dataRowLabel}>Primary Hub Location</span>
+                  <span className={styles.dataRowVal}>Kadapa Central Hub</span>
+                </div>
+              </div>
             </div>
-          </section>
+          </>
         )}
 
         {/* ══ DIRECT MANAGEMENT LAUNCHPAD ══ */}
