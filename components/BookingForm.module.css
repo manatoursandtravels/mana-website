@@ -125,6 +125,107 @@
   margin: 4px 0;
 }
 
+/* ── Interactive Service Pills ── */
+.servicePillContainer {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  margin-bottom: 4px;
+  scrollbar-width: none;
+}
+
+.servicePillContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.servicePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: var(--r-pill);
+  border: 1.5px solid var(--pearl-border);
+  background: var(--pearl-bg);
+  color: var(--charcoal-700);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.servicePill:hover {
+  border-color: var(--brass-dark);
+  background: #FFFFFF;
+}
+
+.servicePillActive {
+  background: linear-gradient(135deg, var(--charcoal-900), var(--charcoal-800));
+  color: #FFFFFF;
+  border-color: var(--charcoal-900);
+  box-shadow: 0 4px 12px rgba(14, 19, 31, 0.15);
+}
+
+/* ── Live Price Estimate Banner ── */
+.priceEstimateBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, var(--brass-subtle) 0%, #FFFFFF 100%);
+  border: 1.5px solid var(--brass-border);
+  border-radius: var(--r-lg);
+  padding: 12px 18px;
+  box-shadow: 0 4px 16px rgba(184, 142, 62, 0.08);
+}
+
+/* ── Add-On Chips Section ── */
+.addOnSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.addOnTitle {
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--charcoal-600);
+}
+
+.addOnGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.addOnChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--r-md);
+  border: 1px solid rgba(14, 19, 31, 0.12);
+  background: #FFFFFF;
+  color: var(--charcoal-700);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.addOnChip:hover {
+  border-color: var(--brass-dark);
+}
+
+.addOnChipActive {
+  background: var(--brass-subtle);
+  border-color: var(--brass-dark);
+  color: var(--charcoal-900);
+  font-weight: 700;
+}
+
 .submitBtn {
   width: 100%;
   justify-content: center;

@@ -5,219 +5,296 @@ import { SERVICES, RATES, buildWhatsAppMessage } from '@/lib/constants';
 import { trackFormSubmission } from '@/lib/analytics';
 import styles from './BookingForm.module.css';
 
-// Dynamic Service Configurations
-const SERVICE_CONFIGS = {
+// Master Dynamic Service Configurations with Pricing & Context Add-ons
+const DYNAMIC_SERVICES = {
   'Self Drive': {
+    icon: '🔑',
+    label: 'Self Drive',
+    badge: '₹800 OFF on 7 Days',
+    estimateFormula: (plan, veh) => {
+      if (plan.includes('Monthly')) return '₹24,999 / mo (₹833/day)';
+      if (plan.includes('Weekly')) return '₹9,693 (Save ₹800)';
+      if (plan.includes('3-Day')) return '₹4,199 (Save ₹300)';
+      if (veh.includes('Innova')) return '₹2,999 / day';
+      if (veh.includes('Ertiga')) return '₹2,199 / day';
+      return '₹1,499 / day';
+    },
     tripTypes: [
-      'Daily Rental (24 Hours) — ₹1,499/day',
-      '3-Day Weekend Escape — ₹4,199',
-      'Weekly Plan (7 Days) — ₹9,693 (Save ₹800)',
-      'Monthly Membership (30 Days) — ₹24,999 (₹833/day)',
+      { label: 'Daily Rental (24 Hours)', price: 'From ₹1,499' },
+      { label: '3-Day Weekend Trip', price: '₹4,199' },
+      { label: 'Weekly Plan (7 Days)', price: '₹9,693 (Save ₹800)' },
+      { label: 'Monthly Membership (30 Days)', price: '₹24,999 (₹833/day)' },
     ],
-    defaultTripType: 'Daily Rental (24 Hours) — ₹1,499/day',
     vehicles: [
-      'Executive Sedan (Toyota Etios / Dzire) — 5 Seats',
-      'Family MPV (Maruti Suzuki Ertiga) — 7 Seats',
-      'VIP Luxury MPV (Toyota Innova Crysta) — 7 Captain Seats',
+      { name: 'Executive Sedan (Etios / Dzire)', desc: '5 Seats · 592L Boot · Chilled AC' },
+      { name: 'Family MPV (Maruti Ertiga)', desc: '7 Seats · Flexible Luggage · Dual AC' },
+      { name: 'VIP Luxury MPV (Innova Crysta)', desc: '7 Captain Seats · Rear AC · Luxury' },
     ],
-    pickupLabel: 'Pickup / Delivery Location in Kadapa *',
-    pickupPlaceholder: 'e.g. Kadapa Hub / Doorstep Delivery address',
+    pickupLabel: 'Handover / Delivery Address in Kadapa *',
+    pickupPlaceholder: 'e.g. Kadapa Hub Pickup or Doorstep Address',
     hideDestination: true,
     destinationDefault: 'Return to Kadapa Hub (Self-Drive)',
     hideReturnDate: false,
-    returnDateLabel: 'Return Date (Drop-off) *',
+    returnDateLabel: 'Vehicle Return / Drop-off Date *',
     hidePassengers: true,
-    showVehicleSelect: true,
-    notesPlaceholder: 'e.g. Driving license details, preferred pickup time (e.g. 9 AM)...',
-    infoBanner: '⛽ 100% Customer-Managed Fuel policy. Return car at Kadapa hub with same fuel level. ₹10,000 refundable deposit on handover.',
-  },
-
-  'Local Cabs': {
-    tripTypes: [
-      '4 Hours / 40 km Package (₹999)',
-      '8 Hours / 80 km Package (₹1,799)',
-      'Full Day City Package (12 hrs / 120 km)',
+    timeSlots: ['Morning (8:00 AM - 10:00 AM)', 'Noon (12:00 PM - 2:00 PM)', 'Evening (5:00 PM - 7:00 PM)', 'Night (8:00 PM - 10:00 PM)'],
+    addOns: [
+      'Doorstep Delivery & Pickup in Kadapa',
+      'Interstate Permit & Active FASTag',
+      'Need Extra Driver Authorization',
+      'Baby / Child Safety Seat',
     ],
-    defaultTripType: '4 Hours / 40 km Package (₹999)',
-    vehicles: ['Sedan (Etios / Dzire)', '7-Seater MPV (Ertiga)', 'Innova Crysta'],
-    pickupLabel: 'Pickup Location in Kadapa *',
-    pickupPlaceholder: 'e.g. Rims Hospital / Railway Station / Home',
-    hideDestination: false,
-    destinationLabel: 'Local Drop / Areas to Visit (Optional)',
-    destinationPlaceholder: 'e.g. City market, Ameen Peer Dargah, Devuni Kadapa',
-    hideReturnDate: true,
-    hidePassengers: false,
-    showVehicleSelect: true,
-    notesPlaceholder: 'e.g. Chilled AC, luggage space required...',
-    infoBanner: '🚗 Chauffeur + AC + Fuel included in all local city packages.',
-  },
-
-  'Local Sightseeing': {
-    tripTypes: [
-      'Kadapa Heritage City Tour (4 hrs / 40 km) — ₹1,499',
-      'Gandikota Grand Canyon Day Tour — ₹2,799',
-      'Belum Caves Day Tour — ₹2,499',
-      'Gandikota + Belum Caves Combo Tour — ₹3,299',
-    ],
-    defaultTripType: 'Gandikota Grand Canyon Day Tour — ₹2,799',
-    vehicles: ['Sedan (4 Seats)', 'Ertiga (6-7 Seats)', 'Innova Crysta (7 Seats)', 'Tempo Traveller (12+ Seats)'],
-    pickupLabel: 'Pickup Location in Kadapa *',
-    pickupPlaceholder: 'e.g. Hotel / Railway Station / Home in Kadapa',
-    hideDestination: true,
-    destinationDefault: 'Sightseeing Circuit as per Package',
-    hideReturnDate: true,
-    hidePassengers: false,
-    showVehicleSelect: true,
-    notesPlaceholder: 'e.g. Telugu/English speaking chauffeur, senior citizens travelling...',
-    infoBanner: '🗺️ Complete sightseeing tour with waiting time & tourist spot guidance included.',
-  },
-
-  'Airport Transfers': {
-    tripTypes: [
-      'Kadapa ↔ Tirupati Airport (TIR) — ₹2,499',
-      'Kadapa → Bangalore Airport (BLR) — ₹5,999',
-      'Kadapa → Hyderabad Airport (HYD) — ₹5,499',
-      'Kadapa → Chennai Airport (MAA) — ₹5,799',
-      'Custom Airport Drop / Pickup',
-    ],
-    defaultTripType: 'Kadapa ↔ Tirupati Airport (TIR) — ₹2,499',
-    vehicles: ['Executive Sedan', 'Ertiga 7-Seater', 'Innova Crysta VIP'],
-    pickupLabel: 'Pickup Point / Flight Arrival Terminal *',
-    pickupPlaceholder: 'e.g. Kadapa Home Address / Airport Terminal',
-    hideDestination: false,
-    destinationLabel: 'Drop Airport / Destination *',
-    destinationPlaceholder: 'e.g. Bangalore Airport KIAL Terminal 1 / 2',
-    hideReturnDate: false,
-    returnDateLabel: 'Return Pickup Date (If Round Trip)',
-    hidePassengers: false,
-    showVehicleSelect: true,
-    notesPlaceholder: 'e.g. Flight number (e.g. 6E-123), landing time, extra luggage bags...',
-    infoBanner: '✈️ 24/7 on-time flight guarantee with live flight tracking & zero late charges.',
+    infoBanner: '⛽ 100% Customer-Managed Fuel policy. Return car at Kadapa hub at same fuel level. ₹10,000 refundable security deposit on handover.',
   },
 
   'Pilgrimage Tours': {
+    icon: '🛕',
+    label: 'Pilgrimage Tours',
+    badge: 'Darshan Timed',
+    estimateFormula: (plan) => {
+      if (plan.includes('Tirupati')) return '₹2,099 One-Way / ₹3,499 Round-Trip';
+      if (plan.includes('Srisailam')) return '₹2,299 One-Way / ₹3,799 Round-Trip';
+      if (plan.includes('Ahobilam')) return '₹1,799 One-Way / ₹2,999 Round-Trip';
+      return 'Fixed Pilgrimage Fares';
+    },
     tripTypes: [
-      'Kadapa ↔ Tirumala Tirupati Darshan (Round Trip)',
-      'Kadapa ↔ Srisailam Mallikarjuna Jyotirlinga (2 Days)',
-      'Kadapa ↔ Ahobilam Nava Narasimha Tour (Round Trip)',
-      'Kadapa ↔ Mahanandi, Yaganti & Belum Circuit',
-      'Kadapa ↔ Srikalahasti & Kanipakam Darshan',
-      'Custom Multi-Temple Sacred Circuit',
+      { label: 'Kadapa ↔ Tirumala Tirupati Darshan', price: '₹3,499 Round-Trip' },
+      { label: 'Kadapa ↔ Srisailam Jyotirlinga (2 Days)', price: '₹3,799 Round-Trip' },
+      { label: 'Kadapa ↔ Ahobilam Nava Narasimha', price: '₹2,999 Round-Trip' },
+      { label: 'Kadapa ↔ Mahanandi & Yaganti Circuit', price: '₹3,299 Round-Trip' },
+      { label: 'Kadapa ↔ Srikalahasti & Kanipakam', price: '₹3,699 Round-Trip' },
     ],
-    defaultTripType: 'Kadapa ↔ Tirumala Tirupati Darshan (Round Trip)',
-    vehicles: ['Sedan (Etios/Dzire)', 'Ertiga MPV (7 Seats)', 'Innova Crysta VIP', 'Tempo Traveller (12-26 Seats)'],
-    pickupLabel: 'Pickup Location in Kadapa *',
-    pickupPlaceholder: 'e.g. Home / Hotel in Kadapa',
+    vehicles: [
+      { name: 'Comfort Sedan (Etios / Dzire)', desc: 'Up to 4 Passengers · 2 Bags' },
+      { name: 'Maruti Ertiga (7 Seater)', desc: 'Up to 6 Passengers · Good Luggage' },
+      { name: 'Toyota Innova Crysta (VIP)', desc: 'Up to 7 Passengers · Luxury Recliners' },
+      { name: 'Tempo Traveller (12–26 Seats)', desc: 'Large Family & Group Pilgrimages' },
+    ],
+    pickupLabel: 'Pickup Address in Kadapa *',
+    pickupPlaceholder: 'e.g. Home / Hotel / Kadapa Rly Station',
     hideDestination: false,
-    destinationLabel: 'Sacred Temples to Visit *',
-    destinationPlaceholder: 'e.g. Tirumala + Padmavathi Temple + Alipiri',
+    destinationLabel: 'Sacred Temples & Darshan Points *',
+    destinationPlaceholder: 'e.g. Tirumala Balaji + Padmavathi Temple',
     hideReturnDate: false,
-    returnDateLabel: 'Return / Darshan Completion Date',
+    returnDateLabel: 'Darshan Return Date',
     hidePassengers: false,
-    showVehicleSelect: true,
-    notesPlaceholder: 'e.g. Special entry darshan time slot, elderly family members, vegetarian driver preference...',
-    infoBanner: '🛕 Darshan-timed departures with courteous drivers familiar with temple customs.',
+    timeSlots: ['Early Morning (3:30 AM - 5:00 AM)', 'Morning (6:00 AM - 8:00 AM)', 'Afternoon (1:00 PM - 3:00 PM)', 'Night (9:00 PM - 11:00 PM)'],
+    addOns: [
+      'Early Morning 4 AM Departure for Darshan',
+      'Senior Citizen / Wheelchair Friendly Chauffeur',
+      'Telugu & English Speaking Driver',
+      'Multiple Temple Stops on Route',
+    ],
+    infoBanner: '🛕 Experienced chauffeurs familiar with temple hill ghats, darshan dress codes, and token timings.',
   },
 
   'Outstation Cabs': {
+    icon: '🛣️',
+    label: 'Outstation Cabs',
+    badge: 'From ₹14/km',
+    estimateFormula: (plan, veh, dest) => {
+      if (dest.toLowerCase().includes('bangalore')) return '₹5,499 One-Way / ₹9,499 Round-Trip';
+      if (dest.toLowerCase().includes('hyderabad')) return '₹4,999 One-Way / ₹8,499 Round-Trip';
+      if (dest.toLowerCase().includes('chennai')) return '₹5,299 One-Way / ₹9,299 Round-Trip';
+      if (veh.includes('Innova')) return '₹16 / km (Min 250 km/day)';
+      return '₹14 / km (Min 250 km/day)';
+    },
     tripTypes: [
-      'One Way Intercity Drop',
-      'Round Trip Outstation Journey',
-      'Multi-Day Multi-City Circuit',
+      { label: 'One Way Intercity Drop', price: 'Fixed Upfront Fares' },
+      { label: 'Round Trip Outstation Journey', price: 'From ₹14/km' },
+      { label: 'Multi-Day Multi-City Tour', price: 'Custom Itinerary' },
     ],
-    defaultTripType: 'Round Trip Outstation Journey',
-    vehicles: ['Executive Sedan', 'Ertiga MPV (7 Seats)', 'Innova Crysta (7 Seats)', 'Tempo Traveller'],
+    vehicles: [
+      { name: 'Executive Sedan (Etios / Dzire)', desc: '1-4 Passengers · ₹14/km' },
+      { name: 'Maruti Ertiga (7 Seater)', desc: '5-6 Passengers · ₹15/km' },
+      { name: 'Toyota Innova Crysta (Luxury)', desc: 'VIP Comfort · ₹16/km' },
+      { name: 'Tempo Traveller (12+ Seater)', desc: 'Large Groups · ₹22/km' },
+    ],
     pickupLabel: 'Pickup Location in Kadapa *',
-    pickupPlaceholder: 'e.g. Kadapa City / Railway Station',
+    pickupPlaceholder: 'e.g. Home address / Kadapa Bus Stand',
     hideDestination: false,
-    destinationLabel: 'Destination City *',
-    destinationPlaceholder: 'e.g. Bangalore, Hyderabad, Chennai, Nellore, Kurnool...',
+    destinationLabel: 'Destination City / Address *',
+    destinationPlaceholder: 'e.g. Bangalore (Whitefield) / Hyderabad (Gachibowli)',
     hideReturnDate: false,
-    returnDateLabel: 'Return Date (For Round Trips)',
+    returnDateLabel: 'Return Date (If Round Trip)',
     hidePassengers: false,
-    showVehicleSelect: true,
-    notesPlaceholder: 'e.g. Number of bags, preferred departure time (e.g. 5:00 AM)...',
-    infoBanner: '🛣️ Flat upfront per-km pricing with clean AC commercial vehicles and national FASTag.',
+    timeSlots: ['Early Morning (4:00 AM - 6:00 AM)', 'Morning (7:00 AM - 10:00 AM)', 'Afternoon (1:00 PM - 4:00 PM)', 'Night (8:00 PM - 11:00 PM)'],
+    addOns: [
+      'Dual Chauffeur for Overnight Journey',
+      'Roof Luggage Carrier Carrier Needed',
+      'Pet Friendly Vehicle',
+      'Multiple City Drop-offs',
+    ],
+    infoBanner: '🛣️ Complete upfront pricing. Commercial yellow plate vehicles with active National FASTag.',
+  },
+
+  'Airport Transfers': {
+    icon: '✈️',
+    label: 'Airport Transfers',
+    badge: 'Fixed Fare',
+    estimateFormula: (plan) => {
+      if (plan.includes('Tirupati')) return '₹2,499 (Fixed Price)';
+      if (plan.includes('Hyderabad')) return '₹5,499 (Fixed Price)';
+      if (plan.includes('Bangalore')) return '₹5,999 (Fixed Price)';
+      if (plan.includes('Chennai')) return '₹5,799 (Fixed Price)';
+      return 'Fixed Airport Transfer Rates';
+    },
+    tripTypes: [
+      { label: 'Kadapa ↔ Tirupati Airport (TIR)', price: '₹2,499' },
+      { label: 'Kadapa → Bangalore Airport (BLR / KIAL)', price: '₹5,999' },
+      { label: 'Kadapa → Hyderabad Airport (HYD / RGIA)', price: '₹5,499' },
+      { label: 'Kadapa → Chennai Airport (MAA)', price: '₹5,799' },
+    ],
+    vehicles: [
+      { name: 'Executive AC Sedan', desc: '1-4 Pax · Fits 2 Large Suitcases' },
+      { name: 'Maruti Ertiga 7-Seater', desc: 'Fits 4-5 Pax + 4 Large Suitcases' },
+      { name: 'Toyota Innova Crysta VIP', desc: 'VIP Chauffeur + Heavy Luggage Space' },
+    ],
+    pickupLabel: 'Pickup Address in Kadapa / Flight Terminal *',
+    pickupPlaceholder: 'e.g. Home address in Kadapa / Airport Terminal',
+    hideDestination: false,
+    destinationLabel: 'Airport / Final Drop Location *',
+    destinationPlaceholder: 'e.g. Bangalore Airport Terminal 1 / 2',
+    hideReturnDate: false,
+    returnDateLabel: 'Return Flight Pickup Date',
+    hidePassengers: false,
+    timeSlots: ['Early Morning (1:00 AM - 4:00 AM)', 'Morning (5:00 AM - 9:00 AM)', 'Afternoon (12:00 PM - 4:00 PM)', 'Night (7:00 PM - 11:00 PM)'],
+    addOns: [
+      'Live Flight Number Tracking & Delay Protection',
+      'Nameboard Meet & Greet at Arrivals',
+      'Extra Luggage Space / Boot Space Assistance',
+    ],
+    infoBanner: '✈️ 24/7 on-time flight arrival & drop guarantee. Chauffeur tracks your flight number in real time.',
+  },
+
+  'Local Cabs': {
+    icon: '🚗',
+    label: 'Local Cabs',
+    badge: 'From ₹999',
+    estimateFormula: (plan) => {
+      if (plan.includes('4 Hours')) return '₹999 (4 hrs / 40 km)';
+      if (plan.includes('8 Hours')) return '₹1,799 (8 hrs / 80 km)';
+      return '₹1,499 / Package';
+    },
+    tripTypes: [
+      { label: '4 Hours / 40 km Package', price: '₹999' },
+      { label: '8 Hours / 80 km Package', price: '₹1,799' },
+      { label: 'Full Day City Package (12 hrs / 120 km)', price: '₹2,499' },
+    ],
+    vehicles: [
+      { name: 'Executive Sedan', desc: 'Driver + AC + Fuel included' },
+      { name: 'Ertiga 7-Seater MPV', desc: 'Spacious city travel for family' },
+      { name: 'Innova Crysta Luxury', desc: 'VIP city appointments' },
+    ],
+    pickupLabel: 'Pickup Point in Kadapa *',
+    pickupPlaceholder: 'e.g. RIMS Hospital / Railway Station / Home',
+    hideDestination: false,
+    destinationLabel: 'Local Drop / Places to Visit (Optional)',
+    destinationPlaceholder: 'e.g. Ameen Peer Dargah, Devuni Kadapa, Shopping',
+    hideReturnDate: true,
+    hidePassengers: false,
+    timeSlots: ['Morning (8:00 AM - 11:00 AM)', 'Afternoon (1:00 PM - 4:00 PM)', 'Evening (5:00 PM - 9:00 PM)'],
+    addOns: [
+      'Multiple Pickup Points for Family',
+      'Wait & Return Chauffeur Service',
+    ],
+    infoBanner: '🚗 Chauffeur + AC + Fuel included. Extra km @ ₹13/km, extra hour @ ₹150/hr.',
   },
 
   'Tour Packages': {
+    icon: '🏔️',
+    label: 'Tour Packages',
+    badge: 'Guided Tours',
+    estimateFormula: (plan) => {
+      if (plan.includes('Gandikota + Belum')) return '₹3,299 Combo';
+      if (plan.includes('Gandikota')) return '₹2,799 Full Day';
+      if (plan.includes('Belum')) return '₹2,499 Full Day';
+      if (plan.includes('Ooty')) return '₹12,499 (3D/2N)';
+      if (plan.includes('Goa')) return '₹15,999 (4D/3N)';
+      return 'All-Inclusive Packages';
+    },
     tripTypes: [
-      'Gandikota Canyon & Fort Day Tour (₹2,799)',
-      'Belum Caves Day Tour (₹2,499)',
-      'Gandikota + Belum Caves Combo (₹3,299)',
-      'Ooty Nilgiris Holiday Package (3D/2N) — ₹12,499',
-      'Goa Beach Vacation Tour (4D/3N) — ₹15,999',
-      'Horsley Hills Weekend Getaway (2D/1N)',
+      { label: 'Gandikota Canyon & Fort Day Tour', price: '₹2,799' },
+      { label: 'Belum Caves Day Tour', price: '₹2,499' },
+      { label: 'Gandikota + Belum Combo Tour', price: '₹3,299' },
+      { label: 'Ooty Nilgiris Tour (3D/2N)', price: '₹12,499' },
+      { label: 'Goa Vacation Package (4D/3N)', price: '₹15,999' },
     ],
-    defaultTripType: 'Gandikota Canyon & Fort Day Tour (₹2,799)',
-    vehicles: ['Sedan', 'Ertiga 7-Seater', 'Innova Crysta Luxury', 'Force Urbania / Traveller'],
+    vehicles: [
+      { name: 'Sedan (Etios / Dzire)', desc: '1-4 Passengers · Fuel & Waiting included' },
+      { name: 'Maruti Ertiga (7 Seater)', desc: 'Family Vacation Package' },
+      { name: 'Innova Crysta (Luxury)', desc: 'VIP Holiday Comfort' },
+      { name: 'Tempo Traveller / Urbania', desc: '12-26 Pax Holiday Group' },
+    ],
     pickupLabel: 'Pickup Location in Kadapa *',
-    pickupPlaceholder: 'e.g. Home / Hotel in Kadapa',
+    pickupPlaceholder: 'e.g. Hotel / Home in Kadapa',
     hideDestination: true,
-    destinationDefault: 'Tour Package Destination',
+    destinationDefault: 'Tour Package Itinerary',
     hideReturnDate: false,
-    returnDateLabel: 'Tour End Date',
+    returnDateLabel: 'Tour Completion Date',
     hidePassengers: false,
-    showVehicleSelect: true,
-    notesPlaceholder: 'e.g. Family holiday, hotel assistance required, photo stops...',
-    infoBanner: '🏔️ Complete guided vacation tours with transparent all-inclusive package pricing.',
+    timeSlots: ['Early Morning (6:00 AM - 7:30 AM)', 'Morning (8:00 AM - 9:30 AM)'],
+    addOns: [
+      'Sightseeing Guide & Viewpoint Assistance',
+      'Sunrise / Sunset Gorge Waiting Time',
+      'Hotel Booking Assistance',
+    ],
+    infoBanner: '🏔️ Full day tourist itinerary with all waiting charges and sight-hopping included.',
   },
 
-  'Corporate Travel': {
+  'Wedding & Corporate': {
+    icon: '💒',
+    label: 'Wedding & Corporate',
+    badge: 'Executive Fleet',
+    estimateFormula: (plan) => {
+      if (plan.includes('Wedding')) return '₹2,499 / Day + Decoration';
+      return 'GST Corporate Invoicing';
+    },
     tripTypes: [
-      'Executive Airport & Intercity Drop',
-      'Full Day Plant / Office Visit (8 hrs)',
-      'Monthly Corporate Retainer Account',
-      'VIP Delegation Fleet Coordination',
+      { label: 'Decorated Bride & Groom VIP Car', price: 'Full Day' },
+      { label: 'Multi-Car Baraat Fleet (Sedans + MPVs)', price: 'Custom Fleet' },
+      { label: 'Corporate Executive Intercity / Plant Visit', price: 'GST Invoicing' },
+      { label: 'Monthly Corporate Retainer', price: 'Credit Account' },
     ],
-    defaultTripType: 'Executive Airport & Intercity Drop',
-    vehicles: ['Toyota Innova Crysta (VIP)', 'Toyota Etios Executive', 'Force Urbania (Luxury 12 Seater)'],
-    pickupLabel: 'Company / Pickup Location *',
-    pickupPlaceholder: 'e.g. Kadapa Industrial Area / Hotel / Corporate Office',
-    hideDestination: false,
-    destinationLabel: 'Destination / Plant Location *',
-    destinationPlaceholder: 'e.g. Hyderabad Hitec City / Bangalore Tech Park / Chennai',
-    hideReturnDate: false,
-    returnDateLabel: 'Return Departure Date',
-    hidePassengers: false,
-    showVehicleSelect: true,
-    notesPlaceholder: 'e.g. GST invoice details, monthly credit account, executive name...',
-    infoBanner: '🏢 Formal GST tax invoices, chauffeur in executive attire & corporate billing.',
-  },
-
-  'Wedding & Events': {
-    tripTypes: [
-      'Decorated Bride & Groom VIP Car (Full Day)',
-      'Multi-Vehicle Baraat Fleet (Sedans + MPVs)',
-      'Guest Shuttle Service (Tempo Travellers)',
-      'Engagement / Pre-Wedding Photography Escort',
+    vehicles: [
+      { name: 'White Innova Crysta (Floral Decorated)', desc: 'VIP Wedding Car' },
+      { name: 'Executive White Sedan Fleet', desc: 'Corporate / VIP Escort' },
+      { name: 'Force Urbania Luxury (12 Seater)', desc: 'VIP Delegation Shuttle' },
     ],
-    defaultTripType: 'Decorated Bride & Groom VIP Car (Full Day)',
-    vehicles: ['Decorated Innova Crysta (Luxury)', 'White Executive Sedan Fleet', 'Force Traveller (17-26 Seater)'],
-    pickupLabel: 'Wedding Hall / Home Address in Kadapa *',
-    pickupPlaceholder: 'e.g. Kalyana Mandapam name / Kadapa address',
+    pickupLabel: 'Event Venue / Company Office *',
+    pickupPlaceholder: 'e.g. Function Hall / Industrial Area / Office',
     hideDestination: false,
-    destinationLabel: 'Event Destination / Reception Venue (Optional)',
-    destinationPlaceholder: 'e.g. Tirupati / Local Kadapa Convention Centre',
+    destinationLabel: 'Reception Venue / Plant Location (Optional)',
+    destinationPlaceholder: 'e.g. Convention Center / Plant Site',
     hideReturnDate: false,
-    returnDateLabel: 'Event End Date',
+    returnDateLabel: 'Event / Assignment End Date',
     hidePassengers: false,
-    showVehicleSelect: true,
-    notesPlaceholder: 'e.g. Number of cars needed, floral decoration style, muhurtham timing...',
-    infoBanner: '💒 Spotless, pristine vehicles with punctual chauffeurs dedicated for wedding events.',
+    timeSlots: ['Full Day Dedication (24 Hours)', 'Morning Muhurtham (4:00 AM - 12:00 PM)', 'Evening Reception (4:00 PM - 12:00 AM)'],
+    addOns: [
+      'Fresh Floral Front Bonnet Decoration',
+      'Official GST Tax Invoice for Corporate Claim',
+      'Chauffeurs in Formal Uniform',
+      'Multi-Car Synchronized Coordination',
+    ],
+    infoBanner: '💒 Pristine, spotless vehicles with disciplined chauffeurs dedicated to your special event.',
   },
 };
 
-export default function BookingForm({ compact = false, defaultService = '' }) {
+export default function BookingForm({ compact = false, defaultService = 'Self Drive' }) {
+  const [selectedService, setSelectedService] = useState(defaultService);
+  const config = DYNAMIC_SERVICES[selectedService] || DYNAMIC_SERVICES['Self Drive'];
+
   const [form, setForm] = useState({
-    service: defaultService || 'Self Drive',
-    tripType: '',
-    vehicleChoice: 'Executive Sedan (Toyota Etios / Dzire) — 5 Seats',
+    service: selectedService,
+    tripType: config.tripTypes[0].label,
+    vehicleChoice: config.vehicles[0].name,
     pickup: '',
-    destination: '',
+    destination: config.hideDestination ? config.destinationDefault : '',
     date: '',
+    timeSlot: config.timeSlots[0],
     returnDate: '',
     passengers: '4',
+    selectedAddOns: [],
     name: '',
     phone: '',
     notes: '',
@@ -225,33 +302,48 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
 
   const [submitted, setSubmitted] = useState(false);
 
-  // Active configuration based on selected service
-  const config = SERVICE_CONFIGS[form.service] || SERVICE_CONFIGS['Outstation Cabs'];
+  // When user clicks a service pill, auto-update all dynamic defaults
+  const handleServiceChange = (serviceName) => {
+    setSelectedService(serviceName);
+    const newConfig = DYNAMIC_SERVICES[serviceName] || DYNAMIC_SERVICES['Self Drive'];
+    setForm((prev) => ({
+      ...prev,
+      service: serviceName,
+      tripType: newConfig.tripTypes[0].label,
+      vehicleChoice: newConfig.vehicles[0].name,
+      destination: newConfig.hideDestination ? newConfig.destinationDefault : '',
+      timeSlot: newConfig.timeSlots[0],
+      selectedAddOns: [],
+    }));
+  };
 
-  // Automatically update tripType and defaults when service changes
-  useEffect(() => {
-    if (config) {
-      setForm((prev) => ({
+  const toggleAddOn = (addon) => {
+    setForm((prev) => {
+      const exists = prev.selectedAddOns.includes(addon);
+      return {
         ...prev,
-        tripType: config.defaultTripType || config.tripTypes[0] || '',
-        destination: config.hideDestination ? config.destinationDefault : (prev.destination === 'Return to Kadapa Hub (Self-Drive)' ? '' : prev.destination),
-        vehicleChoice: config.vehicles ? config.vehicles[0] : prev.vehicleChoice,
-      }));
-    }
-  }, [form.service]);
+        selectedAddOns: exists
+          ? prev.selectedAddOns.filter((a) => a !== addon)
+          : [...prev.selectedAddOns, addon],
+      };
+    });
+  };
 
   const set = (field, val) => setForm((prev) => ({ ...prev, [field]: val }));
+
+  const currentPriceEstimate = config.estimateFormula(form.tripType, form.vehicleChoice, form.destination);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!form.name || !form.phone || !form.pickup) return;
 
     const finalDestination = config.hideDestination ? config.destinationDefault : form.destination;
+    const addOnsText = form.selectedAddOns.length > 0 ? form.selectedAddOns.join(', ') : 'None';
 
     // 1. Fire Google Analytics Event
     trackFormSubmission(form.service, `${form.pickup} -> ${finalDestination}`);
 
-    // 2. Silently sync lead to API / Google Sheets CRM in background
+    // 2. Silently sync comprehensive lead payload to API / Google Sheets CRM
     try {
       fetch('/api/lead', {
         method: 'POST',
@@ -259,6 +351,8 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
         body: JSON.stringify({
           ...form,
           destination: finalDestination,
+          addOns: addOnsText,
+          estimatedPrice: currentPriceEstimate,
           sourceUrl: typeof window !== 'undefined' ? window.location.pathname : '',
         }),
       }).catch(() => {});
@@ -269,14 +363,18 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
       service: form.service,
       tripType: form.tripType,
       vehicleChoice: form.vehicleChoice,
-      pickup: form.pickup,
+      pickup: `${form.pickup} (${form.timeSlot})`,
       destination: finalDestination,
       date: form.date,
       returnDate: form.returnDate,
       passengers: config.hidePassengers ? form.vehicleChoice : `${form.passengers} Passengers`,
+      notes: [
+        form.notes ? `Requirements: ${form.notes}` : null,
+        form.selectedAddOns.length > 0 ? `Selected Add-ons: ${addOnsText}` : null,
+        `Estimated Package: ${currentPriceEstimate}`,
+      ].filter(Boolean).join(' | '),
       name: form.name,
       phone: form.phone,
-      notes: form.notes,
     });
 
     window.open(url, '_blank');
@@ -290,32 +388,56 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
     <form className={`${styles.form} ${compact ? styles.compact : ''}`} onSubmit={handleSubmit} id="booking-form">
       {!compact && (
         <div className={styles.formHeader}>
-          <h3 className={styles.formTitle}>Book a Journey</h3>
-          <p className={styles.formSubtitle}>Instant WhatsApp quote · Transparent pricing with zero hidden costs</p>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
+            <h3 className={styles.formTitle}>Book a Premium Journey</h3>
+            <span className="badge badge--brass">{config.badge}</span>
+          </div>
+          <p className={styles.formSubtitle}>Select your service to load tailored pricing, fleet options &amp; instant quote</p>
         </div>
       )}
 
-      {/* ══ 1. SERVICE TYPE & TRIP TYPE (DYNAMICALLY LINKED) ══ */}
+      {/* ══ 1. INTERACTIVE SERVICE PILL SELECTOR ══ */}
+      <div className={styles.servicePillContainer}>
+        {Object.keys(DYNAMIC_SERVICES).map((sKey) => {
+          const s = DYNAMIC_SERVICES[sKey];
+          const isSelected = selectedService === sKey;
+          return (
+            <button
+              key={sKey}
+              type="button"
+              onClick={() => handleServiceChange(sKey)}
+              className={`${styles.servicePill} ${isSelected ? styles.servicePillActive : ''}`}
+            >
+              <span>{s.icon}</span>
+              <span>{s.label}</span>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* ══ 2. DYNAMIC LIVE PRICE ESTIMATE BAR ══ */}
+      <div className={styles.priceEstimateBanner}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <span style={{ fontSize: '1.2rem' }}>🏷️</span>
+          <div>
+            <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--charcoal-600)', fontWeight: 700 }}>
+              Estimated Starting Fare
+            </div>
+            <div style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--charcoal-900)', fontFamily: 'var(--font-display)' }}>
+              {currentPriceEstimate}
+            </div>
+          </div>
+        </div>
+        <div style={{ fontSize: '0.75rem', color: 'var(--brass-dark)', fontWeight: 700 }}>
+          ✓ Fixed Upfront Pricing
+        </div>
+      </div>
+
+      {/* ══ 3. DYNAMIC TRIP DURATION & VEHICLE CHOICE ══ */}
       <div className={styles.row2}>
         <div className="form-group">
-          <label className="form-label">Service Type *</label>
-          <select
-            className="form-input"
-            required
-            value={form.service}
-            onChange={(e) => set('service', e.target.value)}
-          >
-            {SERVICES.map((s) => (
-              <option key={s.id} value={s.label}>
-                {s.icon} {s.label}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div className="form-group">
           <label className="form-label">
-            {form.service === 'Self Drive' ? 'Rental Duration *' : 'Trip / Package Type *'}
+            {selectedService === 'Self Drive' ? 'Rental Duration *' : 'Package / Route Type *'}
           </label>
           <select
             className="form-input"
@@ -324,50 +446,31 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
             onChange={(e) => set('tripType', e.target.value)}
           >
             {config.tripTypes.map((t) => (
-              <option key={t} value={t}>
-                {t}
+              <option key={t.label} value={t.label}>
+                {t.label} ({t.price})
               </option>
             ))}
           </select>
         </div>
-      </div>
 
-      {/* ══ 2. VEHICLE CHOICE & PASSENGERS ══ */}
-      <div className={config.hidePassengers ? styles.row1 : styles.row2}>
         <div className="form-group">
           <label className="form-label">Vehicle Category *</label>
           <select
             className="form-input"
+            required
             value={form.vehicleChoice}
             onChange={(e) => set('vehicleChoice', e.target.value)}
           >
             {config.vehicles.map((v) => (
-              <option key={v} value={v}>
-                🚗 {v}
+              <option key={v.name} value={v.name}>
+                🚗 {v.name} — {v.desc}
               </option>
             ))}
           </select>
         </div>
-
-        {!config.hidePassengers && (
-          <div className="form-group">
-            <label className="form-label">Passengers Count</label>
-            <select
-              className="form-input"
-              value={form.passengers}
-              onChange={(e) => set('passengers', e.target.value)}
-            >
-              {[1, 2, 3, 4, 5, 6, 7, 8, '9-12 (Group)', '13-20 (Bus)'].map((n) => (
-                <option key={n} value={n}>
-                  👤 {n} {typeof n === 'number' ? `Passenger${n > 1 ? 's' : ''}` : ''}
-                </option>
-              ))}
-            </select>
-          </div>
-        )}
       </div>
 
-      {/* ══ 3. PICKUP & DESTINATION (CONTEXT-AWARE) ══ */}
+      {/* ══ 4. PICKUP & DESTINATION (CONTEXT-AWARE) ══ */}
       <div className={config.hideDestination ? styles.row1 : styles.row2}>
         <div className="form-group">
           <label className="form-label">{config.pickupLabel}</label>
@@ -396,11 +499,11 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
         )}
       </div>
 
-      {/* ══ 4. TRAVEL DATES ══ */}
-      <div className={config.hideReturnDate ? styles.row1 : styles.row2}>
+      {/* ══ 5. DATES & TIME WINDOW & PASSENGERS ══ */}
+      <div className={config.hideReturnDate && config.hidePassengers ? styles.row2 : styles.row3}>
         <div className="form-group">
           <label className="form-label">
-            {form.service === 'Self Drive' ? 'Handover / Start Date *' : 'Travel Departure Date *'}
+            {selectedService === 'Self Drive' ? 'Handover Date *' : 'Travel Date *'}
           </label>
           <input
             className="form-input"
@@ -412,9 +515,24 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
           />
         </div>
 
+        <div className="form-group">
+          <label className="form-label">Preferred Time Window</label>
+          <select
+            className="form-input"
+            value={form.timeSlot}
+            onChange={(e) => set('timeSlot', e.target.value)}
+          >
+            {config.timeSlots.map((slot) => (
+              <option key={slot} value={slot}>
+                🕒 {slot}
+              </option>
+            ))}
+          </select>
+        </div>
+
         {!config.hideReturnDate && (
           <div className="form-group">
-            <label className="form-label">{config.returnDateLabel || 'Return Date (Optional)'}</label>
+            <label className="form-label">{config.returnDateLabel || 'Return Date'}</label>
             <input
               className="form-input"
               type="date"
@@ -424,7 +542,47 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
             />
           </div>
         )}
+
+        {!config.hidePassengers && (
+          <div className="form-group">
+            <label className="form-label">Passengers</label>
+            <select
+              className="form-input"
+              value={form.passengers}
+              onChange={(e) => set('passengers', e.target.value)}
+            >
+              {[1, 2, 3, 4, 5, 6, 7, 8, '9-12 (Group)', '13-20 (Bus)'].map((n) => (
+                <option key={n} value={n}>
+                  👤 {n} {typeof n === 'number' ? `Passenger${n > 1 ? 's' : ''}` : ''}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
       </div>
+
+      {/* ══ 6. CONTEXT-AWARE CUSTOM ADD-ONS ══ */}
+      {config.addOns && config.addOns.length > 0 && (
+        <div className={styles.addOnSection}>
+          <div className={styles.addOnTitle}>Custom Preferences &amp; Add-ons (Optional):</div>
+          <div className={styles.addOnGrid}>
+            {config.addOns.map((addon) => {
+              const isChecked = form.selectedAddOns.includes(addon);
+              return (
+                <button
+                  key={addon}
+                  type="button"
+                  onClick={() => toggleAddOn(addon)}
+                  className={`${styles.addOnChip} ${isChecked ? styles.addOnChipActive : ''}`}
+                >
+                  <span>{isChecked ? '✓' : '+'}</span>
+                  <span>{addon}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* Service Context Info Banner */}
       {config.infoBanner && (
@@ -435,10 +593,10 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
 
       <div className={styles.divider} />
 
-      {/* ══ 5. CUSTOMER CONTACT DETAILS ══ */}
+      {/* ══ 7. CUSTOMER CONTACT DETAILS ══ */}
       <div className={styles.row2}>
         <div className="form-group">
-          <label className="form-label">Your Full Name *</label>
+          <label className="form-label">Your Name *</label>
           <input
             className="form-input"
             type="text"
@@ -464,11 +622,11 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
 
       {!compact && (
         <div className="form-group">
-          <label className="form-label">Special Requirements / Notes (Optional)</label>
+          <label className="form-label">Special Notes / Requests</label>
           <textarea
             className="form-input"
             rows="2"
-            placeholder={config.notesPlaceholder}
+            placeholder="e.g. Flight number, infant car seat, specific pickup landmark..."
             value={form.notes}
             onChange={(e) => set('notes', e.target.value)}
             style={{ resize: 'vertical' }}
@@ -477,7 +635,7 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
       )}
 
       <button type="submit" className={`btn btn--primary btn--lg ${styles.submitBtn}`} id="submit-booking">
-        {submitted ? '✅ Opening WhatsApp...' : '💬 Request Confirmed WhatsApp Quote'}
+        {submitted ? '✅ Opening WhatsApp...' : `💬 Confirm ${selectedService} on WhatsApp`}
       </button>
 
       <p className={styles.submitNote}>
