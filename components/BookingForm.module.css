@@ -3,66 +3,67 @@
    ═══════════════════════════════════════════════════════════════════ */
 
 .form {
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(32px) saturate(180%);
   -webkit-backdrop-filter: blur(32px) saturate(180%);
   border: 1.5px solid var(--brass-border);
-  border-radius: var(--r-3xl);
-  padding: clamp(24px, 3.5vw, 36px);
+  border-radius: var(--r-2xl);
+  padding: clamp(20px, 2.5vw, 26px);
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  box-shadow: 0 24px 64px rgba(14, 19, 31, 0.08), 0 2px 10px rgba(184, 142, 62, 0.08);
+  gap: 11px;
+  box-shadow: 0 20px 50px rgba(14, 19, 31, 0.08), 0 2px 10px rgba(184, 142, 62, 0.08);
   width: 100%;
 }
 
 .formHeader {
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .formTitle {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: 1.4rem;
+  font-size: 1.32rem;
   color: var(--charcoal-900);
   letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
 .formSubtitle {
   color: var(--charcoal-500);
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   margin-top: 2px;
-  line-height: 1.45;
+  line-height: 1.35;
 }
 
 /* 2-Column Responsive Row */
 .row2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
+  gap: 11px;
   width: 100%;
 }
 
 /* 3-Column Responsive Row */
 .row3 {
   display: grid;
-  grid-template-columns: 1.2fr 1.2fr 1fr;
-  gap: 14px;
+  grid-template-columns: 1.1fr 1.1fr 0.8fr;
+  gap: 11px;
   width: 100%;
 }
 
 .form :global(.form-group) {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
   width: 100%;
 }
 
 .form :global(.form-label) {
   font-family: var(--font-body);
-  font-size: 0.74rem;
+  font-size: 0.71rem;
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--charcoal-700);
 }
@@ -72,9 +73,9 @@
   border: 1.5px solid rgba(14, 19, 31, 0.12);
   color: var(--charcoal-900);
   font-family: var(--font-body);
-  font-size: 0.92rem;
-  padding: 11px 14px;
-  min-height: 46px;
+  font-size: 0.88rem;
+  padding: 8px 12px;
+  min-height: 42px;
   border-radius: var(--r-md);
   transition: all var(--dur-fast) var(--ease-luxury);
   width: 100%;
@@ -83,6 +84,7 @@
 
 .form :global(.form-input::placeholder) {
   color: var(--charcoal-400);
+  font-size: 0.84rem;
 }
 
 .form :global(.form-input:focus) {
@@ -98,20 +100,36 @@
   padding: 6px;
 }
 
+/* Fuel & Deposit Badge for Self-Drive */
+.fuelBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--brass-subtle);
+  border: 1px solid var(--brass-border);
+  border-radius: var(--r-md);
+  padding: 6px 10px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--charcoal-800);
+  margin-top: 6px;
+}
+
 .divider {
   height: 1px;
   background: var(--pearl-border);
-  margin: 4px 0;
+  margin: 2px 0;
 }
 
 .submitBtn {
   width: 100%;
   justify-content: center;
-  margin-top: 4px;
+  margin-top: 2px;
   font-family: var(--font-display);
-  font-size: var(--text-sm);
+  font-size: 0.86rem;
   font-weight: 800;
-  padding: 15px 24px;
+  padding: 13px 20px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   border-radius: var(--r-pill);
@@ -119,9 +137,9 @@
 
 .submitNote {
   text-align: center;
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   color: var(--charcoal-500);
-  margin-top: 2px;
+  margin-top: 1px;
   font-weight: 600;
 }
 
@@ -130,18 +148,19 @@
   background: #FFFFFF;
   border: 1.5px solid var(--brass-border);
   box-shadow: var(--shadow-card);
-  padding: clamp(20px, 3vw, 28px);
+  padding: clamp(18px, 2.5vw, 24px);
   border-radius: var(--r-2xl);
+  gap: 10px;
 }
 
 .compact .row2 {
   grid-template-columns: 1fr;
-  gap: 12px;
+  gap: 10px;
 }
 
 .compact .row3 {
   grid-template-columns: 1fr;
-  gap: 12px;
+  gap: 10px;
 }
 
 .compact :global(.form-input) {
@@ -159,10 +178,15 @@
   .row2,
   .row3 {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 10px;
   }
   .form {
-    padding: 20px 16px;
+    padding: 18px 14px;
     border-radius: var(--r-xl);
+  }
+  .fuelBadge {
+    flex-direction: column;
+    gap: 2px;
+    text-align: center;
   }
 }

@@ -5,24 +5,31 @@ import { SERVICES, buildWhatsAppMessage } from '@/lib/constants';
 import { trackFormSubmission } from '@/lib/analytics';
 import styles from './BookingForm.module.css';
 
-// Clean, context-aware options per service
+// Context-aware options per service
 const SERVICE_OPTIONS = {
   'Self Drive': {
     tripTypes: [
-      'Daily Rental (24 Hours) — ₹1,499/day',
-      '3-Day Weekend Trip — ₹4,199',
+      'Daily Rental (24 Hours) — ₹1,499',
+      '3-Day Weekend — ₹4,199',
       'Weekly Plan (7 Days) — ₹9,693 (Save ₹800)',
-      'Monthly Membership (30 Days) — ₹24,999',
+      'Monthly Plan (30 Days) — ₹24,999',
     ],
-    vehicles: ['Executive Sedan (Etios / Dzire) — 5 Seats', 'Maruti Ertiga MPV — 7 Seats', 'Toyota Innova Crysta — 7 Seats'],
+    vehicles: [
+      'Executive Sedan (5 Seats)',
+      'Maruti Ertiga MPV (7 Seats)',
+      'Toyota Innova Crysta (7 Seats)',
+    ],
     isSelfDrive: true,
-    pickupPlaceholder: 'Kadapa Hub / Doorstep Address in Kadapa',
+    pickupLabel: 'Handover Location in Kadapa *',
+    pickupPlaceholder: 'Kadapa Hub / Doorstep Address',
   },
   'Outstation Cabs': {
-    tripTypes: ['One Way Intercity Drop', 'Round Trip Outstation Journey', 'Multi-City Tour'],
+    tripTypes: ['One Way Intercity Drop', 'Round Trip Journey', 'Multi-City Tour'],
     vehicles: ['Executive Sedan', 'Ertiga (7 Seater)', 'Innova Crysta VIP', 'Tempo Traveller'],
     isSelfDrive: false,
-    pickupPlaceholder: 'Kadapa Bus Stand / Home',
+    pickupLabel: 'Pickup Location *',
+    pickupPlaceholder: 'Kadapa area / Bus Stand / Home',
+    destinationLabel: 'Destination City *',
     destinationPlaceholder: 'e.g. Bangalore / Hyderabad / Chennai',
   },
   'Pilgrimage Tours': {
@@ -35,7 +42,9 @@ const SERVICE_OPTIONS = {
     ],
     vehicles: ['Executive Sedan', 'Ertiga (7 Seater)', 'Innova Crysta VIP', 'Tempo Traveller'],
     isSelfDrive: false,
-    pickupPlaceholder: 'Kadapa Home / Hotel',
+    pickupLabel: 'Pickup Location *',
+    pickupPlaceholder: 'Home / Hotel in Kadapa',
+    destinationLabel: 'Sacred Temples *',
     destinationPlaceholder: 'e.g. Tirumala / Srisailam / Ahobilam',
   },
   'Airport Transfers': {
@@ -47,15 +56,19 @@ const SERVICE_OPTIONS = {
     ],
     vehicles: ['Executive Sedan', 'Ertiga (7 Seater)', 'Innova Crysta VIP'],
     isSelfDrive: false,
-    pickupPlaceholder: 'Kadapa Address / Flight Terminal',
-    destinationPlaceholder: 'e.g. Bangalore Airport KIAL Terminal',
+    pickupLabel: 'Pickup Address / Terminal *',
+    pickupPlaceholder: 'Kadapa address / Airport Terminal',
+    destinationLabel: 'Drop Airport / City *',
+    destinationPlaceholder: 'e.g. Bangalore Airport KIAL',
   },
   'Local Cabs': {
     tripTypes: ['4 Hours / 40 km (₹999)', '8 Hours / 80 km (₹1,799)', 'Full Day City Package (12 hrs)'],
     vehicles: ['Executive Sedan', 'Ertiga (7 Seater)', 'Innova Crysta'],
     isSelfDrive: false,
-    pickupPlaceholder: 'Kadapa Area / Railway Station',
-    destinationPlaceholder: 'Local Kadapa City (Optional)',
+    pickupLabel: 'Pickup Point *',
+    pickupPlaceholder: 'Kadapa city area / Railway Station',
+    destinationLabel: 'Places to Visit (Optional)',
+    destinationPlaceholder: 'Local Kadapa city & heritage stops',
     hideReturn: true,
   },
   'Tour Packages': {
@@ -68,7 +81,9 @@ const SERVICE_OPTIONS = {
     ],
     vehicles: ['Executive Sedan', 'Ertiga (7 Seater)', 'Innova Crysta', 'Tempo Traveller'],
     isSelfDrive: false,
+    pickupLabel: 'Pickup Location *',
     pickupPlaceholder: 'Hotel / Home in Kadapa',
+    destinationLabel: 'Tour Destination',
     destinationPlaceholder: 'Sightseeing as per package',
     hideDestination: true,
   },
@@ -76,22 +91,26 @@ const SERVICE_OPTIONS = {
     tripTypes: ['Executive Airport / Intercity Drop', 'Full Day Plant Visit (8 hrs)', 'Monthly Corporate Retainer'],
     vehicles: ['Toyota Innova Crysta (VIP)', 'Executive Sedan', 'Luxury Urbania'],
     isSelfDrive: false,
+    pickupLabel: 'Company / Pickup Location *',
     pickupPlaceholder: 'Office / Industrial Area / Hotel',
+    destinationLabel: 'Plant / Destination *',
     destinationPlaceholder: 'e.g. Hyderabad / Bangalore / Plant',
   },
   'Wedding & Events': {
     tripTypes: ['Decorated VIP Wedding Car (Full Day)', 'Multi-Car Baraat Fleet', 'Guest Shuttle Service'],
     vehicles: ['Decorated Innova Crysta (Luxury)', 'White Sedan Fleet', 'Tempo Traveller'],
     isSelfDrive: false,
-    pickupPlaceholder: 'Function Hall / Home in Kadapa',
-    destinationPlaceholder: 'Reception Venue / Convention Center',
+    pickupLabel: 'Function Hall / Home *',
+    pickupPlaceholder: 'Function Hall name / Kadapa address',
+    destinationLabel: 'Reception Venue (Optional)',
+    destinationPlaceholder: 'Reception / Convention Center',
   },
 };
 
 export default function BookingForm({ compact = false, defaultService = '' }) {
   const [form, setForm] = useState({
     service: defaultService || 'Outstation Cabs',
-    tripType: 'Round Trip Outstation Journey',
+    tripType: 'Round Trip Journey',
     vehicleChoice: 'Executive Sedan',
     pickup: '',
     destination: '',
@@ -211,14 +230,12 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
       {/* Row 2: Pickup & (Destination OR Vehicle Choice for Self Drive) */}
       <div className={styles.row2}>
         <div className="form-group">
-          <label className="form-label">
-            {opts.isSelfDrive ? 'Handover Location in Kadapa *' : 'Pickup Location *'}
-          </label>
+          <label className="form-label">{opts.pickupLabel || 'Pickup Location *'}</label>
           <input
             className="form-input"
             type="text"
             required
-            placeholder={opts.pickupPlaceholder || 'e.g. Kadapa Bus Stand / Home'}
+            placeholder={opts.pickupPlaceholder || 'Kadapa area / Bus Stand'}
             value={form.pickup}
             onChange={(e) => set('pickup', e.target.value)}
           />
@@ -241,7 +258,7 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
           </div>
         ) : (
           <div className="form-group">
-            <label className="form-label">Destination</label>
+            <label className="form-label">{opts.destinationLabel || 'Destination'}</label>
             <input
               className="form-input"
               type="text"
@@ -253,37 +270,66 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
         )}
       </div>
 
-      {/* Row 3: Travel Date & Return Date & Vehicle/Passengers */}
-      <div className={styles.row3}>
-        <div className="form-group">
-          <label className="form-label">
-            {opts.isSelfDrive ? 'Start Date' : 'Travel Date'}
-          </label>
-          <input
-            className="form-input"
-            type="date"
-            min={today}
-            value={form.date}
-            onChange={(e) => set('date', e.target.value)}
-          />
+      {/* Row 3: Travel Date & Return Date (Clean 2-Col for Self Drive, 3-Col for Chauffeur) */}
+      {opts.isSelfDrive ? (
+        <div>
+          <div className={styles.row2}>
+            <div className="form-group">
+              <label className="form-label">Start / Handover Date *</label>
+              <input
+                className="form-input"
+                type="date"
+                required
+                min={today}
+                value={form.date}
+                onChange={(e) => set('date', e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label className="form-label">Return / Drop-off Date *</label>
+              <input
+                className="form-input"
+                type="date"
+                required
+                min={form.date || today}
+                value={form.returnDate}
+                onChange={(e) => set('returnDate', e.target.value)}
+              />
+            </div>
+          </div>
+          <div className={styles.fuelBadge}>
+            <span>⛽ 100% Customer-Managed Fuel Policy</span>
+            <span>•</span>
+            <span>₹10k Refundable Deposit on Handover</span>
+          </div>
         </div>
+      ) : (
+        <div className={opts.hideReturn ? styles.row2 : styles.row3}>
+          <div className="form-group">
+            <label className="form-label">Travel Date *</label>
+            <input
+              className="form-input"
+              type="date"
+              required
+              min={today}
+              value={form.date}
+              onChange={(e) => set('date', e.target.value)}
+            />
+          </div>
 
-        <div className="form-group">
-          <label className="form-label">
-            {opts.isSelfDrive ? 'Return Date *' : (opts.hideReturn ? 'Return (Same Day)' : 'Return Date')}
-          </label>
-          <input
-            className="form-input"
-            type="date"
-            disabled={opts.hideReturn}
-            min={form.date || today}
-            value={opts.hideReturn ? '' : form.returnDate}
-            onChange={(e) => set('returnDate', e.target.value)}
-            placeholder={opts.hideReturn ? 'Same Day' : ''}
-          />
-        </div>
+          {!opts.hideReturn && (
+            <div className="form-group">
+              <label className="form-label">Return Date</label>
+              <input
+                className="form-input"
+                type="date"
+                min={form.date || today}
+                value={form.returnDate}
+                onChange={(e) => set('returnDate', e.target.value)}
+              />
+            </div>
+          )}
 
-        {!opts.isSelfDrive ? (
           <div className="form-group">
             <label className="form-label">Passengers</label>
             <select
@@ -291,26 +337,15 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
               value={form.passengers}
               onChange={(e) => set('passengers', e.target.value)}
             >
-              {[1, 2, 3, 4, 5, 6, 7, '8+ (Group)'].map((n) => (
+              {[1, 2, 3, 4, 5, 6, 7, '8+ Group'].map((n) => (
                 <option key={n} value={n}>
-                  {n} {typeof n === 'number' ? `passenger${n > 1 ? 's' : ''}` : ''}
+                  {n} {typeof n === 'number' ? `Passenger${n > 1 ? 's' : ''}` : ''}
                 </option>
               ))}
             </select>
           </div>
-        ) : (
-          <div className="form-group">
-            <label className="form-label">Fuel Policy</label>
-            <input
-              className="form-input"
-              type="text"
-              readOnly
-              value="⛽ Customer-Managed"
-              style={{ background: 'var(--pearl-bg)', color: 'var(--charcoal-600)', fontSize: '0.82rem' }}
-            />
-          </div>
-        )}
-      </div>
+        </div>
+      )}
 
       <div className={styles.divider} />
 
@@ -343,17 +378,16 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
       {!compact && (
         <div className="form-group">
           <label className="form-label">Special Requirements (optional)</label>
-          <textarea
+          <input
             className="form-input"
-            rows="2"
+            type="text"
             placeholder={
               opts.isSelfDrive
-                ? 'e.g. Doorstep delivery address, preferred pickup time (e.g. 9 AM)...'
-                : 'e.g. Early morning 4 AM departure, infant car seat, AC Crysta preference...'
+                ? 'e.g. Doorstep delivery address, preferred 9 AM pickup...'
+                : 'e.g. Early morning 4 AM pickup, infant car seat, AC Crysta...'
             }
             value={form.notes}
             onChange={(e) => set('notes', e.target.value)}
-            style={{ resize: 'vertical' }}
           />
         </div>
       )}
