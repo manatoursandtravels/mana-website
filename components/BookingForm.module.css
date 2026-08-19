@@ -1,0 +1,168 @@
+/* ═══════════════════════════════════════════════════════════════════
+   Booking Form — Luminous Executive Styling & 100% Responsive Grid
+   ═══════════════════════════════════════════════════════════════════ */
+
+.form {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  border: 1.5px solid var(--brass-border);
+  border-radius: var(--r-3xl);
+  padding: clamp(24px, 3.5vw, 36px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 24px 64px rgba(14, 19, 31, 0.08), 0 2px 10px rgba(184, 142, 62, 0.08);
+  width: 100%;
+}
+
+.formHeader {
+  margin-bottom: 4px;
+}
+
+.formTitle {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.4rem;
+  color: var(--charcoal-900);
+  letter-spacing: -0.02em;
+}
+
+.formSubtitle {
+  color: var(--charcoal-500);
+  font-size: 0.88rem;
+  margin-top: 2px;
+  line-height: 1.45;
+}
+
+/* 2-Column Responsive Row */
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  width: 100%;
+}
+
+/* 3-Column Responsive Row */
+.row3 {
+  display: grid;
+  grid-template-columns: 1.2fr 1.2fr 1fr;
+  gap: 14px;
+  width: 100%;
+}
+
+.form :global(.form-group) {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.form :global(.form-label) {
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--charcoal-700);
+}
+
+.form :global(.form-input) {
+  background: #FFFFFF;
+  border: 1.5px solid rgba(14, 19, 31, 0.12);
+  color: var(--charcoal-900);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  padding: 11px 14px;
+  min-height: 46px;
+  border-radius: var(--r-md);
+  transition: all var(--dur-fast) var(--ease-luxury);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form :global(.form-input::placeholder) {
+  color: var(--charcoal-400);
+}
+
+.form :global(.form-input:focus) {
+  border-color: var(--brand-blue);
+  background: #FFFFFF;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(11, 78, 162, 0.12);
+}
+
+.form :global(.form-input option) {
+  background: #FFFFFF;
+  color: var(--charcoal-900);
+  padding: 6px;
+}
+
+.divider {
+  height: 1px;
+  background: var(--pearl-border);
+  margin: 4px 0;
+}
+
+.submitBtn {
+  width: 100%;
+  justify-content: center;
+  margin-top: 4px;
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 800;
+  padding: 15px 24px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: var(--r-pill);
+}
+
+.submitNote {
+  text-align: center;
+  font-size: 0.74rem;
+  color: var(--charcoal-500);
+  margin-top: 2px;
+  font-weight: 600;
+}
+
+/* Compact mode (used on subpages/sidebars) */
+.compact {
+  background: #FFFFFF;
+  border: 1.5px solid var(--brass-border);
+  box-shadow: var(--shadow-card);
+  padding: clamp(20px, 3vw, 28px);
+  border-radius: var(--r-2xl);
+}
+
+.compact .row2 {
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.compact .row3 {
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.compact :global(.form-input) {
+  background: var(--pearl-bg);
+  border-color: var(--pearl-border);
+}
+
+.compact :global(.form-input:focus) {
+  border-color: var(--brand-blue);
+  background: #FFFFFF;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .row2,
+  .row3 {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .form {
+    padding: 20px 16px;
+    border-radius: var(--r-xl);
+  }
+}

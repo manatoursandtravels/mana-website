@@ -1,0 +1,156 @@
+/* ═══════════════════════════════════════════════════════════════════
+   MANA FAQ Page — Interactive Categorized & Searchable Theme
+   ═══════════════════════════════════════════════════════════════════ */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: calc(var(--header-h) + clamp(48px, 7vw, 90px)) 0 clamp(44px, 6vw, 72px);
+  border-bottom: 1px solid var(--pearl-border);
+  text-align: center;
+  background: var(--pearl-bg);
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 900;
+  color: var(--charcoal-900);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 14px;
+}
+
+.heroSubtitle {
+  color: var(--charcoal-600);
+  font-size: 1.1rem;
+  max-width: 640px;
+  margin: 0 auto 28px;
+}
+
+/* ── Search & Filter Controls ── */
+.searchBox {
+  max-width: 600px;
+  margin: 0 auto 32px;
+  position: relative;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 16px 24px 16px 52px;
+  border-radius: var(--r-pill);
+  border: 1.5px solid var(--brass-border);
+  background: #FFFFFF;
+  font-size: 1rem;
+  font-family: var(--font-body);
+  color: var(--charcoal-900);
+  box-shadow: var(--shadow-md);
+  outline: none;
+  transition: all var(--dur-base);
+}
+
+.searchInput:focus {
+  border-color: var(--brand-red);
+  box-shadow: 0 0 0 4px rgba(11, 78, 162, 0.12);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: var(--charcoal-400);
+}
+
+/* Category Filter Pills */
+.categoryPills {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.catPill {
+  background: #FFFFFF;
+  border: 1px solid var(--pearl-border);
+  border-radius: var(--r-pill);
+  padding: 8px 18px;
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--charcoal-700);
+  cursor: pointer;
+  transition: all var(--dur-fast);
+}
+
+.catPill:hover {
+  border-color: var(--brass);
+  color: var(--charcoal-900);
+}
+
+.catPillActive {
+  background: var(--charcoal-900);
+  color: #FFFFFF;
+  border-color: var(--charcoal-900);
+  box-shadow: var(--shadow-sm);
+}
+
+/* FAQ Accordion List */
+.faqGrid {
+  max-width: 880px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faqItem {
+  background: #FFFFFF;
+  border: 1px solid var(--pearl-border);
+  border-radius: var(--r-2xl);
+  padding: 22px 28px;
+  box-shadow: var(--shadow-card);
+  transition: all var(--dur-base);
+}
+
+.faqItem:hover {
+  border-color: var(--brass);
+  box-shadow: var(--shadow-md);
+}
+
+.faqSummary {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.12rem;
+  color: var(--charcoal-900);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faqSummary::-webkit-details-marker {
+  display: none;
+}
+
+.faqArrow {
+  font-size: 1.2rem;
+  color: var(--brand-red);
+  transition: transform var(--dur-fast);
+}
+
+.faqItem[open] .faqArrow {
+  transform: rotate(180deg);
+}
+
+.faqAnswer {
+  margin-top: 14px;
+  color: var(--charcoal-600);
+  font-size: 0.96rem;
+  line-height: 1.75;
+  border-top: 1px solid rgba(14, 19, 31, 0.06);
+  padding-top: 14px;
+}

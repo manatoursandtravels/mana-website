@@ -1,0 +1,105 @@
+/* ═══════════════════════════════════════════════════════════════════
+   MANA 3D Contact Animations Module — High-Precision 3D Suite
+   ═══════════════════════════════════════════════════════════════════ */
+
+.animWrap {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 800px;
+}
+
+.animSvg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Smooth 3D Floating Levitation */
+.floatingBody3D {
+  animation: float3DMotion 4s ease-in-out infinite;
+  transform-origin: center center;
+  transform-style: preserve-3d;
+}
+
+@keyframes float3DMotion {
+  0%, 100% {
+    transform: translateY(0px) rotateY(-8deg) rotateX(4deg);
+  }
+  50% {
+    transform: translateY(-5px) rotateY(8deg) rotateX(-4deg);
+  }
+}
+
+/* Active Ringing Telephone Handset */
+.handsetRinging {
+  transform-origin: 40px 38px;
+  animation: handsetRingCycle 3.8s ease-in-out infinite;
+}
+
+@keyframes handsetRingCycle {
+  0%, 35%, 100% {
+    transform: rotate(0deg) translateY(0);
+  }
+  5%  { transform: rotate(-10deg) translateY(-4px); }
+  10% { transform: rotate(10deg) translateY(-4px); }
+  15% { transform: rotate(-8deg) translateY(-3px); }
+  20% { transform: rotate(8deg) translateY(-3px); }
+  25% { transform: rotate(-4deg) translateY(-1px); }
+  30% { transform: rotate(0deg) translateY(0); }
+}
+
+/* Radiating Pulse Rings */
+.pulseRing {
+  animation: pulseBeacon 2.6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  transform-origin: 40px 40px;
+}
+
+@keyframes pulseBeacon {
+  0%   { transform: scale(0.65); opacity: 0.9; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+/* Headset Mic Indicator Blink */
+.micBlink {
+  animation: blinkLED 1.8s ease-in-out infinite;
+}
+
+@keyframes blinkLED {
+  0%, 100% { opacity: 0.4; }
+  50%      { opacity: 1; }
+}
+
+/* Specular Shimmer */
+.specularShine {
+  animation: shineGlint 3.6s ease-in-out infinite;
+}
+
+@keyframes shineGlint {
+  0%, 100% { opacity: 0.3; transform: scale(0.85); }
+  50%      { opacity: 1; transform: scale(1.15) rotate(15deg); }
+}
+
+/* Envelope Letter Rising */
+.letterRising {
+  animation: letterRisePeek 4s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+@keyframes letterRisePeek {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+
+/* Sparkle Cluster */
+.sparkleCluster {
+  animation: sparkleTwinkle 2.8s ease-in-out infinite;
+}
+
+@keyframes sparkleTwinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50%      { opacity: 1; transform: scale(1.2); }
+}

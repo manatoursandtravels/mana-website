@@ -1,0 +1,85 @@
+/* ═══════════════════════════════════════════════════════════════════
+   WhatsApp Float Button — Luminous Theme v4.0
+   ═══════════════════════════════════════════════════════════════════ */
+
+.btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 900;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #25D366 0%, #1da851 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 32px rgba(37, 211, 102, 0.45), 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 280ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  border: 2px solid #FFFFFF;
+}
+
+.btn:hover {
+  transform: scale(1.12);
+  box-shadow: 0 14px 44px rgba(37, 211, 102, 0.55), 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:hover .tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(-8px);
+  pointer-events: auto;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.tooltip {
+  position: absolute;
+  right: calc(100% + 14px);
+  top: 50%;
+  transform: translateY(-50%) translateX(0);
+  background: #FFFFFF;
+  color: var(--charcoal-900);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: var(--r-pill);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 200ms ease;
+  border: 1px solid var(--brass-border);
+  box-shadow: var(--shadow-lg);
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-right: none;
+  border-left-color: #FFFFFF;
+}
+
+.pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #25D366;
+  animation: pulseWave 2.5s ease-out infinite;
+  z-index: 0;
+}
+
+@keyframes pulseWave {
+  0%   { transform: scale(1); opacity: 0.45; }
+  70%  { transform: scale(1.65); opacity: 0; }
+  100% { transform: scale(1.65); opacity: 0; }
+}

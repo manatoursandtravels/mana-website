@@ -1,0 +1,265 @@
+/* ═══════════════════════════════════════════════════════════════════
+   MANA About Us Page — Luminous High-End Narrative Theme
+   ═══════════════════════════════════════════════════════════════════ */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: calc(var(--header-h) + clamp(48px, 7vw, 90px)) 0 clamp(56px, 7vw, 96px);
+  border-bottom: 1px solid var(--pearl-border);
+  text-align: center;
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.heroBgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(250, 249, 245, 0.94) 0%,
+    rgba(250, 249, 245, 0.9) 60%,
+    rgba(250, 249, 245, 0.98) 100%
+  );
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  z-index: 1;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 2;
+}
+
+.heroPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #FFFFFF;
+  border: 1px solid var(--brass-border);
+  color: var(--brass-dark);
+  padding: 6px 18px;
+  border-radius: var(--r-pill);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 16px rgba(184, 142, 62, 0.15);
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.8vw, 4.2rem);
+  font-weight: 900;
+  color: var(--charcoal-900);
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  margin-bottom: 16px;
+}
+
+.heroSubtitle {
+  color: var(--charcoal-700);
+  font-size: clamp(1.05rem, 1.35vw, 1.22rem);
+  max-width: 760px;
+  margin: 0 auto 32px;
+  line-height: 1.8;
+  font-weight: 500;
+}
+
+/* ── Founders Spotlight ── */
+.foundersGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 4vw, 48px);
+  margin-top: 36px;
+}
+
+.founderCard {
+  background: #FFFFFF;
+  border: 1.5px solid var(--pearl-border);
+  border-radius: var(--r-3xl);
+  padding: clamp(32px, 3.5vw, 44px);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: all var(--dur-slow) var(--ease-luxury);
+  position: relative;
+}
+
+.founderCard:hover {
+  transform: translateY(-8px);
+  border-color: var(--brass);
+  box-shadow: var(--shadow-2xl);
+}
+
+.founderHeader {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.founderAvatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brass-subtle) 0%, #FFFFFF 100%);
+  border: 2px solid var(--brass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  box-shadow: 0 4px 14px rgba(184, 142, 62, 0.2);
+}
+
+.founderName {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--charcoal-900);
+}
+
+.founderRole {
+  font-size: var(--text-xs);
+  font-weight: 800;
+  color: var(--brass-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.founderBio {
+  color: var(--charcoal-600);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+/* ── Story Section Layout ── */
+.storyLayout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(36px, 5vw, 64px);
+  align-items: center;
+}
+
+.storyContent h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  font-weight: 800;
+  color: var(--charcoal-900);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.storyContent p {
+  color: var(--charcoal-700);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.storyStatCard {
+  background: #FFFFFF;
+  border: 2px solid var(--brass-border);
+  border-radius: var(--r-3xl);
+  padding: clamp(32px, 4vw, 44px);
+  box-shadow: var(--shadow-2xl);
+}
+
+.storyStatsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.sStat {
+  text-align: center;
+  padding: 16px;
+  background: var(--pearl-bg);
+  border: 1px solid var(--pearl-border);
+  border-radius: var(--r-xl);
+}
+
+.sStatNum {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 2.2rem;
+  color: var(--brand-red);
+}
+
+.sStatLabel {
+  font-size: var(--text-xs);
+  font-weight: 800;
+  color: var(--charcoal-600);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+}
+
+/* ── 4 Pillars Grid ── */
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.pillarCard {
+  background: #FFFFFF;
+  border: 1px solid var(--pearl-border);
+  border-radius: var(--r-2xl);
+  padding: 28px 24px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all var(--dur-base);
+}
+
+.pillarCard:hover {
+  transform: translateY(-6px);
+  border-color: var(--brass);
+  box-shadow: var(--shadow-xl);
+}
+
+.pillarIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--r-xl);
+  background: var(--brass-subtle);
+  border: 1px solid var(--brass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.pillarTitle {
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: var(--charcoal-900);
+}
+
+.pillarDesc {
+  color: var(--charcoal-600);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .storyLayout { grid-template-columns: 1fr; }
+  .pillarsGrid { grid-template-columns: repeat(2, 1fr); }
+  .foundersGrid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .pillarsGrid { grid-template-columns: 1fr; }
+  .storyStatsGrid { grid-template-columns: 1fr; }
+}
