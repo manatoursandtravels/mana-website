@@ -19,25 +19,25 @@ import styles from './partner.module.css';
 
 const partnerModels = [
   {
-    badge: 'Steady & Predictable',
-    title: 'Full-Time Dedicated Fleet',
-    desc: 'Attach your vehicle exclusively to the MANA network. Receive guaranteed monthly booking volumes, priority outstation assignments, a 70% revenue share, and predictable payouts.',
+    badge: '🏆 Highest Earning Potential',
+    title: 'Full-Time Dedicated Fleet Partner',
+    desc: 'Attach your vehicle exclusively to the MANA network and let it work around the clock. Receive guaranteed monthly booking volumes, first-priority outstation assignments, a 70% revenue share, and predictable weekly settlements — while you do nothing.',
     earnings: '₹35,000 – ₹55,000 / mo',
-    features: ['Fixed monthly trip quotas', 'Priority corporate & outstation routes', '70% revenue share to vehicle owner', 'Scheduled weekly payouts'],
+    features: ['Guaranteed monthly trip quotas — no empty days', 'First-priority on corporate & outstation routes', '70% net revenue directly to vehicle owner', 'Scheduled weekly UPI / bank settlements'],
   },
   {
-    badge: 'Total Freedom',
+    badge: '✅ Total Flexibility',
     title: 'Flexible On-Demand Partner',
-    desc: 'Keep your car on your schedule. Accept outstation or weekend trips with a competitive 70/30 revenue share (70% to car owner) with zero forced shifts.',
+    desc: 'Your car stays on your schedule. Accept outstation or weekend trips at your convenience with a full 70/30 revenue split in your favour. Zero forced shifts, zero minimum commitments — pure passive income on your terms.',
     earnings: '₹18,000 – ₹32,000 / mo',
-    features: ['Zero forced shifts or minimums', '70% revenue to vehicle owner', 'Choose your preferred routes', 'Instant trip-by-trip settlement'],
+    features: ['Zero forced shifts or minimums — ever', '70% revenue to vehicle owner, every trip', 'You choose your preferred routes', 'Instant trip-by-trip UPI settlement'],
   },
   {
-    badge: 'Independent Drivers',
-    title: 'Driver-Cum-Owner (DCO)',
-    desc: 'Drive your own car on verified MANA VIP, airport, and temple tours. Enjoy high-ticket pilgrimage fares with 70% revenue share and 100% of driver tips & direct allowances.',
+    badge: '💰 Maximum Revenue',
+    title: 'Driver-Cum-Owner (DCO) Partner',
+    desc: 'Drive your own car on verified MANA VIP, airport, and sacred temple tours. Earn premium pilgrimage-route fares, 70% revenue share, and 100% of all passenger tips and direct driver allowances — nothing held back.',
     earnings: '₹40,000 – ₹65,000+ / mo',
-    features: ['Direct owner-driver partnership', '70% trip share + 100% of tips', 'Premium clientele vetting', 'Immediate cash / UPI payments'],
+    features: ['Direct owner-driver partnership — full control', '70% trip share + 100% of tips & allowances', 'Premium clientele — verified, respectful travellers', 'Immediate cash or UPI payments after every trip'],
   },
 ];
 
@@ -75,79 +75,79 @@ const earningsData = [
 const partnerGuarantees = [
   {
     Illustration: EarningsGrowthIllustration,
-    title: '70% Revenue Share & On-Time Payouts',
-    desc: 'Transparent 70% share to vehicle owners with trip-by-trip digital UPI transfers or weekly bank settlements without deduction delays.',
+    title: '70% Revenue Share — Paid On Time, Every Time',
+    desc: 'A guaranteed 70% share to vehicle owners with trip-by-trip digital UPI transfers or weekly bank settlements. Every single trip. No deductions, no delays, no exceptions.',
   },
   {
     Illustration: ContractLegalIllustration,
-    title: 'Formal Written Contract',
-    desc: 'Every partnership is bound by a clear written legal agreement protecting your asset, rates, and rights.',
+    title: 'Formal Written Contract — Your Protection in Writing',
+    desc: 'Every partnership is protected by a clear written legal agreement signed by both parties, safeguarding your vehicle asset, rate structure, and owner rights.',
   },
   {
     Illustration: PricingInfographic,
-    title: 'Zero Upfront Fees',
-    desc: 'No security deposit, no registration charge, and zero hidden platform subscription fees. Start earning immediately.',
+    title: '₹0 Joining Fees. ₹0 Hidden Charges. ₹0 Platform Subscriptions.',
+    desc: 'Start earning from your very first trip. No registration fee, no security deposit, no platform subscription. If your car earns, you earn — that simple.',
   },
   {
     Illustration: SafetyInfographic,
-    title: 'Verified Customer Base',
-    desc: 'We screen all passenger bookings for identity, contact verification, and respectful travel conduct.',
+    title: 'Pre-Screened, Verified Customer Base',
+    desc: 'Every passenger booking is identity-verified, contact-checked, and assessed for respectful travel conduct before your vehicle is dispatched. Your asset is protected.',
   },
   {
     Illustration: LocalExpertiseInfographic,
-    title: 'Toll & Fuel Clarity',
-    desc: 'All customer tolls, parking, and state permits are collected at actuals — your core vehicle earnings remain untouched.',
+    title: '100% Toll, Fuel & Permit Transparency',
+    desc: 'All customer tolls, parking charges, and state entry permits are collected from passengers at actuals. Your core vehicle earnings are never diluted by operational overheads.',
   },
   {
     Illustration: WhatsAppInfographic,
-    title: '24/7 Fleet WhatsApp Desk',
-    desc: 'Direct coordinator contact for instant route assistance, emergency breakdown support, and live trip dispatch.',
+    title: '24/7 Direct WhatsApp Fleet Command',
+    desc: 'A dedicated MANA coordinator is reachable around the clock for route guidance, real-time dispatch updates, and priority emergency breakdown support.',
   },
 ];
 
 const onboardingSteps = [
   {
     step: '1',
-    title: 'Submit Application',
-    desc: 'Fill out our quick vehicle registration form below with your car model, year, and contact details.',
+    title: 'Submit in 3 Minutes',
+    desc: 'Fill out our streamlined vehicle registration form below with your car model, year, and contact details. Takes under 3 minutes.',
   },
   {
     step: '2',
-    title: 'Document Review',
-    desc: 'Our team verifies your RC, Insurance, Commercial Permit (if applicable), and Driver KYC within 24 hours.',
+    title: '24-Hour Document Review',
+    desc: 'Our fleet team verifies your RC, insurance, Commercial Permit, and Driver KYC within 24 hours — you’ll receive a WhatsApp confirmation.',
   },
   {
     step: '3',
-    title: 'Vehicle Inspection',
-    desc: 'Bring your vehicle for a quick physical inspection and sign the formal written partnership agreement.',
+    title: 'Quick Vehicle Inspection & Contract Sign',
+    desc: 'Bring your vehicle for a 20-minute physical inspection. Sign the formal written partnership agreement. Done.',
   },
   {
     step: '4',
-    title: 'Start Receiving Trips',
-    desc: 'Your vehicle is activated on our dispatch system. Start receiving recurring passenger trips immediately.',
+    title: 'Your First Trip, This Weekend',
+    desc: 'Your vehicle is activated on our live dispatch system. Start receiving passenger trips immediately — your first payout could arrive within days.',
   },
 ];
 
 const partnerFaqs = [
   {
-    q: 'How does the 70% revenue share work?',
-    a: 'Under our partnership program, the vehicle owner receives 70% of the trip fare. MANA utilizes the remaining 30% for marketing, booking acquisition, customer support, dispatch operations, and technology maintenance. Fuel is handled per trip arrangement, and tolls/parking are paid by passengers at actuals.',
+    q: 'Exactly how does the 70% revenue share work in practice?',
+    a: 'For every trip completed, 70% of the total customer fare goes directly to you as the vehicle owner. MANA retains 30% to fund marketing, customer acquisition, 24/7 dispatch operations, and technology. Tolls and parking are always charged to the passenger at actuals — your 70% is never diluted by operational costs.',
   },
   {
-    q: 'How and when do I get paid for trips?',
-    a: 'We offer flexible payment terms: either immediate digital UPI settlement right after trip completion, or consolidated weekly bank transfers every Monday. All trip invoices and breakdowns are shared with you on WhatsApp in real time.',
+    q: 'How and when do I get paid? Can I get paid after every trip?',
+    a: 'You choose how you receive your earnings: (1) Immediate digital UPI settlement right after each trip completes, or (2) Consolidated weekly bank transfer every Monday. Every trip invoice and breakdown is shared with you on WhatsApp in real time so you always know exactly what you earned.',
   },
   {
-    q: 'Do I have to pay any registration fee or security deposit?',
-    a: 'No! Attaching your vehicle to MANA Tours & Travels is 100% free with zero upfront charges, zero registration fees, and zero deposit requirements.',
+    q: 'Is there any registration fee, platform fee, or security deposit to join?',
+    a: 'Absolutely not. Attaching your vehicle to MANA Tours & Travels is 100% free — zero registration fees, zero platform subscriptions, and zero security deposits. We earn only when your car earns. Our incentives are perfectly aligned.',
   },
   {
-    q: 'Can I attach my private (white plate) car?',
-    a: 'We prioritize commercially registered (yellow plate) vehicles. However, if you own a private car in pristine condition, we can assist you with commercial permit conversion and compliant self-drive fleet attachment.',
+    q: 'Can I attach my private (white plate) car to MANA?',
+    a: 'We prioritize commercially registered (yellow plate) vehicles for full fleet integration. If you own a well-maintained private car, we can guide you through the commercial permit conversion process and get your vehicle compliantly attached to our self-drive fleet.',
   },
   {
-    q: 'Can I drive my own car, or do I need to provide a driver?',
-    a: 'Both options are welcome! You can drive your own vehicle under our Driver-Cum-Owner program, or attach your car as an investor/owner while providing a verified chauffeur.',
+    q: 'Do I have to provide a driver, or can I drive my own vehicle?',
+    a: 'Both are fully welcome. Drive your own vehicle as a Driver-Cum-Owner (DCO) and keep 70% of every trip plus 100% of tips. Or attach your car as a passive investor-owner and provide a verified chauffeur — the choice is entirely yours.',
   },
 ];
 
@@ -229,28 +229,27 @@ export default function PartnerPage() {
 
         <div className={`container ${styles.heroInner}`}>
           <div className={styles.heroPill}>
-            <span>🤝 70% Partner Revenue Share · Verified Fleet Network</span>
+            <span>🤝 Currently Accepting New Fleet Partners — 70% Revenue Share</span>
           </div>
 
           <h1 className={styles.heroTitle}>
-            Attach Your Vehicle &amp;<br />
-            <span className={styles.heroTitleGradient}>Earn ₹30,000 to ₹75,000+ / Mo</span>
+            Your Car Is an Asset.<br />
+            <span className={styles.heroTitleGradient}>Make It Earn ₹30,000–₹75,000 / Month.</span>
           </h1>
 
           <p className={styles.heroSubtitle}>
-            Transform your car into a steady, high-yielding revenue asset with Kadapa&apos;s most trusted travel network.
-            Enjoy a competitive <strong>70% partner revenue share</strong>, recurring verified customer bookings, zero joining fees, and written legal contracts.
+            Turn your parked or underutilised vehicle into a steady, high-yield income stream with Kadapa&apos;s most trusted travel network. A <strong>guaranteed 70% partner revenue share</strong>, recurring verified customer bookings, zero joining fees, and every agreement protected in writing.
           </p>
 
           <div className={styles.heroCtas}>
             <a href="#attach-form" className="btn btn--primary btn--xl">
-              🚗 Attach Your Vehicle Now
+              🚗 Attach Your Vehicle — Apply Now
             </a>
             <a
               href={`tel:${BUSINESS.phone.pavan}`}
               className="btn btn--brass btn--xl"
             >
-              📞 Call Pavan (Managing Partner): {BUSINESS.phone.pavanDisplay}
+              📞 Call Pavan: {BUSINESS.phone.pavanDisplay}
             </a>
           </div>
 
@@ -280,10 +279,10 @@ export default function PartnerPage() {
       <section className="section" style={{ background: '#FFFFFF' }}>
         <div className="container">
           <div className="section-header">
-            <span className="eyebrow">Flexible Business Models</span>
-            <h2>Choose How You Want to Partner</h2>
+            <span className="eyebrow">Three Paths to Passive Income</span>
+            <h2>Choose the Partnership Model That Fits Your Life</h2>
             <div className="divider" />
-            <p>Tailored partnership frameworks designed for full-time fleet owners, weekend drivers, and owner-chauffeurs.</p>
+            <p>Whether you want guaranteed monthly income, full scheduling freedom, or maximum earnings as an owner-driver — MANA has a model built exactly for you.</p>
           </div>
 
           <div className={styles.modelsGrid}>
@@ -302,7 +301,7 @@ export default function PartnerPage() {
                   ))}
                 </ul>
                 <a href="#attach-form" className="btn btn--charcoal" style={{ marginTop: 'auto', width: '100%', justifyContent: 'center' }}>
-                  Apply for this Model
+                  Apply for {m.title} →
                 </a>
               </div>
             ))}
@@ -314,10 +313,10 @@ export default function PartnerPage() {
       <section className="section" style={{ background: 'var(--pearl-bg)' }}>
         <div className="container">
           <div className="section-header">
-            <span className="eyebrow">Realistic Potential</span>
-            <h2>Monthly Partner Net Earnings Estimates</h2>
+            <span className="eyebrow">Real Numbers, Real Routes</span>
+            <h2>What Partners Actually Earn — Based on Live MANA Bookings</h2>
             <div className="divider" />
-            <p>Estimated monthly net revenue based on actual MANA booking averages and 70% partner revenue share across Rayalaseema routes.</p>
+            <p>Estimated monthly net revenue based on actual MANA booking averages and the 70% partner revenue share. Calculated across active Rayalaseema routes, not theoretical projections.</p>
           </div>
 
           <div className={styles.earningsTableWrap}>
@@ -351,10 +350,10 @@ export default function PartnerPage() {
       <section className="section" style={{ background: '#FFFFFF' }}>
         <div className="container">
           <div className="section-header">
-            <span className="eyebrow">The MANA Trust Advantage</span>
-            <h2>Why Vehicle Owners Choose MANA</h2>
+            <span className="eyebrow">The MANA Trust Standard</span>
+            <h2>The 6 Promises We Put in Writing</h2>
             <div className="divider" />
-            <p>Six core business pillars built to safeguard your vehicle asset and maximize long-term income.</p>
+            <p>Six core business commitments built to protect your vehicle asset, guarantee your income, and give you complete peace of mind.</p>
           </div>
 
           <div className={styles.guaranteesGrid}>
@@ -378,10 +377,10 @@ export default function PartnerPage() {
       <section className="section" style={{ background: 'var(--pearl-bg)' }}>
         <div className="container">
           <div className="section-header">
-            <span className="eyebrow">Fast &amp; Simple</span>
-            <h2>How Onboarding Works in 4 Steps</h2>
+            <span className="eyebrow">Fast &amp; Frictionless</span>
+            <h2>From Parked to Profitable in 24 Hours</h2>
             <div className="divider" />
-            <p>Zero complicated red tape. Get your vehicle verified and earning on the road within 24 hours.</p>
+            <p>Zero red tape, zero complicated onboarding. Get your vehicle verified, contracted, and earning on the road within one business day.</p>
           </div>
 
           <div className={styles.stepsGrid}>
@@ -406,9 +405,9 @@ export default function PartnerPage() {
                 <span className="eyebrow" style={{ display: 'inline-flex', marginBottom: '8px' }}>
                   Vehicle Attachment Application
                 </span>
-                <h2 className={styles.formTitle}>Submit Your Car Details</h2>
+                <h2 className={styles.formTitle}>Your First Trip Could Be This Weekend</h2>
                 <p className={styles.formSubtitle}>
-                  Fill in your vehicle specifications. Our fleet onboarding team will review and connect with you on WhatsApp within 24 hours.
+                  Fill in your vehicle details below. Our fleet onboarding team reviews every application personally and contacts you on WhatsApp within 24 hours to confirm your eligibility and first route.
                 </p>
               </div>
 
@@ -424,7 +423,7 @@ export default function PartnerPage() {
                     fontWeight: 700,
                   }}
                 >
-                  ✓ Your application has been dispatched to WhatsApp! Pavan will contact you shortly.
+                  ✓ Application submitted! Pavan will personally review and WhatsApp you within 24 hours.
                 </div>
               )}
 
@@ -546,7 +545,7 @@ export default function PartnerPage() {
                 </div>
 
                 <button type="submit" className="btn btn--primary btn--xl" style={{ width: '100%', justifyContent: 'center' }}>
-                  🚗 Submit Car Attachment Application
+                  🚗 Submit My Vehicle — Start Earning
                 </button>
               </form>
             </div>
@@ -578,11 +577,11 @@ export default function PartnerPage() {
                   <FleetPartnerIllustration size={48} />
                   <div>
                     <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--charcoal-900)' }}>
-                      Prefer Direct Consultation?
-                    </h4>
-                    <p style={{ fontSize: '0.88rem', color: 'var(--charcoal-600)' }}>
-                      Speak directly with Pavan for 70% partner revenue split terms.
-                    </p>
+                    Prefer a Direct Conversation?
+                  </h4>
+                  <p style={{ fontSize: '0.88rem', color: 'var(--charcoal-600)' }}>
+                    Call Pavan directly to discuss your vehicle, your preferred routes, and your expected earnings in a private 10-minute call.
+                  </p>
                   </div>
                 </div>
                 <a
@@ -600,8 +599,9 @@ export default function PartnerPage() {
           <div style={{ marginTop: '64px' }}>
             <div className="section-header">
               <span className="eyebrow">Frequently Asked Questions</span>
-              <h2>Vehicle Owner Queries Answered</h2>
+              <h2>Fleet Partner Questions, Answered Honestly</h2>
               <div className="divider" />
+              <p>Clear, direct answers to the questions every new partner asks us before signing.</p>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>

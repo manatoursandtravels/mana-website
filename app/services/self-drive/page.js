@@ -9,16 +9,18 @@ import { SelfDriveIllustration } from '@/components/Illustrations';
 import styles from './self-drive.module.css';
 
 export const metadata = {
-  title: 'Self Drive Car Rental Kadapa @ ₹1,499/Day | MANA Tours & Travels',
+  title: 'Premium Self-Drive Car Rental Kadapa | From ₹1,499/Day | MANA Tours & Travels',
   description:
-    'Rent premium self-drive cars in Kadapa starting at ₹1,499/day. Flat ₹800 OFF on weekly 7-day bookings. 100% customer-managed fuel, clean fleet, instant WhatsApp KYC. Call +91 99083 00718.',
+    'Drive in absolute freedom. Rent a premium self-drive car in Kadapa from ₹1,499/day — no driver, no compromise, zero hidden costs. Fully insured, FASTag-equipped sedans & MPVs. ₹800 OFF on 7-day bookings. Monthly memberships from ₹833/day. Call +91 99083 00718.',
   keywords: [
     'self drive car rental Kadapa',
-    'rent a car in Kadapa',
-    'self drive cars Kadapa',
+    'rent a car without driver Kadapa',
+    'premium self drive Kadapa',
     'Toyota Etios self drive Kadapa',
-    'car rental without driver Kadapa',
-    'MANA Tours self drive',
+    'monthly car subscription Kadapa',
+    'self drive car Andhra Pradesh',
+    'MANA self drive membership',
+    'car hire Kadapa',
   ],
 };
 
@@ -30,7 +32,7 @@ const fleetOptions = [
     specs: ['Manual', 'Petrol / Diesel', '5 Seats', '592L Boot', 'Chilled AC'],
     dailyPrice: '₹1,499',
     weeklyPrice: '₹9,693 (Save ₹800)',
-    bestFor: 'City commutes, family trips & weekend getaways',
+    bestFor: 'City commutes, family trips & weekend getaways across South India',
   },
   {
     name: 'Maruti Suzuki Ertiga',
@@ -39,7 +41,7 @@ const fleetOptions = [
     specs: ['Manual', 'Diesel', '7 Seats', 'Flexible Luggage', 'Dual AC'],
     dailyPrice: '₹2,199',
     weeklyPrice: '₹14,593 (Save ₹800)',
-    bestFor: 'Large families, pilgrimage tours & group vacations',
+    bestFor: 'Large families, pilgrimages, group vacations & temple circuits',
   },
   {
     name: 'Toyota Innova Crysta',
@@ -48,53 +50,53 @@ const fleetOptions = [
     specs: ['Manual', 'Diesel', '7 Captain Seats', 'Heavy Luggage', 'Climate Control'],
     dailyPrice: '₹2,999',
     weeklyPrice: '₹20,193 (Save ₹800)',
-    bestFor: 'VIP travel, long outstation road trips & wedding events',
+    bestFor: 'VIP road trips, wedding travel, corporate outstation & multi-day tours',
   },
 ];
 
 const selfDriveSteps = [
   {
     step: '1',
-    title: 'Choose Dates & Car',
-    desc: 'Select your preferred car model and rental duration via our simple online form or directly on WhatsApp.',
+    title: 'Pick Your Car & Dates',
+    desc: 'Choose your perfect vehicle and rental window via WhatsApp or our online form. Availability confirmed in minutes — no waiting.',
   },
   {
     step: '2',
-    title: 'Instant KYC Check',
-    desc: 'Share your valid Indian Driving License and Aadhaar / Govt ID for rapid 2-minute digital verification.',
+    title: 'Instant 2-Min KYC',
+    desc: 'Share your Driving License and Aadhaar digitally. Verified instantly — zero physical office visit, zero paperwork queue.',
   },
   {
     step: '3',
-    title: 'Key Handover',
-    desc: 'Inspect the vehicle and fuel gauge together at our Kadapa hub or opt for convenient doorstep delivery.',
+    title: 'Keys at Your Door',
+    desc: 'Vehicle delivered spotless to your doorstep anywhere in Kadapa. Full walkthrough, fuel check, and handover in under 10 minutes.',
   },
   {
     step: '4',
-    title: 'Drive & Return',
-    desc: 'Enjoy complete travel freedom. Return the car with the same fuel level for an immediate security deposit refund.',
+    title: 'Drive. Return. Refund.',
+    desc: 'Enjoy complete freedom. Return at the same fuel level and receive your full security deposit refund on the spot — zero delays, zero friction.',
   },
 ];
 
 const selfDriveFaqs = [
   {
-    q: 'What is your fuel policy?',
-    a: 'Fuel is 100% customer-managed with zero fuel provided from our side. You receive the car with the recorded fuel level at handover, and you return it at the exact same level. This ensures you only pay for the fuel you actually consume with no inflated surcharges.',
+    q: 'What is your fuel policy — do you provide any fuel?',
+    a: 'We operate on a 100% Customer-Managed Fuel policy. You receive the car with the fuel gauge recorded at handover — you fill as you need and return at the exact same level. You pay only for what you actually drive. No fuel surcharges, no inflated estimates — complete transparency every time.',
   },
   {
-    q: 'How does the ₹800 weekly discount offer work?',
-    a: 'When you book any of our self-drive vehicles for 7 consecutive days or longer, a flat discount of ₹800 is automatically deducted from your total rental invoice. For example, our 7-day sedan rental drops from ₹10,493 down to just ₹9,693!',
+    q: 'How does the ₹800 weekly discount work?',
+    a: 'Book any self-drive vehicle for 7 or more consecutive days and a flat ₹800 is deducted automatically at checkout. Our 7-day Executive Sedan package drops from ₹10,493 to just ₹9,693 — an effective rate under ₹1,385 per day for complete travel freedom. No codes, no conditions.',
   },
   {
-    q: 'What documents are required for renting a self-drive car?',
-    a: 'You only need two documents: (1) Original Valid Indian Driving License (4-wheeler, minimum 1 year old), and (2) Aadhaar Card / Passport as address proof. Minimum renter age is 21 years.',
+    q: 'What documents do I need to rent a self-drive car?',
+    a: 'Just two documents: (1) Original Valid Indian Driving License — 4-wheeler class, minimum 1 year old, and (2) Aadhaar Card or Passport as address proof. Minimum renter age is 21 years. The entire KYC process is digital and takes under 2 minutes — no office visit required.',
   },
   {
-    q: 'Is there a security deposit?',
-    a: 'Yes, we maintain a transparent, 100% refundable security deposit of ₹10,000 for all self-drive rentals. This deposit is held at vehicle handover and is refunded immediately via UPI or Cash upon vehicle inspection when you return the car.',
+    q: 'Is there a security deposit, and when do I get it back?',
+    a: 'Yes — a fully refundable ₹10,000 security deposit is collected at vehicle handover. The moment you return the car and it clears our quick condition check, the deposit is returned to you immediately via UPI or cash. No waiting periods, no deductions for normal wear.',
   },
   {
-    q: 'Can I drive the vehicle out of state to Bangalore, Hyderabad, or Chennai?',
-    a: 'Absolutely! All our self-drive cars are registered commercial vehicles equipped with valid national permits, FASTag, and comprehensive commercial insurance for seamless interstate travel across South India.',
+    q: 'Can I take the car to Bangalore, Hyderabad, Chennai, or other states?',
+    a: 'Absolutely. All our self-drive vehicles hold valid National Permits, active FASTag accounts, and comprehensive commercial insurance — fully compliant for interstate travel across Karnataka, Tamil Nadu, Telangana, and Andhra Pradesh. Explore South India without limits.',
   },
 ];
 
@@ -109,26 +111,25 @@ export default function SelfDriveLandingPage() {
           <div className={styles.heroGrid}>
             <div className={styles.heroLeft}>
               <div className={styles.heroPill}>
-                <span>🔑 Self Drive Car Rentals in Kadapa</span>
+                <span>🔑 Premium Self-Drive Car Rentals — Kadapa</span>
               </div>
 
               <h1 className={styles.heroTitle}>
-                Drive on Your Terms.<br />
-                <span className={styles.heroTitleGradient}>₹1,499 / Day</span>
+                Your Car. Your Rules.<br />
+                <span className={styles.heroTitleGradient}>Your Road, From ₹1,499.</span>
               </h1>
 
               <p className={styles.heroSubtitle}>
-                Experience absolute privacy and road freedom. Well-maintained sedans and spacious MPVs in Kadapa.
-                Transparent daily rates, zero hidden surcharges, and instant WhatsApp booking.
+                Kadapa&apos;s only premium self-drive fleet — sanitised, fully insured, and FASTag-equipped sedans &amp; MPVs you can drive anywhere in South India. No driver. No compromise. Zero hidden costs.
               </p>
 
               {/* Weekly Promo Banner */}
               <div className={styles.weeklyPromoBox}>
                 <div className={styles.wpbIcon}>🔥</div>
                 <div>
-                  <div className={styles.wpbTitle}>Limited Time Weekly Offer: Flat ₹800 OFF</div>
+                  <div className={styles.wpbTitle}>Members Save ₹800 on Every 7-Day Booking — That&apos;s Our Promise, Every Time.</div>
                   <div className={styles.wpbDesc}>
-                    Book for 7+ days and save ₹800 instantly! 7-Day Sedan plan now only <strong>₹9,693</strong> (Regular ₹10,493).
+                    7-Day Sedan plan now only <strong>₹9,693</strong> — down from ₹10,493. No codes. No conditions. Applied automatically.
                   </div>
                 </div>
               </div>
@@ -137,17 +138,16 @@ export default function SelfDriveLandingPage() {
               <div className={styles.fuelPolicyBanner}>
                 <div className={styles.fuelIconWrap}>⛽</div>
                 <div>
-                  <div className={styles.fuelPolicyTitle}>100% Customer-Managed Fuel Policy</div>
+                  <div className={styles.fuelPolicyTitle}>100% Customer-Managed Fuel — Maximum Transparency</div>
                   <div className={styles.fuelPolicyDesc}>
-                    <strong>Zero fuel is provided by our side.</strong> You receive the vehicle with the recorded fuel level at pickup,
-                    fill fuel as per your journey requirements, and return at the exact same fuel level. Maximum transparency — you only pay for what you drive!
+                    <strong>Zero fuel markup from our side.</strong> You pick up the car at the recorded fuel level, fill as you drive, and return at the same level. You pay only for the fuel you actually use — never a rupee more.
                   </div>
                 </div>
               </div>
 
               <div className={styles.heroCtas}>
                 <a href="#booking" className="btn btn--primary btn--xl">
-                  🚗 Book Self-Drive Now
+                  🚗 Reserve Your Car — Check Availability
                 </a>
                 <a
                   href={`https://wa.me/${BUSINESS.whatsapp}?text=${encodeURIComponent('Hi Pavan, I want to check Self-Drive car availability in Kadapa.')}`}
@@ -155,7 +155,7 @@ export default function SelfDriveLandingPage() {
                   rel="noopener noreferrer"
                   className="btn btn--white btn--xl"
                 >
-                  💬 WhatsApp Availability
+                  💬 WhatsApp for Instant Quote
                 </a>
               </div>
             </div>
@@ -186,10 +186,10 @@ export default function SelfDriveLandingPage() {
               </div>
 
               <ul className="checklist">
-                <li>Instant 2-minute digital KYC verification</li>
+                <li>Instant 2-minute digital KYC — no office visit</li>
                 <li>Doorstep vehicle delivery anywhere in Kadapa</li>
-                <li>24/7 Roadside Assistance &amp; FASTag equipped</li>
-                <li>100% Refundable Security Deposit (₹10,000)</li>
+                <li>24/7 Roadside Assistance &amp; FASTag-equipped</li>
+                <li>₹10,000 Refundable Deposit — returned on the spot</li>
               </ul>
 
               <a
@@ -208,10 +208,10 @@ export default function SelfDriveLandingPage() {
       <section className="section" style={{ background: '#FFFFFF' }}>
         <div className="container">
           <div className="section-header">
-            <span className="eyebrow">Transparent Pricing Plans</span>
-            <h2>Choose Your Rental Duration</h2>
+            <span className="eyebrow">Transparent Pricing — No Surprises</span>
+            <h2>Choose Your Freedom Plan</h2>
             <div className="divider" />
-            <p>Competitive rates with zero hidden charges. All rentals feature 100% customer-managed fuel.</p>
+            <p>Every plan includes a spotless AC vehicle, comprehensive insurance, and a 250 km daily allowance. You bring the fuel — we handle everything else.</p>
           </div>
 
           <div className={styles.pricingGrid}>
@@ -240,7 +240,7 @@ export default function SelfDriveLandingPage() {
             {/* Plan 2: 3-Day Weekend */}
             <div className={styles.pricingCard}>
               <span className={styles.pricingBadge} style={{ background: 'var(--brass-dark)' }}>
-                Save ₹300
+                Weekend — Save ₹300
               </span>
               <h3 className={styles.planName}>3-Day Weekend</h3>
               <div className={styles.planPriceWrap}>
@@ -255,7 +255,7 @@ export default function SelfDriveLandingPage() {
                 <li>FASTag &amp; Inter-State Permits Active</li>
               </ul>
               <a href="#booking" className="btn btn--brass" style={{ width: '100%', justifyContent: 'center' }}>
-                Book Weekend Trip
+                Book Weekend Escape
               </a>
             </div>
 
@@ -299,7 +299,7 @@ export default function SelfDriveLandingPage() {
                 <li>5% Loyalty renewal discount on M2</li>
               </ul>
               <a href="#monthly-plans" className="btn btn--primary" style={{ width: '100%', justifyContent: 'center' }}>
-                View Monthly Tiers
+                Unlock Member Pricing →
               </a>
             </div>
           </div>
@@ -312,11 +312,11 @@ export default function SelfDriveLandingPage() {
           <div className="section-header">
             <span className={styles.subPill}>💎 Long-Term Self-Drive Membership</span>
             <h2 style={{ color: '#FFFFFF', fontSize: 'clamp(2rem, 3.8vw, 2.8rem)', letterSpacing: '-0.03em' }}>
-              Monthly Self-Drive Subscriptions
+              Drive Every Day. Pay Once a Month.
             </h2>
             <div className="divider divider--gold" />
-            <p style={{ color: 'rgba(255, 255, 255, 0.85)', maxWidth: '680px', marginInline: 'auto' }}>
-              Zero maintenance costs, zero depreciation, and complete travel freedom. Perfect for visiting NRIs, industrial executives, corporate leaders, and wedding families in Kadapa — for as low as <strong style={{ color: 'var(--brass-light)' }}>₹833 / day</strong>.
+            <p style={{ color: 'rgba(255, 255, 255, 0.85)', maxWidth: '700px', marginInline: 'auto', lineHeight: 1.8 }}>
+              Your own car — without the EMI, the depreciation, or the maintenance bills. Whether you&apos;re an NRI back for a season, a corporate executive posted to Kadapa, or a family that simply loves road freedom — our monthly memberships deliver a pristine, fully insured vehicle at your door, for as little as <strong style={{ color: 'var(--brass-light)' }}>₹833 / day</strong>.
             </p>
           </div>
 
@@ -366,33 +366,33 @@ export default function SelfDriveLandingPage() {
           <div className={styles.subRetentionGrid}>
             <div className={styles.subRetentionCard}>
               <div className={styles.subRetentionIcon}>🛠️</div>
-              <div className={styles.subRetentionTitle}>Zero Maintenance Cost</div>
+              <div className={styles.subRetentionTitle}>Zero Maintenance. Ever.</div>
               <div className={styles.subRetentionDesc}>
-                We handle engine oil, brake servicing, and routine maintenance. You only pay for the fuel you consume.
+                Engine oil, brake servicing, tyre rotation — all managed by us. You only pay for the fuel you burn. Own the freedom, not the upkeep.
               </div>
             </div>
 
             <div className={styles.subRetentionCard}>
               <div className={styles.subRetentionIcon}>🔄</div>
-              <div className={styles.subRetentionTitle}>Weekend MPV Swap</div>
+              <div className={styles.subRetentionTitle}>Free Weekend MPV Upgrade</div>
               <div className={styles.subRetentionDesc}>
-                Sedan subscribers get 1 free weekend upgrade per month to a 7-seater Ertiga for family pilgrimages.
+                Sedan members get one complimentary weekend upgrade to a 7-seater Ertiga every month — perfect for spontaneous family pilgrimages.
               </div>
             </div>
 
             <div className={styles.subRetentionCard}>
               <div className={styles.subRetentionIcon}>🎁</div>
-              <div className={styles.subRetentionTitle}>Progressive Loyalty Discounts</div>
+              <div className={styles.subRetentionTitle}>Loyalty Rewards That Compound</div>
               <div className={styles.subRetentionDesc}>
-                Enjoy 5% OFF on Month 2 renewal, and 10% OFF on Month 3+ continuous subscription renewals.
+                5% off on Month 2 renewal. 10% off from Month 3 onwards. The longer you stay, the better your rate gets — automatically.
               </div>
             </div>
 
             <div className={styles.subRetentionCard}>
               <div className={styles.subRetentionIcon}>🚗</div>
-              <div className={styles.subRetentionTitle}>Standby Car Guarantee</div>
+              <div className={styles.subRetentionTitle}>Standby Car — 2-Hour Guarantee</div>
               <div className={styles.subRetentionDesc}>
-                If your car ever requires scheduled maintenance, we deliver a replacement vehicle to your doorstep within 2 hours.
+                If your vehicle ever needs scheduled maintenance, we deliver a ready replacement to your doorstep within 2 hours — no downtime, no excuses.
               </div>
             </div>
           </div>
@@ -403,10 +403,10 @@ export default function SelfDriveLandingPage() {
       <section className="section" style={{ background: 'var(--pearl-bg)' }}>
         <div className="container">
           <div className="section-header">
-            <span className="eyebrow">Our Sanitized Fleet</span>
+            <span className="eyebrow">✦ Our Sanitized Fleet ✦</span>
             <h2>Select Your Self-Drive Vehicle</h2>
             <div className="divider" />
-            <p>Every car is serviced, sanitized, and safety-inspected before handover.</p>
+            <p>Every car is professionally serviced, deep-sanitized, and safety-inspected before every handover. What you see is what you get.</p>
           </div>
 
           <div className={styles.fleetGrid}>
@@ -459,9 +459,9 @@ export default function SelfDriveLandingPage() {
         <div className="container">
           <div className="section-header">
             <span className="eyebrow">Seamless Process</span>
-            <h2>How Self-Drive Works in 4 Steps</h2>
+            <h2>From Booking to Keys — in 4 Simple Steps</h2>
             <div className="divider" />
-            <p>No lengthy paperwork, no confusing deposits. Simple, transparent, and hassle-free.</p>
+            <p>No lengthy paperwork. No confusing deposits. No office queues. Just your car, your schedule, your way.</p>
           </div>
 
           <div className={styles.stepsGrid}>
@@ -481,7 +481,7 @@ export default function SelfDriveLandingPage() {
         <div className="container">
           <div className={styles.reqGrid}>
             <div className={styles.reqCard}>
-              <h3 className={styles.reqCardTitle}>📋 Mandatory Rental Requirements</h3>
+              <h3 className={styles.reqCardTitle}>📋 Rental Requirements — Quick &amp; Simple</h3>
               <ul className="checklist">
                 <li>Valid Indian Driving License (Original 4-wheeler license, min. 1 year old)</li>
                 <li>Original Aadhaar Card / Passport for identity &amp; address proof</li>
@@ -491,7 +491,7 @@ export default function SelfDriveLandingPage() {
             </div>
 
             <div className={styles.reqCard}>
-              <h3 className={styles.reqCardTitle}>⛽ Fuel &amp; Usage Terms</h3>
+              <h3 className={styles.reqCardTitle}>⛽ Fuel &amp; Usage Terms — Fully Transparent</h3>
               <ul className="checklist">
                 <li>
                   <strong>Fuel is 100% Customer-Managed:</strong> Zero fuel provided from our side. Return at same fuel gauge level.
@@ -517,6 +517,7 @@ export default function SelfDriveLandingPage() {
                 </span>
                 <h2>Everything You Need to Know</h2>
                 <div className="divider divider--left" />
+                <p style={{ color: 'var(--charcoal-600)', fontSize: '0.96rem' }}>Honest answers to the questions we hear every day.</p>
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
@@ -559,10 +560,10 @@ export default function SelfDriveLandingPage() {
                 }}
               >
                 <h4 style={{ color: 'var(--charcoal-900)', fontSize: '1.15rem', fontWeight: 800, marginBottom: '8px' }}>
-                  Need Immediate Booking Support?
+                  Ready to Hit the Road? Let&apos;s Talk.
                 </h4>
                 <p style={{ fontSize: '0.92rem', color: 'var(--charcoal-700)', marginBottom: '14px' }}>
-                  Speak directly with Pavan for instant car availability confirmation and custom quote requests.
+                  Speak directly with Pavan for instant availability check and a custom rate for longer rentals or monthly memberships.
                 </p>
                 <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                   <a href={`tel:${BUSINESS.phone.pavan}`} className="btn btn--primary btn--sm">
