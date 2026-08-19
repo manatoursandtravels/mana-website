@@ -169,9 +169,25 @@ export default function Header() {
               <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.1 15.1 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.45 2.33.7 3.58.7a1 1 0 011 1V20a1 1 0 01-1 1C10.49 21 3 13.51 3 4.5A1 1 0 014 3.5h3.5a1 1 0 011 1c0 1.26.25 2.46.7 3.58a1 1 0 01-.24 1.01l-2.34 2.2z"/></svg>
               <span>{BUSINESS.phone.pavanDisplay}</span>
             </a>
-            <Link href="/#booking-form" className="btn btn--primary btn--sm" id="header-book-btn">
+            <a
+              href="/#booking-form"
+              className="btn btn--primary btn--sm"
+              id="header-book-btn"
+              onClick={(e) => {
+                // Try to find a booking form on the current page first
+                const localForm = document.getElementById('booking-form') || document.getElementById('book');
+                if (localForm) {
+                  e.preventDefault();
+                  localForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  // Focus the first input for UX
+                  const firstInput = localForm.querySelector('select, input');
+                  if (firstInput) setTimeout(() => firstInput.focus(), 600);
+                }
+                // If no local form found, let the href navigate to /#booking-form normally
+              }}
+            >
               Book Now
-            </Link>
+            </a>
             <button
               className={`${styles.hamburger} ${menuOpen ? styles.hamburgerOpen : ''}`}
               onClick={() => setMenuOpen(v => !v)}
