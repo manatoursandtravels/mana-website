@@ -3,6 +3,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import BookingForm from '@/components/BookingForm';
+import SelfDrivePricingMatrix from '@/components/SelfDrivePricingMatrix';
 import Link from 'next/link';
 import { BUSINESS, RATES } from '@/lib/constants';
 import { SelfDriveIllustration } from '@/components/Illustrations';
@@ -204,105 +205,19 @@ export default function SelfDriveLandingPage() {
         </div>
       </section>
 
-      {/* ══ 2. RENTAL PACKAGES & WEEKLY ₹800 DISCOUNT MATRIX ══ */}
-      <section className="section" style={{ background: '#FFFFFF' }}>
+      {/* ══ 2. RENTAL PACKAGES & INTERACTIVE PRICING MATRIX ══ */}
+      <section className="section" style={{ background: '#FFFFFF' }} id="pricing">
         <div className="container">
           <div className="section-header">
-            <span className="eyebrow">Transparent Pricing — No Surprises</span>
+            <span className="eyebrow">Transparent Pricing — Zero Surprises</span>
             <h2>Choose Your Freedom Plan</h2>
             <div className="divider" />
-            <p>Every plan includes a spotless AC vehicle, comprehensive insurance, and a 250 km daily allowance. You bring the fuel — we handle everything else.</p>
+            <p>
+              Compare verified daily, weekend, weekly, and monthly rates for Executive Sedans and 7-Seater MPVs. Every plan includes full comprehensive insurance, active FASTag, and guaranteed vehicle sanitisation.
+            </p>
           </div>
 
-          <div className={styles.pricingGrid}>
-            {/* Plan 1: Daily */}
-            <div className={styles.pricingCard}>
-              <span className={styles.pricingBadge} style={{ background: 'var(--charcoal-800)' }}>
-                Daily Plan
-              </span>
-              <h3 className={styles.planName}>24 Hours</h3>
-              <div className={styles.planPriceWrap}>
-                <span className={styles.planPrice}>₹1,499</span>
-                <span className={styles.planDuration}>/ 1 Day</span>
-              </div>
-              <ul className={styles.planFeatures}>
-                <li>250 km included allowance</li>
-                <li>₹10/km for extra distance</li>
-                <li>100% Customer-Managed Fuel</li>
-                <li>₹10,000 Refundable Security Deposit</li>
-                <li>Comprehensive Insurance Covered</li>
-              </ul>
-              <a href="#booking" className="btn btn--charcoal" style={{ width: '100%', justifyContent: 'center' }}>
-                Book 24 Hours
-              </a>
-            </div>
-
-            {/* Plan 2: 3-Day Weekend */}
-            <div className={styles.pricingCard}>
-              <span className={styles.pricingBadge} style={{ background: 'var(--brass-dark)' }}>
-                Weekend — Save ₹300
-              </span>
-              <h3 className={styles.planName}>3-Day Weekend</h3>
-              <div className={styles.planPriceWrap}>
-                <span className={styles.planPrice}>₹4,199</span>
-                <span className={styles.planDuration}>/ 72 Hours</span>
-              </div>
-              <ul className={styles.planFeatures}>
-                <li>750 km included allowance</li>
-                <li>Ideal for Tirupati &amp; Gandikota trips</li>
-                <li>100% Customer-Managed Fuel</li>
-                <li>₹10,000 Refundable Security Deposit</li>
-                <li>FASTag &amp; Inter-State Permits Active</li>
-              </ul>
-              <a href="#booking" className="btn btn--brass" style={{ width: '100%', justifyContent: 'center' }}>
-                Book Weekend Escape
-              </a>
-            </div>
-
-            {/* Plan 3: Weekly Plan (Featured ₹800 OFF) */}
-            <div className={styles.pricingCard}>
-              <span className={styles.pricingBadge} style={{ background: 'var(--brass-dark)' }}>Flat ₹800 OFF</span>
-              <h3 className={styles.planName}>Weekly (7 Days)</h3>
-              <div className={styles.planPriceWrap}>
-                <span className={styles.planPrice}>₹9,693</span>
-                <span className={styles.planOriginalPrice}>₹10,493</span>
-                <span className={styles.planDuration}>/ 7 Full Days</span>
-              </div>
-              <ul className={styles.planFeatures}>
-                <li>1,750 km travel allowance</li>
-                <li><strong>Instant ₹800 Savings applied</strong></li>
-                <li>100% Customer-Managed Fuel</li>
-                <li>₹10,000 Refundable Security Deposit</li>
-                <li>Priority Doorstep Pickup &amp; Drop</li>
-                <li>Free Sanitization &amp; Vehicle Checkup</li>
-              </ul>
-              <a href="#booking" className="btn btn--brass" style={{ width: '100%', justifyContent: 'center' }}>
-                Book 7 Days
-              </a>
-            </div>
-
-            {/* Plan 4: Monthly Subscription (Featured 44% OFF) */}
-            <div className={`${styles.pricingCard} ${styles.pricingCardFeatured}`}>
-              <span className={styles.pricingBadge}>🔥 44% OFF (Save ₹20k)</span>
-              <h3 className={styles.planName}>Monthly (30 Days)</h3>
-              <div className={styles.planPriceWrap}>
-                <span className={styles.planPrice}>₹24,999</span>
-                <span className={styles.planOriginalPrice}>₹44,970</span>
-                <span className={styles.planDuration}>/ 30 Days</span>
-              </div>
-              <ul className={styles.planFeatures}>
-                <li><strong>Effective ₹833 / day</strong></li>
-                <li>3,000 km generous monthly allowance</li>
-                <li><strong>Zero maintenance &amp; service costs</strong></li>
-                <li>1 Free Weekend MPV Swap / month</li>
-                <li>Free doorstep servicing &amp; pickup</li>
-                <li>5% Loyalty renewal discount on M2</li>
-              </ul>
-              <a href="#monthly-plans" className="btn btn--primary" style={{ width: '100%', justifyContent: 'center' }}>
-                Unlock Member Pricing →
-              </a>
-            </div>
-          </div>
+          <SelfDrivePricingMatrix />
         </div>
       </section>
 
