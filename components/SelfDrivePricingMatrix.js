@@ -14,7 +14,7 @@ const PRICING_DATA = {
       {
         id: '24h',
         name: '24 Hours',
-        tag: 'Flexible Daily',
+        tag: '⚡ Flexible Daily',
         tagType: 'neutral',
         price: '₹1,499',
         ratePerDay: '₹1,499 / day',
@@ -34,7 +34,7 @@ const PRICING_DATA = {
       {
         id: 'weekend',
         name: '3-Day Weekend',
-        tag: 'Save ₹300',
+        tag: '⭐ Save ₹300',
         tagType: 'green',
         price: '₹4,199',
         ratePerDay: '₹1,399 / day',
@@ -105,7 +105,7 @@ const PRICING_DATA = {
       {
         id: '24h',
         name: '24 Hours',
-        tag: 'Family Daily',
+        tag: '⚡ Family Daily',
         tagType: 'neutral',
         price: '₹2,499',
         ratePerDay: '₹2,499 / day',
@@ -125,7 +125,7 @@ const PRICING_DATA = {
       {
         id: 'weekend',
         name: '3-Day Weekend',
-        tag: 'Save ₹500',
+        tag: '⭐ Save ₹500',
         tagType: 'green',
         price: '₹6,999',
         ratePerDay: '₹2,333 / day',
@@ -200,7 +200,6 @@ export default function SelfDrivePricingMatrix() {
       document.getElementById('booking-form');
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      // Focus after scroll
       setTimeout(() => {
         const select = target.querySelector('select');
         if (select) select.focus({ preventScroll: true });
@@ -239,7 +238,7 @@ export default function SelfDrivePricingMatrix() {
         </div>
 
         <div className={styles.vehicleContextBanner}>
-          <span>Showing guaranteed pricing for: <strong>{activeData.models}</strong></span>
+          <span>Showing guaranteed rates for: <strong>{activeData.models}</strong></span>
           <span className={styles.depositNote}>• Refundable Deposit: <strong>{activeData.deposit}</strong></span>
         </div>
       </div>
@@ -259,21 +258,22 @@ export default function SelfDrivePricingMatrix() {
                 ${isVip ? styles.cardVip : ''}
               `}
             >
-              {/* Badge */}
-              <div
-                className={`
-                  ${styles.badge}
-                  ${plan.tagType === 'featured' ? styles.badgeFeatured : ''}
-                  ${plan.tagType === 'green' ? styles.badgeGreen : ''}
-                  ${plan.tagType === 'vip' ? styles.badgeVip : ''}
-                  ${plan.tagType === 'neutral' ? styles.badgeNeutral : ''}
-                `}
-              >
-                {plan.tag}
-              </div>
-
-              {/* Plan Header */}
+              {/* Clean Non-Overlapping Header with Dedicated Badge Row */}
               <div className={styles.cardHeader}>
+                <div className={styles.badgeRow}>
+                  <span
+                    className={`
+                      ${styles.badge}
+                      ${plan.tagType === 'featured' ? styles.badgeFeatured : ''}
+                      ${plan.tagType === 'green' ? styles.badgeGreen : ''}
+                      ${plan.tagType === 'vip' ? styles.badgeVip : ''}
+                      ${plan.tagType === 'neutral' ? styles.badgeNeutral : ''}
+                    `}
+                  >
+                    {plan.tag}
+                  </span>
+                </div>
+
                 <h3 className={styles.planName}>{plan.name}</h3>
                 <div className={styles.ratePill}>{plan.ratePerDay}</div>
               </div>
@@ -321,7 +321,7 @@ export default function SelfDrivePricingMatrix() {
                   onClick={() => handleScrollToForm(plan.name)}
                   className={styles.secondaryLink}
                 >
-                  Or fill booking form ↓
+                  Or fill web booking form ↓
                 </button>
               </div>
             </div>
