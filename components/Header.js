@@ -170,20 +170,26 @@ export default function Header() {
               <span>{BUSINESS.phone.pavanDisplay}</span>
             </a>
             <a
-              href="/#booking-form"
+              href="#booking-section"
               className="btn btn--primary btn--sm"
               id="header-book-btn"
               onClick={(e) => {
-                // Try to find a booking form on the current page first
-                const localForm = document.getElementById('booking-form') || document.getElementById('book');
-                if (localForm) {
-                  e.preventDefault();
-                  localForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  // Focus the first input for UX
-                  const firstInput = localForm.querySelector('select, input');
-                  if (firstInput) setTimeout(() => firstInput.focus(), 600);
+                e.preventDefault();
+                // Priority: booking section (homepage), then local subpage form
+                const target =
+                  document.getElementById('booking-section') ||
+                  document.getElementById('book') ||
+                  document.getElementById('booking-form');
+                if (target) {
+                  target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  setTimeout(() => {
+                    const firstField = target.querySelector('select, input[type="text"], input[type="tel"]');
+                    if (firstField) firstField.focus({ preventScroll: true });
+                  }, 750);
+                } else {
+                  // Not on homepage — navigate to homepage booking section
+                  window.location.href = '/#booking-section';
                 }
-                // If no local form found, let the href navigate to /#booking-form normally
               }}
             >
               Book Now

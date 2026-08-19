@@ -5,6 +5,7 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 import BookingForm from '@/components/BookingForm';
 import FareCalculator from '@/components/FareCalculator';
 import Link from 'next/link';
+import BookingCTA from '@/components/BookingCTA';
 import { BUSINESS, SERVICES, RATES } from '@/lib/constants';
 import {
   LocalCabIllustration,
@@ -162,9 +163,7 @@ export default function HomePage() {
             </div>
 
             <div className={styles.heroCtas}>
-              <a href="#booking-form" className="btn btn--primary btn--xl" id="hero-book">
-                🚗 Book a Journey
-              </a>
+              <BookingCTA className="btn btn--primary btn--xl" id="hero-book" label="🚗 Book a Journey" />
               <a
                 href={`https://wa.me/${BUSINESS.whatsapp}`}
                 target="_blank"
@@ -467,7 +466,7 @@ export default function HomePage() {
       </section>
 
       {/* ══ 8. INSTANT BOOKING SECTION ══ */}
-      <section className={`section ${styles.bookingSection}`} id="booking-form">
+      <section className={`section ${styles.bookingSection}`} id="booking-section">
         <div className="container">
           <div className={styles.bookingInner}>
             <div className={styles.bookingLeft}>

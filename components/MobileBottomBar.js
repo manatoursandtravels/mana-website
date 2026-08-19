@@ -5,15 +5,18 @@ import styles from './MobileBottomBar.module.css';
 export default function MobileBottomBar() {
   const handleBookNow = (e) => {
     e.preventDefault();
-    // Try scrolling to the booking form on this page first
-    const localForm = document.getElementById('booking-form') || document.getElementById('book');
-    if (localForm) {
-      localForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      const firstInput = localForm.querySelector('select, input');
-      if (firstInput) setTimeout(() => firstInput.focus(), 600);
+    const target =
+      document.getElementById('booking-section') ||
+      document.getElementById('book') ||
+      document.getElementById('booking-form');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(() => {
+        const firstField = target.querySelector('select, input[type="text"], input[type="tel"]');
+        if (firstField) firstField.focus({ preventScroll: true });
+      }, 750);
     } else {
-      // Navigate to homepage booking section
-      window.location.href = '/#booking-form';
+      window.location.href = '/#booking-section';
     }
   };
 
