@@ -17,10 +17,11 @@ const popularRoutes = [
 
 const companyLinks = [
   { label: 'About MANA Tours', href: '/about' },
+  { label: 'Certified Used Cars', href: '/used-cars', highlight: '🔥 5 in Stock' },
+  { label: 'Self Drive Rentals (₹1,499/d)', href: '/services/self-drive', highlight: '₹800 OFF' },
+  { label: 'Partner Program (70% Share)', href: '/partner', highlight: 'Earn ₹50k+' },
   { label: 'Contact Executive Desk', href: '/contact' },
   { label: 'Frequently Asked Questions', href: '/faq' },
-  { label: 'Partner Program (70% Share)', href: '/partner', highlight: 'Earn ₹50k+' },
-  { label: 'Self Drive Rentals (₹1,499/d)', href: '/services/self-drive', highlight: '₹800 OFF' },
 ];
 
 export default function Footer() {

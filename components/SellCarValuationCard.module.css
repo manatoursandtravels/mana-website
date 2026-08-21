@@ -1,0 +1,229 @@
+.sellContainer {
+  background: linear-gradient(135deg, #0E131F 0%, #1A2333 100%);
+  border-radius: var(--r-3xl);
+  border: 1.5px solid rgba(184, 142, 62, 0.4);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+  padding: clamp(28px, 4.5vw, 52px);
+  position: relative;
+  overflow: hidden;
+  color: #FFFFFF;
+}
+
+.sellBgMesh {
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(184, 142, 62, 0.2) 0%, rgba(14, 19, 31, 0) 70%);
+  pointer-events: none;
+}
+
+.sellGrid {
+  display: grid;
+  grid-template-columns: 5fr 6fr;
+  gap: clamp(28px, 4vw, 56px);
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Left Column: Value Prop ── */
+.valuePropCol {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.badgePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(184, 142, 62, 0.15);
+  border: 1px solid rgba(184, 142, 62, 0.4);
+  color: #FBBF24;
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: var(--r-pill);
+  width: fit-content;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+}
+
+.desc {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #94A3B8;
+}
+
+.stepsList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.stepItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.stepNum {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--brass);
+  color: #FFFFFF;
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(184, 142, 62, 0.4);
+}
+
+.stepBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stepTitle {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.stepText {
+  font-size: 0.8rem;
+  color: #94A3B8;
+  line-height: 1.4;
+}
+
+/* ── Right Column: Interactive Valuation Form ── */
+.formCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border-radius: var(--r-2xl);
+  padding: clamp(20px, 3vw, 32px);
+}
+
+.formTitle {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.formGroupFull {
+  grid-column: span 2;
+}
+
+.label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #CBD5E1;
+}
+
+.input, .select {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--r-md);
+  padding: 10px 14px;
+  color: #FFFFFF;
+  font-size: 0.88rem;
+  outline: none;
+  transition: all var(--dur-fast);
+}
+
+.select option {
+  background: #0E131F;
+  color: #FFFFFF;
+}
+
+.input:focus, .select:focus {
+  border-color: var(--brass);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.submitBtn {
+  background: linear-gradient(135deg, var(--brass) 0%, #92400E 100%);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--r-md);
+  padding: 13px 20px;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 900;
+  cursor: pointer;
+  margin-top: 8px;
+  width: 100%;
+  box-shadow: 0 6px 20px rgba(184, 142, 62, 0.35);
+  transition: all var(--dur-fast);
+}
+
+.submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(184, 142, 62, 0.5);
+}
+
+.successBox {
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid #10B981;
+  border-radius: var(--r-lg);
+  padding: 20px;
+  text-align: center;
+  color: #A7F3D0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .sellGrid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 500px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  .formGroupFull {
+    grid-column: span 1;
+  }
+}

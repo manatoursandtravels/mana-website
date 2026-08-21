@@ -16,12 +16,13 @@ const SERVICES_LINKS = [
   { href: '/services/local-sightseeing',label: 'Local Sightseeing',  icon: '🗺️', desc: 'Kadapa city tours'         },
   { href: '/services/wedding-travel',   label: 'Wedding & Events',   icon: '💒', desc: 'Fleet for special days'    },
   { href: '/services/self-drive',       label: 'Self Drive',         icon: '🔑', desc: 'Drive it yourself'          },
+  { href: '/used-cars',                 label: 'Certified Used Cars',icon: '🚘', desc: '150-pt verified pre-owned'  },
 ];
 
 const NAV_LINKS = [
   { href: '/about',   label: 'About' },
-  { href: '/contact', label: 'Contact' },
   { href: '/partner', label: 'Partner With Us' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 export default function Header() {

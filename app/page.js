@@ -209,45 +209,64 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══ 2. BESPOKE 3D SERVICES GRID ══ */}
+      {/* ══ 2. BESPOKE LUXURY SERVICES GRID ══ */}
       <section className={`section ${styles.servicesSection}`}>
         <div className="container">
           <div className="section-header">
-            <span className="eyebrow">Our Specialized Fleets</span>
+            <span className="eyebrow">✦ Our Specialized Fleets ✦</span>
             <h2>Every Travel Need, Crafted to Perfection</h2>
             <div className="divider" />
             <p>From local Kadapa city packages to cross-state pilgrimage journeys — explore our specialized fleet services with transparent upfront pricing.</p>
           </div>
           <div className={styles.servicesGrid}>
-            {SERVICES.map((s, i) => {
+            {[
+              { id: 'local-cabs',       label: 'Local Cabs',         icon: '🚗', tag: 'City Rides',    from: '₹999',    theme: 'blue',   href: '/services/local-cabs',         desc: '4hr/40km & 8hr/80km city packages. Driver + AC + Fuel included.' },
+              { id: 'outstation-cabs',  label: 'Outstation Cabs',    icon: '🛣️', tag: 'Intercity',    from: '₹2,099',  theme: 'red',    href: '/services/outstation-cabs',    desc: 'One-way & round-trip travel across AP & South India. Fixed upfront fares.' },
+              { id: 'airport-transfers',label: 'Airport Transfers',  icon: '✈️', tag: 'Fixed Fare',   from: '₹2,499',  theme: 'indigo', href: '/services/airport-transfers',  desc: 'Fixed-price pickup & drop to Tirupati, Hyderabad & Bangalore airports.' },
+              { id: 'pilgrimage-tours', label: 'Pilgrimage Tours',   icon: '🛕', tag: 'Sacred Trips', from: '₹2,099',  theme: 'amber',  href: '/services/pilgrimage-tours',   desc: 'Tirupati, Srisailam, Ahobilam & more. Darshan-timed departures.' },
+              { id: 'tour-packages',    label: 'Tour Packages',      icon: '🏔️', tag: 'Curated',      from: '₹2,799',  theme: 'teal',   href: '/services/tour-packages',      desc: 'Gandikota, Belum, Ooty & Goa. Full-day guided packages with expert guide.' },
+              { id: 'corporate-travel', label: 'Corporate Travel',   icon: '🏢', tag: 'GST Ready',    from: '₹1,799',  theme: 'slate',  href: '/services/corporate-travel',   desc: 'GST invoices, flexible monthly accounts, and premium executive vehicles.' },
+              { id: 'local-sightseeing',label: 'Local Sightseeing',  icon: '🗺️', tag: 'Kadapa City', from: '₹1,499',  theme: 'green',  href: '/services/local-sightseeing',  desc: 'Curated Kadapa heritage & sightseeing tours. Full-day city exploration.' },
+              { id: 'wedding-travel',   label: 'Wedding & Events',   icon: '💒', tag: 'VIP Fleet',    from: '₹1,499',  theme: 'rose',   href: '/services/wedding-travel',     desc: 'Decorated premium fleet for weddings, engagements & VIP events.' },
+              { id: 'self-drive',       label: 'Self Drive',         icon: '🔑', tag: 'Drive Yourself',from: '₹1,499', theme: 'brass',  href: '/services/self-drive',         desc: 'Drive yourself in premium sanitized cars. Doorstep handover in Kadapa.' },
+            ].map((s, i) => {
               const ServiceVector = serviceIllustrations[s.id] || LocalCabIllustration;
               return (
                 <Link
                   key={s.id}
                   href={s.href}
-                  className={styles.serviceCard}
+                  className={`${styles.serviceCard} ${styles[`serviceCard--${s.theme}`]}`}
                   id={`service-${s.id}`}
-                  style={{ '--delay': `${i * 40}ms` }}
+                  style={{ '--delay': `${i * 50}ms` }}
                 >
-                  <div className={styles.serviceIconWrap}>
-                    <ServiceVector size={54} />
+                  {/* Top row: icon + category tag */}
+                  <div className={styles.serviceCardTop}>
+                    <div className={styles.serviceIconWrap}>
+                      <ServiceVector size={48} />
+                    </div>
+                    <span className={styles.serviceTag}>{s.tag}</span>
                   </div>
+
+                  {/* Body */}
                   <div className={styles.serviceBody}>
                     <h3 className={styles.serviceName}>{s.label}</h3>
                     <p className={styles.serviceDesc}>{s.desc}</p>
                   </div>
+
+                  {/* Footer: from-price + cta */}
                   <div className={styles.serviceFooter}>
-                    <span className={styles.serviceLink}>Explore Service</span>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path
-                        d="M3 8h10M9 4l4 4-4 4"
-                        stroke="currentColor"
-                        strokeWidth="1.6"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                    <div className={styles.serviceFromWrap}>
+                      <span className={styles.serviceFromLabel}>From</span>
+                      <span className={styles.serviceFromPrice}>{s.from}</span>
+                    </div>
+                    <div className={styles.serviceCta}>
+                      <span className={styles.serviceLink}>Explore</span>
+                      <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </div>
                   </div>
+
                   <div className={styles.serviceAccent} />
                 </Link>
               );

@@ -35,7 +35,8 @@
 .inner {
   display: flex;
   align-items: center;
-  gap: 36px;
+  justify-content: space-between;
+  gap: clamp(10px, 1.8vw, 24px);
   width: 100%;
 }
 
@@ -45,10 +46,11 @@
   display: flex;
   align-items: center;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .logoImgWrap {
-  height: 52px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -64,23 +66,25 @@
 .nav {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
   flex: 1;
-  margin-left: 16px;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 .navItem {
   position: relative;
+  flex-shrink: 0;
 }
 
 .navLink {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 10px 18px;
+  gap: 5px;
+  padding: 8px 12px;
   border-radius: var(--r-pill);
   font-family: var(--font-body);
-  font-size: var(--text-sm);
+  font-size: 0.88rem;
   font-weight: 600;
   letter-spacing: 0.01em;
   color: var(--charcoal-700);
@@ -89,14 +93,16 @@
   border: none;
   cursor: pointer;
   position: relative;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .navLink::after {
   content: '';
   position: absolute;
-  bottom: 4px;
-  left: 20px;
-  right: 20px;
+  bottom: 3px;
+  left: 10px;
+  right: 10px;
   height: 2px;
   background: linear-gradient(90deg, var(--brass), var(--brand-blue));
   border-radius: 2px;
@@ -123,28 +129,66 @@
 .selfDriveNavLink {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   font-weight: 700;
   color: var(--charcoal-900);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .navBadge {
   display: inline-flex;
   align-items: center;
   font-family: var(--font-body);
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 800;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-blue-dark) 100%);
   color: #FFFFFF;
-  padding: 2px 8px;
+  padding: 2px 7px;
   border-radius: var(--r-pill);
-  box-shadow: 0 2px 8px rgba(11, 78, 162, 0.3);
+  box-shadow: 0 2px 6px rgba(11, 78, 162, 0.25);
   transition: transform var(--dur-fast);
+  white-space: nowrap;
 }
 
 .selfDriveNavLink:hover .navBadge {
   transform: scale(1.06);
+}
+
+.usedCarsNavLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: var(--charcoal-900);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.usedCarsBadge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+  color: #FFFFFF;
+  padding: 2px 6px;
+  border-radius: var(--r-pill);
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.3);
+  animation: pulseBadge 2s infinite;
+  white-space: nowrap;
+}
+
+@keyframes pulseBadge {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.08); opacity: 0.9; }
+}
+
+.usedCarsNavLink:hover .usedCarsBadge {
+  transform: scale(1.12);
 }
 
 .chevron {
@@ -161,7 +205,7 @@
   top: calc(100% + 14px);
   left: 50%;
   transform: translateX(-50%);
-  width: 680px;
+  width: 620px;
   background: #FFFFFF;
   backdrop-filter: blur(36px);
   -webkit-backdrop-filter: blur(36px);
@@ -179,8 +223,8 @@
 
 .megaGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  padding: 14px;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 12px;
   gap: 4px;
 }
 
@@ -393,6 +437,30 @@
   white-space: nowrap;
 }
 
+.mobileFeaturedUsedCars {
+  background: linear-gradient(135deg, #FFFDF0 0%, #FEF3C7 100%);
+  border: 1.5px solid #F59E0B;
+  border-radius: var(--r-xl);
+  padding: 14px 16px;
+  margin: 8px 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(184, 142, 62, 0.15);
+}
+
+.usedCarsMobileBadge {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 800;
+  background: #B91C1C;
+  color: #FFFFFF;
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  white-space: nowrap;
+}
+
 .mobileSection {
   border-bottom: 1px solid rgba(14, 19, 31, 0.08);
 }
@@ -456,12 +524,20 @@
 }
 
 /* ─── Responsive ─── */
-@media (max-width: 1240px) {
-  .phoneBtn span { display: none; }
-  .phoneBtn { padding: 10px 14px; }
+@media (max-width: 1360px) {
+  .navLink {
+    padding: 7px 8px;
+    font-size: 0.82rem;
+  }
+  .phoneBtn span {
+    display: none;
+  }
+  .phoneBtn {
+    padding: 8px 12px;
+  }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1140px) {
   .nav { display: none; }
   .phoneBtn { display: none; }
   .hamburger { display: flex; }
