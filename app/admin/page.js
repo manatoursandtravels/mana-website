@@ -1,8 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
-import { BUSINESS } from '@/lib/constants';
+import Image from 'next/image';
+import { BUSINESS, USED_CARS_INVENTORY, buildUsedCarWhatsAppMessage, buildSellCarWhatsAppMessage } from '@/lib/constants';
+import UsedCarDetailModal from '@/components/UsedCarDetailModal';
 import styles from './admin.module.css';
 
 // Default PIN for admin access
@@ -44,7 +46,17 @@ export default function AdminAnalyticsDashboard() {
   const [isLoadingLeads, setIsLoadingLeads] = useState(false);
   const [sheetError, setSheetError] = useState(null);
   const [lastRefreshed, setLastRefreshed] = useState('');
-  const [activeTab, setActiveTab] = useState('looker'); // default to looker or overview
+  const [activeTab, setActiveTab] = useState('looker'); // looker | leads | used-cars | overview
+
+  // Used Cars Inventory Status State
+  const [carStatuses, setCarStatuses] = useState({
+    'mana-uc-01': 'Available',
+    'mana-uc-02': 'Available',
+    'mana-uc-03': 'Available',
+    'mana-uc-04': 'Available',
+    'mana-uc-05': 'Available',
+  });
+  const [activeModalCar, setActiveModalCar] = useState(null);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -148,6 +160,20 @@ export default function AdminAnalyticsDashboard() {
   const selfDriveCount = leads.filter(l => l.service && (l.service.toLowerCase().includes('self') || l.service.toLowerCase().includes('drive') || l.service.toLowerCase().includes('membership'))).length;
   const partnerCount = leads.filter(l => l.service && (l.service.toLowerCase().includes('partner') || l.service.toLowerCase().includes('attachment'))).length;
 
+  const valuationLeads = useMemo(() => {
+    return leads.filter(l => 
+      (l.service && (l.service.toLowerCase().includes('used car') || l.service.toLowerCase().includes('valuation'))) || 
+      (l.tripType && (l.tripType.toLowerCase().includes('sell your car') || l.tripType.toLowerCase().includes('valuation')))
+    );
+  }, [leads]);
+
+  const testDriveLeads = useMemo(() => {
+    return leads.filter(l => 
+      (l.tripType && l.tripType.toLowerCase().includes('test drive')) || 
+      (l.notes && l.notes.toLowerCase().includes('test drive'))
+    );
+  }, [leads]);
+
   if (!isAuthenticated) {
     return (
       <div className={styles.pinGate}>
@@ -233,6 +259,13 @@ export default function AdminAnalyticsDashboard() {
             📋 Live Incoming Leads Table ({leads.length})
           </button>
           <button
+            onClick={() => setActiveTab('used-cars')}
+            className={`${styles.logoutBtn} ${activeTab === 'used-cars' ? styles.activeTabBtn : ''}`}
+            style={activeTab === 'used-cars' ? { background: 'linear-gradient(135deg, #c9a84c, #a07830)', color: '#fff', fontWeight: 700, borderColor: '#e8c97a' } : {}}
+          >
+            🚗 Used Cars &amp; Valuations ({valuationLeads.length + testDriveLeads.length})
+          </button>
+          <button
             onClick={() => setActiveTab('overview')}
             className={`${styles.logoutBtn} ${activeTab === 'overview' ? styles.activeTabBtn : ''}`}
             style={activeTab === 'overview' ? { background: 'linear-gradient(135deg, #c9a84c, #a07830)', color: '#fff', fontWeight: 700, borderColor: '#e8c97a' } : {}}
@@ -248,6 +281,13 @@ export default function AdminAnalyticsDashboard() {
             <div className={styles.kpiLabel}>Total CRM Inquiries</div>
             <div className={styles.kpiValue}>{leads.length > 0 ? `${leads.length}` : '2 (Live)'}</div>
             <div className={styles.kpiChange}>⚡ Real-Time Google Sheet Sync</div>
+          </div>
+
+          <div className={styles.kpiCard}>
+            <div className={styles.kpiIcon}>🚗</div>
+            <div className={styles.kpiLabel}>Used Cars Stock</div>
+            <div className={styles.kpiValue}>5 In Hub</div>
+            <div className={styles.kpiChange}>₹40.65L Inventory Value</div>
           </div>
 
           <div className={styles.kpiCard}>
@@ -269,13 +309,6 @@ export default function AdminAnalyticsDashboard() {
             <div className={styles.kpiLabel}>Partner Attachments</div>
             <div className={styles.kpiValue}>{partnerCount > 0 ? `${partnerCount}` : 'Active'}</div>
             <div className={styles.kpiChange}>70% Revenue Share Pipeline</div>
-          </div>
-
-          <div className={styles.kpiCard}>
-            <div className={styles.kpiIcon}>⭐</div>
-            <div className={styles.kpiLabel}>Customer Rating</div>
-            <div className={styles.kpiValue}>5.0 ★</div>
-            <div className={styles.kpiChange}>Google Verified Trust</div>
           </div>
         </section>
 
@@ -478,7 +511,342 @@ export default function AdminAnalyticsDashboard() {
           </section>
         )}
 
-        {/* ══ TAB 3: EXECUTIVE OVERVIEW & CHARTS ══ */}
+        {/* ══ TAB 3: USED CARS & VALUATION MANAGEMENT ══ */}
+        {activeTab === 'used-cars' && (
+          <section style={{ marginBottom: '32px' }}>
+            {/* Inventory Status Overview Banner */}
+            <div style={{
+              background: 'linear-gradient(135deg, rgba(201,168,76,0.12) 0%, rgba(14,19,31,0.8) 100%)',
+              border: '1px solid rgba(201,168,76,0.3)',
+              borderRadius: '16px',
+              padding: '20px 24px',
+              marginBottom: '28px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: '16px'
+            }}>
+              <div>
+                <div style={{ color: '#e8c97a', fontWeight: 800, fontSize: '1.1rem', marginBottom: '4px' }}>
+                  🚗 MANA Certified Used Cars — Hub Inventory &amp; Funnel Manager
+                </div>
+                <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem' }}>
+                  Total Inventory: <strong>5 Vehicles</strong> · Hub Value: <strong style={{ color: '#e8c97a' }}>₹40,65,000</strong> · 150-Point Certified Standard
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', gap: '10px' }}>
+                <Link
+                  href="/used-cars"
+                  target="_blank"
+                  className={styles.pinBtn}
+                  style={{ width: 'auto', padding: '8px 16px', fontSize: '0.85rem', textDecoration: 'none' }}
+                >
+                  🌐 View Live Used Cars Page ↗
+                </Link>
+                <Link
+                  href="/used-cars#sell-car-section"
+                  target="_blank"
+                  className={styles.logoutBtn}
+                  style={{ fontSize: '0.85rem', textDecoration: 'none' }}
+                >
+                  📝 Open Valuation Form ↗
+                </Link>
+              </div>
+            </div>
+
+            {/* 1. CURRENT HUB INVENTORY MANAGER */}
+            <div className={styles.sectionLabel}>🚘 1. Live Vehicles in Stock &amp; Status Controls</div>
+            <div className={styles.dataCard} style={{ overflowX: 'auto', marginBottom: '32px' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.88rem' }}>
+                <thead>
+                  <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', fontSize: '0.72rem', letterSpacing: '0.05em' }}>
+                    <th style={{ padding: '12px 10px' }}>Vehicle</th>
+                    <th style={{ padding: '12px 10px' }}>Variant &amp; Year</th>
+                    <th style={{ padding: '12px 10px' }}>Listed Price</th>
+                    <th style={{ padding: '12px 10px' }}>Specs (KM / Fuel)</th>
+                    <th style={{ padding: '12px 10px' }}>RTO &amp; Owners</th>
+                    <th style={{ padding: '12px 10px' }}>Inventory Status</th>
+                    <th style={{ padding: '12px 10px', textAlign: 'right' }}>Quick Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {USED_CARS_INVENTORY.map((car) => {
+                    const status = carStatuses[car.id] || 'Available';
+                    const shareMsg = encodeURIComponent(
+                      `*MANA Certified Used Cars Kadapa*\n\n🚗 *${car.year} ${car.name} ${car.variant}*\n💰 *Price:* ₹${(car.price / 100000).toFixed(2)} Lakh (EMI: ₹${car.emi}/mo)\n⚡ *Specs:* ${car.km} km • ${car.fuel} • ${car.transmission}\n📑 *Reg:* ${car.rto} • ${car.ownership}\n🔍 *150-Pt Inspected & Certified*\n\nView details: https://manatoursandtravels.com/used-cars`
+                    );
+
+                    return (
+                      <tr key={car.id} style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', color: '#fff' }}>
+                        <td style={{ padding: '14px 10px' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                            <div style={{ width: '48px', height: '36px', position: 'relative', borderRadius: '6px', overflow: 'hidden', flexShrink: 0, background: '#1a2333' }}>
+                              <Image src={car.images && car.images[0] ? car.images[0] : '/images/fleet-dzire.jpg'} alt={car.name} fill style={{ objectFit: 'cover' }} />
+                            </div>
+                            <div>
+                              <div style={{ fontWeight: 700, color: '#fff' }}>{car.name}</div>
+                              <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)' }}>ID: {car.id}</div>
+                            </div>
+                          </div>
+                        </td>
+
+                        <td style={{ padding: '14px 10px', color: 'rgba(255,255,255,0.85)', fontSize: '0.85rem' }}>
+                          <div>{car.variant}</div>
+                          <span style={{ fontSize: '0.75rem', color: '#e8c97a', fontWeight: 600 }}>{car.year} Model</span>
+                        </td>
+
+                        <td style={{ padding: '14px 10px', whiteSpace: 'nowrap' }}>
+                          <div style={{ color: '#e8c97a', fontWeight: 800, fontSize: '0.95rem' }}>
+                            {car.priceDisplay || `₹${(car.price / 100000).toFixed(2)} Lakh`}
+                          </div>
+                          <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.5)' }}>
+                            EMI {car.emiStarting || '₹8,990/mo'}
+                          </div>
+                        </td>
+
+                        <td style={{ padding: '14px 10px', color: 'rgba(255,255,255,0.8)', fontSize: '0.82rem' }}>
+                          <div>{car.kmDisplay || `${car.kmDriven} km`}</div>
+                          <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)' }}>{car.fuel} · {car.transmission}</span>
+                        </td>
+
+                        <td style={{ padding: '14px 10px', color: 'rgba(255,255,255,0.8)', fontSize: '0.82rem' }}>
+                          <div>{car.rto}</div>
+                          <span style={{ fontSize: '0.75rem', color: '#60a5fa' }}>{car.owner}</span>
+                        </td>
+
+                        <td style={{ padding: '14px 10px' }}>
+                          <select
+                            value={status}
+                            onChange={(e) => setCarStatuses(prev => ({ ...prev, [car.id]: e.target.value }))}
+                            style={{
+                              padding: '5px 10px',
+                              borderRadius: '8px',
+                              background: status === 'Available' ? 'rgba(34,197,94,0.15)' : status === 'Test Drive Scheduled' ? 'rgba(234,179,8,0.15)' : 'rgba(239,68,68,0.15)',
+                              color: status === 'Available' ? '#4ade80' : status === 'Test Drive Scheduled' ? '#facc15' : '#f87171',
+                              border: `1px solid ${status === 'Available' ? 'rgba(34,197,94,0.3)' : status === 'Test Drive Scheduled' ? 'rgba(234,179,8,0.3)' : 'rgba(239,68,68,0.3)'}`,
+                              fontSize: '0.78rem',
+                              fontWeight: 700,
+                              outline: 'none',
+                              cursor: 'pointer'
+                            }}
+                          >
+                            <option value="Available" style={{ background: '#0E131F', color: '#4ade80' }}>🟢 Available</option>
+                            <option value="Test Drive Scheduled" style={{ background: '#0E131F', color: '#facc15' }}>🟡 Test Drive Booked</option>
+                            <option value="Sold" style={{ background: '#0E131F', color: '#f87171' }}>🔴 Sold Out</option>
+                          </select>
+                        </td>
+
+                        <td style={{ padding: '14px 10px', textAlign: 'right', whiteSpace: 'nowrap' }}>
+                          <button
+                            onClick={() => setActiveModalCar(car)}
+                            style={{
+                              padding: '6px 12px',
+                              background: 'rgba(201,168,76,0.15)',
+                              color: '#e8c97a',
+                              border: '1px solid rgba(201,168,76,0.3)',
+                              borderRadius: '8px',
+                              fontSize: '0.78rem',
+                              fontWeight: 700,
+                              cursor: 'pointer',
+                              marginRight: '6px'
+                            }}
+                          >
+                            🔍 150-Pt Report
+                          </button>
+                          <a
+                            href={`https://wa.me/?text=${shareMsg}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{
+                              display: 'inline-block',
+                              padding: '6px 12px',
+                              background: '#22c55e',
+                              color: '#fff',
+                              borderRadius: '8px',
+                              textDecoration: 'none',
+                              fontSize: '0.78rem',
+                              fontWeight: 700,
+                            }}
+                          >
+                            💬 WhatsApp Share
+                          </a>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+
+            {/* 2. SELLER VALUATION REQUESTS QUEUE */}
+            <div className={styles.sectionLabel} style={{ marginTop: '36px' }}>
+              💰 2. "Sell Your Car to MANA" Valuation Requests ({valuationLeads.length})
+            </div>
+            <div className={styles.dataCard} style={{ overflowX: 'auto', marginBottom: '32px' }}>
+              {valuationLeads.length > 0 ? (
+                <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.88rem' }}>
+                  <thead>
+                    <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', fontSize: '0.72rem', letterSpacing: '0.05em' }}>
+                      <th style={{ padding: '12px 10px' }}>Date</th>
+                      <th style={{ padding: '12px 10px' }}>Seller Name</th>
+                      <th style={{ padding: '12px 10px' }}>Phone</th>
+                      <th style={{ padding: '12px 10px' }}>Vehicle Offered</th>
+                      <th style={{ padding: '12px 10px' }}>Expected Price</th>
+                      <th style={{ padding: '12px 10px' }}>Location</th>
+                      <th style={{ padding: '12px 10px', textAlign: 'right' }}>Quick Offer Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {valuationLeads.map((lead) => {
+                      const cleanPhone = (lead.phone || '').replace(/[^0-9]/g, '');
+                      const waQuoteMsg = encodeURIComponent(
+                        `Hello ${lead.name || 'Sir'}, Greetings from MANA Tours & Travels Kadapa (Used Cars Desk)!\n\nRegarding your car valuation request for *${lead.vehicleChoice || 'your vehicle'}*:\nWe have reviewed your details and would love to offer a quick doorstep evaluation & immediate settlement in Kadapa.\n\nCould you please share 4-5 photos of the car and current RC copy?`
+                      );
+
+                      return (
+                        <tr key={lead.id} style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', color: '#fff' }}>
+                          <td style={{ padding: '14px 10px', color: 'rgba(255,255,255,0.6)', fontSize: '0.8rem', whiteSpace: 'nowrap' }}>
+                            {lead.timestamp || 'Recent'}
+                          </td>
+                          <td style={{ padding: '14px 10px', fontWeight: 700, color: '#fff' }}>
+                            {lead.name}
+                          </td>
+                          <td style={{ padding: '14px 10px', whiteSpace: 'nowrap' }}>
+                            <a href={`tel:${lead.phone}`} style={{ color: '#93c5fd', textDecoration: 'none' }}>
+                              📞 {lead.phone}
+                            </a>
+                          </td>
+                          <td style={{ padding: '14px 10px', color: '#e8c97a', fontWeight: 600 }}>
+                            {lead.vehicleChoice || 'Car Seller Lead'}
+                          </td>
+                          <td style={{ padding: '14px 10px', color: '#4ade80', fontWeight: 700 }}>
+                            {lead.estimatedPrice || lead.destination || 'Best Offer'}
+                          </td>
+                          <td style={{ padding: '14px 10px', color: 'rgba(255,255,255,0.7)', fontSize: '0.82rem' }}>
+                            {lead.pickup || 'Kadapa'}
+                          </td>
+                          <td style={{ padding: '14px 10px', textAlign: 'right', whiteSpace: 'nowrap' }}>
+                            <a
+                              href={`https://wa.me/91${cleanPhone}?text=${waQuoteMsg}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{
+                                display: 'inline-block',
+                                padding: '6px 14px',
+                                background: '#22c55e',
+                                color: '#fff',
+                                borderRadius: '8px',
+                                textDecoration: 'none',
+                                fontSize: '0.78rem',
+                                fontWeight: 700,
+                              }}
+                            >
+                              💬 Send WhatsApp Offer Quote
+                            </a>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              ) : (
+                <div style={{ padding: '36px 20px', textAlign: 'center' }}>
+                  <div style={{ fontSize: '2rem', marginBottom: '8px' }}>📋</div>
+                  <div style={{ color: '#fff', fontWeight: 700, marginBottom: '4px' }}>No Pending Valuation Requests</div>
+                  <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.85rem', maxWidth: '480px', margin: '0 auto' }}>
+                    When visitors in Kadapa submit their car details on your <strong>/used-cars#sell-car-section</strong> page, their valuation requests will appear here with 1-click WhatsApp cash offer dispatch!
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* 3. TEST DRIVE BOOKINGS QUEUE */}
+            <div className={styles.sectionLabel} style={{ marginTop: '36px' }}>
+              🔑 3. Doorstep Test Drive Bookings ({testDriveLeads.length})
+            </div>
+            <div className={styles.dataCard} style={{ overflowX: 'auto' }}>
+              {testDriveLeads.length > 0 ? (
+                <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.88rem' }}>
+                  <thead>
+                    <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', fontSize: '0.72rem', letterSpacing: '0.05em' }}>
+                      <th style={{ padding: '12px 10px' }}>Date</th>
+                      <th style={{ padding: '12px 10px' }}>Customer Name</th>
+                      <th style={{ padding: '12px 10px' }}>Phone</th>
+                      <th style={{ padding: '12px 10px' }}>Car Requested</th>
+                      <th style={{ padding: '12px 10px' }}>Preferred Date/Time</th>
+                      <th style={{ padding: '12px 10px' }}>Doorstep Location</th>
+                      <th style={{ padding: '12px 10px', textAlign: 'right' }}>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {testDriveLeads.map((lead) => {
+                      const cleanPhone = (lead.phone || '').replace(/[^0-9]/g, '');
+                      const waConfirmMsg = encodeURIComponent(
+                        `Hello ${lead.name}, thank you for booking a doorstep test drive with MANA Certified Used Cars Kadapa! We are confirming your test drive for the *${lead.vehicleChoice || 'requested vehicle'}* on ${lead.travelDate || 'the requested date'}. Our executive will arrive with the vehicle.`
+                      );
+
+                      return (
+                        <tr key={lead.id} style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', color: '#fff' }}>
+                          <td style={{ padding: '14px 10px', color: 'rgba(255,255,255,0.6)', fontSize: '0.8rem' }}>
+                            {lead.timestamp || 'Recent'}
+                          </td>
+                          <td style={{ padding: '14px 10px', fontWeight: 700, color: '#fff' }}>
+                            {lead.name}
+                          </td>
+                          <td style={{ padding: '14px 10px', whiteSpace: 'nowrap' }}>
+                            <a href={`tel:${lead.phone}`} style={{ color: '#93c5fd', textDecoration: 'none' }}>
+                              📞 {lead.phone}
+                            </a>
+                          </td>
+                          <td style={{ padding: '14px 10px', color: '#e8c97a', fontWeight: 600 }}>
+                            {lead.vehicleChoice || 'Test Drive'}
+                          </td>
+                          <td style={{ padding: '14px 10px', color: 'rgba(255,255,255,0.85)', fontSize: '0.82rem' }}>
+                            {lead.travelDate || 'Immediate'}
+                          </td>
+                          <td style={{ padding: '14px 10px', color: 'rgba(255,255,255,0.7)', fontSize: '0.82rem' }}>
+                            {lead.pickup || 'Kadapa'}
+                          </td>
+                          <td style={{ padding: '14px 10px', textAlign: 'right', whiteSpace: 'nowrap' }}>
+                            <a
+                              href={`https://wa.me/91${cleanPhone}?text=${waConfirmMsg}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{
+                                display: 'inline-block',
+                                padding: '6px 14px',
+                                background: '#22c55e',
+                                color: '#fff',
+                                borderRadius: '8px',
+                                textDecoration: 'none',
+                                fontSize: '0.78rem',
+                                fontWeight: 700,
+                              }}
+                            >
+                              💬 Confirm Test Drive
+                            </a>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              ) : (
+                <div style={{ padding: '36px 20px', textAlign: 'center' }}>
+                  <div style={{ fontSize: '2rem', marginBottom: '8px' }}>🚗</div>
+                  <div style={{ color: '#fff', fontWeight: 700, marginBottom: '4px' }}>No Pending Test Drive Requests</div>
+                  <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.85rem', maxWidth: '480px', margin: '0 auto' }}>
+                    When buyers click <strong>Book Doorstep Test Drive</strong> on any car card, their requests will appear here with one-click customer confirmation.
+                  </div>
+                </div>
+              )}
+            </div>
+          </section>
+        )}
+
+        {/* ══ TAB 4: EXECUTIVE OVERVIEW & CHARTS ══ */}
         {activeTab === 'overview' && (
           <>
             {/* Sheet Connection Status Banner */}
@@ -689,6 +1057,15 @@ export default function AdminAnalyticsDashboard() {
           </a>
         </div>
       </div>
+
+      {/* 150-Point Inspection Modal Preview */}
+      {activeModalCar && (
+        <UsedCarDetailModal
+          car={activeModalCar}
+          isTestDriveMode={false}
+          onClose={() => setActiveModalCar(null)}
+        />
+      )}
     </div>
   );
 }
