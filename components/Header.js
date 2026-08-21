@@ -16,7 +16,7 @@ const SERVICES_LINKS = [
   { href: '/services/local-sightseeing',label: 'Local Sightseeing',  icon: '🗺️', desc: 'Kadapa city tours'         },
   { href: '/services/wedding-travel',   label: 'Wedding & Events',   icon: '💒', desc: 'Fleet for special days'    },
   { href: '/services/self-drive',       label: 'Self Drive',         icon: '🔑', desc: 'Drive it yourself'          },
-  { href: '/used-cars',                 label: 'Certified Used Cars',icon: '🚘', desc: '150-pt verified pre-owned'  },
+  { href: '/used-cars#sell-car-section',label: 'Certified Used Cars',icon: '🚘', desc: 'Sell your car & verified fleet' },
 ];
 
 const NAV_LINKS = [
@@ -123,7 +123,16 @@ export default function Header() {
                         href={s.href}
                         className={styles.megaItem}
                         role="menuitem"
-                        onClick={() => setDropOpen(false)}
+                        onClick={() => {
+                          setDropOpen(false);
+                          if (s.href.includes('#')) {
+                            const [targetPath, hash] = s.href.split('#');
+                            if (pathname === targetPath) {
+                              const target = document.getElementById(hash);
+                              if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                          }
+                        }}
                       >
                         <span className={styles.megaIcon}>{s.icon}</span>
                         <div>
@@ -249,7 +258,21 @@ export default function Header() {
             {mobileServices && (
               <div className={styles.mobileServiceLinks}>
                 {SERVICES_LINKS.map((s) => (
-                  <Link key={s.href} href={s.href} className={styles.mobileServiceItem} onClick={() => setMenuOpen(false)}>
+                  <Link
+                    key={s.href}
+                    href={s.href}
+                    className={styles.mobileServiceItem}
+                    onClick={() => {
+                      setMenuOpen(false);
+                      if (s.href.includes('#')) {
+                        const [targetPath, hash] = s.href.split('#');
+                        if (pathname === targetPath) {
+                          const target = document.getElementById(hash);
+                          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                      }
+                    }}
+                  >
                     <span>{s.icon}</span> {s.label}
                   </Link>
                 ))}

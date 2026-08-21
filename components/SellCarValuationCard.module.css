@@ -7,6 +7,7 @@
   position: relative;
   overflow: hidden;
   color: #FFFFFF;
+  scroll-margin-top: calc(var(--header-h) + 40px);
 }
 
 .sellBgMesh {

@@ -1,5 +1,5 @@
 'use client';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
@@ -40,6 +40,26 @@ export default function UsedCarsPage() {
   const [activeModalCar, setActiveModalCar] = useState(null);
   const [isTestDriveMode, setIsTestDriveMode] = useState(false);
   const [openFaq, setOpenFaq] = useState(0);
+
+  // Auto-scroll to #sell-car-section if requested
+  useEffect(() => {
+    const handleHash = () => {
+      if (typeof window !== 'undefined' && window.location.hash === '#sell-car-section') {
+        setTimeout(() => {
+          const el = document.getElementById('sell-car-section');
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const firstInput = el.querySelector('input');
+            if (firstInput) firstInput.focus({ preventScroll: true });
+          }
+        }, 300);
+      }
+    };
+
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
 
   // Filter Logic
   const filteredCars = useMemo(() => {
