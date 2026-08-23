@@ -235,6 +235,17 @@ export default function GoogleReviews({ title, subtitle, filterCategory = null }
                       <p className={styles.reviewText} style={{ marginTop: '12px' }}>
                         &ldquo;{r.text}&rdquo;
                       </p>
+
+                      {/* Owner Response */}
+                      {r.ownerResponse && (
+                        <div className={styles.ownerResponseBox}>
+                          <div className={styles.ownerResponseHeader}>
+                            <span className={styles.ownerDot} />
+                            <span>Response from MANA Tours (Owner)</span>
+                          </div>
+                          <p className={styles.ownerResponseText}>&ldquo;{r.ownerResponse}&rdquo;</p>
+                        </div>
+                      )}
                     </div>
 
                     {/* Footer: Helpful interaction */}
@@ -249,14 +260,39 @@ export default function GoogleReviews({ title, subtitle, filterCategory = null }
                         <span>Helpful ({likeCount})</span>
                       </button>
 
-                      <span className={styles.sourceGoogle}>
+                      <a
+                        href={GOOGLE_REVIEWS_DATA.googleMapsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.sourceGoogle}
+                        title="View review on Google Maps"
+                      >
                         <GoogleGIcon size={12} />
-                        <span>Google Review</span>
-                      </span>
+                        <span>View on Google ↗</span>
+                      </a>
                     </div>
                   </article>
                 );
               })}
+
+              {/* 🌟 Next Reviewer Invitation Card */}
+              <div className={styles.inviteCard}>
+                <div className={styles.inviteIcon}>⭐</div>
+                <h3 className={styles.inviteTitle}>Recently Traveled With Us?</h3>
+                <p className={styles.inviteText}>
+                  Help fellow devotees, families, and travelers in Kadapa by sharing your 5-star Google review!
+                </p>
+                <a
+                  href={GOOGLE_REVIEWS_DATA.googleReviewWriteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.inviteBtn}
+                  id="cta-invite-write-review"
+                >
+                  <GoogleGIcon size={16} />
+                  <span>Write a Google Review →</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
