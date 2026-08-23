@@ -138,8 +138,8 @@ export default function HomePage() {
             </a>
 
             <h1 className={styles.heroH1}>
-              Every Journey,<br />
-              <span className={styles.heroH1Gradient}>A New Experience.</span>
+              <span className={styles.heroH1Line1}>Every Journey,</span><br />
+              <span className={styles.heroH1Line2}>A New Experience.</span>
             </h1>
 
             <p className={styles.heroP}>
