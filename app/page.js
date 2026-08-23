@@ -6,6 +6,7 @@ import BookingForm from '@/components/BookingForm';
 import FareCalculator from '@/components/FareCalculator';
 import Link from 'next/link';
 import BookingCTA from '@/components/BookingCTA';
+import GoogleReviews from '@/components/GoogleReviews';
 import { BUSINESS, SERVICES, RATES } from '@/lib/constants';
 import {
   LocalCabIllustration,
@@ -129,12 +130,12 @@ export default function HomePage() {
 
         <div className={`container ${styles.heroInner}`}>
           <div className={styles.heroContent}>
-            <div className={styles.heroPill}>
+            <a href="#google-reviews" className={styles.heroPill} title="View Google Reviews & Rating">
               <span className={styles.heroPillDot} />
               <span className={styles.pillHighlight}>⭐ 5.0 Google Rated</span>
               <span className={styles.pillDivider}>·</span>
               <span className={styles.pillSub}>Kadapa&apos;s Premier Travel Partner</span>
-            </div>
+            </a>
 
             <h1 className={styles.heroH1}>
               Every Journey,<br />
@@ -387,48 +388,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══ 5. TESTIMONIALS & PROOF ══ */}
-      <section className={`section ${styles.testimonialSection}`}>
-        <div className="container">
-          <div className="section-header">
-            <span className="eyebrow">Client Testimonials</span>
-            <h2>Loved by Hundreds of Travelers</h2>
-            <div className="divider" />
-          </div>
-          <div className={styles.testimonialLayout}>
-            <div className={styles.testimonialImgCol}>
-              <Image
-                src="/images/happy-passengers.jpg"
-                alt="Happy MANA Tours travelers in Kadapa"
-                fill
-                quality={85}
-                style={{ objectFit: 'cover' }}
-              />
-              <div className={styles.testimonialImgOverlay} />
-              <div className={styles.testimonialImgBadge}>
-                <div className={styles.tibStars}>★★★★★</div>
-                <div className={styles.tibNum}>5.0</div>
-                <div className={styles.tibLabel}>Google Rating</div>
-              </div>
-            </div>
-            <div className={styles.testimonialGrid}>
-              {testimonials.map((t, i) => (
-                <div key={i} className={styles.testimonialCard}>
-                  <div className={styles.tCardStars}>{'★'.repeat(t.stars)}</div>
-                  <p className={styles.tCardText}>&ldquo;{t.text}&rdquo;</p>
-                  <div className={styles.tCardAuthor}>
-                    <div className={styles.tCardAvatar}>{t.name[0]}</div>
-                    <div>
-                      <div className={styles.tCardName}>{t.name}</div>
-                      <div className={styles.tCardCity}>📍 {t.city}</div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ══ 5. DYNAMIC GOOGLE BUSINESS REVIEWS & SOCIAL PROOF ══ */}
+      <GoogleReviews />
 
       {/* ══ 6. 3D INFOGRAPHIC PILLARS: THE MANA DIFFERENCE ══ */}
       <section className={`section ${styles.whySection}`}>

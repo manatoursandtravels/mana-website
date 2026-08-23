@@ -7,6 +7,7 @@ import UsedCarCard from '@/components/UsedCarCard';
 import UsedCarDetailModal from '@/components/UsedCarDetailModal';
 import CarEmiCalculator from '@/components/CarEmiCalculator';
 import SellCarValuationCard from '@/components/SellCarValuationCard';
+import GoogleReviews from '@/components/GoogleReviews';
 import { USED_CARS_INVENTORY, BUSINESS } from '@/lib/constants';
 import styles from './used-cars.module.css';
 
@@ -389,6 +390,12 @@ export default function UsedCarsPage() {
             </div>
           </div>
         </section>
+
+        {/* ══ GOOGLE BUSINESS REVIEWS & REPUTATION ══ */}
+        <GoogleReviews
+          title={<>Customer Trust &amp; <span style={{ color: '#e8c97a' }}>Google Reviews</span></>}
+          subtitle="Real reviews from verified car buyers, sellers, and self-drive travelers in Kadapa &amp; Rayalaseema."
+        />
       </main>
 
       {/* ── Detail / Test Drive Modal ── */}

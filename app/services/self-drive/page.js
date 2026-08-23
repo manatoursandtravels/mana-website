@@ -3,6 +3,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import BookingForm from '@/components/BookingForm';
+import GoogleReviews from '@/components/GoogleReviews';
 import SelfDrivePricingMatrix from '@/components/SelfDrivePricingMatrix';
 import SelfDriveFleetShowcase from '@/components/SelfDriveFleetShowcase';
 import Link from 'next/link';
@@ -465,6 +466,13 @@ export default function SelfDriveLandingPage() {
           </div>
         </div>
       </section>
+
+      {/* ══ 5. GOOGLE BUSINESS REVIEWS & SELF-DRIVE TRUST ══ */}
+      <GoogleReviews
+        filterCategory="self-drive"
+        title={<>Verified Self-Drive <span style={{ color: '#e8c97a' }}>Driver Reviews</span></>}
+        subtitle="5.0 ★ Google reviews from travelers and road trippers who rented our premium self-drive cars in Kadapa."
+      />
 
       <Footer />
       <WhatsAppButton />

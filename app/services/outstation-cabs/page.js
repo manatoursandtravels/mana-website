@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import BookingForm from '@/components/BookingForm';
+import GoogleReviews from '@/components/GoogleReviews';
 import Link from 'next/link';
 import styles from '../service.module.css';
 import { RATES, BUSINESS } from '@/lib/constants';
@@ -292,6 +293,13 @@ export default function OutstationCabsPage() {
           </div>
         </div>
       </section>
+
+      {/* ══ 4. GOOGLE BUSINESS REVIEWS & SOCIAL PROOF ══ */}
+      <GoogleReviews
+        filterCategory="airport"
+        title={<>Intercity Travelers Love <span style={{ color: '#e8c97a' }}>MANA Tours</span></>}
+        subtitle="Verified 5.0 ★ Google reviews from commuters, airport travelers, and outstation passengers across Andhra Pradesh."
+      />
 
       <Footer />
       <WhatsAppButton />

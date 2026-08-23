@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import BookingForm from '@/components/BookingForm';
+import GoogleReviews from '@/components/GoogleReviews';
 import Link from 'next/link';
 import styles from '../service.module.css';
 import { BUSINESS } from '@/lib/constants';
@@ -268,6 +269,13 @@ export default function PilgrimagePage() {
           </div>
         </div>
       </section>
+
+      {/* ══ 4. GOOGLE BUSINESS REVIEWS & DEVOTEE PROOF ══ */}
+      <GoogleReviews
+        filterCategory="pilgrimage"
+        title={<>Devotee Experiences &amp; <span style={{ color: '#e8c97a' }}>Google Reviews</span></>}
+        subtitle="Authentic 5.0 ★ Google reviews from families who traveled with MANA Tours on sacred pilgrimage circuits."
+      />
 
       <Footer />
       <WhatsAppButton />
