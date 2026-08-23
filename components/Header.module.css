@@ -543,3 +543,10 @@
   .hamburger { display: flex; }
   .mobileMenu { display: block; }
 }
+
+@media (max-width: 1024px) {
+  .actions .ctaBtn,
+  .ctaBtn {
+    display: none !important;
+  }
+}

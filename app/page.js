@@ -41,7 +41,7 @@ export const metadata = {
 };
 
 const stats = [
-  { num: '5.0', label: 'Google Rating', sub: '120+ Verified Reviews', Component: HolographicGoldStar },
+  { num: '5.0', label: 'Google Rating', sub: '100% 5-Star Reviews', Component: HolographicGoldStar },
   { num: '24/7', label: 'Available All Hours', sub: 'Live Dispatch Desk', Component: SweepingClockHand },
   { num: '₹0', label: 'Hidden Charges', sub: '100% Upfront Quotes', Component: ShimmeringRupeeCascade },
   { num: '9+', label: 'Specialized Fleets', sub: 'Sedans, MPVs & Coaches', Component: AnimatedLuxuryFleet },
@@ -147,19 +147,43 @@ export default function HomePage() {
               Zero hidden charges. Experienced chauffeurs. 5.0 ★ Google rated.
             </p>
 
+            {/* Mobile-Friendly Quick Service Shortcuts */}
+            <div className={styles.heroQuickChips} aria-label="Popular quick routes">
+              <Link href="/services/pilgrimage-tours" className={styles.heroQuickChip}>
+                <span className={styles.hqcIcon}>🛕</span>
+                <span className={styles.hqcLabel}>Tirupati Darshan</span>
+                <span className={styles.hqcPrice}>₹2,099</span>
+              </Link>
+              <Link href="/services/airport-transfers" className={styles.heroQuickChip}>
+                <span className={styles.hqcIcon}>✈️</span>
+                <span className={styles.hqcLabel}>Airport Drops</span>
+                <span className={styles.hqcPrice}>Fixed Fare</span>
+              </Link>
+              <Link href="/services/self-drive" className={styles.heroQuickChip}>
+                <span className={styles.hqcIcon}>🔑</span>
+                <span className={styles.hqcLabel}>Self Drive</span>
+                <span className={styles.hqcPrice}>₹1,499/d</span>
+              </Link>
+              <Link href="/routes/kadapa-gandikota-tour" className={styles.heroQuickChip}>
+                <span className={styles.hqcIcon}>🏜️</span>
+                <span className={styles.hqcLabel}>Gandikota</span>
+                <span className={styles.hqcPrice}>Day Tour</span>
+              </Link>
+            </div>
+
             <div className={styles.heroContacts}>
               <a href={`tel:${BUSINESS.phone.pavan}`} className={styles.heroContact} id="hero-pavan">
                 <div className={styles.heroContactIcon}>📞</div>
-                <div>
-                  <div className={styles.heroContactName}>Pavan</div>
+                <div className={styles.heroContactInfo}>
+                  <div className={styles.heroContactName}>Call Pavan</div>
                   <div className={styles.heroContactNum}>{BUSINESS.phone.pavanDisplay}</div>
                 </div>
               </a>
               <div className={styles.heroContactDivider} />
               <a href={`tel:${BUSINESS.phone.jyothi}`} className={styles.heroContact} id="hero-jyothi">
                 <div className={styles.heroContactIcon}>📞</div>
-                <div>
-                  <div className={styles.heroContactName}>Jyothi</div>
+                <div className={styles.heroContactInfo}>
+                  <div className={styles.heroContactName}>Call Jyothi</div>
                   <div className={styles.heroContactNum}>{BUSINESS.phone.jyothiDisplay}</div>
                 </div>
               </a>

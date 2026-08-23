@@ -181,7 +181,7 @@ export default function Header() {
             </a>
             <a
               href="#booking-section"
-              className="btn btn--primary btn--sm"
+              className={`btn btn--primary btn--sm ${styles.ctaBtn}`}
               id="header-book-btn"
               onClick={(e) => {
                 e.preventDefault();
