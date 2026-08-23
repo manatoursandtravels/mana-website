@@ -88,7 +88,9 @@ export default function RootLayout({ children }) {
                 bestRating: '5',
                 worstRating: '1',
               },
-              priceRange: '₹₹',
+              sameAs: [
+                'https://share.google/0sD6bzbqjLt1h1NCZ',
+              ],
               areaServed: [
                 'Kadapa',
                 'Tirupati',
