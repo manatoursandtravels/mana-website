@@ -143,8 +143,7 @@ export default function HomePage() {
             </h1>
 
             <p className={styles.heroP}>
-              Kadapa&apos;s most trusted premium cab service — sacred pilgrimage tours, fixed airport transfers, intercity trips, and curated day getaways.
-              Zero hidden charges. Experienced chauffeurs. 5.0 ★ Google rated.
+              Your trusted travel partner in Kadapa for temple pilgrimage tours, fixed airport transfers, outstation cabs, and self-drive car rentals. Clean AC vehicles, on-time pickup, and transparent upfront pricing.
             </p>
 
             {/* Mobile-Friendly Quick Service Shortcuts */}
