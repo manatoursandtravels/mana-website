@@ -149,10 +149,61 @@
   color: var(--brass-dark);
 }
 
+/* New Customer 2-for-1 Special Box */
+.newCustomerOfferBox {
+  background: linear-gradient(135deg, #FFFDF0 0%, #FEF3C7 100%);
+  border: 2px solid #F59E0B;
+  border-radius: var(--r-xl);
+  padding: 16px 20px;
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.ncobBadge {
+  display: inline-block;
+  background: #D97706;
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+  margin-bottom: 10px;
+}
+
+.ncobBody {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.ncobIcon {
+  font-size: 1.8rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.ncobTitle {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #92400E;
+}
+
+.ncobDesc {
+  font-size: 0.86rem;
+  color: #78350F;
+  margin-top: 3px;
+  line-height: 1.5;
+}
+
 /* Weekly Deal Box */
 .weeklyPromoBox {
-  background: linear-gradient(135deg, var(--brass-subtle) 0%, #FFFFFF 100%);
-  border: 1.5px solid var(--brass-border);
+  background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+  border: 1.5px solid #3B82F6;
   border-radius: var(--r-xl);
   padding: 16px 20px;
   display: flex;
@@ -169,12 +220,12 @@
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 1.05rem;
-  color: var(--brand-red);
+  color: #1E40AF;
 }
 
 .wpbDesc {
   font-size: 0.85rem;
-  color: var(--charcoal-700);
+  color: #1E3A8A;
   margin-top: 2px;
 }
 

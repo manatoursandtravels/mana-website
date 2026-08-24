@@ -126,13 +126,27 @@ export default function SelfDriveLandingPage() {
                 Kadapa&apos;s only premium self-drive fleet — sanitised, fully insured, and FASTag-equipped sedans &amp; MPVs you can drive anywhere in South India. No driver. No compromise. Zero hidden costs.
               </p>
 
-              {/* Weekly Promo Banner */}
+              {/* 🎁 First-Time Customer 2-for-1 Special */}
+              <div className={styles.newCustomerOfferBox}>
+                <div className={styles.ncobBadge}>🎁 FIRST-TIME CUSTOMER EXCLUSIVE</div>
+                <div className={styles.ncobBody}>
+                  <div className={styles.ncobIcon}>⚡</div>
+                  <div>
+                    <div className={styles.ncobTitle}>Pay for 1 Day, Drive for 2 Days! (48 Hours Rental)</div>
+                    <div className={styles.ncobDesc}>
+                      First time renting with MANA? Book a 2-day self-drive trip and pay only for 1 day (<strong>₹1,499 for 2 full days</strong>). Valid on your first booking with digital DL verification.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 👕 Weekly Promo Banner + Free T-Shirt */}
               <div className={styles.weeklyPromoBox}>
-                <div className={styles.wpbIcon}>🔥</div>
+                <div className={styles.wpbIcon}>👕</div>
                 <div>
-                  <div className={styles.wpbTitle}>Members Save ₹800 on Every 7-Day Booking — That&apos;s Our Promise, Every Time.</div>
+                  <div className={styles.wpbTitle}>Save ₹800 + Free MANA Branded Logo T-Shirt on 7-Day Bookings!</div>
                   <div className={styles.wpbDesc}>
-                    7-Day Sedan plan now only <strong>₹9,693</strong> — down from ₹10,493. No codes. No conditions. Applied automatically.
+                    7-Day Sedan plan now only <strong>₹9,693</strong> (down from ₹10,493) plus a complimentary 100% cotton MANA Tours branded T-Shirt in your choice of <strong>M, L, or XL</strong>!
                   </div>
                 </div>
               </div>

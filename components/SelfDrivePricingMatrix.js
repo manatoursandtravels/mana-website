@@ -66,11 +66,12 @@ const PRICING_DATA = {
         features: [
           '1,750 km generous travel allowance',
           'Instant ₹800 Promo Discount applied',
+          '👕 FREE MANA Branded Logo T-Shirt (M/L/XL)',
           '100% Customer-Managed Fuel',
           'Priority Doorstep Handover in Kadapa',
           'Spotless Sanitisation & Vehicle Checkup',
         ],
-        waMsg: 'Hi Pavan, I want to book the 7-Day Weekly Self Drive Sedan plan (₹9,693 with ₹800 OFF).',
+        waMsg: 'Hi Pavan, I want to book the 7-Day Weekly Self Drive Sedan plan (₹9,693) with the Free MANA T-Shirt offer.',
       },
       {
         id: 'monthly',
@@ -88,6 +89,7 @@ const PRICING_DATA = {
         features: [
           'Effective ₹833 / day — Cheaper than EMI',
           '3,000 km generous monthly allowance',
+          '👕 FREE MANA Branded Logo T-Shirt (M/L/XL)',
           'Zero Maintenance & Servicing charges',
           '1 Free Weekend 7-Seater MPV Swap',
           '5% Loyalty Renewal Discount on M2',
@@ -157,11 +159,12 @@ const PRICING_DATA = {
         features: [
           '1,750 km long-haul allowance',
           'Instant ₹1,500 Group Promo applied',
+          '👕 FREE MANA Branded Logo T-Shirt (M/L/XL)',
           '100% Customer-Managed Fuel',
           'Priority Doorstep Handover in Kadapa',
           'Full Highway Safety & Tire Inspection',
         ],
-        waMsg: 'Hi Pavan, I want to book the 7-Day Weekly Self Drive 7-Seater MPV plan (₹15,993).',
+        waMsg: 'Hi Pavan, I want to book the 7-Day Weekly Self Drive 7-Seater MPV plan (₹15,993) with Free T-Shirt.',
       },
       {
         id: 'monthly',
@@ -178,6 +181,7 @@ const PRICING_DATA = {
         vip: true,
         features: [
           'Effective ₹1,333 / day for 7 Seats',
+          '👕 FREE MANA Branded Logo T-Shirt (M/L/XL)',
           '3,500 km massive monthly allowance',
           'Zero Maintenance & Periodic Servicing',
           'Free Doorstep Maintenance Pickup',

@@ -173,6 +173,127 @@
   background: #FFFFFF;
 }
 
+/* ─── Promotional Alert Box & T-Shirt Size Selector ─── */
+.promoAlertBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: linear-gradient(135deg, #FFFDF0 0%, #FEF3C7 100%);
+  border: 1.5px solid #F59E0B;
+  border-radius: var(--r-lg);
+  padding: 10px 14px;
+  margin-top: -2px;
+  animation: fadeIn 0.3s ease both;
+}
+
+.pabIcon {
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.pabTitle {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 800;
+  color: #92400E;
+}
+
+.pabText {
+  font-size: 0.76rem;
+  color: #78350F;
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
+.tshirtBox {
+  background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+  border: 1.5px solid #3B82F6;
+  border-radius: var(--r-lg);
+  padding: 12px 14px;
+  margin-top: -2px;
+  animation: fadeIn 0.3s ease both;
+}
+
+.tshirtHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.tshirtIcon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.tshirtTitle {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 800;
+  color: #1E40AF;
+}
+
+.tshirtText {
+  font-size: 0.76rem;
+  color: #1E3A8A;
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
+.tshirtSizePicker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 6px 10px;
+  border-radius: var(--r-md);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+.tshirtSizeLabel {
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: #1E40AF;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.sizeOptions {
+  display: flex;
+  gap: 6px;
+}
+
+.sizeBtn {
+  background: #FFFFFF;
+  border: 1.5px solid #93C5FD;
+  color: #1E40AF;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.78rem;
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sizeBtn:hover {
+  background: #DBEAFE;
+  border-color: #2563EB;
+}
+
+.sizeBtnActive {
+  background: #1E40AF !important;
+  color: #FFFFFF !important;
+  border-color: #1E40AF !important;
+  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.3);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .row2,
@@ -188,5 +309,10 @@
     flex-direction: column;
     gap: 2px;
     text-align: center;
+  }
+  .tshirtSizePicker {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
   }
 }

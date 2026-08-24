@@ -9,10 +9,11 @@ import styles from './BookingForm.module.css';
 const SERVICE_OPTIONS = {
   'Self Drive': {
     tripTypes: [
+      '🎁 New Customer Deal: Pay 1 Day, Drive 2 Days! — ₹1,499',
       'Daily Rental (24 Hours) — ₹1,499',
       '3-Day Weekend — ₹4,199',
-      'Weekly Plan (7 Days) — ₹9,693 (Save ₹800)',
-      'Monthly Plan (30 Days) — ₹24,999',
+      'Weekly Plan (7 Days) + Free MANA T-Shirt! — ₹9,693 (Save ₹800)',
+      'Monthly Plan (30 Days) + Free MANA T-Shirt! — ₹24,999',
     ],
     vehicles: [
       'Executive Sedan (5 Seats)',
@@ -120,6 +121,7 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
     name: '',
     phone: '',
     notes: '',
+    tshirtSize: 'L',
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -145,6 +147,17 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
 
     const finalDestination = opts.isSelfDrive ? 'Return to Kadapa Hub (Self-Drive)' : (form.destination || 'N/A');
 
+    let promoOffer = null;
+    let tshirtSizeToSend = null;
+    if (opts.isSelfDrive) {
+      if (form.tripType.includes('Pay 1 Day, Drive 2 Days')) {
+        promoOffer = 'Pay 1 Day for 2 Days (New Customer Welcome Deal)';
+      } else if (form.tripType.includes('Weekly') || form.tripType.includes('Monthly') || form.tripType.includes('T-Shirt')) {
+        promoOffer = 'Weekly VIP Deal (Free Branded T-Shirt)';
+        tshirtSizeToSend = `Size ${form.tshirtSize}`;
+      }
+    }
+
     // 1. Analytics
     trackFormSubmission(form.service || 'General Booking', `${form.pickup} -> ${finalDestination}`);
 
@@ -156,6 +169,8 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
         body: JSON.stringify({
           ...form,
           destination: finalDestination,
+          promoOffer,
+          tshirtSize: tshirtSizeToSend,
           sourceUrl: typeof window !== 'undefined' ? window.location.pathname : '',
         }),
       }).catch(() => {});
@@ -165,6 +180,8 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
     const url = buildWhatsAppMessage({
       service: form.service,
       tripType: form.tripType,
+      promoOffer,
+      tshirtSize: tshirtSizeToSend,
       vehicleChoice: form.vehicleChoice,
       pickup: form.pickup,
       destination: finalDestination,
@@ -226,6 +243,46 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
           </select>
         </div>
       </div>
+
+      {/* 🎁 Promo Dynamic Highlights */}
+      {opts.isSelfDrive && form.tripType.includes('Pay 1 Day, Drive 2 Days') && (
+        <div className={styles.promoAlertBox}>
+          <span className={styles.pabIcon}>🎁</span>
+          <div>
+            <strong className={styles.pabTitle}>First-Time Customer Special Applied!</strong>
+            <p className={styles.pabText}>
+              Pay just 1-day rate (₹1,499) and drive for 2 full days (48 hours)! Verified on DL handover in Kadapa.
+            </p>
+          </div>
+        </div>
+      )}
+
+      {opts.isSelfDrive && (form.tripType.includes('Weekly') || form.tripType.includes('Monthly') || form.tripType.includes('T-Shirt')) && (
+        <div className={styles.tshirtBox}>
+          <div className={styles.tshirtHeader}>
+            <span className={styles.tshirtIcon}>👕</span>
+            <div>
+              <strong className={styles.tshirtTitle}>Bonus Unlocked: Free MANA Branded Logo T-Shirt!</strong>
+              <p className={styles.tshirtText}>Complimentary 100% premium cotton MANA Tours logo T-Shirt on 7+ day rentals.</p>
+            </div>
+          </div>
+          <div className={styles.tshirtSizePicker}>
+            <label className={styles.tshirtSizeLabel}>Choose Your T-Shirt Size:</label>
+            <div className={styles.sizeOptions}>
+              {['M', 'L', 'XL'].map((size) => (
+                <button
+                  key={size}
+                  type="button"
+                  className={`${styles.sizeBtn} ${form.tshirtSize === size ? styles.sizeBtnActive : ''}`}
+                  onClick={() => set('tshirtSize', size)}
+                >
+                  Size {size}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Row 2: Pickup & (Destination OR Vehicle Choice for Self Drive) */}
       <div className={styles.row2}>
