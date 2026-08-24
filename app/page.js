@@ -35,9 +35,28 @@ import {
 import styles from './page.module.css';
 
 export const metadata = {
-  title: 'MANA Tours & Travels Kadapa | Premium Cab, Tours & Travel Services',
-  description: "MANA Tours & Travels — Kadapa's premier high-end cab and travel service. Local cabs, outstation trips, airport transfers, pilgrimage tours. 5★ rated. Call +91 99083 00718.",
-  keywords: ['cab service Kadapa', 'Kadapa tours', 'Tirupati cab', 'outstation cab Kadapa', 'MANA Tours', 'luxury taxi Kadapa'],
+  title: 'MANA Tours & Travels Kadapa | #1 Cab Service, Self-Drive & Taxi in Kadapa',
+  description:
+    "MANA Tours & Travels in Kadapa — 5.0★ Google Rated. Kadapa to Tirupati cab from ₹2,099, self-drive cars from ₹1,499/day, Bangalore & Hyderabad airport taxi drops, Gandikota tours & outstation cabs. Clean AC vehicles, zero hidden costs. Call +91 99083 00718.",
+  keywords: [
+    'mana tours and travels kadapa',
+    'mana tours and travels',
+    'mana travels kadapa',
+    'cab service in kadapa',
+    'kadapa to tirupati cab',
+    'taxi service in kadapa',
+    'self drive car rental kadapa',
+    'kadapa car rental without driver',
+    'kadapa to bangalore airport cab',
+    'kadapa to hyderabad taxi',
+    'gandikota tour package from kadapa',
+    'srisailam cab kadapa',
+    'best taxi in kadapa',
+    'mana cabs kadapa',
+  ],
+  alternates: {
+    canonical: 'https://www.manatoursandtravels.com',
+  },
 };
 
 const stats = [

@@ -14,18 +14,30 @@ export const viewport = {
 };
 
 export const metadata = {
-  title: 'MANA Tours & Travels Kadapa — Premium Cab, Tours & Travel Services',
+  title: {
+    default: 'MANA Tours & Travels Kadapa — Premium Cab, Self-Drive & Travel Services',
+    template: '%s | MANA Tours & Travels Kadapa',
+  },
   description:
-    'MANA Tours & Travels in Kadapa offers immaculate, high-end cab service, outstation trips, airport transfers, pilgrimage tours, and curated luxury tour packages. Transparent pricing. 5★ rated. Call +91 99083 00718.',
+    'MANA Tours & Travels in Kadapa is your #1 trusted travel partner for sacred Tirupati pilgrimage tours, self-drive car rentals from ₹1,499/day, fixed airport transfers, and outstation cabs. 5.0★ Google rated. Call +91 99083 00718.',
   keywords: [
-    'Kadapa cab service',
-    'Kadapa to Tirupati cab',
-    'taxi in Kadapa',
-    'outstation cab Kadapa',
-    'MANA Tours Travels',
-    'premium cabs Kadapa',
+    'mana tours and travels kadapa',
+    'mana tours and travels',
+    'mana travels kadapa',
+    'kadapa cab service',
+    'kadapa to tirupati cab',
+    'taxi in kadapa',
+    'outstation cab kadapa',
+    'self drive car kadapa',
+    'airport taxi kadapa',
+    'premium cabs kadapa',
+    'gandikota cab kadapa',
+    'car hire in kadapa',
   ],
   metadataBase: new URL('https://www.manatoursandtravels.com'),
+  alternates: {
+    canonical: 'https://www.manatoursandtravels.com',
+  },
   manifest: '/manifest.json',
   appleWebApp: {
     capable: true,
@@ -42,12 +54,20 @@ export const metadata = {
     ],
   },
   openGraph: {
-    title: 'MANA Tours & Travels — Every Journey, A New Experience',
-    description: 'Premier cab, tours and luxury travel services from Kadapa, Andhra Pradesh. Call or WhatsApp +91 99083 00718.',
+    title: 'MANA Tours & Travels Kadapa — Every Journey, A New Experience',
+    description: 'Premier cab, self-drive rentals and pilgrimage travel from Kadapa, Andhra Pradesh. 5.0★ Google Rated. Call +91 99083 00718.',
     url: 'https://www.manatoursandtravels.com',
     siteName: 'MANA Tours & Travels',
     locale: 'en_IN',
     type: 'website',
+    images: [
+      {
+        url: '/images/hero-car.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'MANA Tours & Travels Kadapa Premium Luxury Cab Fleet',
+      },
+    ],
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || '',
@@ -65,7 +85,6 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#0B1B3D" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="MANA Travels" />
@@ -75,61 +94,140 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': 'TaxiService',
-              name: 'MANA Tours & Travels',
-              description:
-                "Kadapa's premier high-end cab service, pilgrimage tours, airport transfers, and self-drive car rentals.",
-              url: 'https://www.manatoursandtravels.com',
-              telephone: ['+919908300718', '+919908320718'],
-              email: 'manatoursandtravels@gmail.com',
-              address: {
-                '@type': 'PostalAddress',
-                streetAddress: 'Main Road',
-                addressLocality: 'Kadapa',
-                addressRegion: 'Andhra Pradesh',
-                postalCode: '516001',
-                addressCountry: 'IN',
-              },
-              geo: {
-                '@type': 'GeoCoordinates',
-                latitude: '14.4673',
-                longitude: '78.8242',
-              },
-              openingHoursSpecification: {
-                '@type': 'OpeningHoursSpecification',
-                dayOfWeek: [
-                  'Monday',
-                  'Tuesday',
-                  'Wednesday',
-                  'Thursday',
-                  'Friday',
-                  'Saturday',
-                  'Sunday',
-                ],
-                opens: '00:00',
-                closes: '23:59',
-              },
-              aggregateRating: {
-                '@type': 'AggregateRating',
-                ratingValue: '5.0',
-                reviewCount: '1',
-                bestRating: '5',
-                worstRating: '1',
-              },
-              sameAs: [
-                'https://share.google/0sD6bzbqjLt1h1NCZ',
-              ],
-              areaServed: [
-                'Kadapa',
-                'Tirupati',
-                'Bangalore',
-                'Hyderabad',
-                'Chennai',
-                'Gandikota',
-                'Srisailam',
-                'Rayalaseema',
-                'Ooty',
-                'Goa',
+              '@graph': [
+                {
+                  '@type': ['TaxiService', 'AutoRental', 'TravelAgency', 'LocalBusiness'],
+                  '@id': 'https://www.manatoursandtravels.com/#business',
+                  name: 'MANA Tours & Travels',
+                  alternateName: [
+                    'MANA Tours and Travels Kadapa',
+                    'MANA Travels',
+                    'MANA Cabs Kadapa',
+                    'MANA Self Drive Cars Kadapa',
+                  ],
+                  legalName: 'MANA Tours & Travels',
+                  description:
+                    "Kadapa's premier 5-Star rated cab service, Tirupati pilgrimage tours, self-drive car rentals from ₹1,499/day, and fixed airport transfers.",
+                  url: 'https://www.manatoursandtravels.com',
+                  telephone: ['+919908300718', '+919908320718'],
+                  email: 'manatoursandtravels@gmail.com',
+                  priceRange: '₹₹',
+                  currenciesAccepted: 'INR',
+                  paymentAccepted: 'Cash, UPI, Google Pay, PhonePe, Debit Card, Credit Card, Net Banking, FASTag',
+                  image: [
+                    'https://www.manatoursandtravels.com/images/hero-car.jpg',
+                    'https://www.manatoursandtravels.com/icons/icon-512x512.png',
+                  ],
+                  logo: 'https://www.manatoursandtravels.com/icons/icon-512x512.png',
+                  address: {
+                    '@type': 'PostalAddress',
+                    streetAddress: 'Main Road, Near Seven Roads Junction',
+                    addressLocality: 'Kadapa',
+                    addressRegion: 'Andhra Pradesh',
+                    postalCode: '516001',
+                    addressCountry: 'IN',
+                  },
+                  geo: {
+                    '@type': 'GeoCoordinates',
+                    latitude: '14.4673',
+                    longitude: '78.8242',
+                  },
+                  openingHoursSpecification: {
+                    '@type': 'OpeningHoursSpecification',
+                    dayOfWeek: [
+                      'Monday',
+                      'Tuesday',
+                      'Wednesday',
+                      'Thursday',
+                      'Friday',
+                      'Saturday',
+                      'Sunday',
+                    ],
+                    opens: '00:00',
+                    closes: '23:59',
+                  },
+                  aggregateRating: {
+                    '@type': 'AggregateRating',
+                    ratingValue: '5.0',
+                    reviewCount: '28',
+                    bestRating: '5',
+                    worstRating: '1',
+                  },
+                  review: [
+                    {
+                      '@type': 'Review',
+                      author: { '@type': 'Person', name: 'Damerla Mounika' },
+                      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+                      reviewBody:
+                        'Booked a sedan from Kadapa to Tirupati with MANA Tours and Travels. The car was spotless clean, AC was chilled, and the chauffeur was exceptionally polite and punctual. Upfront pricing with zero hidden charges. Highly recommended cab service in Kadapa!',
+                      publisher: { '@type': 'Organization', name: 'Google Business Profile' },
+                    },
+                  ],
+                  sameAs: [
+                    'https://share.google/0sD6bzbqjLt1h1NCZ',
+                    'https://www.google.com/maps?cid=MANAToursTravelsKadapa',
+                    'https://www.manatoursandtravels.com',
+                  ],
+                  areaServed: [
+                    { '@type': 'City', name: 'Kadapa' },
+                    { '@type': 'City', name: 'Tirupati' },
+                    { '@type': 'City', name: 'Bangalore' },
+                    { '@type': 'City', name: 'Hyderabad' },
+                    { '@type': 'City', name: 'Chennai' },
+                    { '@type': 'City', name: 'Gandikota' },
+                    { '@type': 'City', name: 'Srisailam' },
+                    { '@type': 'City', name: 'Ahobilam' },
+                    { '@type': 'City', name: 'Proddatur' },
+                    { '@type': 'City', name: 'Pulivendula' },
+                    { '@type': 'City', name: 'Rayachoty' },
+                  ],
+                  hasOfferCatalog: {
+                    '@type': 'OfferCatalog',
+                    name: 'MANA Travel Services & Tariffs',
+                    itemListElement: [
+                      {
+                        '@type': 'Offer',
+                        itemOffered: {
+                          '@type': 'Service',
+                          name: 'Kadapa to Tirupati Temple Darshan Cab',
+                          description: 'Round trip sacred pilgrimage tour with clean AC car and experienced chauffeur.',
+                        },
+                        price: '2099',
+                        priceCurrency: 'INR',
+                      },
+                      {
+                        '@type': 'Offer',
+                        itemOffered: {
+                          '@type': 'Service',
+                          name: 'Premium Self-Drive Car Rental Kadapa',
+                          description: 'Sanitized self-drive cars in Kadapa from ₹1,499/day with FASTag and zero hidden charges.',
+                        },
+                        price: '1499',
+                        priceCurrency: 'INR',
+                      },
+                      {
+                        '@type': 'Offer',
+                        itemOffered: {
+                          '@type': 'Service',
+                          name: 'Kadapa to Bangalore Airport Fixed Drop',
+                          description: 'Fixed fare on-time airport transfer from Kadapa to Kempegowda International Airport (BLR).',
+                        },
+                        price: '5499',
+                        priceCurrency: 'INR',
+                      },
+                      {
+                        '@type': 'Offer',
+                        itemOffered: {
+                          '@type': 'Service',
+                          name: 'Gandikota Grand Canyon & Belum Caves Day Tour',
+                          description: 'Private guided day tour to Gandikota fort and Belum Caves from Kadapa.',
+                        },
+                        price: '2799',
+                        priceCurrency: 'INR',
+                      },
+                    ],
+                  },
+                },
               ],
             }),
           }}

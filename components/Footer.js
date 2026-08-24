@@ -124,10 +124,16 @@ export default function Footer() {
 
               {/* Trust Badges */}
               <div className={styles.trustBadgeRow}>
-                <div className={styles.googleReviewBadge}>
+                <a
+                  href="https://share.google/0sD6bzbqjLt1h1NCZ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.googleReviewBadge}
+                  title="View verified 5.0 Google Reviews for MANA Tours & Travels Kadapa"
+                >
                   <span className={styles.goldStars}>★★★★★</span>
-                  <span>5.0 · Google Verified</span>
-                </div>
+                  <span>5.0 · Google Verified Profile ↗</span>
+                </a>
                 <div className={styles.permitBadge}>
                   <span>🛡️ All-India Commercial Permits</span>
                 </div>
@@ -205,6 +211,38 @@ export default function Footer() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── 2.5 LOCAL GEO AUTHORITY & GMB VERIFICATION STRIP ── */}
+      <div className={styles.geoCoverageBand}>
+        <div className="container">
+          <div className={styles.geoCoverageGrid}>
+            <div className={styles.geoLeft}>
+              <div className={styles.geoTitle}>
+                <span>📍 Kadapa &amp; Rayalaseema Local Service Coverage</span>
+              </div>
+              <p className={styles.geoDesc}>
+                Providing 24/7 on-demand cab pickups, fixed airport transfers, self-drive car rentals, and temple darshan drops across Kadapa City (Seven Roads, Devuni Kadapa, RIMS, Railway Station, Yerramukkapalli, Rajiv Marg), Proddatur, Pulivendula, Rayachoty, Badvel, Jammalamadugu, Maidukur, Rajampet, Tirupati, Gandikota, and Srisailam.
+              </p>
+            </div>
+
+            <div className={styles.geoRight}>
+              <a
+                href="https://share.google/0sD6bzbqjLt1h1NCZ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.gmbAuthorityBtn}
+                id="footer-gmb-link"
+              >
+                <span className={styles.gmbIcon}>⭐</span>
+                <div>
+                  <div className={styles.gmbBtnTitle}>Google Business Profile</div>
+                  <div className={styles.gmbBtnSub}>5.0 ★ Rated · View on Google Maps ↗</div>
+                </div>
+              </a>
             </div>
           </div>
         </div>
