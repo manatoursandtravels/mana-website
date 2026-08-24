@@ -3,7 +3,15 @@ import Script from 'next/script';
 import './globals.css';
 import MobileBottomBar from '@/components/MobileBottomBar';
 import AnalyticsTracker from '@/components/AnalyticsTracker';
+import ServiceWorkerRegister from '@/components/ServiceWorkerRegister';
+import PWAInstallBanner from '@/components/PWAInstallBanner';
 import { GA_TRACKING_ID } from '@/lib/analytics';
+
+export const viewport = {
+  themeColor: '#0B1B3D',
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export const metadata = {
   title: 'MANA Tours & Travels Kadapa — Premium Cab, Tours & Travel Services',
@@ -18,6 +26,21 @@ export const metadata = {
     'premium cabs Kadapa',
   ],
   metadataBase: new URL('https://www.manatoursandtravels.com'),
+  manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'MANA Travels',
+  },
+  icons: {
+    icon: [
+      { url: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/icons/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
   openGraph: {
     title: 'MANA Tours & Travels — Every Journey, A New Experience',
     description: 'Premier cab, tours and luxury travel services from Kadapa, Andhra Pradesh. Call or WhatsApp +91 99083 00718.',
@@ -41,7 +64,12 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap"
           rel="stylesheet"
         />
-        <meta name="theme-color" content="#FAF9F5" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#0B1B3D" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="MANA Travels" />
+        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -136,6 +164,9 @@ export default function RootLayout({ children }) {
         <Suspense fallback={null}>
           <AnalyticsTracker />
         </Suspense>
+
+        <ServiceWorkerRegister />
+        <PWAInstallBanner />
 
         {children}
         <MobileBottomBar />

@@ -1,0 +1,72 @@
+export default function manifest() {
+  return {
+    name: 'MANA Tours & Travels Kadapa',
+    short_name: 'MANA Travels',
+    description: "Kadapa's Premier Cab, Outstation, Pilgrimage Tours & Self-Drive Car Rental Service",
+    start_url: '/',
+    id: '/',
+    scope: '/',
+    display: 'standalone',
+    background_color: '#FAF9F5',
+    theme_color: '#0B1B3D',
+    lang: 'en-IN',
+    orientation: 'portrait-primary',
+    categories: ['travel', 'transportation', 'lifestyle', 'business'],
+    icons: [
+      {
+        src: '/icons/icon-192x192.png',
+        sizes: '192x192',
+        type: 'image/png',
+        purpose: 'any',
+      },
+      {
+        src: '/icons/icon-512x512.png',
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'any',
+      },
+      {
+        src: '/icons/icon-maskable-192x192.png',
+        sizes: '192x192',
+        type: 'image/png',
+        purpose: 'maskable',
+      },
+      {
+        src: '/icons/icon-maskable-512x512.png',
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'maskable',
+      },
+    ],
+    shortcuts: [
+      {
+        name: 'Tirupati Pilgrimage',
+        short_name: 'Tirupati',
+        description: 'Book Balaji Temple Darshan cab packages from Kadapa',
+        url: '/services/pilgrimage-tours',
+        icons: [{ src: '/icons/icon-192x192.png', sizes: '192x192' }],
+      },
+      {
+        name: 'Self Drive Rentals',
+        short_name: 'Self Drive',
+        description: 'Drive yourself with sanitized luxury cars from ₹1,499/day',
+        url: '/services/self-drive',
+        icons: [{ src: '/icons/icon-192x192.png', sizes: '192x192' }],
+      },
+      {
+        name: 'Airport Transfers',
+        short_name: 'Airports',
+        description: 'Fixed-fare airport pickups and drops to Tirupati, RGIA & Bangalore',
+        url: '/services/airport-transfers',
+        icons: [{ src: '/icons/icon-192x192.png', sizes: '192x192' }],
+      },
+      {
+        name: 'Certified Used Cars',
+        short_name: 'Used Cars',
+        description: 'Browse 120-point inspected pre-owned cars in Kadapa',
+        url: '/used-cars',
+        icons: [{ src: '/icons/icon-192x192.png', sizes: '192x192' }],
+      },
+    ],
+  };
+}
