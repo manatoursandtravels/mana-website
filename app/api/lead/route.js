@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { recordOfferClaim } from '@/lib/offerTracker';
 
 export async function POST(request) {
   try {
@@ -17,9 +18,31 @@ export async function POST(request) {
       passengers,
       notes,
       addOns,
+      promoOffer,
+      tshirtSize,
       estimatedPrice,
       sourceUrl,
     } = body;
+
+    // 1. If lead is claiming the New Customer 2-for-1 Deal, record and track in database
+    let offerClaimInfo = null;
+    const isNewCustomerDeal =
+      (tripType && tripType.includes('Pay 1 Day, Drive 2 Days')) ||
+      (promoOffer && promoOffer.includes('Pay 1 Day for 2 Days'));
+
+    if (isNewCustomerDeal) {
+      const claimResult = recordOfferClaim({
+        name,
+        phone,
+        vehicleChoice,
+        tripType,
+        pickup,
+        date,
+      });
+      if (claimResult.success) {
+        offerClaimInfo = `🎁 Verified New Customer Claim #${claimResult.claimNumber || '1'} (Slots Remaining: ${claimResult.slotsRemaining ?? 'N/A'}/50)`;
+      }
+    }
 
     const leadPayload = {
       timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
@@ -35,6 +58,9 @@ export async function POST(request) {
       passengers: passengers || '1',
       notes: [
         notes || '',
+        offerClaimInfo || '',
+        promoOffer ? `Promo: ${promoOffer}` : '',
+        tshirtSize ? `T-Shirt Choice: ${tshirtSize}` : '',
         addOns && addOns !== 'None' ? `Preferences: ${addOns}` : '',
         estimatedPrice ? `Estimated Fare: ${estimatedPrice}` : '',
       ].filter(Boolean).join(' | '),
@@ -43,7 +69,7 @@ export async function POST(request) {
       status: '🟡 New Lead',
     };
 
-    // 1. If Google Sheets Webhook is configured, forward lead to Google Sheet
+    // 2. If Google Sheets Webhook is configured, forward lead to Google Sheet
     const sheetWebhook = process.env.GOOGLE_SHEET_WEBHOOK_URL;
     if (sheetWebhook && sheetWebhook.startsWith('http')) {
       try {
@@ -58,11 +84,12 @@ export async function POST(request) {
       }
     }
 
-    // 2. Return success
+    // 3. Return success
     return NextResponse.json({
       success: true,
       message: 'Lead captured successfully',
       lead: leadPayload,
+      offerClaimInfo,
     });
   } catch (error) {
     console.error('[API Lead Error]:', error);

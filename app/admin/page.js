@@ -58,6 +58,21 @@ export default function AdminAnalyticsDashboard() {
   });
   const [activeModalCar, setActiveModalCar] = useState(null);
 
+  // New Customer 2-for-1 Promo Tracker (50 Slots / Sept 30, 2026)
+  const [promoStatus, setPromoStatus] = useState(null);
+
+  const fetchPromoStatus = async () => {
+    try {
+      const res = await fetch('/api/offers/new-customer?admin=true');
+      const data = await res.json();
+      if (data.success && data.offer) {
+        setPromoStatus(data.offer);
+      }
+    } catch (err) {
+      console.error('Error fetching promo status:', err);
+    }
+  };
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const auth = sessionStorage.getItem('mana_admin_auth');
@@ -105,6 +120,7 @@ export default function AdminAnalyticsDashboard() {
   useEffect(() => {
     if (isAuthenticated) {
       fetchSheetData(sheetId);
+      fetchPromoStatus();
     }
   }, [isAuthenticated, sheetId]);
 
@@ -259,6 +275,13 @@ export default function AdminAnalyticsDashboard() {
             📋 Live Incoming Leads Table ({leads.length})
           </button>
           <button
+            onClick={() => setActiveTab('promo-tracker')}
+            className={`${styles.logoutBtn} ${activeTab === 'promo-tracker' ? styles.activeTabBtn : ''}`}
+            style={activeTab === 'promo-tracker' ? { background: 'linear-gradient(135deg, #c9a84c, #a07830)', color: '#fff', fontWeight: 700, borderColor: '#e8c97a' } : {}}
+          >
+            🎁 2-for-1 Promo Tracker ({promoStatus?.totalClaimed ?? 0}/50)
+          </button>
+          <button
             onClick={() => setActiveTab('used-cars')}
             className={`${styles.logoutBtn} ${activeTab === 'used-cars' ? styles.activeTabBtn : ''}`}
             style={activeTab === 'used-cars' ? { background: 'linear-gradient(135deg, #c9a84c, #a07830)', color: '#fff', fontWeight: 700, borderColor: '#e8c97a' } : {}}
@@ -281,6 +304,21 @@ export default function AdminAnalyticsDashboard() {
             <div className={styles.kpiLabel}>Total CRM Inquiries</div>
             <div className={styles.kpiValue}>{leads.length > 0 ? `${leads.length}` : '2 (Live)'}</div>
             <div className={styles.kpiChange}>⚡ Real-Time Google Sheet Sync</div>
+          </div>
+
+          <div className={styles.kpiCard}>
+            <div className={styles.kpiIcon}>🎁</div>
+            <div className={styles.kpiLabel}>New Customer Promo</div>
+            <div className={styles.kpiValue}>
+              {promoStatus ? `${promoStatus.totalClaimed} / ${promoStatus.maxClaims}` : '0 / 50'}
+            </div>
+            <div className={styles.kpiChange}>
+              {promoStatus?.isExpired
+                ? '🔴 Expired (Sept 30)'
+                : promoStatus?.isSoldOut
+                ? '🔴 50/50 Claimed'
+                : `🟢 ${promoStatus?.slotsRemaining ?? 50} Slots Left (Sept 30)`}
+            </div>
           </div>
 
           <div className={styles.kpiCard}>
@@ -505,6 +543,115 @@ export default function AdminAnalyticsDashboard() {
               ) : (
                 <div style={{ padding: '40px 20px', textAlign: 'center', color: 'rgba(255,255,255,0.5)' }}>
                   {isLoadingLeads ? '⏳ Loading leads directly from Google Sheets...' : 'No leads found or sheet is loading. Click Refresh above.'}
+                </div>
+              )}
+            </div>
+          </section>
+        )}
+
+        {/* ══ TAB: 2-FOR-1 NEW CUSTOMER PROMOTION TRACKER (50 SLOTS / SEPT 30) ══ */}
+        {activeTab === 'promo-tracker' && (
+          <section style={{ marginBottom: '32px' }}>
+            <div style={{
+              background: 'linear-gradient(135deg, rgba(201,168,76,0.15) 0%, rgba(14,19,31,0.85) 100%)',
+              border: '1.5px solid rgba(201,168,76,0.4)',
+              borderRadius: '16px',
+              padding: '24px',
+              marginBottom: '28px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: '16px'
+            }}>
+              <div>
+                <div style={{ color: '#e8c97a', fontWeight: 800, fontSize: '1.2rem', marginBottom: '6px' }}>
+                  🎁 New Customer 2-for-1 Deal — Real-Time Database Tracker
+                </div>
+                <div style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.88rem', lineHeight: '1.5' }}>
+                  Offer: <strong>Pay 1 Day Price for 2 Days</strong> (₹1,499 for 48 Hours) • Hard Cap: <strong>50 Verified Customers</strong> • Deadline: <strong>September 30th, 2026</strong>
+                </div>
+              </div>
+
+              <button
+                onClick={fetchPromoStatus}
+                className={styles.pinBtn}
+                style={{ width: 'auto', padding: '8px 18px', fontSize: '0.85rem' }}
+              >
+                🔄 Refresh Promo DB
+              </button>
+            </div>
+
+            {/* Promo Progress & Slots Visualizer */}
+            <div className={styles.dataCard} style={{ padding: '24px', marginBottom: '28px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                <span style={{ fontWeight: 700, fontSize: '0.92rem', color: '#FFFFFF' }}>
+                  Campaign Claim Progress: {promoStatus?.totalClaimed ?? 0} of {promoStatus?.maxClaims ?? 50} Slots Claimed
+                </span>
+                <span style={{ color: '#e8c97a', fontWeight: 800, fontSize: '0.88rem' }}>
+                  {promoStatus?.slotsRemaining ?? 50} Slots Available
+                </span>
+              </div>
+              <div style={{ height: '12px', background: 'rgba(255,255,255,0.08)', borderRadius: '6px', overflow: 'hidden' }}>
+                <div
+                  style={{
+                    height: '100%',
+                    width: `${Math.min(100, (((promoStatus?.totalClaimed ?? 0) / (promoStatus?.maxClaims ?? 50)) * 100))}%`,
+                    background: 'linear-gradient(90deg, #c9a84c 0%, #F59E0B 100%)',
+                    borderRadius: '6px',
+                    transition: 'width 0.4s ease',
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Claims Table */}
+            <div className={styles.sectionLabel}>📋 Verified Customer Claims Ledger ({promoStatus?.claims?.length ?? 0} Recorded)</div>
+            <div className={styles.dataCard} style={{ overflowX: 'auto' }}>
+              {promoStatus?.claims && promoStatus.claims.length > 0 ? (
+                <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.88rem' }}>
+                  <thead>
+                    <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', fontSize: '0.72rem', letterSpacing: '0.05em' }}>
+                      <th style={{ padding: '12px 10px' }}>Claim #</th>
+                      <th style={{ padding: '12px 10px' }}>Customer Name</th>
+                      <th style={{ padding: '12px 10px' }}>Phone Number</th>
+                      <th style={{ padding: '12px 10px' }}>Vehicle Choice</th>
+                      <th style={{ padding: '12px 10px' }}>Date Claimed</th>
+                      <th style={{ padding: '12px 10px' }}>Claim Status</th>
+                      <th style={{ padding: '12px 10px' }}>Direct Contact</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {promoStatus.claims.map((claim) => (
+                      <tr key={claim.id} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                        <td style={{ padding: '12px 10px', color: '#e8c97a', fontWeight: 700 }}>#{claim.claimNumber}</td>
+                        <td style={{ padding: '12px 10px', fontWeight: 600, color: '#fff' }}>{claim.name}</td>
+                        <td style={{ padding: '12px 10px', color: '#93C5FD' }}>{claim.phone}</td>
+                        <td style={{ padding: '12px 10px', color: '#D1D5DB' }}>{claim.vehicleChoice}</td>
+                        <td style={{ padding: '12px 10px', color: 'rgba(255,255,255,0.6)', fontSize: '0.8rem' }}>{claim.timestamp}</td>
+                        <td style={{ padding: '12px 10px' }}>
+                          <span style={{ padding: '4px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: 700, background: 'rgba(245,158,11,0.15)', color: '#FBBF24', border: '1px solid rgba(245,158,11,0.3)' }}>
+                            {claim.status}
+                          </span>
+                        </td>
+                        <td style={{ padding: '12px 10px' }}>
+                          <a
+                            href={`https://wa.me/91${(claim.phone || '').replace(/\D/g, '').slice(-10)}?text=${encodeURIComponent(`Hi ${claim.name}, this is Pavan from MANA Tours & Travels Kadapa regarding your New Customer 2-for-1 Self-Drive deal!`)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.logoutBtn}
+                            style={{ fontSize: '0.78rem', padding: '4px 10px', textDecoration: 'none' }}
+                          >
+                            💬 WhatsApp
+                          </a>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              ) : (
+                <div style={{ padding: '40px 20px', textAlign: 'center', color: 'rgba(255,255,255,0.5)' }}>
+                  No customer claims recorded yet. The first 50 new customers to book will automatically appear here.
                 </div>
               )}
             </div>

@@ -128,13 +128,18 @@ export default function SelfDriveLandingPage() {
 
               {/* 🎁 First-Time Customer 2-for-1 Special */}
               <div className={styles.newCustomerOfferBox}>
-                <div className={styles.ncobBadge}>🎁 FIRST-TIME CUSTOMER EXCLUSIVE</div>
+                <div className={styles.ncobBadge}>
+                  🎁 FIRST-TIME CUSTOMER EXCLUSIVE • FIRST 50 CUSTOMERS ONLY
+                </div>
                 <div className={styles.ncobBody}>
                   <div className={styles.ncobIcon}>⚡</div>
                   <div>
                     <div className={styles.ncobTitle}>Pay for 1 Day, Drive for 2 Days! (48 Hours Rental)</div>
                     <div className={styles.ncobDesc}>
-                      First time renting with MANA? Book a 2-day self-drive trip and pay only for 1 day (<strong>₹1,499 for 2 full days</strong>). Valid on your first booking with digital DL verification.
+                      First time renting with MANA? Book a 2-day self-drive trip and pay only for 1 day (<strong>₹1,499 for 2 full days</strong>). Valid on your first booking with digital DL verification in Kadapa.
+                    </div>
+                    <div className={styles.ncobTerms}>
+                      ⏰ <strong>Limited Time Offer:</strong> Valid till <strong>September 30th, 2026</strong> only • Strictly limited to the <strong>first 50 new customers</strong>.
                     </div>
                   </div>
                 </div>

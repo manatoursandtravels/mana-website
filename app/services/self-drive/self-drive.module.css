@@ -200,6 +200,15 @@
   line-height: 1.5;
 }
 
+.ncobTerms {
+  font-size: 0.78rem;
+  color: #92400E;
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px dashed rgba(217, 119, 6, 0.35);
+  line-height: 1.4;
+}
+
 /* Weekly Deal Box */
 .weeklyPromoBox {
   background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);

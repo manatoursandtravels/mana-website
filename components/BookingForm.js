@@ -251,7 +251,7 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
           <div>
             <strong className={styles.pabTitle}>First-Time Customer Special Applied!</strong>
             <p className={styles.pabText}>
-              Pay just 1-day rate (₹1,499) and drive for 2 full days (48 hours)! Verified on DL handover in Kadapa.
+              Pay just 1-day rate (₹1,499) and drive for 2 full days (48 hours)! Limited to the <strong>first 50 new customers</strong> • Valid till <strong>Sept 30, 2026</strong>.
             </p>
           </div>
         </div>
