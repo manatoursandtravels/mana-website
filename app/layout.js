@@ -5,6 +5,7 @@ import MobileBottomBar from '@/components/MobileBottomBar';
 import AnalyticsTracker from '@/components/AnalyticsTracker';
 import ServiceWorkerRegister from '@/components/ServiceWorkerRegister';
 import PWAInstallBanner from '@/components/PWAInstallBanner';
+import AiVoiceBookingAgent from '@/components/AiVoiceBookingAgent';
 import { GA_TRACKING_ID } from '@/lib/analytics';
 
 export const viewport = {
@@ -317,6 +318,7 @@ export default function RootLayout({ children }) {
 
         <ServiceWorkerRegister />
         <PWAInstallBanner />
+        <AiVoiceBookingAgent />
 
         {children}
         <MobileBottomBar />

@@ -175,6 +175,20 @@ export default function Header() {
 
           {/* ── CTA + Hamburger ── */}
           <div className={styles.actions}>
+            <button
+              type="button"
+              className={styles.headerAiBtn}
+              onClick={() => {
+                if (typeof window !== 'undefined') {
+                  window.dispatchEvent(new CustomEvent('open-mana-ai'));
+                }
+              }}
+              aria-label="Open MANA AI Voice Assistant"
+            >
+              <span className={styles.headerAiIcon}>🎙️</span>
+              <span className={styles.headerAiText}>AI Voice Quote</span>
+            </button>
+
             <a href={`tel:${BUSINESS.phone.pavan}`} className={styles.phoneBtn} aria-label="Call MANA Tours">
               <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.1 15.1 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.45 2.33.7 3.58.7a1 1 0 011 1V20a1 1 0 01-1 1C10.49 21 3 13.51 3 4.5A1 1 0 014 3.5h3.5a1 1 0 011 1c0 1.26.25 2.46.7 3.58a1 1 0 01-.24 1.01l-2.34 2.2z"/></svg>
               <span>{BUSINESS.phone.pavanDisplay}</span>
@@ -219,6 +233,27 @@ export default function Header() {
       {/* ── Mobile Menu ── */}
       <div className={`${styles.mobileMenu} ${menuOpen ? styles.mobileMenuOpen : ''}`} aria-hidden={!menuOpen}>
         <nav className={styles.mobileNav}>
+          {/* Mobile Featured AI Voice Assistant Banner */}
+          <button
+            type="button"
+            className={styles.mobileFeaturedAiBtn}
+            onClick={() => {
+              setMenuOpen(false);
+              if (typeof window !== 'undefined') {
+                window.dispatchEvent(new CustomEvent('open-mana-ai'));
+              }
+            }}
+          >
+            <div className={styles.mfsdLeft}>
+              <span className={styles.mfsdIcon}>🎙️</span>
+              <div>
+                <div className={styles.mfsdTitle}>MANA AI Voice Assistant</div>
+                <div className={styles.mfsdSub}>Speak in Telugu or English · Instant quote</div>
+              </div>
+            </div>
+            <span className={styles.mfsdBadge} style={{ background: '#10B981' }}>24/7 Live</span>
+          </button>
+
           {/* Mobile Featured Self Drive Banner */}
           <Link
             href="/services/self-drive"
