@@ -50,6 +50,8 @@
   text-transform: uppercase;
   color: #CBD5E1;
   margin-bottom: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .heroBreadcrumb a {
@@ -84,12 +86,13 @@
 
 .heroTitle {
   font-family: var(--font-display);
-  font-size: clamp(2.3rem, 5vw, 3.8rem);
+  font-size: clamp(1.8rem, 5vw, 3.8rem);
   font-weight: 900;
   color: #FFFFFF;
   line-height: 1.12;
   letter-spacing: -0.035em;
   margin-bottom: 16px;
+  word-break: break-word;
 }
 
 .heroTitleGradient {
@@ -141,12 +144,14 @@
   display: flex;
   flex-direction: column;
   gap: 36px;
+  min-width: 0; /* prevent overflow in grid */
 }
 
 .sideCol {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  min-width: 0;
 }
 
 .stickyForm {
@@ -155,6 +160,55 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+/* ── ROUTE INFO STATS ROW ── */
+.routeInfo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(12px, 2.5vw, 24px);
+  margin-top: 24px;
+}
+
+.routeInfoItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 70px;
+}
+
+.routeInfoValue {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  font-weight: 900;
+  color: #FFDF73;
+  line-height: 1;
+}
+
+.routeInfoLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #CBD5E1;
+}
+
+/* ── HERO CTA BUTTONS ── */
+.heroCtas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* ── HERO ICON ── */
+.heroIcon {
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  line-height: 1;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
 }
 
 /* ── 3. CARDS & RATE MATRICES ── */
@@ -562,6 +616,55 @@
   line-height: 1.5;
 }
 
+/* ── FAQ ITEMS (used by city landing pages) ── */
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faqItem {
+  background: #FFFFFF;
+  border: 1.5px solid var(--pearl-border);
+  border-radius: var(--r-xl);
+  padding: 20px 24px;
+  box-shadow: var(--shadow-xs);
+  transition: border-color var(--dur-fast);
+}
+
+.faqItem:hover {
+  border-color: var(--brass-border);
+}
+
+.faqQ {
+  font-family: var(--font-display);
+  font-size: 1.0rem;
+  font-weight: 800;
+  color: var(--charcoal-900);
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.faqA {
+  font-size: 0.9rem;
+  color: var(--charcoal-600);
+  line-height: 1.7;
+}
+
+/* ── PRICE SECTION ── */
+.priceSection {
+  background: #FFFFFF;
+  border: 1.5px solid var(--pearl-border);
+  border-radius: var(--r-2xl);
+  padding: clamp(20px, 3vw, 32px);
+  box-shadow: var(--shadow-card);
+  overflow: hidden; /* contain table */
+}
+
+.priceSection h2 {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+}
+
 /* ── RESPONSIVE MEDIA QUERIES ── */
 @media (max-width: 1024px) {
   .contentGrid {
@@ -580,9 +683,65 @@
     grid-template-columns: 1fr;
   }
   .useCaseGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
   .stepsGrid {
     grid-template-columns: 1fr;
+  }
+  .serviceHero {
+    text-align: center;
+    min-height: auto;
+    padding-top: calc(var(--header-h) + 40px);
+    padding-bottom: 40px;
+  }
+  .heroSubtitle {
+    font-size: 0.95rem;
+  }
+  .routeInfo {
+    gap: 16px;
+  }
+  .routeInfoItem {
+    min-width: 60px;
+  }
+  .faqItem {
+    padding: 16px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Rate tables: make horizontally scrollable on small phones */
+  .priceSection {
+    padding: 16px;
+  }
+  .rate-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--r-lg);
+    margin: 0 -4px;
+  }
+  .useCaseGrid {
+    grid-template-columns: 1fr;
+  }
+  .heroCtas {
+    flex-direction: column;
+    width: 100%;
+  }
+  .heroCtas a, .heroCtas button {
+    width: 100%;
+    justify-content: center;
+  }
+  .routeInfo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    width: 100%;
+  }
+  .routeInfoItem {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--r-md);
+    padding: 12px 8px;
+    min-width: unset;
+    width: 100%;
   }
 }

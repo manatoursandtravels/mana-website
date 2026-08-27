@@ -513,6 +513,14 @@ p  { color: var(--charcoal-600); line-height: 1.75; }
   font-family: var(--font-display);
   font-weight: 800;
   color: var(--brand-red);
+  white-space: nowrap;
+}
+
+/* Horizontal scroll wrapper for wide tables on mobile */
+.rate-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--r-lg);
 }
 
 /* ─── BADGE PILLS ─── */
@@ -550,7 +558,7 @@ p  { color: var(--charcoal-600); line-height: 1.75; }
 /* ─── GLOBAL MOBILE RESPONSIVENESS ENHANCEMENTS ─── */
 @media (max-width: 768px) {
   body {
-    padding-bottom: 76px; /* Prevents mobile bottom bar from overlapping footer and forms */
+    padding-bottom: 76px;
   }
   .section {
     padding: clamp(44px, 7vw, 68px) 0;
@@ -565,5 +573,28 @@ p  { color: var(--charcoal-600); line-height: 1.75; }
   .form-input {
     font-size: 16px; /* Prevents iOS mobile safari auto-zoom on focus */
     padding: 13px 16px;
+  }
+  /* Improve tap targets on mobile */
+  .btn {
+    min-height: 48px;
+  }
+  /* Prevent orphan hero text on small screens */
+  h1, h2, h3 {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Tighter padding on small phones */
+  :root {
+    --px: clamp(16px, 5vw, 24px);
+    --section-py: clamp(44px, 8vw, 68px);
+  }
+  h1 { font-size: clamp(1.8rem, 7vw, 2.5rem); }
+  h2 { font-size: clamp(1.4rem, 5.5vw, 2rem); }
+  /* Full-width buttons in hero areas */
+  .btn--lg {
+    padding: 14px 24px;
   }
 }
