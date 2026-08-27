@@ -1,0 +1,27 @@
+[
+  {
+    "id": "kyc_1787850272079_ubhkla",
+    "passId": "MANA-SD-KYC-6201",
+    "name": "Ramesh Reddy",
+    "phone": "9908300718",
+    "emergencyContact": "9848022338",
+    "city": "Kadapa (Seven Roads Junction)",
+    "carModel": "Toyota Etios Sedan (Petrol/Diesel)",
+    "rentalStart": "2026-08-27T17:04:32.079Z",
+    "rentalEnd": "",
+    "dlNumber": "AP0420240098712",
+    "dlFrontPreview": "Pending",
+    "dlBackPreview": "Pending",
+    "aadhaarPreview": "Pending",
+    "startOdometer": "45,210",
+    "fuelLevelPercent": 100,
+    "hasFastag": true,
+    "hasSpareTyre": true,
+    "hasToolkit": true,
+    "hasCleanAC": true,
+    "digitalSignature": false,
+    "status": "VERIFIED",
+    "createdAt": "2026-08-27T17:04:32.079Z",
+    "formattedTimestamp": "27 Aug 2026, 10:34 pm"
+  }
+]

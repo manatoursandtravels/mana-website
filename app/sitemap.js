@@ -5,7 +5,7 @@ export default function sitemap() {
 
   const staticPages = [
     '', '/about', '/contact', '/faq', '/partner',
-    '/used-cars',
+    '/used-cars', '/self-drive-kyc',
     '/terms', '/privacy', '/cancellation',
   ];
 

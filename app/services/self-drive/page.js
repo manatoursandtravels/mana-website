@@ -171,6 +171,9 @@ export default function SelfDriveLandingPage() {
                 <a href="#booking" className="btn btn--primary btn--xl">
                   🚗 Reserve Your Car — Check Availability
                 </a>
+                <Link href="/self-drive-kyc" className="btn btn--white btn--xl" style={{ borderColor: '#0B4EA2', color: '#0B4EA2' }}>
+                  ⚡ Fast-Track 2-Min Digital KYC
+                </Link>
                 <a
                   href={`https://wa.me/${BUSINESS.whatsapp}?text=${encodeURIComponent('Hi Pavan, I want to check Self-Drive car availability in Kadapa.')}`}
                   target="_blank"

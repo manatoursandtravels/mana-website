@@ -73,6 +73,21 @@ export default function AdminAnalyticsDashboard() {
     }
   };
 
+  // Self-Drive Digital KYC Passes Ledger
+  const [kycRecords, setKycRecords] = useState([]);
+
+  const fetchKycRecords = async () => {
+    try {
+      const res = await fetch('/api/self-drive/kyc');
+      const data = await res.json();
+      if (data.success && data.records) {
+        setKycRecords(data.records);
+      }
+    } catch (err) {
+      console.error('Error fetching KYC records:', err);
+    }
+  };
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const auth = sessionStorage.getItem('mana_admin_auth');
@@ -121,6 +136,7 @@ export default function AdminAnalyticsDashboard() {
     if (isAuthenticated) {
       fetchSheetData(sheetId);
       fetchPromoStatus();
+      fetchKycRecords();
     }
   }, [isAuthenticated, sheetId]);
 
@@ -280,6 +296,13 @@ export default function AdminAnalyticsDashboard() {
             style={activeTab === 'promo-tracker' ? { background: 'linear-gradient(135deg, #c9a84c, #a07830)', color: '#fff', fontWeight: 700, borderColor: '#e8c97a' } : {}}
           >
             🎁 2-for-1 Promo Tracker ({promoStatus?.totalClaimed ?? 0}/50)
+          </button>
+          <button
+            onClick={() => setActiveTab('kyc-ledger')}
+            className={`${styles.logoutBtn} ${activeTab === 'kyc-ledger' ? styles.activeTabBtn : ''}`}
+            style={activeTab === 'kyc-ledger' ? { background: 'linear-gradient(135deg, #0B4EA2, #072D6B)', color: '#fff', fontWeight: 700, borderColor: '#38BDF8' } : {}}
+          >
+            🪪 Digital KYC Passes ({kycRecords.length})
           </button>
           <button
             onClick={() => setActiveTab('used-cars')}
@@ -652,6 +675,96 @@ export default function AdminAnalyticsDashboard() {
               ) : (
                 <div style={{ padding: '40px 20px', textAlign: 'center', color: 'rgba(255,255,255,0.5)' }}>
                   No customer claims recorded yet. The first 50 new customers to book will automatically appear here.
+                </div>
+              )}
+            </div>
+          </section>
+        )}
+
+        {/* ══ TAB: SELF-DRIVE DIGITAL KYC & HANDOVER LEDGER ══ */}
+        {activeTab === 'kyc-ledger' && (
+          <section style={{ marginBottom: '32px' }}>
+            <div style={{
+              background: 'linear-gradient(135deg, rgba(11,78,162,0.2) 0%, rgba(14,19,31,0.9) 100%)',
+              border: '1.5px solid rgba(56,189,248,0.4)',
+              borderRadius: '16px',
+              padding: '24px',
+              marginBottom: '28px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: '16px'
+            }}>
+              <div>
+                <div style={{ color: '#38BDF8', fontWeight: 800, fontSize: '1.2rem', marginBottom: '6px' }}>
+                  🪪 Self-Drive 2-Minute Digital KYC Passes &amp; Handover Ledger
+                </div>
+                <div style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.88rem', lineHeight: '1.5' }}>
+                  Verified pre-trip customer check-ins, driving licenses, fuel gauge readings, and digital signature sign-offs.
+                </div>
+              </div>
+
+              <button
+                onClick={fetchKycRecords}
+                className={styles.pinBtn}
+                style={{ width: 'auto', padding: '8px 18px', fontSize: '0.85rem' }}
+              >
+                🔄 Refresh KYC DB
+              </button>
+            </div>
+
+            {/* KYC Ledger Table */}
+            <div className={styles.sectionLabel}>📋 Verified Customer Passes ({kycRecords.length} Recorded)</div>
+            <div className={styles.dataCard} style={{ overflowX: 'auto' }}>
+              {kycRecords && kycRecords.length > 0 ? (
+                <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.88rem' }}>
+                  <thead>
+                    <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', fontSize: '0.72rem', letterSpacing: '0.05em' }}>
+                      <th style={{ padding: '12px 10px' }}>Pass ID</th>
+                      <th style={{ padding: '12px 10px' }}>Customer Name</th>
+                      <th style={{ padding: '12px 10px' }}>Mobile Phone</th>
+                      <th style={{ padding: '12px 10px' }}>Vehicle Model</th>
+                      <th style={{ padding: '12px 10px' }}>Fuel Gauge</th>
+                      <th style={{ padding: '12px 10px' }}>Start Odo</th>
+                      <th style={{ padding: '12px 10px' }}>Status</th>
+                      <th style={{ padding: '12px 10px' }}>Time</th>
+                      <th style={{ padding: '12px 10px' }}>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {kycRecords.map((kyc) => (
+                      <tr key={kyc.id} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                        <td style={{ padding: '12px 10px', color: '#38BDF8', fontWeight: 800, fontFamily: 'monospace' }}>{kyc.passId}</td>
+                        <td style={{ padding: '12px 10px', fontWeight: 600, color: '#fff' }}>{kyc.name}</td>
+                        <td style={{ padding: '12px 10px', color: '#93C5FD' }}>{kyc.phone}</td>
+                        <td style={{ padding: '12px 10px', color: '#D1D5DB' }}>{kyc.carModel}</td>
+                        <td style={{ padding: '12px 10px', color: '#FBBF24', fontWeight: 700 }}>{kyc.fuelLevelPercent}% Tank</td>
+                        <td style={{ padding: '12px 10px', color: '#FFFFFF' }}>{kyc.startOdometer} km</td>
+                        <td style={{ padding: '12px 10px' }}>
+                          <span style={{ padding: '4px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: 700, background: 'rgba(16,185,129,0.15)', color: '#34D399', border: '1px solid rgba(16,185,129,0.3)' }}>
+                            ✓ {kyc.status}
+                          </span>
+                        </td>
+                        <td style={{ padding: '12px 10px', color: 'rgba(255,255,255,0.6)', fontSize: '0.78rem' }}>{kyc.formattedTimestamp}</td>
+                        <td style={{ padding: '12px 10px' }}>
+                          <a
+                            href={`https://wa.me/91${(kyc.phone || '').replace(/\D/g, '').slice(-10)}?text=${encodeURIComponent(`Hi ${kyc.name}, this is Pavan from MANA Tours & Travels regarding your verified Self-Drive Pass ${kyc.passId}!`)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.logoutBtn}
+                            style={{ fontSize: '0.78rem', padding: '4px 10px', textDecoration: 'none' }}
+                          >
+                            💬 WhatsApp
+                          </a>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              ) : (
+                <div style={{ padding: '40px 20px', textAlign: 'center', color: 'rgba(255,255,255,0.5)' }}>
+                  No digital KYC passes submitted yet. Customers who complete verification on /self-drive-kyc will appear here.
                 </div>
               )}
             </div>

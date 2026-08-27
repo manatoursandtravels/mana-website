@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { SERVICES, buildWhatsAppMessage } from '@/lib/constants';
 import { trackFormSubmission } from '@/lib/analytics';
 import styles from './BookingForm.module.css';
@@ -245,6 +246,39 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
       </div>
 
       {/* 🎁 Promo Dynamic Highlights */}
+      {opts.isSelfDrive && (
+        <div style={{
+          background: 'linear-gradient(135deg, rgba(11,78,162,0.08) 0%, rgba(56,189,248,0.05) 100%)',
+          border: '1px solid rgba(11,78,162,0.2)',
+          borderRadius: '12px',
+          padding: '10px 14px',
+          marginBottom: '16px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          gap: '8px'
+        }}>
+          <span style={{ fontSize: '0.82rem', color: '#0B4EA2', fontWeight: 700 }}>
+            ⚡ Want 1-Minute Doorstep Car Key Handover?
+          </span>
+          <Link
+            href="/self-drive-kyc"
+            style={{
+              fontSize: '0.78rem',
+              fontWeight: 800,
+              color: '#0B4EA2',
+              textDecoration: 'underline',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '4px'
+            }}
+          >
+            Complete 2-Min Digital KYC ↗
+          </Link>
+        </div>
+      )}
+
       {opts.isSelfDrive && form.tripType.includes('Pay 1 Day, Drive 2 Days') && (
         <div className={styles.promoAlertBox}>
           <span className={styles.pabIcon}>🎁</span>
