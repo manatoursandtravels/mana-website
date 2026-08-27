@@ -32,8 +32,7 @@ function createIco(buffers, sizes) {
 }
 
 async function generateAllFavicons() {
-  const baseSrcPath = path.join(__dirname, '../public/icons/icon-512x512.png');
-  const baseBuffer = fs.readFileSync(baseSrcPath);
+  const uploadedSrc = 'C:/Users/Mohan/.gemini/antigravity-ide/brain/c1ae2b9e-56f4-4bae-bd1c-22ff4f6350a0/.user_uploaded/media_1787863153514.jpg';
   const iconsDir = path.join(__dirname, '../public/icons');
   const publicDir = path.join(__dirname, '../public');
   const appDir = path.join(__dirname, '../app');
@@ -42,9 +41,26 @@ async function generateAllFavicons() {
     fs.mkdirSync(iconsDir, { recursive: true });
   }
 
-  console.log('Generating multi-resolution PNGs...');
+  console.log('Loading uploaded high-res circular logo...');
+  
+  // Create circular alpha mask to remove black background corners outside the circular border
+  const circleMask = Buffer.from(
+    '<svg width="1024" height="1024"><circle cx="512" cy="512" r="506" fill="#ffffff"/></svg>'
+  );
 
-  // 1. Standard PNG sizes for PWA and Web
+  const transparentCircularBase = await sharp(uploadedSrc)
+    .composite([{ input: circleMask, blend: 'dest-in' }])
+    .png({ quality: 100 })
+    .toBuffer();
+
+  // Save the master source icon
+  await sharp(transparentCircularBase)
+    .resize(1024, 1024)
+    .toFile(path.join(iconsDir, 'mana-circle-1024x1024.png'));
+
+  console.log('Generating multi-resolution PNGs with transparent circular edges...');
+
+  // 1. Standard PNG sizes for PWA, Web and App Icons
   const pngSizes = [
     { size: 16, dest: path.join(publicDir, 'favicon-16x16.png') },
     { size: 32, dest: path.join(publicDir, 'favicon-32x32.png') },
@@ -60,14 +76,14 @@ async function generateAllFavicons() {
   ];
 
   for (const { size, dest } of pngSizes) {
-    await sharp(baseBuffer)
-      .resize(size, size, { fit: 'contain', background: { r: 14, g: 26, b: 43, alpha: 1 } })
+    await sharp(transparentCircularBase)
+      .resize(size, size, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
       .png({ quality: 95, compressionLevel: 9 })
       .toFile(dest);
     console.log(`✓ Created: ${path.relative(process.cwd(), dest)} (${size}x${size})`);
   }
 
-  // 2. Adaptive Maskable Icons (with safe zone padding: 10% inner inset)
+  // 2. Android Maskable Icons (safe zone with 12% padding on clean brand background)
   const maskableSizes = [
     { size: 192, dest: path.join(iconsDir, 'icon-maskable-192x192.png') },
     { size: 512, dest: path.join(iconsDir, 'icon-maskable-512x512.png') },
@@ -75,8 +91,8 @@ async function generateAllFavicons() {
 
   for (const { size, dest } of maskableSizes) {
     const innerSize = Math.round(size * 0.82); // 82% inside safe zone
-    const innerBuffer = await sharp(baseBuffer)
-      .resize(innerSize, innerSize, { fit: 'contain', background: { r: 14, g: 26, b: 43, alpha: 1 } })
+    const innerBuffer = await sharp(transparentCircularBase)
+      .resize(innerSize, innerSize, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
       .png()
       .toBuffer();
 
@@ -85,7 +101,7 @@ async function generateAllFavicons() {
         width: size,
         height: size,
         channels: 4,
-        background: { r: 14, g: 26, b: 43, alpha: 1 }, // Brand deep navy
+        background: { r: 255, g: 255, b: 255, alpha: 1 }, // White canvas for clean circle badge
       },
     })
       .composite([{ input: innerBuffer, gravity: 'center' }])
@@ -95,12 +111,12 @@ async function generateAllFavicons() {
   }
 
   // 3. Multi-resolution ICO (16x16, 32x32, 48x48)
-  console.log('Building multi-layer favicon.ico...');
+  console.log('Building multi-layer favicon.ico from circular badge...');
   const icoSizes = [16, 32, 48];
   const icoBuffers = await Promise.all(
     icoSizes.map((s) =>
-      sharp(baseBuffer)
-        .resize(s, s, { fit: 'contain', background: { r: 14, g: 26, b: 43, alpha: 1 } })
+      sharp(transparentCircularBase)
+        .resize(s, s, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
         .png()
         .toBuffer()
     )
@@ -111,66 +127,17 @@ async function generateAllFavicons() {
   fs.writeFileSync(path.join(appDir, 'favicon.ico'), icoData);
   console.log(`✓ Created: public/favicon.ico and app/favicon.ico (${icoData.length} bytes)`);
 
-  // 4. Modern Vector SVG Favicon
-  const svgFaviconContent = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
-  <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0E1A2B"/>
-      <stop offset="100%" stop-color="#071220"/>
-    </linearGradient>
-    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF2E4D"/>
-      <stop offset="50%" stop-color="#E10628"/>
-      <stop offset="100%" stop-color="#9E0016"/>
-    </linearGradient>
-    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1E7BE8"/>
-      <stop offset="50%" stop-color="#0B4EA2"/>
-      <stop offset="100%" stop-color="#052D62"/>
-    </linearGradient>
-    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#D4AF37"/>
-      <stop offset="50%" stop-color="#FFDF73"/>
-      <stop offset="100%" stop-color="#B88E3E"/>
-    </linearGradient>
-    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
-      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.5"/>
-    </filter>
-  </defs>
-
-  <!-- Background rounded squircle -->
-  <rect width="128" height="128" rx="28" fill="url(#bgGrad)" stroke="#B88E3E" stroke-width="1.5" stroke-opacity="0.4"/>
-
-  <!-- Supersonic Red/Blue Arc -->
-  <path d="M 22 56 C 42 32, 86 32, 106 48" fill="none" stroke="url(#redGrad)" stroke-width="4.5" stroke-linecap="round"/>
-  <path d="M 28 61 C 46 40, 80 40, 98 52" fill="none" stroke="url(#blueGrad)" stroke-width="2.5" stroke-linecap="round"/>
-
-  <!-- Airplane Silhouette with Jet Trails -->
-  <g transform="translate(86, 32) scale(0.65) rotate(15)" filter="url(#shadow)">
-    <!-- Tricolor Contrailtrails -->
-    <path d="M -30 18 L 0 6" stroke="#FF9933" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
-    <path d="M -26 21 L 4 9" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
-    <path d="M -22 24 L 8 12" stroke="#138808" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
-    <!-- Aircraft Body -->
-    <path d="M 12 0 L 2 12 L -6 11 L -2 7 L -10 6 L -14 10 L -18 10 L -16 6 L -22 5 L -20 2 L 12 0 Z" fill="#FFFFFF"/>
-    <path d="M 2 12 L -4 20 L -8 20 L -3 12 Z" fill="#1E7BE8"/>
-  </g>
-
-  <!-- Stylized MANA Monogram -->
-  <text x="64" y="86" text-anchor="middle" font-family="'Outfit', 'Arial Black', sans-serif" font-weight="900" font-size="28" letter-spacing="-0.5" filter="url(#shadow)">
-    <tspan fill="url(#redGrad)">M</tspan><tspan fill="url(#blueGrad)">A</tspan><tspan fill="url(#blueGrad)">N</tspan><tspan fill="url(#redGrad)">A</tspan>
-  </text>
-
-  <!-- Golden Accent Bottom Bar -->
-  <rect x="36" y="96" width="56" height="2.5" rx="1.25" fill="url(#goldGrad)"/>
-  <circle cx="64" cy="104" r="1.8" fill="#FFDF73"/>
+  // 4. Also create a base64-embedded SVG Favicon with infinite vector scaling
+  const base64Png = (await sharp(transparentCircularBase).resize(256, 256).png().toBuffer()).toString('base64');
+  const svgFaviconContent = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="100%" height="100%">
+  <image href="data:image/png;base64,${base64Png}" width="256" height="256" />
 </svg>`;
 
   fs.writeFileSync(path.join(publicDir, 'favicon.svg'), svgFaviconContent);
   fs.writeFileSync(path.join(iconsDir, 'favicon.svg'), svgFaviconContent);
   console.log(`✓ Created: public/favicon.svg and public/icons/favicon.svg`);
 
-  console.log('All favicons and app icons generated successfully!');
+  console.log('🎉 All favicons and app icons generated successfully from uploaded circular logo!');
 }
 
 generateAllFavicons().catch(console.error);
