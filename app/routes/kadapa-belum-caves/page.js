@@ -7,13 +7,52 @@ import styles from '../../services/service.module.css';
 import { BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Kadapa to Belum Caves Cab | MANA Tours & Travels',
-  description: 'Book a cab from Kadapa to Belum Caves. AC sedan with experienced driver. MANA Tours & Travels. Call +91 99083 00718.',
+  title: 'Kadapa to Belum Caves Cab | Longest Cave in India | MANA Tours',
+  description: 'Book a cab from Kadapa to Belum Caves (longest cave in India). Full-day tour starting ₹1,499. MANA Tours & Travels Kadapa. Call +91 99083 00718.',
+  keywords: [
+    'Kadapa to Belum Caves cab',
+    'Belum Caves tour from Kadapa',
+    'Belum Caves day trip Kadapa',
+    'Kadapa sightseeing Belum Caves',
+    'longest cave India tour Kadapa',
+  ],
+  alternates: { canonical: 'https://www.manatoursandtravels.com/routes/kadapa-belum-caves' },
+};
+
+const tripSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TouristTrip',
+  name: 'Kadapa to Belum Caves Day Tour',
+  description: 'Day trip to Belum Caves from Kadapa — the longest natural cave in India.',
+  provider: { '@type': 'LocalBusiness', name: 'MANA Tours & Travels', telephone: '+919908300718' },
+  offers: [{ '@type': 'Offer', name: 'Day Tour', price: '1499', priceCurrency: 'INR' }],
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.manatoursandtravels.com' },
+    { '@type': 'ListItem', position: 2, name: 'Routes', item: 'https://www.manatoursandtravels.com/routes' },
+    { '@type': 'ListItem', position: 3, name: 'Belum Caves', item: 'https://www.manatoursandtravels.com/routes/kadapa-belum-caves' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'How far is Belum Caves from Kadapa?', acceptedAnswer: { '@type': 'Answer', text: 'Belum Caves are approximately 130 km from Kadapa, around 2.5 hours by road.' } },
+    { '@type': 'Question', name: 'Are Belum Caves the longest cave in India?', acceptedAnswer: { '@type': 'Answer', text: 'Yes! Belum Caves in Kurnool district is the second longest natural cave in the Indian subcontinent (3,229 m) and the longest cave in India open to tourists.' } },
+  ],
 };
 
 export default function Page() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(tripSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Header />
       <div className={styles.serviceHero}>
         <div className="container">

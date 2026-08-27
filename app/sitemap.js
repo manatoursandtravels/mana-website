@@ -19,7 +19,9 @@ export default function sitemap() {
     'kadapa-tirupati-cab', 'kadapa-hyderabad-cab', 'kadapa-bangalore-cab',
     'kadapa-chennai-cab', 'kadapa-gandikota-tour', 'kadapa-srisailam-cab',
     'kadapa-belum-caves', 'kadapa-ooty-tour', 'kadapa-goa-tour',
+    'proddatur-cab', 'pulivendula-cab', 'rayachoty-cab',
   ];
+
 
   return [
     ...staticPages.map(p => ({ url: `${base}${p}`, lastModified: now, changeFrequency: 'monthly', priority: p === '' ? 1.0 : 0.8 })),

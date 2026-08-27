@@ -72,6 +72,12 @@ export const metadata = {
   verification: {
     google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || '',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'MANA Tours & Travels Kadapa — Every Journey, A New Experience',
+    description: 'Premier cab, self-drive rentals and pilgrimage travel from Kadapa, Andhra Pradesh. 5.0★ Google Rated. Call +91 99083 00718.',
+    images: ['/images/hero-car.jpg'],
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -180,6 +186,9 @@ export default function RootLayout({ children }) {
                     { '@type': 'City', name: 'Proddatur' },
                     { '@type': 'City', name: 'Pulivendula' },
                     { '@type': 'City', name: 'Rayachoty' },
+                    { '@type': 'City', name: 'Badvel' },
+                    { '@type': 'City', name: 'Jammalamadugu' },
+                    { '@type': 'City', name: 'Rajampet' },
                   ],
                   hasOfferCatalog: {
                     '@type': 'OfferCatalog',
@@ -227,6 +236,44 @@ export default function RootLayout({ children }) {
                       },
                     ],
                   },
+                },
+                {
+                  '@type': 'WebSite',
+                  '@id': 'https://www.manatoursandtravels.com/#website',
+                  url: 'https://www.manatoursandtravels.com',
+                  name: 'MANA Tours & Travels Kadapa',
+                  description: 'Kadapa\'s #1 cab, self-drive & pilgrimage travel service in Rayalaseema, Andhra Pradesh.',
+                  publisher: { '@id': 'https://www.manatoursandtravels.com/#business' },
+                  potentialAction: {
+                    '@type': 'SearchAction',
+                    target: {
+                      '@type': 'EntryPoint',
+                      urlTemplate: 'https://www.manatoursandtravels.com/?q={search_term_string}',
+                    },
+                    'query-input': 'required name=search_term_string',
+                  },
+                },
+                {
+                  '@type': 'Organization',
+                  '@id': 'https://www.manatoursandtravels.com/#organization',
+                  name: 'MANA Tours & Travels',
+                  url: 'https://www.manatoursandtravels.com',
+                  logo: {
+                    '@type': 'ImageObject',
+                    url: 'https://www.manatoursandtravels.com/icons/icon-512x512.png',
+                    width: 512,
+                    height: 512,
+                  },
+                  contactPoint: [
+                    {
+                      '@type': 'ContactPoint',
+                      telephone: '+91-99083-00718',
+                      contactType: 'customer service',
+                      areaServed: 'IN',
+                      availableLanguage: ['Telugu', 'English', 'Hindi'],
+                    },
+                  ],
+                  sameAs: ['https://share.google/0sD6bzbqjLt1h1NCZ'],
                 },
               ],
             }),

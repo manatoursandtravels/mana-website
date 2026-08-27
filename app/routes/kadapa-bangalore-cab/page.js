@@ -7,13 +7,65 @@ import styles from '../../services/service.module.css';
 import { BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Kadapa to Bangalore Cab | MANA Tours & Travels',
-  description: 'Book a cab from Kadapa to Bangalore. AC sedan with experienced driver. MANA Tours & Travels. Call +91 99083 00718.',
+  title: 'Kadapa to Bangalore Cab | ₹5,499 One Way | ₹9,499 Round Trip | MANA Tours',
+  description: 'Book a cab from Kadapa to Bangalore (BLR Airport) from ₹5,499 one way, ₹9,499 round trip. AC sedan, experienced driver, 24/7 available. MANA Tours & Travels Kadapa. Call +91 99083 00718.',
+  keywords: [
+    'Kadapa to Bangalore cab',
+    'Kadapa Bangalore taxi',
+    'Kadapa to Bangalore cab fare',
+    'Kadapa to BLR airport cab',
+    'Bangalore cab from Kadapa',
+    'Kadapa to Kempegowda airport taxi',
+    'Kadapa outstation cab Bangalore',
+  ],
+  alternates: { canonical: 'https://www.manatoursandtravels.com/routes/kadapa-bangalore-cab' },
+};
+
+const tripSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Intercity Cab Service',
+  name: 'Kadapa to Bangalore Cab Service',
+  description: 'Comfortable AC cab from Kadapa to Bangalore. Transparent pricing. Experienced driver. Available 24/7.',
+  provider: {
+    '@type': 'LocalBusiness',
+    name: 'MANA Tours & Travels',
+    telephone: '+919908300718',
+    address: { '@type': 'PostalAddress', addressLocality: 'Kadapa', addressRegion: 'Andhra Pradesh', postalCode: '516001', addressCountry: 'IN' },
+  },
+  offers: [
+    { '@type': 'Offer', name: 'One Way Drop', price: '5499', priceCurrency: 'INR' },
+    { '@type': 'Offer', name: 'Round Trip', price: '9499', priceCurrency: 'INR' },
+  ],
+  areaServed: [{ '@type': 'City', name: 'Kadapa' }, { '@type': 'City', name: 'Bangalore' }],
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.manatoursandtravels.com' },
+    { '@type': 'ListItem', position: 2, name: 'Routes', item: 'https://www.manatoursandtravels.com/routes' },
+    { '@type': 'ListItem', position: 3, name: 'Kadapa to Bangalore', item: 'https://www.manatoursandtravels.com/routes/kadapa-bangalore-cab' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'How far is Kadapa from Bangalore?', acceptedAnswer: { '@type': 'Answer', text: 'Kadapa to Bangalore is approximately 330 km, which takes around 5–6 hours by road.' } },
+    { '@type': 'Question', name: 'What is the cab fare from Kadapa to Bangalore?', acceptedAnswer: { '@type': 'Answer', text: 'MANA Tours charges ₹5,499 for one way and ₹9,499 for round trip in an AC sedan. Toll is extra.' } },
+    { '@type': 'Question', name: 'Does MANA provide Bangalore airport (BLR) cab from Kadapa?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. MANA provides Kempegowda International Airport (BLR) drops from Kadapa at ₹5,499 all-inclusive.' } },
+  ],
 };
 
 export default function Page() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(tripSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Header />
       <div className={styles.serviceHero}>
         <div className="container">

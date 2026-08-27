@@ -7,13 +7,56 @@ import styles from '../../services/service.module.css';
 import { BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Kadapa to Gandikota Cab | MANA Tours & Travels',
-  description: 'Book a cab from Kadapa to Gandikota. AC sedan with experienced driver. MANA Tours & Travels. Call +91 99083 00718.',
+  title: 'Kadapa to Gandikota Tour Cab | Grand Canyon of India | MANA Tours',
+  description: 'Full-day Gandikota & Belum Caves tour from Kadapa. Private AC cab with experienced guide-driver. Starting ₹2,799. MANA Tours & Travels Kadapa. Call +91 99083 00718.',
+  keywords: [
+    'Kadapa to Gandikota cab',
+    'Gandikota tour from Kadapa',
+    'Gandikota day trip cab',
+    'Belum Caves Gandikota tour',
+    'Grand Canyon India tour Kadapa',
+    'Gandikota Belum caves package Kadapa',
+    'Kadapa sightseeing cab Gandikota',
+  ],
+  alternates: { canonical: 'https://www.manatoursandtravels.com/routes/kadapa-gandikota-tour' },
+};
+
+const tripSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TouristTrip',
+  name: 'Kadapa to Gandikota & Belum Caves Day Tour',
+  description: 'Private guided full-day sightseeing tour to Gandikota Fort (Grand Canyon of India) and Belum Caves from Kadapa.',
+  provider: { '@type': 'LocalBusiness', name: 'MANA Tours & Travels', telephone: '+919908300718' },
+  offers: [{ '@type': 'Offer', name: 'Full Day Tour Package', price: '2799', priceCurrency: 'INR' }],
+  touristType: { '@type': 'Audience', audienceType: 'Tourists, Nature lovers, History enthusiasts' },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.manatoursandtravels.com' },
+    { '@type': 'ListItem', position: 2, name: 'Routes', item: 'https://www.manatoursandtravels.com/routes' },
+    { '@type': 'ListItem', position: 3, name: 'Gandikota Tour', item: 'https://www.manatoursandtravels.com/routes/kadapa-gandikota-tour' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'How far is Gandikota from Kadapa?', acceptedAnswer: { '@type': 'Answer', text: 'Gandikota Fort is approximately 70 km from Kadapa, around 1.5 hours by road.' } },
+    { '@type': 'Question', name: 'What is included in the Gandikota day tour package?', acceptedAnswer: { '@type': 'Answer', text: 'MANA\'s Gandikota & Belum Caves tour includes AC cab, driver, Gandikota Fort gorge viewpoints, Belum Caves visit, and photo stops. Pickup and drop at your Kadapa address.' } },
+    { '@type': 'Question', name: 'Is Gandikota called the Grand Canyon of India?', acceptedAnswer: { '@type': 'Answer', text: 'Yes! Gandikota Gorge in Kadapa district is popularly called the Grand Canyon of India due to its dramatic rocky cliffs carved by the Penna River.' } },
+  ],
 };
 
 export default function Page() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(tripSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Header />
       <div className={styles.serviceHero}>
         <div className="container">

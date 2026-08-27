@@ -7,13 +7,55 @@ import styles from '../../services/service.module.css';
 import { BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Kadapa to Chennai Cab | MANA Tours & Travels',
-  description: 'Book a cab from Kadapa to Chennai. AC sedan with experienced driver. MANA Tours & Travels. Call +91 99083 00718.',
+  title: 'Kadapa to Chennai Cab | ₹6,499 One Way | MANA Tours & Travels',
+  description: 'Book a cab from Kadapa to Chennai (Central / Airport) from ₹6,499 one way. AC sedan, experienced driver, 24/7 available. MANA Tours & Travels Kadapa. Call +91 99083 00718.',
+  keywords: [
+    'Kadapa to Chennai cab',
+    'Kadapa Chennai taxi',
+    'Kadapa to Chennai cab fare',
+    'Kadapa to Chennai airport taxi',
+    'Chennai cab from Kadapa',
+    'Kadapa outstation cab Chennai',
+  ],
+  alternates: { canonical: 'https://www.manatoursandtravels.com/routes/kadapa-chennai-cab' },
+};
+
+const tripSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Intercity Cab Service',
+  name: 'Kadapa to Chennai Cab Service',
+  description: 'Comfortable AC cab from Kadapa to Chennai. Transparent pricing. Experienced driver. Available 24/7.',
+  provider: { '@type': 'LocalBusiness', name: 'MANA Tours & Travels', telephone: '+919908300718' },
+  offers: [{ '@type': 'Offer', name: 'One Way Drop', price: '6499', priceCurrency: 'INR' }],
+  areaServed: [{ '@type': 'City', name: 'Kadapa' }, { '@type': 'City', name: 'Chennai' }],
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.manatoursandtravels.com' },
+    { '@type': 'ListItem', position: 2, name: 'Routes', item: 'https://www.manatoursandtravels.com/routes' },
+    { '@type': 'ListItem', position: 3, name: 'Kadapa to Chennai', item: 'https://www.manatoursandtravels.com/routes/kadapa-chennai-cab' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'How far is Kadapa from Chennai?', acceptedAnswer: { '@type': 'Answer', text: 'Kadapa to Chennai is approximately 430 km, which takes around 7–8 hours by road via NH716.' } },
+    { '@type': 'Question', name: 'What is the cab fare from Kadapa to Chennai?', acceptedAnswer: { '@type': 'Answer', text: 'MANA Tours charges ₹6,499 for one way in an AC sedan. Toll is extra at actual.' } },
+  ],
 };
 
 export default function Page() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(tripSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Header />
       <div className={styles.serviceHero}>
         <div className="container">

@@ -11,12 +11,66 @@ import { BUSINESS } from '@/lib/constants';
 
 export const metadata = {
   title: 'Kadapa to Hyderabad Cab | ₹4,999 One Way | ₹8,499 Round Trip | MANA Tours',
-  description: 'Book a cab from Kadapa to Hyderabad. ₹4,999 one way, ₹8,499 round trip. AC sedan, experienced driver. MANA Tours & Travels. Call +91 99083 00718.',
+  description: 'Book a cab from Kadapa to Hyderabad (RGIA Airport) from ₹4,999 one way, ₹8,499 round trip. AC sedan, experienced driver, 24/7 available. MANA Tours & Travels Kadapa. Call +91 99083 00718.',
+  keywords: [
+    'Kadapa to Hyderabad cab',
+    'Kadapa Hyderabad taxi',
+    'Kadapa to Hyderabad cab fare',
+    'Kadapa to RGIA airport cab',
+    'Hyderabad cab from Kadapa',
+    'Kadapa Hyderabad outstation taxi',
+    'Kadapa to Secunderabad cab',
+  ],
+  alternates: { canonical: 'https://www.manatoursandtravels.com/routes/kadapa-hyderabad-cab' },
+};
+
+const tripSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Intercity Cab Service',
+  name: 'Kadapa to Hyderabad Cab Service',
+  description: 'Comfortable AC cab from Kadapa to Hyderabad. Transparent pricing. Experienced drivers. Available 24/7.',
+  provider: {
+    '@type': 'LocalBusiness',
+    name: 'MANA Tours & Travels',
+    telephone: '+919908300718',
+    address: { '@type': 'PostalAddress', addressLocality: 'Kadapa', addressRegion: 'Andhra Pradesh', postalCode: '516001', addressCountry: 'IN' },
+  },
+  offers: [
+    { '@type': 'Offer', name: 'One Way Drop', price: '4999', priceCurrency: 'INR' },
+    { '@type': 'Offer', name: 'Round Trip', price: '8499', priceCurrency: 'INR' },
+    { '@type': 'Offer', name: 'RGIA Airport Drop', price: '5499', priceCurrency: 'INR' },
+  ],
+  areaServed: [{ '@type': 'City', name: 'Kadapa' }, { '@type': 'City', name: 'Hyderabad' }],
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.manatoursandtravels.com' },
+    { '@type': 'ListItem', position: 2, name: 'Routes', item: 'https://www.manatoursandtravels.com/routes' },
+    { '@type': 'ListItem', position: 3, name: 'Kadapa to Hyderabad', item: 'https://www.manatoursandtravels.com/routes/kadapa-hyderabad-cab' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'How far is Kadapa from Hyderabad?', acceptedAnswer: { '@type': 'Answer', text: 'Kadapa to Hyderabad is approximately 360 km, which takes around 6–7 hours by road via NH167 and NH44.' } },
+    { '@type': 'Question', name: 'What is the cab fare from Kadapa to Hyderabad?', acceptedAnswer: { '@type': 'Answer', text: 'MANA Tours charges ₹4,999 for one way and ₹8,499 for round trip in an AC sedan. Toll is extra.' } },
+    { '@type': 'Question', name: 'Does MANA provide Hyderabad airport (RGIA) cab from Kadapa?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. MANA provides a fixed RGIA airport drop from Kadapa at ₹5,499 all-inclusive for the AC sedan.' } },
+    { '@type': 'Question', name: 'Can I book a midnight or early morning cab from Kadapa to Hyderabad?', acceptedAnswer: { '@type': 'Answer', text: 'Yes! MANA operates 24/7. Early morning and late night trips are available with advance booking of 12–24 hours.' } },
+  ],
 };
 
 export default function KadapaToHyderabadPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(tripSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Header />
       <div className={styles.serviceHero}>
         <div className="container">

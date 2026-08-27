@@ -7,13 +7,54 @@ import styles from '../../services/service.module.css';
 import { BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Kadapa to Srisailam Cab | MANA Tours & Travels',
-  description: 'Book a cab from Kadapa to Srisailam. AC sedan with experienced driver. MANA Tours & Travels. Call +91 99083 00718.',
+  title: 'Kadapa to Srisailam Cab | Mallikarjuna Jyotirlinga Temple Tour | MANA',
+  description: 'Book a cab from Kadapa to Srisailam starting ₹3,499. Sacred Mallikarjuna Jyotirlinga darshan with experienced chauffeur. MANA Tours & Travels Kadapa. Call +91 99083 00718.',
+  keywords: [
+    'Kadapa to Srisailam cab',
+    'Srisailam darshan cab Kadapa',
+    'Kadapa to Srisailam pilgrimage tour',
+    'Mallikarjuna Jyotirlinga cab Kadapa',
+    'Srisailam dam tour from Kadapa',
+  ],
+  alternates: { canonical: 'https://www.manatoursandtravels.com/routes/kadapa-srisailam-cab' },
+};
+
+const tripSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Pilgrimage Cab Service',
+  name: 'Kadapa to Srisailam Cab Service',
+  description: 'Sacred pilgrimage cab from Kadapa to Srisailam Mallikarjuna Jyotirlinga temple.',
+  provider: { '@type': 'LocalBusiness', name: 'MANA Tours & Travels', telephone: '+919908300718' },
+  offers: [{ '@type': 'Offer', name: 'One Way Pilgrimage', price: '3499', priceCurrency: 'INR' }],
+  areaServed: [{ '@type': 'City', name: 'Kadapa' }, { '@type': 'City', name: 'Srisailam' }],
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.manatoursandtravels.com' },
+    { '@type': 'ListItem', position: 2, name: 'Routes', item: 'https://www.manatoursandtravels.com/routes' },
+    { '@type': 'ListItem', position: 3, name: 'Kadapa to Srisailam', item: 'https://www.manatoursandtravels.com/routes/kadapa-srisailam-cab' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'How far is Srisailam from Kadapa?', acceptedAnswer: { '@type': 'Answer', text: 'Srisailam is approximately 200 km from Kadapa, around 3.5–4 hours by road via the scenic Nallamala forest ghat road.' } },
+    { '@type': 'Question', name: 'What is the cab fare from Kadapa to Srisailam?', acceptedAnswer: { '@type': 'Answer', text: 'MANA Tours charges ₹3,499 for one way and ₹5,499 for round trip to Srisailam in an AC sedan. Toll and forest fees are extra.' } },
+  ],
 };
 
 export default function Page() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(tripSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Header />
       <div className={styles.serviceHero}>
         <div className="container">

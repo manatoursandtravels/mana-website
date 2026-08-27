@@ -8,8 +8,18 @@ import { BUSINESS } from '@/lib/constants';
 
 export const metadata = {
   title: 'Kadapa to Tirupati Cab | ₹2,099 One Way | ₹3,499 Round Trip | MANA Tours',
-  description: 'Book a cab from Kadapa to Tirupati starting ₹2,099 one way, ₹3,499 round trip. AC sedan, experienced driver, on-time pickup. MANA Tours & Travels. Call +91 99083 00718.',
-  keywords: ['Kadapa to Tirupati cab', 'Kadapa Tirupati taxi', 'cab booking Kadapa Tirupati'],
+  description: 'Book a cab from Kadapa to Tirupati starting ₹2,099 one way, ₹3,499 round trip. AC sedan, experienced driver, on-time pickup. MANA Tours & Travels Kadapa. Call +91 99083 00718.',
+  keywords: [
+    'Kadapa to Tirupati cab',
+    'Kadapa Tirupati taxi',
+    'cab from Kadapa to Tirupati price',
+    'Kadapa Tirupati cab fare',
+    'Tirupati darshan cab Kadapa',
+    'Tirupati temple tour from Kadapa',
+    'Kadapa to Tirumala cab',
+    'pilgrimage cab Kadapa Tirupati',
+  ],
+  alternates: { canonical: 'https://www.manatoursandtravels.com/routes/kadapa-tirupati-cab' },
 };
 
 const faqs = [
@@ -20,9 +30,51 @@ const faqs = [
   { q: 'Can I book for early morning pickup?', a: 'Yes! We are available 24/7. Many customers prefer early starts for Tirupati darshan. Add a note in your booking.' },
 ];
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const tripSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Intercity Cab Service',
+  name: 'Kadapa to Tirupati Cab Service',
+  description: 'Comfortable AC cab from Kadapa to Tirupati. Experienced drivers. On-time pickup. Best price guarantee.',
+  provider: {
+    '@type': 'LocalBusiness',
+    name: 'MANA Tours & Travels',
+    telephone: '+919908300718',
+    address: { '@type': 'PostalAddress', addressLocality: 'Kadapa', addressRegion: 'Andhra Pradesh', postalCode: '516001', addressCountry: 'IN' },
+  },
+  offers: [
+    { '@type': 'Offer', name: 'One Way Drop', price: '2099', priceCurrency: 'INR' },
+    { '@type': 'Offer', name: 'Round Trip (Same Day)', price: '3499', priceCurrency: 'INR' },
+  ],
+  areaServed: [{ '@type': 'City', name: 'Kadapa' }, { '@type': 'City', name: 'Tirupati' }],
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.manatoursandtravels.com' },
+    { '@type': 'ListItem', position: 2, name: 'Routes', item: 'https://www.manatoursandtravels.com/routes' },
+    { '@type': 'ListItem', position: 3, name: 'Kadapa to Tirupati', item: 'https://www.manatoursandtravels.com/routes/kadapa-tirupati-cab' },
+  ],
+};
+
 export default function KadapaToTirupatiPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(tripSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Header />
       <div className={styles.serviceHero}>
         <div className="container">
