@@ -431,30 +431,244 @@
   line-height: 1.35;
 }
 
-.waBookBtn {
+/* Primary Lock Fare Button */
+.lockFareBtn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   padding: 12px 18px;
-  background: linear-gradient(135deg, #25D366 0%, #16A34A 100%);
+  background: linear-gradient(135deg, var(--brass) 0%, var(--brand-blue) 100%);
+  border: 1.5px solid var(--brass-light);
   color: #FFFFFF;
   font-family: var(--font-display);
-  font-size: 0.85rem;
+  font-size: 0.86rem;
   font-weight: 800;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   border-radius: var(--r-pill);
-  text-decoration: none;
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(184, 142, 62, 0.35);
   transition: all var(--dur-fast);
   margin-top: 4px;
 }
 
-.waBookBtn:hover {
+.lockFareBtn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 26px rgba(37, 211, 102, 0.55);
+  box-shadow: 0 8px 26px rgba(184, 142, 62, 0.5);
+  background: linear-gradient(135deg, var(--brass-light) 0%, var(--brand-blue-light) 100%);
 }
+
+/* Inline Progressive Phone Capture Form */
+.inlinePhoneSection {
+  background: rgba(7, 18, 32, 0.9);
+  border: 1.5px solid var(--brass-border);
+  border-radius: var(--r-lg);
+  padding: 14px;
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: expandForm 240ms var(--ease-luxury);
+}
+
+@keyframes expandForm {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.phoneFormHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #FFDF73;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.phoneInputGroup {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  transition: all var(--dur-fast);
+}
+
+.phoneInputGroup:focus-within {
+  border-color: var(--brass);
+  box-shadow: 0 0 0 2px rgba(184, 142, 62, 0.3);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.phonePrefix {
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #CBD5E1;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.phoneInputField {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 10px 12px;
+  color: #FFFFFF;
+  font-size: 0.95rem;
+  font-weight: 700;
+  outline: none;
+  letter-spacing: 0.05em;
+}
+
+.phoneInputField::placeholder {
+  color: #64748B;
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+.optionalInput {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--r-md);
+  padding: 9px 12px;
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  outline: none;
+  transition: all var(--dur-fast);
+}
+
+.optionalInput:focus {
+  border-color: var(--brass);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.optionalInput::placeholder {
+  color: #64748B;
+}
+
+.priceLockTrustPill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  color: #94A3B8;
+  line-height: 1.35;
+}
+
+.confirmDispatchBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #25D366 0%, #16A34A 100%);
+  color: #FFFFFF;
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: var(--r-pill);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  transition: all var(--dur-fast);
+}
+
+.confirmDispatchBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(37, 211, 102, 0.6);
+  background: linear-gradient(135deg, #22C55E 0%, #15803D 100%);
+}
+
+.cancelPhoneBtn {
+  background: transparent;
+  border: none;
+  color: #94A3B8;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.cancelPhoneBtn:hover {
+  color: #FFFFFF;
+}
+
+/* Digital Reservation Voucher Confirmation */
+.voucherCard {
+  background: linear-gradient(135deg, #071933 0%, #0B4EA2 100%);
+  border: 1.5px solid #10B981;
+  border-radius: var(--r-xl);
+  padding: 14px;
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.25);
+  animation: messageIn 200ms;
+}
+
+.voucherHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.voucherTitle {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #34D399;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.voucherId {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: #FFDF73;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2px 8px;
+  border-radius: var(--r-pill);
+  border: 1px solid rgba(255, 223, 115, 0.3);
+}
+
+.voucherSubtext {
+  font-size: 0.78rem;
+  color: #E2E8F0;
+  line-height: 1.45;
+}
+
+.reopenWaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: #25D366;
+  color: #FFFFFF;
+  border-radius: var(--r-pill);
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-decoration: none;
+  align-self: flex-start;
+  margin-top: 2px;
+}
+
 
 /* ── 7. QUICK PROMPT SUGGESTION PILLS ── */
 .quickPillsArea {
