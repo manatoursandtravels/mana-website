@@ -7,6 +7,7 @@ import FareCalculator from '@/components/FareCalculator';
 import Link from 'next/link';
 import BookingCTA from '@/components/BookingCTA';
 import GoogleReviews from '@/components/GoogleReviews';
+import ReviewsMarquee from '@/components/ReviewsMarquee';
 import { BUSINESS, SERVICES, RATES } from '@/lib/constants';
 import {
   LocalCabIllustration,
@@ -431,8 +432,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══ 5. DYNAMIC GOOGLE BUSINESS REVIEWS & SOCIAL PROOF ══ */}
-      <GoogleReviews />
+      {/* ⭐ 5. DYNAMIC GOOGLE BUSINESS REVIEWS & SOCIAL PROOF ⭐ */}
+      <ReviewsMarquee />
 
       {/* ══ 6. 3D INFOGRAPHIC PILLARS: THE MANA DIFFERENCE ══ */}
       <section className={`section ${styles.whySection}`}>
