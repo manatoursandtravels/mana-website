@@ -168,10 +168,10 @@ export default function RootLayout({ children }) {
                   review: [
                     {
                       '@type': 'Review',
-                      author: { '@type': 'Person', name: 'Damerla Mounika' },
+                      author: { '@type': 'Person', name: 'Jairo Straten' },
                       reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
                       reviewBody:
-                        'Booked a sedan from Kadapa to Tirupati with MANA Tours and Travels. The car was spotless clean, AC was chilled, and the chauffeur was exceptionally polite and punctual. Upfront pricing with zero hidden charges. Highly recommended cab service in Kadapa!',
+                        'We booked car from Kadapa to Ahobilam. Car was clean and the journey was comfortable. Driver was friendly and everything went smoothly. reasonable pricing.',
                       publisher: { '@type': 'Organization', name: 'Google Business Profile' },
                     },
                   ],

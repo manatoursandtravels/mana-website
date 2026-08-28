@@ -100,6 +100,7 @@ const whyUsInfographics = [
 ];
 
 const testimonials = [
+  { name: 'Jairo Straten', city: 'Kadapa → Ahobilam', text: 'We booked car from Kadapa to Ahobilam. Car was clean and the journey was comfortable. Driver was friendly and everything went smoothly. reasonable pricing.', stars: 5, source: 'Google Verified' },
   { name: 'Ramesh K.', city: 'Kadapa', text: 'Booked for Tirupati at 3 AM — Pavan arrived 10 minutes early, car was spotless and AC was perfect. Never going anywhere else!', stars: 5 },
   { name: 'Priya S.', city: 'Hyderabad', text: 'Used MANA for Hyderabad airport transfer. Fixed price, no haggling, smooth ride all the way to RGIA. Highly recommend.', stars: 5 },
   { name: 'Dr. Srinivas R.', city: 'Kadapa', text: 'I use MANA for all my hospital rounds. Always punctual, always professional. The 4hr local package is outstanding value.', stars: 5 },
