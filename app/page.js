@@ -8,6 +8,7 @@ import Link from 'next/link';
 import BookingCTA from '@/components/BookingCTA';
 import GoogleReviews from '@/components/GoogleReviews';
 import ReviewsMarquee from '@/components/ReviewsMarquee';
+import YouTubeChannel from '@/components/YouTubeChannel';
 import { BUSINESS, SERVICES, RATES } from '@/lib/constants';
 import {
   LocalCabIllustration,
@@ -434,6 +435,9 @@ export default function HomePage() {
 
       {/* ⭐ 5. DYNAMIC GOOGLE BUSINESS REVIEWS & SOCIAL PROOF ⭐ */}
       <ReviewsMarquee />
+
+      {/* 🎬 5b. YOUTUBE CHANNEL LAUNCH ── */}
+      <YouTubeChannel />
 
       {/* ══ 6. 3D INFOGRAPHIC PILLARS: THE MANA DIFFERENCE ══ */}
       <section className={`section ${styles.whySection}`}>
