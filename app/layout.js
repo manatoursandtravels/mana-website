@@ -16,7 +16,7 @@ export const viewport = {
 
 export const metadata = {
   title: {
-    default: 'MANA Tours & Travels Kadapa — Premium Cab, Self-Drive & Travel Services',
+    default: 'MANA Tours & Travels Kadapa — #1 Cab Service, Self-Drive & Taxi in Kadapa',
     template: '%s | MANA Tours & Travels Kadapa',
   },
   description:
@@ -34,10 +34,22 @@ export const metadata = {
     'premium cabs kadapa',
     'gandikota cab kadapa',
     'car hire in kadapa',
+    'proddatur cab service',
+    'pulivendula cab service',
+    'rayachoty cab service',
+    'kadapa to srisailam cab',
+    'kadapa to bangalore cab',
+    'kadapa to hyderabad cab',
   ],
   metadataBase: new URL('https://www.manatoursandtravels.com'),
   alternates: {
     canonical: 'https://www.manatoursandtravels.com',
+  },
+  other: {
+    'geo.region': 'IN-AP',
+    'geo.placename': 'Kadapa, Andhra Pradesh',
+    'geo.position': '14.4673;78.8242',
+    'ICBM': '14.4673, 78.8242',
   },
   manifest: '/manifest.json',
   appleWebApp: {
@@ -177,7 +189,8 @@ export default function RootLayout({ children }) {
                   ],
                   sameAs: [
                     'https://share.google/0sD6bzbqjLt1h1NCZ',
-                    'https://www.google.com/maps?cid=MANAToursTravelsKadapa',
+                    'https://www.youtube.com/@ManaToursTravels',
+                    'https://wa.me/919908300718',
                     'https://www.manatoursandtravels.com',
                   ],
                   areaServed: [
