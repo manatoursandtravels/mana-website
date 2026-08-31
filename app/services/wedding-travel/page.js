@@ -7,17 +7,27 @@ import styles from '../service.module.css';
 import { RATES, BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Wedding & Event Travel Kadapa | Cab for Weddings | MANA Tours & Travels',
+  title: 'Wedding Car Rentals & Guest Fleet Coordination in Kadapa',
   description:
     'Luxury wedding cars and multi-vehicle fleet in Kadapa. Half-day engagement (₹1,499), full-day wedding (₹2,499), VIP decorated Innova Crysta, and guest fleet coordination. Call +91 99083 00718.',
-  keywords: [
-    'wedding car rental Kadapa',
-    'bridal car Kadapa',
-    'wedding taxi fleet Kadapa',
-    'marriage function cab booking Kadapa',
-    'flower decorated car Kadapa',
-    'MANA Tours wedding travel',
-  ],
+  alternates: {
+    canonical: '/services/wedding-travel',
+  },
+  openGraph: {
+    title: 'Wedding Car Rentals & Event Fleet Kadapa | MANA Tours',
+    description: 'Luxury bridal cars and multi-car guest transport fleets for marriages and receptions across Kadapa and Rayalaseema.',
+    url: 'https://www.manatoursandtravels.com/services/wedding-travel',
+    siteName: 'MANA Tours & Travels',
+    locale: 'en_IN',
+    type: 'website',
+    images: [{ url: '/images/hero-car.jpg', width: 1200, height: 630, alt: 'Wedding Car Rental Kadapa' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Wedding Car Rentals Kadapa | MANA Tours',
+    description: 'VIP decorated cars and guest transport coordination for marriages in Kadapa.',
+    images: ['/images/hero-car.jpg'],
+  },
 };
 
 const WEDDING_PACKAGES = [

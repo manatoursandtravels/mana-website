@@ -7,17 +7,27 @@ import styles from '../service.module.css';
 import { RATES, BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Local Cab Service Kadapa | 4hr & 8hr Packages | MANA Tours & Travels',
+  title: 'Local Hourly Cab Rentals in Kadapa | 4hr & 8hr City Packages',
   description:
     'Book local cabs in Kadapa. 4 hours/40 km at ₹999, 8 hours/80 km at ₹1,799, full day 12hr at ₹2,499. AC sedan with experienced driver. Call +91 99083 00718.',
-  keywords: [
-    'local cab Kadapa',
-    'hourly car rental Kadapa',
-    'taxi in Kadapa',
-    'Kadapa city cab',
-    '4 hours cab package Kadapa',
-    'MANA Tours local cabs',
-  ],
+  alternates: {
+    canonical: '/services/local-cabs',
+  },
+  openGraph: {
+    title: 'Local Cab Service in Kadapa | 4hr & 8hr Packages | MANA Tours',
+    description: 'Hourly city taxi packages in Kadapa from ₹999. AC sedan, professional chauffeur, fuel included.',
+    url: 'https://www.manatoursandtravels.com/services/local-cabs',
+    siteName: 'MANA Tours & Travels',
+    locale: 'en_IN',
+    type: 'website',
+    images: [{ url: '/images/hero-car.jpg', width: 1200, height: 630, alt: 'Local Cabs Kadapa' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Local Cab Service Kadapa | MANA Tours',
+    description: 'Affordable hourly car rentals in Kadapa with chauffeur and fuel included.',
+    images: ['/images/hero-car.jpg'],
+  },
 };
 
 const LOCAL_PACKAGES = [

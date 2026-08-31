@@ -10,18 +10,24 @@ import styles from '../../services/service.module.css';
 import { BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Kadapa to Hyderabad Cab | ₹4,999 One Way | ₹8,499 Round Trip | MANA Tours',
-  description: 'Book a cab from Kadapa to Hyderabad (RGIA Airport) from ₹4,999 one way, ₹8,499 round trip. AC sedan, experienced driver, 24/7 available. MANA Tours & Travels Kadapa. Call +91 99083 00718.',
-  keywords: [
-    'Kadapa to Hyderabad cab',
-    'Kadapa Hyderabad taxi',
-    'Kadapa to Hyderabad cab fare',
-    'Kadapa to RGIA airport cab',
-    'Hyderabad cab from Kadapa',
-    'Kadapa Hyderabad outstation taxi',
-    'Kadapa to Secunderabad cab',
-  ],
-  alternates: { canonical: 'https://www.manatoursandtravels.com/routes/kadapa-hyderabad-cab' },
+  title: 'Kadapa to Hyderabad Cab | ₹4,999 One Way & ₹8,499 Round Trip',
+  description: 'Book a cab from Kadapa to Hyderabad (RGIA Airport) from ₹4,999 one way, ₹8,499 round trip. AC sedan, experienced driver, 24/7 available. Call +91 99083 00718.',
+  alternates: { canonical: '/routes/kadapa-hyderabad-cab' },
+  openGraph: {
+    title: 'Kadapa to Hyderabad Cab | ₹4,999 One Way & ₹8,499 Round Trip | MANA Tours',
+    description: 'Highway cab from Kadapa to Hyderabad & RGIA Airport Shamshabad. Sanitized AC fleet, expert chauffeurs, upfront pricing.',
+    url: 'https://www.manatoursandtravels.com/routes/kadapa-hyderabad-cab',
+    siteName: 'MANA Tours & Travels',
+    locale: 'en_IN',
+    type: 'website',
+    images: [{ url: '/images/hero-car.jpg', width: 1200, height: 630, alt: 'Kadapa to Hyderabad Cab' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Kadapa to Hyderabad Cab | MANA Tours',
+    description: 'Direct AC cabs from Kadapa to Hyderabad City and RGIA Airport.',
+    images: ['/images/hero-car.jpg'],
+  },
 };
 
 const tripSchema = {

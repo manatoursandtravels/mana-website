@@ -12,9 +12,13 @@ function splitRows(reviews) {
 }
 
 /* ─── Single review card ─── */
-function ReviewCard({ review }) {
+function ReviewCard({ review, isDuplicate = false }) {
   return (
-    <article className={styles.card} aria-label={`Review by ${review.name}`}>
+    <article
+      className={styles.card}
+      aria-label={isDuplicate ? undefined : `Review by ${review.name}`}
+      aria-hidden={isDuplicate ? 'true' : undefined}
+    >
       {/* Header */}
       <div className={styles.cardHead}>
         <div className={styles.avatarWrap}>
@@ -124,7 +128,7 @@ function MarqueeRow({ reviews, direction = 'left', speed = 35 }) {
 
       <div ref={trackRef} className={styles.track}>
         {items.map((r, i) => (
-          <ReviewCard key={`${r.id}-${i}`} review={r} />
+          <ReviewCard key={`${r.id}-${i}`} review={r} isDuplicate={i >= reviews.length} />
         ))}
       </div>
     </div>

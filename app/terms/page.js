@@ -3,7 +3,11 @@ import Footer from '@/components/Footer';
 import styles from '../legal.module.css';
 import { BUSINESS } from '@/lib/constants';
 
-export const metadata = { title: 'Terms & Conditions | MANA Tours & Travels', description: 'Terms and conditions for using MANA Tours & Travels cab and travel services.' };
+export const metadata = {
+  title: 'Terms & Conditions',
+  description: 'Terms and conditions for using MANA Tours & Travels cab and travel services.',
+  alternates: { canonical: '/terms' },
+};
 
 export default function TermsPage() {
   return (

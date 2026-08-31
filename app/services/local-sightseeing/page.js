@@ -7,17 +7,27 @@ import styles from '../service.module.css';
 import { BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Local Sightseeing Kadapa | City Tour Cab | MANA Tours & Travels',
+  title: 'Local Sightseeing & Heritage City Tours in Kadapa',
   description:
     'Explore Kadapa city and historic heritage attractions in air-conditioned comfort. 4hr city tour (₹1,499), 8hr full-day circuit (₹1,799), Siddhavattam & Vontimitta. Call +91 99083 00718.',
-  keywords: [
-    'Kadapa sightseeing cab',
-    'Kadapa city tour taxi',
-    'places to visit in Kadapa cab',
-    'Siddhavattam fort cab',
-    'Vontimitta temple tour',
-    'MANA Tours local sightseeing',
-  ],
+  alternates: {
+    canonical: '/services/local-sightseeing',
+  },
+  openGraph: {
+    title: 'Local Sightseeing Tours in Kadapa | MANA Tours & Travels',
+    description: 'Explore Kadapa historic attractions with private AC cabs and local expert chauffeurs from ₹1,499.',
+    url: 'https://www.manatoursandtravels.com/services/local-sightseeing',
+    siteName: 'MANA Tours & Travels',
+    locale: 'en_IN',
+    type: 'website',
+    images: [{ url: '/images/hero-car.jpg', width: 1200, height: 630, alt: 'Local Sightseeing Kadapa' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Local Sightseeing Kadapa | MANA Tours',
+    description: 'Private city tours and heritage site trips in Kadapa.',
+    images: ['/images/hero-car.jpg'],
+  },
 };
 
 const SIGHTSEEING_PACKAGES = [

@@ -158,7 +158,7 @@ export default function Header() {
               className={`${styles.navLink} ${styles.selfDriveNavLink} ${pathname === '/services/self-drive' ? styles.navLinkActive : ''}`}
               id="header-self-drive"
             >
-              <span>🔑 Self Drive</span>
+              <span><span aria-hidden="true">🔑</span> Self Drive</span>
               <span className={styles.navBadge}>₹1,499/d</span>
             </Link>
 
@@ -185,7 +185,7 @@ export default function Header() {
               }}
               aria-label="Open MANA AI Voice Assistant"
             >
-              <span className={styles.headerAiIcon}>🎙️</span>
+              <span className={styles.headerAiIcon} aria-hidden="true">🎙️</span>
               <span className={styles.headerAiText}>AI Voice Quote</span>
             </button>
 
@@ -245,7 +245,7 @@ export default function Header() {
             }}
           >
             <div className={styles.mfsdLeft}>
-              <span className={styles.mfsdIcon}>🎙️</span>
+              <span className={styles.mfsdIcon} aria-hidden="true">🎙️</span>
               <div>
                 <div className={styles.mfsdTitle}>MANA AI Voice Assistant</div>
                 <div className={styles.mfsdSub}>Speak in Telugu or English · Instant quote</div>
@@ -261,10 +261,10 @@ export default function Header() {
             onClick={() => setMenuOpen(false)}
           >
             <div className={styles.mfsdLeft}>
-              <span className={styles.mfsdIcon}>🔑</span>
+              <span className={styles.mfsdIcon} aria-hidden="true">🔑</span>
               <div>
                 <div className={styles.mfsdTitle}>Self Drive Rentals</div>
-                <div className={styles.mfsdSub}>₹1,499/day · Zero fuel provided</div>
+                <div className={styles.mfsdSub}>₹1,499/day · Customer-managed fuel</div>
               </div>
             </div>
             <span className={styles.mfsdBadge}>₹800 OFF Weekly</span>

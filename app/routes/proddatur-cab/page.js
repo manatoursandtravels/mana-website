@@ -7,22 +7,25 @@ import styles from '../../services/service.module.css';
 import { BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Cab Service in Proddatur | Local & Outstation Taxi | MANA Tours Kadapa',
+  title: 'Cab Service in Proddatur | Local & Outstation Taxi',
   description:
-    'Book a cab from Proddatur — local taxi, outstation cabs to Kadapa, Tirupati, Hyderabad, Bangalore & airport transfers. MANA Tours & Travels. Call +91 99083 00718.',
-  keywords: [
-    'cab service in Proddatur',
-    'Proddatur to Kadapa cab',
-    'taxi in Proddatur',
-    'Proddatur cab booking',
-    'Proddatur to Tirupati cab',
-    'Proddatur to Hyderabad taxi',
-    'local cab Proddatur',
-    'Proddatur outstation cab',
-    'car rental Proddatur',
-    'MANA tours Proddatur',
-  ],
-  alternates: { canonical: 'https://www.manatoursandtravels.com/routes/proddatur-cab' },
+    'Book a cab from Proddatur — local taxi, outstation cabs to Kadapa, Tirupati, Hyderabad, Bangalore & airport transfers. Call +91 99083 00718.',
+  alternates: { canonical: '/routes/proddatur-cab' },
+  openGraph: {
+    title: 'Cab Service in Proddatur | Local & Outstation Taxi | MANA Tours',
+    description: 'Affordable and reliable local & outstation taxi services in Proddatur with on-time doorstep pickup.',
+    url: 'https://www.manatoursandtravels.com/routes/proddatur-cab',
+    siteName: 'MANA Tours & Travels',
+    locale: 'en_IN',
+    type: 'website',
+    images: [{ url: '/images/hero-car.jpg', width: 1200, height: 630, alt: 'Cab Service in Proddatur' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cab Service in Proddatur | MANA Tours',
+    description: 'Local and outstation taxi service in Proddatur.',
+    images: ['/images/hero-car.jpg'],
+  },
 };
 
 const serviceSchema = {

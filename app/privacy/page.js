@@ -3,7 +3,11 @@ import Footer from '@/components/Footer';
 import styles from '../legal.module.css';
 import { BUSINESS } from '@/lib/constants';
 
-export const metadata = { title: 'Privacy Policy | MANA Tours & Travels', description: 'Privacy policy for MANA Tours & Travels. How we collect, use, and protect your personal information.' };
+export const metadata = {
+  title: 'Privacy Policy',
+  description: 'Privacy policy for MANA Tours & Travels. How we collect, use, and protect your personal information.',
+  alternates: { canonical: '/privacy' },
+};
 
 export default function PrivacyPage() {
   return (

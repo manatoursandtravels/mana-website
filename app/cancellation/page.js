@@ -3,7 +3,11 @@ import Footer from '@/components/Footer';
 import styles from '../legal.module.css';
 import { BUSINESS } from '@/lib/constants';
 
-export const metadata = { title: 'Cancellation Policy | MANA Tours & Travels', description: 'Cancellation policy for MANA Tours & Travels. Free cancellation 12+ hours before trip. Read our full policy.' };
+export const metadata = {
+  title: 'Cancellation Policy',
+  description: 'Cancellation policy for MANA Tours & Travels. Free cancellation 12+ hours before trip. Read our full policy.',
+  alternates: { canonical: '/cancellation' },
+};
 
 export default function CancellationPage() {
   return (

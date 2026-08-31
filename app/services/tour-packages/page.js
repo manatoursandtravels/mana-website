@@ -8,18 +8,27 @@ import { BUSINESS } from '@/lib/constants';
 import styles from './tour-packages.module.css';
 
 export const metadata = {
-  title: 'Tour Packages from Kadapa | Gandikota, Belum Caves & Horsley Hills | MANA Tours',
+  title: 'Curated Tour Packages from Kadapa | Gandikota & Belum Caves',
   description:
     'Handcrafted private tour packages from Kadapa. Gandikota Gorge Day Trip (₹2,799), Belum Caves Heritage (₹2,499), Gandikota+Belum Combo (₹3,299), Horsley Hills & Tirupati. AC sedans & luxury Innova Crysta. Call +91 99083 00718.',
-  keywords: [
-    'tour packages from Kadapa',
-    'Gandikota tour package',
-    'Belum Caves cab from Kadapa',
-    'Gandikota day trip',
-    'Horsley Hills tour Kadapa',
-    'Rayalaseema tour packages',
-    'MANA Tours day trips',
-  ],
+  alternates: {
+    canonical: '/services/tour-packages',
+  },
+  openGraph: {
+    title: 'Tour Packages from Kadapa | Gandikota & Belum Caves | MANA Tours',
+    description: 'Private day tour packages to Gandikota Canyon, Belum Caves, Ooty, and Goa from Kadapa with private AC cabs.',
+    url: 'https://www.manatoursandtravels.com/services/tour-packages',
+    siteName: 'MANA Tours & Travels',
+    locale: 'en_IN',
+    type: 'website',
+    images: [{ url: '/images/gandikota.jpg', width: 1200, height: 630, alt: 'Gandikota Tour Packages' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Tour Packages from Kadapa | MANA Tours',
+    description: 'Explore Gandikota and Belum Caves from Kadapa with comfortable private AC cabs.',
+    images: ['/images/gandikota.jpg'],
+  },
 };
 
 const TOUR_PACKAGES = [

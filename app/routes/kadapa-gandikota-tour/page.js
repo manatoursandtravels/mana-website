@@ -7,18 +7,24 @@ import styles from '../../services/service.module.css';
 import { BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Kadapa to Gandikota Tour Cab | Grand Canyon of India | MANA Tours',
-  description: 'Full-day Gandikota & Belum Caves tour from Kadapa. Private AC cab with experienced guide-driver. Starting ₹2,799. MANA Tours & Travels Kadapa. Call +91 99083 00718.',
-  keywords: [
-    'Kadapa to Gandikota cab',
-    'Gandikota tour from Kadapa',
-    'Gandikota day trip cab',
-    'Belum Caves Gandikota tour',
-    'Grand Canyon India tour Kadapa',
-    'Gandikota Belum caves package Kadapa',
-    'Kadapa sightseeing cab Gandikota',
-  ],
-  alternates: { canonical: 'https://www.manatoursandtravels.com/routes/kadapa-gandikota-tour' },
+  title: 'Kadapa to Gandikota Tour Cab | Grand Canyon of India Day Trip',
+  description: 'Full-day Gandikota & Belum Caves tour from Kadapa. Private AC cab with experienced guide-driver. Starting ₹2,799. Call +91 99083 00718.',
+  alternates: { canonical: '/routes/kadapa-gandikota-tour' },
+  openGraph: {
+    title: 'Kadapa to Gandikota Tour Cab | Day Trip Package | MANA Tours',
+    description: 'Explore the Grand Canyon of India with private AC cab from Kadapa. Includes gorge viewpoint, Gandikota Fort, and Madhavaraya temple.',
+    url: 'https://www.manatoursandtravels.com/routes/kadapa-gandikota-tour',
+    siteName: 'MANA Tours & Travels',
+    locale: 'en_IN',
+    type: 'website',
+    images: [{ url: '/images/gandikota.jpg', width: 1200, height: 630, alt: 'Kadapa to Gandikota Tour Cab' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Kadapa to Gandikota Tour Cab | MANA Tours',
+    description: 'Day trip to Gandikota Gorge from Kadapa in private AC car.',
+    images: ['/images/gandikota.jpg'],
+  },
 };
 
 const tripSchema = {

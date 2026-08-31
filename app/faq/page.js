@@ -55,7 +55,7 @@ const allFaqs = [
   {
     category: 'Self-Drive Rentals',
     q: 'Is fuel included in Self-Drive rentals?',
-    a: 'No, fuel is 100% customer-managed for all self-drive rentals with zero fuel provided by our side. You receive the car with fuel and return it at the same fuel level.',
+    a: 'No, fuel is 100% customer-managed with 0% markup. You receive the vehicle at the recorded fuel gauge level, fuel up as needed during your trip, and return it at the exact same level.',
   },
   {
     category: 'Self-Drive Rentals',

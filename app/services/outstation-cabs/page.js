@@ -8,17 +8,27 @@ import styles from '../service.module.css';
 import { RATES, BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Outstation Cab Service Kadapa | One Way & Round Trip | MANA Tours & Travels',
+  title: 'Outstation Cab Service in Kadapa | One Way & Round Trip from ₹14/km',
   description:
-    'Book outstation cabs from Kadapa starting at ₹14/km. One-way and round-trip to Tirupati, Hyderabad, Bangalore, Chennai, Vijayawada. AC Sedans & Crysta. Call +91 99083 00718.',
-  keywords: [
-    'outstation cabs Kadapa',
-    'one way cab Kadapa to Hyderabad',
-    'Kadapa to Bangalore taxi',
-    'Kadapa to Tirupati cab fare',
-    'intercity car rental Kadapa',
-    'MANA Tours outstation',
-  ],
+    'Book outstation cabs from Kadapa starting at ₹14/km. One-way and round-trip to Tirupati, Hyderabad, Bangalore, Chennai, Vijayawada. Clean AC Sedans & Crysta with expert drivers. Call +91 99083 00718.',
+  alternates: {
+    canonical: '/services/outstation-cabs',
+  },
+  openGraph: {
+    title: 'Outstation Cab Service in Kadapa | One Way & Round Trip | MANA Tours',
+    description: 'Book intercity outstation cabs from Kadapa to Bangalore, Hyderabad, Tirupati, Chennai. Upfront fares, zero surge pricing.',
+    url: 'https://www.manatoursandtravels.com/services/outstation-cabs',
+    siteName: 'MANA Tours & Travels',
+    locale: 'en_IN',
+    type: 'website',
+    images: [{ url: '/images/hero-car.jpg', width: 1200, height: 630, alt: 'Outstation Cabs Kadapa' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Outstation Cab Service Kadapa | MANA Tours',
+    description: 'Intercity outstation cabs from Kadapa. Fixed upfront pricing with experienced chauffeurs.',
+    images: ['/images/hero-car.jpg'],
+  },
 };
 
 const OUTSTATION_ROUTES = [

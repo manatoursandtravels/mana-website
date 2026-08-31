@@ -37,32 +37,40 @@ import {
 import styles from './page.module.css';
 
 export const metadata = {
-  title: 'MANA Tours & Travels Kadapa | #1 Cab Service, Self-Drive & Taxi in Kadapa',
+  title: {
+    absolute: 'MANA Tours & Travels Kadapa — #1 Cab Service, Self-Drive & Taxi in Kadapa',
+  },
   description:
-    "MANA Tours & Travels in Kadapa — 5.0★ Google Rated. Kadapa to Tirupati cab from ₹2,099, self-drive cars from ₹1,499/day, Bangalore & Hyderabad airport taxi drops, Gandikota tours & outstation cabs. Clean AC vehicles, zero hidden costs. Call +91 99083 00718.",
-  keywords: [
-    'mana tours and travels kadapa',
-    'mana tours and travels',
-    'mana travels kadapa',
-    'cab service in kadapa',
-    'kadapa to tirupati cab',
-    'taxi service in kadapa',
-    'self drive car rental kadapa',
-    'kadapa car rental without driver',
-    'kadapa to bangalore airport cab',
-    'kadapa to hyderabad taxi',
-    'gandikota tour package from kadapa',
-    'srisailam cab kadapa',
-    'best taxi in kadapa',
-    'mana cabs kadapa',
-  ],
+    'MANA Tours & Travels in Kadapa — 5.0★ Google Rated. Kadapa to Tirupati cab from ₹2,099, self-drive cars from ₹1,499/day, Bangalore & Hyderabad airport taxi drops, Gandikota tours & outstation cabs. Clean AC vehicles, zero hidden costs. Call +91 99083 00718.',
   alternates: {
-    canonical: 'https://www.manatoursandtravels.com',
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'MANA Tours & Travels Kadapa — Every Journey, A New Experience',
+    description: 'Premier cab, self-drive rentals and pilgrimage travel from Kadapa, Andhra Pradesh. 5.0★ Google Rated. Call +91 99083 00718.',
+    url: 'https://www.manatoursandtravels.com',
+    siteName: 'MANA Tours & Travels',
+    locale: 'en_IN',
+    type: 'website',
+    images: [
+      {
+        url: '/images/hero-car.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'MANA Tours & Travels Kadapa Premium Fleet',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'MANA Tours & Travels Kadapa — #1 Cab & Self-Drive Service',
+    description: 'Premier cab, self-drive car rentals & pilgrimage travel from Kadapa.',
+    images: ['/images/hero-car.jpg'],
   },
 };
 
 const stats = [
-  { num: '5.0', label: 'Google Rating', sub: '100% 5-Star Reviews', Component: HolographicGoldStar },
+  { num: '5.0', label: 'Google Rating', sub: '50+ Verified Reviews', Component: HolographicGoldStar },
   { num: '24/7', label: 'Available All Hours', sub: 'Live Dispatch Desk', Component: SweepingClockHand },
   { num: '₹0', label: 'Hidden Charges', sub: '100% Upfront Quotes', Component: ShimmeringRupeeCascade },
   { num: '9+', label: 'Specialized Fleets', sub: 'Sedans, MPVs & Coaches', Component: AnimatedLuxuryFleet },
@@ -436,9 +444,6 @@ export default function HomePage() {
       {/* ⭐ 5. DYNAMIC GOOGLE BUSINESS REVIEWS & SOCIAL PROOF ⭐ */}
       <ReviewsMarquee />
 
-      {/* 🎬 5b. YOUTUBE CHANNEL LAUNCH ── */}
-      <YouTubeChannel />
-
       {/* ══ 6. 3D INFOGRAPHIC PILLARS: THE MANA DIFFERENCE ══ */}
       <section className={`section ${styles.whySection}`}>
         <div className="container">
@@ -485,7 +490,7 @@ export default function HomePage() {
             </div>
             <div className={styles.partnerRight}>
               <Link href="/partner" className="btn btn--charcoal btn--xl" id="partner-cta">
-                🚗 Attach Your Car Today
+                <span aria-hidden="true">🚗</span> Attach Your Car Today
               </Link>
               <p className={styles.partnerContact}>
                 Or call Pavan directly: <a href={`tel:${BUSINESS.phone.pavan}`}>{BUSINESS.phone.pavanDisplay}</a>
@@ -494,6 +499,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* 🎬 7b. YOUTUBE COMMUNITY CHANNEL ── */}
+      <YouTubeChannel />
 
       {/* ══ 8. INSTANT BOOKING SECTION ══ */}
       <section className={`section ${styles.bookingSection}`} id="booking-section">
@@ -514,11 +522,11 @@ export default function HomePage() {
 
               <div className={styles.bookingCallBox}>
                 <p className={styles.bookingCallTitle}>Prefer to speak directly?</p>
-                <a href={`tel:${BUSINESS.phone.pavan}`} className={styles.bookingPhone}>
-                  📞 {BUSINESS.phone.pavanDisplay} <span>— Pavan (Primary)</span>
-                </a>
                 <a href={`tel:${BUSINESS.phone.jyothi}`} className={styles.bookingPhone}>
-                  📞 {BUSINESS.phone.jyothiDisplay} <span>— Jyothi (Bookings)</span>
+                  <span aria-hidden="true">💬</span> {BUSINESS.phone.jyothiDisplay} <span>— Jyothi (Booking Desk &amp; Quotes)</span>
+                </a>
+                <a href={`tel:${BUSINESS.phone.pavan}`} className={styles.bookingPhone}>
+                  <span aria-hidden="true">📞</span> {BUSINESS.phone.pavanDisplay} <span>— Pavan (Managing Partner · Fleet)</span>
                 </a>
               </div>
             </div>

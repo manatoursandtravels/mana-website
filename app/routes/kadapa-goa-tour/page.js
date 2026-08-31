@@ -8,17 +8,25 @@ import styles from '../../services/service.module.css';
 import { BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Kadapa to Goa Tour Package | 4D/3N Beach & Heritage Holiday | MANA Tours',
+  title: 'Kadapa to Goa Tour Package | 4D/3N Beach & Heritage Holiday Cab',
   description:
     'Book private Kadapa to Goa 4-Day/3-Night holiday tour package starting at ₹15,999. AC Sedans, Ertiga & Innova Crysta. Baga beach, Fort Aguada, Old Goa & Dudhsagar falls. Call +91 99083 00718.',
-  keywords: [
-    'Kadapa to Goa cab',
-    'Kadapa to Goa tour package',
-    'Kadapa to Goa taxi fare',
-    'Goa car rental from Kadapa',
-    'Kadapa to Goa 4 days package',
-    'MANA Tours Goa holiday',
-  ],
+  alternates: { canonical: '/routes/kadapa-goa-tour' },
+  openGraph: {
+    title: 'Kadapa to Goa Tour Package | 4D/3N Holiday | MANA Tours',
+    description: 'Private 4-Day holiday tour from Kadapa to North & South Goa in comfortable AC vehicles with experienced highway chauffeurs.',
+    url: 'https://www.manatoursandtravels.com/routes/kadapa-goa-tour',
+    siteName: 'MANA Tours & Travels',
+    locale: 'en_IN',
+    type: 'website',
+    images: [{ url: '/images/hero-car.jpg', width: 1200, height: 630, alt: 'Kadapa to Goa Tour Cab' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Kadapa to Goa Tour Package | MANA Tours',
+    description: '4D/3N beach holiday package from Kadapa to Goa in AC comfort.',
+    images: ['/images/hero-car.jpg'],
+  },
 };
 
 export default function KadapaGoaTourPage() {

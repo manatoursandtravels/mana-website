@@ -2,20 +2,26 @@
 // This allows page.js to remain 'use client' while still getting schema.org benefits
 
 export const metadata = {
-  title: 'FAQ — MANA Tours & Travels Kadapa | Cab, Self-Drive & Pilgrimage Questions',
+  title: 'Frequently Asked Questions (FAQ)',
   description:
     'Answers to your most common questions about MANA Tours & Travels Kadapa — cab booking, Tirupati pilgrimage tours, self-drive car rentals, fleet partner program, and payment methods. Call +91 99083 00718.',
-  keywords: [
-    'MANA tours kadapa FAQ',
-    'cab booking questions kadapa',
-    'kadapa to tirupati how much',
-    'self drive car rental kadapa FAQ',
-    'mana travels booking process',
-    'is fuel included self drive kadapa',
-    'tirupati darshan cab kadapa price',
-  ],
   alternates: {
-    canonical: 'https://www.manatoursandtravels.com/faq',
+    canonical: '/faq',
+  },
+  openGraph: {
+    title: 'Frequently Asked Questions (FAQ) | MANA Tours & Travels Kadapa',
+    description: 'Find answers about cab bookings, Tirupati packages, self-drive deposits, airport fares, and cancellation policies.',
+    url: 'https://www.manatoursandtravels.com/faq',
+    siteName: 'MANA Tours & Travels',
+    locale: 'en_IN',
+    type: 'website',
+    images: [{ url: '/images/hero-car.jpg', width: 1200, height: 630, alt: 'MANA Tours FAQ' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'FAQ — MANA Tours & Travels Kadapa',
+    description: 'Answers to common questions about cab bookings and self-drive car rentals in Kadapa.',
+    images: ['/images/hero-car.jpg'],
   },
 };
 
@@ -54,7 +60,7 @@ const faqSchemaItems = [
   },
   {
     q: 'Is fuel included in MANA Self-Drive car rentals in Kadapa?',
-    a: 'No, fuel is 100% customer-managed for all self-drive rentals. You receive the car with fuel and return it at the same fuel level.',
+    a: 'No, fuel is 100% customer-managed with zero markup. You receive the vehicle at the recorded fuel gauge level, fill up as you drive, and return it at the same level.',
   },
   {
     q: 'What documents are required for Self-Drive car rental in Kadapa?',

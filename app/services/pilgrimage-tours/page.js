@@ -8,17 +8,27 @@ import styles from '../service.module.css';
 import { BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Pilgrimage Tours from Kadapa | Tirupati, Srisailam, Ahobilam | MANA Tours',
+  title: 'Sacred Pilgrimage Tours from Kadapa | Tirupati, Srisailam & Ahobilam',
   description:
     'Private sacred pilgrimage tours from Kadapa. Tirupati Darshan (₹3,499 RT), Srisailam Jyotirlinga (₹3,799 RT), Ahobilam (₹2,999 RT), Sri Kalahasti (₹3,699 RT). Experienced drivers. Call +91 99083 00718.',
-  keywords: [
-    'Tirupati pilgrimage package from Kadapa',
-    'Srisailam cab Kadapa',
-    'Ahobilam tour from Kadapa',
-    'Kalahasti temple taxi',
-    'temple tour packages Rayalaseema',
-    'MANA Tours pilgrimage',
-  ],
+  alternates: {
+    canonical: '/services/pilgrimage-tours',
+  },
+  openGraph: {
+    title: 'Pilgrimage Tours from Kadapa | Tirupati, Srisailam & Ahobilam | MANA Tours',
+    description: 'Private temple darshan packages from Kadapa. Clean AC cars, ghat road specialist drivers, upfront fixed pricing.',
+    url: 'https://www.manatoursandtravels.com/services/pilgrimage-tours',
+    siteName: 'MANA Tours & Travels',
+    locale: 'en_IN',
+    type: 'website',
+    images: [{ url: '/images/hero-car.jpg', width: 1200, height: 630, alt: 'Pilgrimage Tours Kadapa' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Pilgrimage Tours from Kadapa | Tirupati, Srisailam, Ahobilam',
+    description: 'Private temple darshan packages from Kadapa with experienced chauffeurs.',
+    images: ['/images/hero-car.jpg'],
+  },
 };
 
 const PILGRIMAGE_ROUTES = [

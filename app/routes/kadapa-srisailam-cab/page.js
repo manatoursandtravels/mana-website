@@ -7,16 +7,24 @@ import styles from '../../services/service.module.css';
 import { BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Kadapa to Srisailam Cab | Mallikarjuna Jyotirlinga Temple Tour | MANA',
-  description: 'Book a cab from Kadapa to Srisailam starting ₹3,499. Sacred Mallikarjuna Jyotirlinga darshan with experienced chauffeur. MANA Tours & Travels Kadapa. Call +91 99083 00718.',
-  keywords: [
-    'Kadapa to Srisailam cab',
-    'Srisailam darshan cab Kadapa',
-    'Kadapa to Srisailam pilgrimage tour',
-    'Mallikarjuna Jyotirlinga cab Kadapa',
-    'Srisailam dam tour from Kadapa',
-  ],
-  alternates: { canonical: 'https://www.manatoursandtravels.com/routes/kadapa-srisailam-cab' },
+  title: 'Kadapa to Srisailam Cab | ₹2,299 One Way & ₹3,799 Round Trip',
+  description: 'Book a cab from Kadapa to Srisailam starting ₹2,299 one way, ₹3,799 round trip. Sacred Mallikarjuna Jyotirlinga darshan with experienced chauffeur. Call +91 99083 00718.',
+  alternates: { canonical: '/routes/kadapa-srisailam-cab' },
+  openGraph: {
+    title: 'Kadapa to Srisailam Cab | Mallikarjuna Jyotirlinga Pilgrimage | MANA Tours',
+    description: 'Sacred pilgrimage cab from Kadapa to Srisailam Mallikarjuna Swamy & Bhramaramba Ammavari Temple. Experienced ghat road drivers.',
+    url: 'https://www.manatoursandtravels.com/routes/kadapa-srisailam-cab',
+    siteName: 'MANA Tours & Travels',
+    locale: 'en_IN',
+    type: 'website',
+    images: [{ url: '/images/hero-car.jpg', width: 1200, height: 630, alt: 'Kadapa to Srisailam Cab' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Kadapa to Srisailam Cab | MANA Tours',
+    description: 'Pilgrimage cab service from Kadapa to Srisailam Jyotirlinga.',
+    images: ['/images/hero-car.jpg'],
+  },
 };
 
 const tripSchema = {

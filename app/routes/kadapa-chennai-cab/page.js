@@ -7,17 +7,24 @@ import styles from '../../services/service.module.css';
 import { BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Kadapa to Chennai Cab | ₹6,499 One Way | MANA Tours & Travels',
-  description: 'Book a cab from Kadapa to Chennai (Central / Airport) from ₹6,499 one way. AC sedan, experienced driver, 24/7 available. MANA Tours & Travels Kadapa. Call +91 99083 00718.',
-  keywords: [
-    'Kadapa to Chennai cab',
-    'Kadapa Chennai taxi',
-    'Kadapa to Chennai cab fare',
-    'Kadapa to Chennai airport taxi',
-    'Chennai cab from Kadapa',
-    'Kadapa outstation cab Chennai',
-  ],
-  alternates: { canonical: 'https://www.manatoursandtravels.com/routes/kadapa-chennai-cab' },
+  title: 'Kadapa to Chennai Cab | ₹5,299 One Way & ₹9,299 Round Trip',
+  description: 'Book a cab from Kadapa to Chennai (Central / Airport) from ₹5,299 one way. AC sedan, experienced driver, 24/7 available. Call +91 99083 00718.',
+  alternates: { canonical: '/routes/kadapa-chennai-cab' },
+  openGraph: {
+    title: 'Kadapa to Chennai Cab | ₹5,299 One Way & ₹9,299 Round Trip | MANA Tours',
+    description: 'Direct cab from Kadapa to Chennai Central, T Nagar & Chennai International Airport (MAA). Clean AC cabs, upfront fares.',
+    url: 'https://www.manatoursandtravels.com/routes/kadapa-chennai-cab',
+    siteName: 'MANA Tours & Travels',
+    locale: 'en_IN',
+    type: 'website',
+    images: [{ url: '/images/hero-car.jpg', width: 1200, height: 630, alt: 'Kadapa to Chennai Cab' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Kadapa to Chennai Cab | MANA Tours',
+    description: 'Direct AC cabs from Kadapa to Chennai City and Airport.',
+    images: ['/images/hero-car.jpg'],
+  },
 };
 
 const tripSchema = {

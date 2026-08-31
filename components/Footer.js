@@ -106,18 +106,18 @@ export default function Footer() {
 
               {/* Direct Concierge Contact Pills */}
               <div className={styles.execContacts}>
-                <a href={`tel:${BUSINESS.phone.pavan}`} className={styles.contactPill}>
-                  <div className={styles.contactIconWrap}>📞</div>
+                <a href={`tel:${BUSINESS.phone.jyothi}`} className={styles.contactPill} aria-label={`Call Jyothi for Instant Bookings at ${BUSINESS.phone.jyothiDisplay}`}>
+                  <div className={styles.contactIconWrap} aria-hidden="true">💬</div>
                   <div className={styles.contactText}>
-                    <span className={styles.contactRoleTitle}>Pavan · Managing Partner</span>
-                    <span className={styles.contactPhoneNum}>{BUSINESS.phone.pavanDisplay}</span>
+                    <span className={styles.contactRoleTitle}>Jyothi · Booking Desk &amp; Instant Quotes</span>
+                    <span className={styles.contactPhoneNum}>{BUSINESS.phone.jyothiDisplay}</span>
                   </div>
                 </a>
-                <a href={`tel:${BUSINESS.phone.jyothi}`} className={styles.contactPill}>
-                  <div className={styles.contactIconWrap}>💬</div>
+                <a href={`tel:${BUSINESS.phone.pavan}`} className={styles.contactPill} aria-label={`Call Pavan for Fleet and Outstation at ${BUSINESS.phone.pavanDisplay}`}>
+                  <div className={styles.contactIconWrap} aria-hidden="true">📞</div>
                   <div className={styles.contactText}>
-                    <span className={styles.contactRoleTitle}>Jyothi · Booking Desk</span>
-                    <span className={styles.contactPhoneNum}>{BUSINESS.phone.jyothiDisplay}</span>
+                    <span className={styles.contactRoleTitle}>Pavan · Managing Partner &amp; Fleet</span>
+                    <span className={styles.contactPhoneNum}>{BUSINESS.phone.pavanDisplay}</span>
                   </div>
                 </a>
               </div>

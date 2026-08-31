@@ -7,18 +7,24 @@ import styles from '../../services/service.module.css';
 import { BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Kadapa to Bangalore Cab | ₹5,499 One Way | ₹9,499 Round Trip | MANA Tours',
-  description: 'Book a cab from Kadapa to Bangalore (BLR Airport) from ₹5,499 one way, ₹9,499 round trip. AC sedan, experienced driver, 24/7 available. MANA Tours & Travels Kadapa. Call +91 99083 00718.',
-  keywords: [
-    'Kadapa to Bangalore cab',
-    'Kadapa Bangalore taxi',
-    'Kadapa to Bangalore cab fare',
-    'Kadapa to BLR airport cab',
-    'Bangalore cab from Kadapa',
-    'Kadapa to Kempegowda airport taxi',
-    'Kadapa outstation cab Bangalore',
-  ],
-  alternates: { canonical: 'https://www.manatoursandtravels.com/routes/kadapa-bangalore-cab' },
+  title: 'Kadapa to Bangalore Cab | ₹5,499 One Way & ₹9,499 Round Trip',
+  description: 'Book a cab from Kadapa to Bangalore (BLR Airport) from ₹5,499 one way, ₹9,499 round trip. AC sedan, experienced driver, 24/7 available. Call +91 99083 00718.',
+  alternates: { canonical: '/routes/kadapa-bangalore-cab' },
+  openGraph: {
+    title: 'Kadapa to Bangalore Cab | ₹5,499 One Way & ₹9,499 Round Trip | MANA Tours',
+    description: 'Direct highway cab from Kadapa to Bangalore City & Kempegowda Airport (BLR). Fixed upfront pricing, sanitized AC vehicles.',
+    url: 'https://www.manatoursandtravels.com/routes/kadapa-bangalore-cab',
+    siteName: 'MANA Tours & Travels',
+    locale: 'en_IN',
+    type: 'website',
+    images: [{ url: '/images/hero-car.jpg', width: 1200, height: 630, alt: 'Kadapa to Bangalore Cab' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Kadapa to Bangalore Cab | MANA Tours',
+    description: 'Direct AC taxi from Kadapa to Bangalore & KIAL Airport from ₹5,499.',
+    images: ['/images/hero-car.jpg'],
+  },
 };
 
 const tripSchema = {

@@ -7,19 +7,24 @@ import styles from '../../services/service.module.css';
 import { BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Kadapa to Tirupati Cab | ₹2,099 One Way | ₹3,499 Round Trip | MANA Tours',
-  description: 'Book a cab from Kadapa to Tirupati starting ₹2,099 one way, ₹3,499 round trip. AC sedan, experienced driver, on-time pickup. MANA Tours & Travels Kadapa. Call +91 99083 00718.',
-  keywords: [
-    'Kadapa to Tirupati cab',
-    'Kadapa Tirupati taxi',
-    'cab from Kadapa to Tirupati price',
-    'Kadapa Tirupati cab fare',
-    'Tirupati darshan cab Kadapa',
-    'Tirupati temple tour from Kadapa',
-    'Kadapa to Tirumala cab',
-    'pilgrimage cab Kadapa Tirupati',
-  ],
-  alternates: { canonical: 'https://www.manatoursandtravels.com/routes/kadapa-tirupati-cab' },
+  title: 'Kadapa to Tirupati Cab | ₹2,099 One Way & ₹3,499 Round Trip',
+  description: 'Book a cab from Kadapa to Tirupati starting ₹2,099 one way, ₹3,499 round trip. AC sedan, experienced driver, on-time pickup. Call +91 99083 00718.',
+  alternates: { canonical: '/routes/kadapa-tirupati-cab' },
+  openGraph: {
+    title: 'Kadapa to Tirupati Cab | ₹2,099 One Way & ₹3,499 Round Trip | MANA Tours',
+    description: 'Fast, comfortable AC cab from Kadapa to Tirupati Balaji temple. Transparent fixed pricing, zero hidden costs.',
+    url: 'https://www.manatoursandtravels.com/routes/kadapa-tirupati-cab',
+    siteName: 'MANA Tours & Travels',
+    locale: 'en_IN',
+    type: 'website',
+    images: [{ url: '/images/hero-car.jpg', width: 1200, height: 630, alt: 'Kadapa to Tirupati Cab' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Kadapa to Tirupati Cab | MANA Tours',
+    description: 'Book Kadapa to Tirupati cabs from ₹2,099. Doorstep pickup and experienced chauffeurs.',
+    images: ['/images/hero-car.jpg'],
+  },
 };
 
 const faqs = [

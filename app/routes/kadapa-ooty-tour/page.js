@@ -8,17 +8,25 @@ import styles from '../../services/service.module.css';
 import { BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Kadapa to Ooty Tour Package | 3D/2N Nilgiris Holiday Cab | MANA Tours',
+  title: 'Kadapa to Ooty Tour Package | 3D/2N Nilgiris Holiday Cab',
   description:
     'Book private Kadapa to Ooty 3-Day/2-Night tour package starting at ₹12,499. AC Sedans, Ertiga & Innova Crysta. Tea plantations, Pykara lake, Doddabetta peak. Call +91 99083 00718.',
-  keywords: [
-    'Kadapa to Ooty cab',
-    'Kadapa to Ooty tour package',
-    'Kadapa to Nilgiris taxi',
-    'Ooty car rental from Kadapa',
-    'Kadapa to Ooty 3 days package',
-    'MANA Tours Ooty',
-  ],
+  alternates: { canonical: '/routes/kadapa-ooty-tour' },
+  openGraph: {
+    title: 'Kadapa to Ooty Tour Package | 3D/2N Holiday | MANA Tours',
+    description: 'Private 3-Day holiday package from Kadapa to Ooty & Coonoor with dedicated AC cab and experienced hill-driving chauffeur.',
+    url: 'https://www.manatoursandtravels.com/routes/kadapa-ooty-tour',
+    siteName: 'MANA Tours & Travels',
+    locale: 'en_IN',
+    type: 'website',
+    images: [{ url: '/images/hero-car.jpg', width: 1200, height: 630, alt: 'Kadapa to Ooty Tour Cab' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Kadapa to Ooty Tour Package | MANA Tours',
+    description: '3D/2N private holiday tour from Kadapa to Ooty in AC comfort.',
+    images: ['/images/hero-car.jpg'],
+  },
 };
 
 export default function KadapaOotyTourPage() {

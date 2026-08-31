@@ -7,17 +7,27 @@ import styles from '../service.module.css';
 import { BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Corporate Travel Kadapa | Business Cab & Monthly Accounts | MANA Tours',
+  title: 'Corporate Travel & Business Cab Fleet in Kadapa',
   description:
     'Professional corporate car rental in Kadapa. 100% GST invoices, monthly retainer accounts, executive airport transfers, and VIP Innova Crysta fleet. Call +91 99083 00718.',
-  keywords: [
-    'corporate cab service Kadapa',
-    'business car rental Kadapa',
-    'GST cab bill Kadapa',
-    'corporate taxi accounts AP',
-    'executive airport transfer Kadapa',
-    'MANA Tours corporate',
-  ],
+  alternates: {
+    canonical: '/services/corporate-travel',
+  },
+  openGraph: {
+    title: 'Corporate Cab Rentals & Business Travel Kadapa | MANA Tours',
+    description: 'Executive cabs with 100% GST compliant invoicing, dedicated account manager, and monthly billing for corporate clients in Rayalaseema.',
+    url: 'https://www.manatoursandtravels.com/services/corporate-travel',
+    siteName: 'MANA Tours & Travels',
+    locale: 'en_IN',
+    type: 'website',
+    images: [{ url: '/images/hero-car.jpg', width: 1200, height: 630, alt: 'Corporate Travel Kadapa' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Corporate Travel Kadapa | MANA Tours',
+    description: 'Executive fleet and monthly corporate cab accounts with GST billing in Kadapa.',
+    images: ['/images/hero-car.jpg'],
+  },
 };
 
 const CORPORATE_PACKAGES = [

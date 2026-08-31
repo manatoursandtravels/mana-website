@@ -14,9 +14,25 @@ import {
 import styles from './about.module.css';
 
 export const metadata = {
-  title: 'About Us — MANA Tours & Travels Kadapa | Our Story & Founders',
+  title: 'About Us — Our Story, Founders & Mission',
   description:
     'Learn about MANA Tours & Travels in Kadapa — founded by Pavan and Jyothi. Built on trust, punctuality, and family-style travel care across Andhra Pradesh. Call +91 99083 00718.',
+  alternates: { canonical: '/about' },
+  openGraph: {
+    title: 'About MANA Tours & Travels Kadapa | Our Story & Founders',
+    description: 'Meet Pavan and Jyothi, the founders behind Kadapa\'s highest-rated cab and self-drive travel company.',
+    url: 'https://www.manatoursandtravels.com/about',
+    siteName: 'MANA Tours & Travels',
+    locale: 'en_IN',
+    type: 'website',
+    images: [{ url: '/images/hero-car.jpg', width: 1200, height: 630, alt: 'About MANA Tours & Travels' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About MANA Tours & Travels Kadapa',
+    description: 'Kadapa\'s trusted family-founded travel partner.',
+    images: ['/images/hero-car.jpg'],
+  },
 };
 
 const founders = [

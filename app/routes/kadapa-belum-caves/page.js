@@ -7,16 +7,24 @@ import styles from '../../services/service.module.css';
 import { BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Kadapa to Belum Caves Cab | Longest Cave in India | MANA Tours',
-  description: 'Book a cab from Kadapa to Belum Caves (longest cave in India). Full-day tour starting ₹1,499. MANA Tours & Travels Kadapa. Call +91 99083 00718.',
-  keywords: [
-    'Kadapa to Belum Caves cab',
-    'Belum Caves tour from Kadapa',
-    'Belum Caves day trip Kadapa',
-    'Kadapa sightseeing Belum Caves',
-    'longest cave India tour Kadapa',
-  ],
-  alternates: { canonical: 'https://www.manatoursandtravels.com/routes/kadapa-belum-caves' },
+  title: 'Kadapa to Belum Caves Cab | Day Trip from ₹2,499',
+  description: 'Book a cab from Kadapa to Belum Caves (longest cave network in plains). Full-day tour starting ₹2,499. AC sedan with chauffeur. Call +91 99083 00718.',
+  alternates: { canonical: '/routes/kadapa-belum-caves' },
+  openGraph: {
+    title: 'Kadapa to Belum Caves Cab | Day Trip Tour | MANA Tours',
+    description: 'Explore the natural underground limestone formations of Belum Caves with private AC cab from Kadapa.',
+    url: 'https://www.manatoursandtravels.com/routes/kadapa-belum-caves',
+    siteName: 'MANA Tours & Travels',
+    locale: 'en_IN',
+    type: 'website',
+    images: [{ url: '/images/hero-car.jpg', width: 1200, height: 630, alt: 'Kadapa to Belum Caves Cab' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Kadapa to Belum Caves Cab | MANA Tours',
+    description: 'Day trip to Belum Caves from Kadapa in AC comfort.',
+    images: ['/images/hero-car.jpg'],
+  },
 };
 
 const tripSchema = {

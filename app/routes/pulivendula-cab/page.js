@@ -7,22 +7,25 @@ import styles from '../../services/service.module.css';
 import { BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Cab Service in Pulivendula | Local & Outstation Taxi | MANA Tours Kadapa',
+  title: 'Cab Service in Pulivendula | Local & Outstation Taxi',
   description:
-    'Book a cab from Pulivendula — local taxi, outstation cabs to Kadapa, Tirupati, Hyderabad, Bangalore & airport transfers. MANA Tours & Travels. Call +91 99083 00718.',
-  keywords: [
-    'cab service in Pulivendula',
-    'Pulivendula to Kadapa cab',
-    'taxi in Pulivendula',
-    'Pulivendula cab booking',
-    'Pulivendula to Tirupati cab',
-    'Pulivendula to Hyderabad taxi',
-    'local cab Pulivendula',
-    'car rental Pulivendula',
-    'MANA tours Pulivendula',
-    'outstation cab Pulivendula',
-  ],
-  alternates: { canonical: 'https://www.manatoursandtravels.com/routes/pulivendula-cab' },
+    'Book a cab from Pulivendula — local taxi, outstation cabs to Kadapa, Tirupati, Hyderabad, Bangalore & airport transfers. Call +91 99083 00718.',
+  alternates: { canonical: '/routes/pulivendula-cab' },
+  openGraph: {
+    title: 'Cab Service in Pulivendula | Local & Outstation Taxi | MANA Tours',
+    description: 'Trusted local cabs and outstation taxi service in Pulivendula with upfront rates and reliable drivers.',
+    url: 'https://www.manatoursandtravels.com/routes/pulivendula-cab',
+    siteName: 'MANA Tours & Travels',
+    locale: 'en_IN',
+    type: 'website',
+    images: [{ url: '/images/hero-car.jpg', width: 1200, height: 630, alt: 'Cab Service in Pulivendula' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cab Service in Pulivendula | MANA Tours',
+    description: 'Local and outstation taxi service in Pulivendula.',
+    images: ['/images/hero-car.jpg'],
+  },
 };
 
 const serviceSchema = {

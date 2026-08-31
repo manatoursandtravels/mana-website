@@ -7,17 +7,27 @@ import styles from '../service.module.css';
 import { RATES, BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Airport Transfers from Kadapa | Tirupati, Hyderabad, Bangalore | MANA Tours',
+  title: 'Airport Taxi & Transfers from Kadapa | Tirupati, Bangalore & Hyderabad',
   description:
     'Guaranteed on-time airport cabs from Kadapa. Fixed prices to Tirupati Airport (₹2,499), Hyderabad RGIA (₹5,499), Bangalore KIAL (₹5,999), Chennai Airport (₹5,799). Flight tracking & 24/7 service. Call +91 99083 00718.',
-  keywords: [
-    'airport cab Kadapa',
-    'Kadapa to Hyderabad airport cab',
-    'Kadapa to Bangalore airport taxi',
-    'Kadapa to Tirupati airport drop',
-    'airport transfer Kadapa',
-    'MANA Tours airport cabs',
-  ],
+  alternates: {
+    canonical: '/services/airport-transfers',
+  },
+  openGraph: {
+    title: 'Airport Cabs from Kadapa | Tirupati, Bangalore & Hyderabad | MANA Tours',
+    description: 'Fixed-fare airport transfers from Kadapa with 24/7 flight delay tracking, AC sedans & MPVs, and on-time guaranteed pickup.',
+    url: 'https://www.manatoursandtravels.com/services/airport-transfers',
+    siteName: 'MANA Tours & Travels',
+    locale: 'en_IN',
+    type: 'website',
+    images: [{ url: '/images/hero-car.jpg', width: 1200, height: 630, alt: 'Airport Taxi Kadapa' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Airport Taxi from Kadapa | MANA Tours',
+    description: 'On-time airport pickups and drops to Tirupati, Bangalore & Hyderabad airports.',
+    images: ['/images/hero-car.jpg'],
+  },
 };
 
 const AIRPORT_TRANSFERS = [

@@ -12,19 +12,27 @@ import { SelfDriveIllustration } from '@/components/Illustrations';
 import styles from './self-drive.module.css';
 
 export const metadata = {
-  title: 'Premium Self-Drive Car Rental Kadapa | From ₹1,499/Day | MANA Tours & Travels',
+  title: 'Premium Self-Drive Car Rental from ₹1,499/Day',
   description:
-    'Drive in absolute freedom. Rent a premium self-drive car in Kadapa from ₹1,499/day — no driver, no compromise, zero hidden costs. Fully insured, FASTag-equipped sedans & MPVs. ₹800 OFF on 7-day bookings. Monthly memberships from ₹833/day. Call +91 99083 00718.',
-  keywords: [
-    'self drive car rental Kadapa',
-    'rent a car without driver Kadapa',
-    'premium self drive Kadapa',
-    'Toyota Etios self drive Kadapa',
-    'monthly car subscription Kadapa',
-    'self drive car Andhra Pradesh',
-    'MANA self drive membership',
-    'car hire Kadapa',
-  ],
+    'Drive in absolute freedom. Rent a premium self-drive car in Kadapa from ₹1,499/day — no driver, no compromise, zero hidden costs. Fully insured, FASTag-equipped sedans & MPVs. ₹800 OFF on 7-day bookings. Call +91 99083 00718.',
+  alternates: {
+    canonical: '/services/self-drive',
+  },
+  openGraph: {
+    title: 'Self-Drive Car Rental in Kadapa from ₹1,499/Day | MANA Tours & Travels',
+    description: 'Rent sanitized self-drive sedans & 7-seater MPVs in Kadapa. Doorstep delivery, FASTag enabled, zero hidden costs. ₹800 OFF on weekly bookings.',
+    url: 'https://www.manatoursandtravels.com/services/self-drive',
+    siteName: 'MANA Tours & Travels',
+    locale: 'en_IN',
+    type: 'website',
+    images: [{ url: '/images/fleet-etios-sedan.jpg', width: 1200, height: 630, alt: 'MANA Self Drive Cars Kadapa' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Self-Drive Car Rental in Kadapa from ₹1,499/Day | MANA Tours',
+    description: 'Rent self-drive cars in Kadapa. Instant 2-min WhatsApp KYC, doorstep delivery, clean AC cars.',
+    images: ['/images/fleet-etios-sedan.jpg'],
+  },
 };
 
 const fleetOptions = [
@@ -394,7 +402,7 @@ export default function SelfDriveLandingPage() {
               <h3 className={styles.reqCardTitle}>⛽ Fuel &amp; Usage Terms — Fully Transparent</h3>
               <ul className="checklist">
                 <li>
-                  <strong>Fuel is 100% Customer-Managed:</strong> Zero fuel provided from our side. Return at same fuel gauge level.
+                  <strong>Fuel is 100% Customer-Managed:</strong> Pay only for what you use with 0% fuel markup. Return at the same fuel gauge level.
                 </li>
                 <li>Inter-state travel permitted across Karnataka, Tamil Nadu, Telangana &amp; AP.</li>
                 <li>Standard 250 km / day allowance. Extra mileage billed transparently at ₹10/km.</li>
