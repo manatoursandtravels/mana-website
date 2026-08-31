@@ -88,7 +88,7 @@ export const metadata = {
     ],
   },
   verification: {
-    google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || '',
+    google: 'Rw-78cCUz14-PwTuXtjzzk2G0bN4S47gzg82ES7JnTI',
   },
   twitter: {
     card: 'summary_large_image',
