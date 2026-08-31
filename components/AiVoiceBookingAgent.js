@@ -598,13 +598,26 @@ export default function AiVoiceBookingAgent() {
                         </div>
                         {msg.quote.estimatedFare > 0 && (
                           <div className={styles.quoteFareBadge}>
-                            <span className={styles.fareSmallLabel}>{msg.quote.tripType}</span>
+                            <span className={styles.fareSmallLabel}>
+                              {msg.quote.isFixedTariff ? 'Standard Tariff' : 'Est. Base Starting From'}
+                            </span>
                             <span className={styles.fareAmount}>
                               ₹{msg.quote.estimatedFare.toLocaleString('en-IN')}
+                              {msg.quote.isFixedTariff ? '/day' : '+'}
                             </span>
                           </div>
                         )}
                       </div>
+
+                      {/* Transparent Pricing Disclaimer for Non-Self-Drive Services */}
+                      {!msg.quote.isFixedTariff && msg.quote.estimatedFare > 0 && (
+                        <div className={styles.variablePricingNotice}>
+                          <span className={styles.variableNoticeIcon}>ℹ️</span>
+                          <span>
+                            <strong>Custom Quotation:</strong> Final price depends on your exact intermediate stops, toll charges, waiting time, and passenger requirements.
+                          </span>
+                        </div>
+                      )}
 
                       {/* Promo Highlight */}
                       {msg.quote.promoApplicable && (
@@ -644,7 +657,7 @@ export default function AiVoiceBookingAgent() {
                         </div>
                       )}
 
-                      {/* Stage 1: Initial Lock CTA */}
+                      {/* Stage 1: Initial Action CTA */}
                       {activeLockIndex !== index && !confirmedVouchers[index] && (
                         <button
                           type="button"
@@ -653,9 +666,11 @@ export default function AiVoiceBookingAgent() {
                         >
                           <WhatsAppIcon size={18} />
                           <span>
-                            {msg.quote.estimatedFare > 0
+                            {msg.quote.isFixedTariff
                               ? `Lock ₹${msg.quote.estimatedFare.toLocaleString('en-IN')} & Book on WhatsApp`
-                              : 'Connect on WhatsApp with Desk'}
+                              : msg.quote.estimatedFare > 0
+                              ? `Request Custom Quote (From ₹${msg.quote.estimatedFare.toLocaleString('en-IN')}) on WhatsApp`
+                              : 'Connect with Desk on WhatsApp'}
                           </span>
                         </button>
                       )}
@@ -664,7 +679,11 @@ export default function AiVoiceBookingAgent() {
                       {activeLockIndex === index && !confirmedVouchers[index] && (
                         <div className={styles.dispatchFormWrap}>
                           <div className={styles.dispatchFormTitle}>
-                            <span>🔒 Reserve Enquiry &amp; Get Dispatch Slip</span>
+                            <span>
+                              {msg.quote.isFixedTariff
+                                ? '🔒 Reserve Self-Drive & Get Handover Slip'
+                                : '📋 Submit Details for Exact Custom Quotation'}
+                            </span>
                           </div>
 
                           <div className={styles.inputGroupPhone}>
@@ -691,14 +710,18 @@ export default function AiVoiceBookingAgent() {
                             <input
                               type="text"
                               className={styles.formFieldSub}
-                              placeholder="Pickup Point (e.g. Kadapa Bus Stand / Home)"
+                              placeholder="Pickup Point (e.g. Bus Stand / Home)"
                               value={customerPickup}
                               onChange={(e) => setCustomerPickup(e.target.value)}
                             />
                           </div>
 
                           <div className={styles.trustNoteRow}>
-                            <span>✓ Upfront locked rate · Driver details sent on WhatsApp</span>
+                            <span>
+                              {msg.quote.isFixedTariff
+                                ? '✓ Upfront locked rate · Fast 2-min KYC on WhatsApp'
+                                : '✓ Pavan & Jyothi will review your stops & tolls to share the exact final quote'}
+                            </span>
                           </div>
 
                           <div className={styles.dispatchButtonRow}>
@@ -709,7 +732,13 @@ export default function AiVoiceBookingAgent() {
                               disabled={isSubmittingBooking}
                             >
                               <WhatsAppIcon size={18} />
-                              <span>{isSubmittingBooking ? 'Reserving...' : 'Confirm & Open WhatsApp'}</span>
+                              <span>
+                                {isSubmittingBooking
+                                  ? 'Submitting...'
+                                  : msg.quote.isFixedTariff
+                                  ? 'Confirm & Open WhatsApp'
+                                  : 'Get Custom Quote on WhatsApp'}
+                              </span>
                             </button>
                             <button
                               type="button"
@@ -726,11 +755,15 @@ export default function AiVoiceBookingAgent() {
                       {confirmedVouchers[index] && (
                         <div className={styles.confirmedSlip}>
                           <div className={styles.slipHeader}>
-                            <span className={styles.slipBadge}>✓ Trip Reserved</span>
+                            <span className={styles.slipBadge}>
+                              {msg.quote.isFixedTariff ? '✓ Trip Reserved' : '✓ Custom Quote Requested'}
+                            </span>
                             <span className={styles.slipId}>#{confirmedVouchers[index].voucherId}</span>
                           </div>
                           <p className={styles.slipText}>
-                            Enquiry dispatched! Jyothi &amp; Pavan are connecting with you on WhatsApp (+91 {confirmedVouchers[index].phone}).
+                            {msg.quote.isFixedTariff
+                              ? `Enquiry dispatched! Jyothi & Pavan are connecting with you on WhatsApp (+91 ${confirmedVouchers[index].phone}).`
+                              : `Trip details received! Pavan & Jyothi are reviewing your route, tolls, and duration to share your exact custom quotation on WhatsApp (+91 ${confirmedVouchers[index].phone}).`}
                           </p>
                           <a
                             href={confirmedVouchers[index].waUrl}
