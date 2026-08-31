@@ -185,7 +185,11 @@ export default function Header() {
               }}
               aria-label="Open MANA AI Voice Assistant"
             >
-              <span className={styles.headerAiIcon} aria-hidden="true">🎙️</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="9" y="2" width="6" height="12" rx="3" fill="#38BDF8" />
+                <path d="M5 10V11C5 14.866 8.13401 18 12 18C15.866 18 19 14.866 19 11V10" stroke="#38BDF8" strokeWidth="2" strokeLinecap="round" />
+                <path d="M12 18V22M8 22H16" stroke="#38BDF8" strokeWidth="2" strokeLinecap="round" />
+              </svg>
               <span className={styles.headerAiText}>AI Voice Quote</span>
             </button>
 
