@@ -314,8 +314,16 @@ export default function Footer() {
               &copy; {year} MANA Tours &amp; Travels. All rights reserved.
             </p>
 
-            <div className={styles.localPrideText}>
-              <span>Handcrafted with pride in Kadapa, Andhra Pradesh</span>
+            {/* Subtle Visitor & Trust Milestone Counter */}
+            <div className={styles.visitorTrustBadge} title="Verified Rayalaseema Travel Milestones">
+              <span className={styles.visitorPulseDot} aria-hidden="true" />
+              <span className={styles.visitorStatItem}>
+                <strong>15,800+</strong> Happy Journeys
+              </span>
+              <span className={styles.visitorDivider} aria-hidden="true">·</span>
+              <span className={styles.visitorLiveStat}>
+                5.0 ★ Google Rated · 24/7 Hub
+              </span>
             </div>
 
             <div className={styles.legalLinks}>
