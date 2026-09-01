@@ -49,7 +49,7 @@ export const metadata = {
     title: 'MANA Tours & Travels Kadapa — Every Journey, A New Experience',
     description: 'Premier cab, self-drive rentals and pilgrimage travel from Kadapa, Andhra Pradesh. 5.0★ Google Rated. Call +91 99083 00718.',
     url: 'https://www.manatoursandtravels.com',
-    siteName: 'MANA Tours & Travels',
+    siteName: 'MANA Tours & Travels Kadapa',
     locale: 'en_IN',
     type: 'website',
     images: [

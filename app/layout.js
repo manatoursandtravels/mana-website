@@ -35,7 +35,7 @@ export const metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: 'MANA Travels',
+    title: 'MANA Tours & Travels Kadapa',
   },
   icons: {
     icon: [
@@ -56,7 +56,7 @@ export const metadata = {
     title: 'MANA Tours & Travels Kadapa — Every Journey, A New Experience',
     description: 'Premier cab, self-drive rentals and pilgrimage travel from Kadapa, Andhra Pradesh. 5.0★ Google Rated. Call +91 99083 00718.',
     url: 'https://www.manatoursandtravels.com',
-    siteName: 'MANA Tours & Travels',
+    siteName: 'MANA Tours & Travels Kadapa',
     locale: 'en_IN',
     type: 'website',
     images: [
@@ -92,7 +92,7 @@ export default function RootLayout({ children }) {
         <link rel="manifest" href="/manifest.json" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="MANA Travels" />
+        <meta name="apple-mobile-web-app-title" content="MANA Tours & Travels Kadapa" />
         <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
         <script
           type="application/ld+json"
@@ -103,26 +103,22 @@ export default function RootLayout({ children }) {
                 {
                   '@type': ['TaxiService', 'AutoRental', 'TravelAgency', 'LocalBusiness'],
                   '@id': 'https://www.manatoursandtravels.com/#business',
-                  name: 'MANA Tours & Travels',
+                  name: 'MANA Tours & Travels Kadapa',
                   alternateName: [
                     'MANA Tours and Travels Kadapa',
+                    'MANA Tours & Travels',
                     'MANA Travels',
                     'MANA Cabs Kadapa',
-                    'MANA Self Drive Cars Kadapa',
                   ],
-                  legalName: 'MANA Tours & Travels',
                   description:
-                    "Kadapa's premier 5-Star rated cab service, Tirupati pilgrimage tours, self-drive car rentals from ₹1,499/day, and fixed airport transfers.",
+                    'Kadapa\'s #1 premier car rental, self-drive, and taxi service in Rayalaseema. Sacred Tirupati pilgrimage packages, Bangalore & Hyderabad airport drops, Gandikota canyon tours, and self-drive cars from ₹1,499/day.',
                   url: 'https://www.manatoursandtravels.com',
-                  telephone: ['+919908300718', '+919908320718'],
-                  email: 'manatoursandtravels@gmail.com',
+                  telephone: '+919908300718',
+                  email: 'contact@manatoursandtravels.com',
                   priceRange: '₹₹',
                   currenciesAccepted: 'INR',
-                  paymentAccepted: 'Cash, UPI, Google Pay, PhonePe, Debit Card, Credit Card, Net Banking, FASTag',
-                  image: [
-                    'https://www.manatoursandtravels.com/images/hero-car.jpg',
-                    'https://www.manatoursandtravels.com/icons/icon-512x512.png',
-                  ],
+                  paymentAccepted: 'Cash, UPI, Credit Card, Net Banking',
+                  image: 'https://www.manatoursandtravels.com/icons/icon-512x512.png',
                   logo: 'https://www.manatoursandtravels.com/icons/icon-512x512.png',
                   address: {
                     '@type': 'PostalAddress',
@@ -154,7 +150,7 @@ export default function RootLayout({ children }) {
                   aggregateRating: {
                     '@type': 'AggregateRating',
                     ratingValue: '5.0',
-                    reviewCount: '28',
+                    reviewCount: '50',
                     bestRating: '5',
                     worstRating: '1',
                   },
@@ -171,6 +167,7 @@ export default function RootLayout({ children }) {
                   sameAs: [
                     'https://share.google/0sD6bzbqjLt1h1NCZ',
                     'https://www.youtube.com/@ManaToursTravels',
+                    'https://www.indiaonline.in/kadapa/business/mana-tours-and-travels-109381',
                     'https://wa.me/919908300718',
                     'https://www.manatoursandtravels.com',
                   ],
@@ -242,6 +239,12 @@ export default function RootLayout({ children }) {
                   '@id': 'https://www.manatoursandtravels.com/#website',
                   url: 'https://www.manatoursandtravels.com',
                   name: 'MANA Tours & Travels Kadapa',
+                  alternateName: [
+                    'MANA Tours & Travels',
+                    'MANA Travels Kadapa',
+                    'MANA Travels',
+                    'MANA Cabs Kadapa',
+                  ],
                   description: 'Kadapa\'s #1 cab, self-drive & pilgrimage travel service in Rayalaseema, Andhra Pradesh.',
                   publisher: { '@id': 'https://www.manatoursandtravels.com/#business' },
                   potentialAction: {
@@ -256,7 +259,12 @@ export default function RootLayout({ children }) {
                 {
                   '@type': 'Organization',
                   '@id': 'https://www.manatoursandtravels.com/#organization',
-                  name: 'MANA Tours & Travels',
+                  name: 'MANA Tours & Travels Kadapa',
+                  alternateName: [
+                    'MANA Tours & Travels',
+                    'MANA Travels',
+                    'MANA Travels Kadapa',
+                  ],
                   url: 'https://www.manatoursandtravels.com',
                   logo: {
                     '@type': 'ImageObject',
@@ -273,7 +281,11 @@ export default function RootLayout({ children }) {
                       availableLanguage: ['Telugu', 'English', 'Hindi'],
                     },
                   ],
-                  sameAs: ['https://share.google/0sD6bzbqjLt1h1NCZ'],
+                  sameAs: [
+                    'https://share.google/0sD6bzbqjLt1h1NCZ',
+                    'https://www.youtube.com/@ManaToursTravels',
+                    'https://www.indiaonline.in/kadapa/business/mana-tours-and-travels-109381',
+                  ],
                 },
               ],
             }),
