@@ -12,25 +12,25 @@ import { SelfDriveIllustration } from '@/components/Illustrations';
 import styles from './self-drive.module.css';
 
 export const metadata = {
-  title: 'Premium Self-Drive Car Rental from ₹1,499/Day',
+  title: 'Self Drive Cars in Kadapa from ₹1,499/Day — Rent Cars Without Driver | MANA',
   description:
-    'Drive in absolute freedom. Rent a premium self-drive car in Kadapa from ₹1,499/day — no driver, no compromise, zero hidden costs. Fully insured, FASTag-equipped sedans & MPVs. ₹800 OFF on 7-day bookings. Call +91 99083 00718.',
+    '#1 Self drive cars in Kadapa from ₹1,499/day. Rent sanitized sedans & 7-seater MPVs with FASTag, zero hidden costs, 24/7 roadside assistance, and instant 2-min digital KYC. Doorstep delivery across Kadapa. Call +91 99083 00718.',
   alternates: {
     canonical: '/services/self-drive',
   },
   openGraph: {
-    title: 'Self-Drive Car Rental in Kadapa from ₹1,499/Day | MANA Tours & Travels',
+    title: 'Self Drive Cars in Kadapa from ₹1,499/Day | MANA Tours & Travels',
     description: 'Rent sanitized self-drive sedans & 7-seater MPVs in Kadapa. Doorstep delivery, FASTag enabled, zero hidden costs. ₹800 OFF on weekly bookings.',
     url: 'https://www.manatoursandtravels.com/services/self-drive',
-    siteName: 'MANA Tours & Travels',
+    siteName: 'MANA Tours & Travels Kadapa',
     locale: 'en_IN',
     type: 'website',
-    images: [{ url: '/images/fleet-etios-sedan.jpg', width: 1200, height: 630, alt: 'MANA Self Drive Cars Kadapa' }],
+    images: [{ url: '/images/fleet-etios-sedan.jpg', width: 1200, height: 630, alt: 'MANA Self Drive Cars in Kadapa' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Self-Drive Car Rental in Kadapa from ₹1,499/Day | MANA Tours',
-    description: 'Rent self-drive cars in Kadapa. Instant 2-min WhatsApp KYC, doorstep delivery, clean AC cars.',
+    title: 'Self Drive Cars in Kadapa from ₹1,499/Day | MANA Tours',
+    description: 'Rent self drive cars in Kadapa. Instant 2-min WhatsApp KYC, doorstep delivery, clean AC cars.',
     images: ['/images/fleet-etios-sedan.jpg'],
   },
 };
@@ -114,6 +114,112 @@ const selfDriveFaqs = [
 export default function SelfDriveLandingPage() {
   return (
     <>
+      {/* ══ DEDICATED SCHEMA.ORG LOCALBUSINESS & AUTORENTAL ══ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'AutoRental',
+            '@id': 'https://www.manatoursandtravels.com/services/self-drive#autorental',
+            name: 'MANA Self Drive Cars in Kadapa',
+            alternateName: [
+              'Self Drive Cars in Kadapa',
+              'Self Drive Car Rental Kadapa',
+              'Car Rental Without Driver Kadapa',
+              'Daily Car Rentals Kadapa',
+              'MANA Tours & Travels Self Drive',
+            ],
+            description:
+              '#1 Self drive car rental agency in Kadapa. Sanitized hatchbacks, sedans, and 7-seater MPVs starting from ₹1,499/day with FASTag, 24/7 roadside assistance, and instant 2-minute digital KYC.',
+            image: 'https://www.manatoursandtravels.com/images/fleet-etios-sedan.jpg',
+            url: 'https://www.manatoursandtravels.com/services/self-drive',
+            telephone: '+919908300718',
+            priceRange: '₹1,499 - ₹2,999',
+            currenciesAccepted: 'INR',
+            paymentAccepted: 'Cash, UPI, Credit Card, Debit Card, Net Banking',
+            hasMap:
+              'https://www.google.com/maps/place/MANA+Tours+%26+Travels+%7C+Kadapa/@14.4753307,78.8006914,14.5z/data=!4m14!1m7!3m6!1s0x4655d0c639a1eecf:0xb16ecf98c511b010!2sMANA+Tours+%26+Travels+%7C+Kadapa!8m2!3d14.4601018!4d78.6723772',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: 'Main Road, Near Seven Roads Junction',
+              addressLocality: 'Kadapa',
+              addressRegion: 'Andhra Pradesh',
+              postalCode: '516001',
+              addressCountry: 'IN',
+            },
+            geo: {
+              '@type': 'GeoCoordinates',
+              latitude: '14.4601018',
+              longitude: '78.6723772',
+            },
+            openingHoursSpecification: {
+              '@type': 'OpeningHoursSpecification',
+              dayOfWeek: [
+                'Monday',
+                'Tuesday',
+                'Wednesday',
+                'Thursday',
+                'Friday',
+                'Saturday',
+                'Sunday',
+              ],
+              opens: '00:00',
+              closes: '23:59',
+            },
+            areaServed: [
+              { '@type': 'City', name: 'Kadapa' },
+              { '@type': 'City', name: 'Proddatur' },
+              { '@type': 'City', name: 'Pulivendula' },
+              { '@type': 'City', name: 'Rayachoty' },
+              { '@type': 'AdministrativeArea', name: 'Rayalaseema' },
+            ],
+            hasOfferCatalog: {
+              '@type': 'OfferCatalog',
+              name: 'Self Drive Cars in Kadapa Fleet & Tariffs',
+              itemListElement: [
+                {
+                  '@type': 'Offer',
+                  itemOffered: {
+                    '@type': 'Car',
+                    name: 'Toyota Etios / Swift Dzire Self Drive',
+                    model: 'Sedan',
+                    seatingCapacity: 5,
+                  },
+                  price: '1499',
+                  priceCurrency: 'INR',
+                  unitText: 'DAY',
+                },
+                {
+                  '@type': 'Offer',
+                  itemOffered: {
+                    '@type': 'Car',
+                    name: 'Maruti Suzuki Ertiga 7-Seater Self Drive',
+                    model: 'MPV',
+                    seatingCapacity: 7,
+                  },
+                  price: '2199',
+                  priceCurrency: 'INR',
+                  unitText: 'DAY',
+                },
+                {
+                  '@type': 'Offer',
+                  itemOffered: {
+                    '@type': 'Car',
+                    name: 'Toyota Innova Crysta Luxury Self Drive',
+                    model: 'Luxury MPV',
+                    seatingCapacity: 7,
+                  },
+                  price: '2999',
+                  priceCurrency: 'INR',
+                  unitText: 'DAY',
+                },
+              ],
+            },
+          }),
+        }}
+      />
+
       <Header />
 
       {/* ══ 1. HERO SECTION ══ */}
@@ -122,16 +228,16 @@ export default function SelfDriveLandingPage() {
           <div className={styles.heroGrid}>
             <div className={styles.heroLeft}>
               <div className={styles.heroPill}>
-                <span>🔑 Premium Self-Drive Car Rentals — Kadapa</span>
+                <span>🔑 #1 Self Drive Cars in Kadapa — Rent Without Driver</span>
               </div>
 
               <h1 className={styles.heroTitle}>
-                Your Car. Your Rules.<br />
-                <span className={styles.heroTitleGradient}>Your Road, From ₹1,499.</span>
+                Self Drive Cars in Kadapa<br />
+                <span className={styles.heroTitleGradient}>Your Car, Your Rules from ₹1,499/Day.</span>
               </h1>
 
               <p className={styles.heroSubtitle}>
-                Kadapa&apos;s only premium self-drive fleet — sanitised, fully insured, and FASTag-equipped sedans &amp; MPVs you can drive anywhere in South India. No driver. No compromise. Zero hidden costs.
+                Kadapa&apos;s #1 self-drive fleet — sanitised, fully insured, and FASTag-equipped sedans &amp; MPVs you can drive anywhere in South India. No driver. No compromise. Zero hidden costs.
               </p>
 
               {/* 🎁 First-Time Customer 2-for-1 Special */}
@@ -492,6 +598,143 @@ export default function SelfDriveLandingPage() {
             {/* Right Interactive Booking Form */}
             <div style={{ position: 'sticky', top: 'calc(var(--header-h) + 24px)' }}>
               <BookingForm compact />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══ GOOGLE MAPS HUB CARD FOR GMB CITATION & LOCAL PROXIMITY ══ */}
+      <section style={{ padding: '0 0 60px', background: 'var(--charcoal-900)' }}>
+        <div className="container">
+          <div
+            style={{
+              background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%)',
+              border: '1.5px solid rgba(212, 175, 55, 0.4)',
+              borderRadius: 'var(--r-2xl)',
+              padding: '32px 28px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '20px',
+              boxShadow: '0 12px 36px rgba(0,0,0,0.35)',
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
+                <div
+                  style={{
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: '12px',
+                    background: 'rgba(212, 175, 55, 0.15)',
+                    border: '1px solid rgba(212, 175, 55, 0.4)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '1.5rem',
+                    flexShrink: 0,
+                  }}
+                >
+                  📍
+                </div>
+                <div>
+                  <div
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      fontSize: '0.72rem',
+                      fontWeight: 800,
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.06em',
+                      color: '#38BDF8',
+                      marginBottom: '4px',
+                    }}
+                  >
+                    <span>Verified Google Maps Location</span>
+                  </div>
+                  <h3 style={{ margin: 0, color: '#FFFFFF', fontSize: '1.3rem', fontWeight: 800, fontFamily: 'var(--font-display)' }}>
+                    MANA Self Drive Cars — Kadapa Central Hub
+                  </h3>
+                  <p style={{ margin: '6px 0 0', color: '#94A3B8', fontSize: '0.9rem', lineHeight: 1.5 }}>
+                    Main Road, Near Seven Roads Junction, Kadapa, Andhra Pradesh 516001
+                  </p>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                <a
+                  href="https://www.google.com/maps/place/MANA+Tours+%26+Travels+%7C+Kadapa/@14.4753307,78.8006914,14.5z/data=!4m14!1m7!3m6!1s0x4655d0c639a1eecf:0xb16ecf98c511b010!2sMANA+Tours+%26+Travels+%7C+Kadapa!8m2!3d14.4601018!4d78.6723772"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    background: '#4285F4',
+                    color: '#FFFFFF',
+                    padding: '10px 18px',
+                    borderRadius: '9999px',
+                    fontWeight: 700,
+                    fontSize: '0.86rem',
+                    textDecoration: 'none',
+                    boxShadow: '0 4px 14px rgba(66, 133, 244, 0.4)',
+                  }}
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  </svg>
+                  <span>Open in Google Maps ↗</span>
+                </a>
+                <a
+                  href={`https://wa.me/${BUSINESS.whatsapp}?text=${encodeURIComponent('Hi Pavan, I want to book a self-drive car in Kadapa. Please share current available cars.')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    background: '#25D366',
+                    color: '#FFFFFF',
+                    padding: '10px 18px',
+                    borderRadius: '9999px',
+                    fontWeight: 700,
+                    fontSize: '0.86rem',
+                    textDecoration: 'none',
+                    boxShadow: '0 4px 14px rgba(37, 211, 102, 0.35)',
+                  }}
+                >
+                  <span>💬 Instant Car Availability</span>
+                </a>
+              </div>
+            </div>
+
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                gap: '14px',
+                borderTop: '1px solid rgba(255,255,255,0.08)',
+                paddingTop: '18px',
+              }}
+            >
+              <div>
+                <span style={{ color: '#FDE047', fontWeight: 800, fontSize: '0.92rem' }}>🚗 Doorstep Delivery</span>
+                <p style={{ margin: '4px 0 0', color: '#94A3B8', fontSize: '0.82rem', lineHeight: 1.5 }}>
+                  Anywhere in Kadapa (Bus Stand, Railway Station, RIMS, Yerramukkapalli).
+                </p>
+              </div>
+              <div>
+                <span style={{ color: '#38BDF8', fontWeight: 800, fontSize: '0.92rem' }}>⚡ 2-Minute Digital KYC</span>
+                <p style={{ margin: '4px 0 0', color: '#94A3B8', fontSize: '0.82rem', lineHeight: 1.5 }}>
+                  Valid Driving License &amp; Aadhaar Card verified over WhatsApp.
+                </p>
+              </div>
+              <div>
+                <span style={{ color: '#34D399', fontWeight: 800, fontSize: '0.92rem' }}>🕒 24/7 Handover Desk</span>
+                <p style={{ margin: '4px 0 0', color: '#94A3B8', fontSize: '0.82rem', lineHeight: 1.5 }}>
+                  Late night 3 AM and early morning self-drive handovers guaranteed.
+                </p>
+              </div>
             </div>
           </div>
         </div>

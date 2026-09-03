@@ -28,8 +28,8 @@ export const metadata = {
   other: {
     'geo.region': 'IN-AP',
     'geo.placename': 'Kadapa, Andhra Pradesh',
-    'geo.position': '14.4673;78.8242',
-    'ICBM': '14.4673, 78.8242',
+    'geo.position': '14.4601018;78.6723772',
+    'ICBM': '14.4601018, 78.6723772',
   },
   manifest: '/manifest.json',
   appleWebApp: {
@@ -130,9 +130,11 @@ export default function RootLayout({ children }) {
                   },
                   geo: {
                     '@type': 'GeoCoordinates',
-                    latitude: '14.4673',
-                    longitude: '78.8242',
+                    latitude: '14.4601018',
+                    longitude: '78.6723772',
                   },
+                  hasMap:
+                    'https://www.google.com/maps/place/MANA+Tours+%26+Travels+%7C+Kadapa/@14.4753307,78.8006914,14.5z/data=!4m14!1m7!3m6!1s0x4655d0c639a1eecf:0xb16ecf98c511b010!2sMANA+Tours+%26+Travels+%7C+Kadapa!8m2!3d14.4601018!4d78.6723772',
                   openingHoursSpecification: {
                     '@type': 'OpeningHoursSpecification',
                     dayOfWeek: [
