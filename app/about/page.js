@@ -3,6 +3,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import BookingForm from '@/components/BookingForm';
+import DigitalBusinessCard from '@/components/DigitalBusinessCard';
 import { BUSINESS } from '@/lib/constants';
 import {
   SafetyInfographic,
@@ -205,6 +206,14 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* ══ OFFICIAL DIGITAL BUSINESS CARD ══ */}
+      <div className="container">
+        <DigitalBusinessCard
+          title="Our Official Digital Business Card"
+          subtitle="Proudly representing Kadapa's trusted travel legacy and cultural heritage. Download or share our verified credentials."
+        />
+      </div>
 
       {/* ══ 4. 4 PILLARS OF EXCELLENCE ══ */}
       <section className="section" style={{ background: '#FFFFFF' }}>

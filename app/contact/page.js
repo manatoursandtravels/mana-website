@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import DigitalBusinessCard from '@/components/DigitalBusinessCard';
 import { BUSINESS } from '@/lib/constants';
 import {
   CustomerCareIllustration,
@@ -168,6 +169,9 @@ export default function ContactPage() {
               );
             })}
           </div>
+
+          {/* ══ OFFICIAL DIGITAL BUSINESS CARD & VERIFIED CREDENTIALS ══ */}
+          <DigitalBusinessCard />
 
           {/* ══ 3. TWO COLUMN INTERACTIVE FORM & KADAPA HUB INFO ══ */}
           <div className={styles.contactLayout}>
