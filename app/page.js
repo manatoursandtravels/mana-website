@@ -282,7 +282,7 @@ export default function HomePage() {
               { id: 'corporate-travel', label: 'Corporate Travel',   icon: '🏢', tag: 'GST Ready',    from: 'Custom Quote',  theme: 'slate',  href: '/services/corporate-travel',   desc: 'GST invoices, flexible monthly accounts, and premium executive vehicles.' },
               { id: 'local-sightseeing',label: 'Local Sightseeing',  icon: '🗺️', tag: 'Kadapa City', from: 'Call for Fare', theme: 'green',  href: '/services/local-sightseeing',  desc: 'Curated Kadapa heritage & sightseeing tours. Full-day city exploration.' },
               { id: 'wedding-travel',   label: 'Wedding & Events',   icon: '💒', tag: 'VIP Fleet',    from: 'VIP Quote',     theme: 'rose',   href: '/services/wedding-travel',     desc: 'Decorated premium fleet for weddings, engagements & VIP events.' },
-              { id: 'self-drive',       label: 'Self Drive',         icon: '🔑', tag: 'Drive Yourself',from: '₹1,499/d',     theme: 'brass',  href: '/services/self-drive',         desc: 'Drive yourself in premium sanitized cars. Doorstep handover in Kadapa.' },
+              { id: 'self-drive',       label: 'Self Drive',         icon: '🔑', tag: 'New XUV 3XO SUV',from: '₹1,499/d',     theme: 'brass',  href: '/services/self-drive',         desc: 'Drive yourself in sanitized cars: Swift Dzire, New Black XUV 3XO SUV & Ertiga. Doorstep handover in Kadapa.' },
             ].map((s, i) => {
               const ServiceVector = serviceIllustrations[s.id] || LocalCabIllustration;
               return (

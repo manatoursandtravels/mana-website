@@ -1500,6 +1500,26 @@ export default function AdminAnalyticsDashboard() {
                     {copiedKey === 'post-selfdrive' ? 'Copied! ✅' : '📋 Copy Self-Drive Post Text'}
                   </button>
                 </div>
+
+                {/* Post 5: New Black Mahindra XUV 3XO */}
+                <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '12px', padding: '16px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                    <span style={{ fontWeight: 800, color: '#e8c97a', fontSize: '0.85rem' }}>🔥 NEW ARRIVAL: XUV 3XO</span>
+                    <span style={{ fontSize: '0.75rem', background: 'rgba(201,168,76,0.2)', color: '#e8c97a', padding: '2px 8px', borderRadius: '4px' }}>Call Now</span>
+                  </div>
+                  <h4 style={{ fontSize: '0.92rem', fontWeight: 700, margin: '0 0 8px', color: '#fff' }}>
+                    New Stealth Black Mahindra XUV 3XO Self-Drive SUV
+                  </h4>
+                  <div style={{ background: '#081026', padding: '10px', borderRadius: '8px', fontSize: '0.78rem', color: '#cbd5e1', lineHeight: '1.4', marginBottom: '12px' }}>
+                    Experience the Thrill! Upgrade your road trip with our brand-new Stealth Black Mahindra XUV 3XO. Panoramic Skyroof, Turbocharged power &amp; Dual-Zone AC. 100% transparent customer-managed fuel. Doorstep handover across Kadapa city. Call 099083 00718. #MahindraXUV3XOKadapa
+                  </div>
+                  <button
+                    onClick={() => handleCopy("Experience the Thrill! 🔑 New Stealth Black Mahindra XUV 3XO Self-Drive SUV in Kadapa\n\nUpgrade your road trip with our brand-new Mahindra XUV 3XO!\n\n• Panoramic Skyroof & Dual-Zone Climate Control\n• Turbocharged performance for Gandikota, Tirupati & highway road trips\n• 100% transparent: Customer-managed fuel (zero fuel markup)\n• Instant 2-minute digital KYC with DL & Aadhaar\n• Free doorstep handover anywhere in Kadapa city\n\nTurn heads wherever you drive. Call Pavan or Jyothi directly at 099083 00718 to book your dates!\n\n#MahindraXUV3XOKadapa #SelfDriveSUV #SelfdrivecarsinKadapa #MANAselfdrive #Kadapatravels", 'post-xuv3xo')}
+                    style={{ width: '100%', padding: '8px 12px', background: copiedKey === 'post-xuv3xo' ? '#10b981' : '#c9a84c', color: '#fff', border: 'none', borderRadius: '6px', fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}
+                  >
+                    {copiedKey === 'post-xuv3xo' ? 'Copied! ✅' : '📋 Copy XUV 3XO Post Text'}
+                  </button>
+                </div>
               </div>
             </div>
 

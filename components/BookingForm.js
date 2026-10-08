@@ -18,6 +18,7 @@ const SERVICE_OPTIONS = {
     ],
     vehicles: [
       'Executive Sedan (5 Seats)',
+      'Mahindra XUV 3XO Black Edition (Compact SUV - 5 Seats)',
       'Maruti Ertiga MPV (7 Seats)',
       'Toyota Innova Crysta (7 Seats)',
     ],

@@ -46,6 +46,15 @@ const fleetOptions = [
     bestFor: 'City commutes, family trips & weekend getaways across South India',
   },
   {
+    name: 'Mahindra XUV 3XO (Black Edition)',
+    category: 'Compact Turbo SUV',
+    img: '/images/fleet-xuv-3xo.png',
+    specs: ['Manual / Auto', 'Turbo Petrol', '5 Seats', 'Skyroof & ADAS', 'Dual AC'],
+    dailyPrice: '₹1,999',
+    weeklyPrice: '₹13,193 (Save ₹800)',
+    bestFor: 'Thrilling road trips, young explorers, Gandikota canyon drives & highway escapes',
+  },
+  {
     name: 'Maruti Suzuki Ertiga',
     category: 'Comfort 7-Seater MPV',
     img: '/images/fleet-ertiga-mpv.jpg',

@@ -74,6 +74,24 @@ Limited vehicles available for weekend road trips — Call now to reserve your c
     suggestedImage: 'public/images/silver-fleet-hero.jpg',
     keywords: ['Self drive cars in Kadapa', 'car rental Kadapa', 'rent car Kadapa', 'MANA self drive'],
   },
+  {
+    week: 'Week 5',
+    topic: 'New Arrival: Stealth Black Mahindra XUV 3XO Self-Drive SUV',
+    category: 'What\'s New / Offer',
+    ctaButton: 'CALL_NOW (+91 99083 00718)',
+    headline: 'Experience the Thrill! 🔑 New Stealth Black Mahindra XUV 3XO Self-Drive SUV in Kadapa',
+    body: `Upgrade your road trip with our brand-new Stealth Black Mahindra XUV 3XO!
+
+• Panoramic Skyroof & Dual-Zone Climate Control
+• Turbocharged performance for Gandikota, Tirupati & highway road trips
+• 100% transparent: Customer-managed fuel (zero fuel markup)
+• Instant 2-minute digital KYC with DL & Aadhaar
+• Free doorstep handover anywhere in Kadapa city
+
+Turn heads wherever you drive. Call Pavan or Jyothi directly at 099083 00718 to book your dates!`,
+    suggestedImage: 'public/images/fleet-xuv-3xo.png',
+    keywords: ['Mahindra XUV 3XO Kadapa', 'Self drive SUV Kadapa', 'Self drive cars in Kadapa', 'MANA tours Kadapa'],
+  },
 ];
 
 function generateWeeklyPost(weekIndex = 0) {

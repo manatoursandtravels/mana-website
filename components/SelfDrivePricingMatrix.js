@@ -98,6 +98,99 @@ const PRICING_DATA = {
       },
     ],
   },
+  suv: {
+    name: 'Compact Turbo SUV',
+    models: 'Mahindra XUV 3XO Black Edition (5-Seater)',
+    icon: '🚙',
+    deposit: '₹10,000',
+    plans: [
+      {
+        id: '24h',
+        name: '24 Hours',
+        tag: '🔥 New Arrival SUV',
+        tagType: 'featured',
+        price: '₹1,999',
+        ratePerDay: '₹1,999 / day',
+        period: '/ 24 Hours',
+        km: '250 km included',
+        extraKm: '₹11/km extra',
+        popular: true,
+        features: [
+          'Brand New Stealth Black Edition',
+          '250 km included allowance',
+          'Panoramic Skyroof & Dual-Zone AC',
+          '100% Customer-Managed Fuel',
+          '₹10,000 Refundable Deposit',
+        ],
+        waMsg: 'Hi Pavan, I want to book the 24-Hour Self Drive Mahindra XUV 3XO SUV (₹1,999).',
+      },
+      {
+        id: 'weekend',
+        name: '3-Day Weekend',
+        tag: '⭐ Save ₹500',
+        tagType: 'green',
+        price: '₹5,499',
+        ratePerDay: '₹1,833 / day',
+        period: '/ 72 Hours',
+        km: '750 km included',
+        extraKm: '₹11/km extra',
+        popular: false,
+        features: [
+          '750 km included travel allowance',
+          'Thrilling drive to Gandikota & Horsley Hills',
+          '100% Customer-Managed Fuel',
+          'Active FASTag & Inter-State Permits',
+          'Free Hub Handover in Kadapa',
+        ],
+        waMsg: 'Hi Pavan, I want to book the 3-Day Weekend Mahindra XUV 3XO SUV plan (₹5,499).',
+      },
+      {
+        id: 'weekly',
+        name: 'Weekly (7 Days)',
+        tag: '🔥 Flat ₹800 OFF • Explorer Deal',
+        tagType: 'featured',
+        price: '₹13,193',
+        originalPrice: '₹13,993',
+        ratePerDay: '₹1,885 / day',
+        period: '/ 7 Full Days',
+        km: '1,750 km included',
+        extraKm: '₹11/km extra',
+        popular: false,
+        features: [
+          '1,750 km generous travel allowance',
+          'Instant ₹800 Promo Discount applied',
+          '👕 FREE MANA Branded Logo T-Shirt (M/L/XL)',
+          '100% Customer-Managed Fuel',
+          'Priority Doorstep Handover in Kadapa',
+          'Spotless Sanitisation & Inspection',
+        ],
+        waMsg: 'Hi Pavan, I want to book the 7-Day Weekly Mahindra XUV 3XO SUV plan (₹13,193) with Free T-Shirt.',
+      },
+      {
+        id: 'monthly',
+        name: 'Monthly (30 Days)',
+        tag: '💎 45% OFF • Executive SUV',
+        tagType: 'vip',
+        price: '₹32,999',
+        originalPrice: '₹59,970',
+        ratePerDay: 'Effective ₹1,100 / day',
+        period: '/ 30 Days',
+        km: '3,000 km included',
+        extraKm: '₹10/km extra',
+        popular: false,
+        vip: true,
+        features: [
+          'Effective ₹1,100 / day for a Brand New SUV',
+          '3,000 km generous monthly allowance',
+          '👕 FREE MANA Branded Logo T-Shirt (M/L/XL)',
+          'Zero Maintenance & Servicing charges',
+          'Free Doorstep Maintenance Pickup',
+          '5% Loyalty Renewal Discount on M2',
+        ],
+        waMsg: 'Hi Pavan, I want to inquire about the 30-Day Mahindra XUV 3XO SUV Monthly Subscription (₹32,999).',
+      },
+    ],
+  },
   mpv: {
     name: '7-Seater Luxury MPV',
     models: 'Maruti Ertiga & Toyota Innova (7-Seater)',
@@ -225,6 +318,18 @@ export default function SelfDrivePricingMatrix() {
             <div className={styles.toggleText}>
               <span className={styles.toggleTitle}>Executive Sedans</span>
               <span className={styles.toggleSub}>Etios / Dzire • 5 Seats</span>
+            </div>
+          </button>
+
+          <button
+            type="button"
+            className={`${styles.toggleBtn} ${vehicleType === 'suv' ? styles.toggleBtnActive : ''}`}
+            onClick={() => setVehicleType('suv')}
+          >
+            <span className={styles.toggleIcon}>🚘</span>
+            <div className={styles.toggleText}>
+              <span className={styles.toggleTitle}>Compact SUV</span>
+              <span className={styles.toggleSub}>Mahindra XUV 3XO • 5 Seats</span>
             </div>
           </button>
 
