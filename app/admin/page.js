@@ -88,6 +88,15 @@ export default function AdminAnalyticsDashboard() {
     }
   };
 
+  const [copiedKey, setCopiedKey] = useState('');
+  const handleCopy = (text, key) => {
+    if (typeof navigator !== 'undefined' && navigator.clipboard) {
+      navigator.clipboard.writeText(text);
+      setCopiedKey(key);
+      setTimeout(() => setCopiedKey(''), 2500);
+    }
+  };
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const auth = sessionStorage.getItem('mana_admin_auth');
@@ -317,6 +326,13 @@ export default function AdminAnalyticsDashboard() {
             style={activeTab === 'overview' ? { background: 'linear-gradient(135deg, #c9a84c, #a07830)', color: '#fff', fontWeight: 700, borderColor: '#e8c97a' } : {}}
           >
             📊 Executive Overview &amp; KPIs
+          </button>
+          <button
+            onClick={() => setActiveTab('gmb-hub')}
+            className={`${styles.logoutBtn} ${activeTab === 'gmb-hub' ? styles.activeTabBtn : ''}`}
+            style={activeTab === 'gmb-hub' ? { background: 'linear-gradient(135deg, #10b981, #059669)', color: '#fff', fontWeight: 700, borderColor: '#34d399' } : {}}
+          >
+            📍 GMB &amp; Local 3-Pack Hub
           </button>
         </div>
 
@@ -1261,9 +1277,311 @@ export default function AdminAnalyticsDashboard() {
           </>
         )}
 
+        {/* ══ GMB & LOCAL 3-PACK COMMAND HUB ══ */}
+        {activeTab === 'gmb-hub' && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+            {/* GMB Profile Bar */}
+            <div style={{ background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.05))', border: '1px solid rgba(16, 185, 129, 0.3)', borderRadius: '16px', padding: '24px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px', marginBottom: '16px' }}>
+                <div>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#10b981', color: '#fff', fontSize: '0.75rem', fontWeight: 700, padding: '4px 12px', borderRadius: '999px', marginBottom: '8px' }}>
+                    <span>✓ Verified Google Profile</span>
+                  </div>
+                  <h2 style={{ fontSize: '1.4rem', fontWeight: 800, margin: '0 0 4px', color: '#fff' }}>
+                    MANA Tours &amp; Travels | Kadapa
+                  </h2>
+                  <p style={{ color: '#94a3b8', fontSize: '0.9rem', margin: 0 }}>
+                    Google Business Shortlink: <a href="https://share.google/K8vvkOsIMLLvvZBac" target="_blank" rel="noopener noreferrer" style={{ color: '#34d399', textDecoration: 'underline' }}>https://share.google/K8vvkOsIMLLvvZBac</a>
+                  </p>
+                </div>
+
+                <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                  <a
+                    href="https://share.google/K8vvkOsIMLLvvZBac"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ background: '#10b981', color: '#fff', padding: '10px 18px', borderRadius: '8px', fontWeight: 700, fontSize: '0.88rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                  >
+                    🗺️ Open on Google Maps
+                  </a>
+                  <Link
+                    href="/qr"
+                    target="_blank"
+                    style={{ background: 'linear-gradient(135deg, #c9a84c, #a07830)', color: '#fff', padding: '10px 18px', borderRadius: '8px', fontWeight: 700, fontSize: '0.88rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                  >
+                    🖨️ In-Car QR Stickers
+                  </Link>
+                  <a
+                    href="/review"
+                    target="_blank"
+                    style={{ background: 'rgba(255,255,255,0.08)', color: '#e8c97a', border: '1px solid rgba(232,201,122,0.3)', padding: '10px 18px', borderRadius: '8px', fontWeight: 600, fontSize: '0.88rem', textDecoration: 'none' }}
+                  >
+                    ↗ Test 1-Tap Review Link
+                  </a>
+                </div>
+              </div>
+
+              <div style={{ background: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.3)', borderRadius: '10px', padding: '12px 16px', display: 'flex', gap: '12px', alignItems: 'center' }}>
+                <span style={{ fontSize: '1.4rem' }}>⚡</span>
+                <div style={{ fontSize: '0.85rem', color: '#fef3c7' }}>
+                  <strong>Next Rank Boost (Complete ~60% to 100%):</strong> Open Google Business Profile Manager → tap <em>Edit Profile</em> → <em>Business Category</em>. Keep Primary as <strong>Car rental agency</strong>, and add secondary categories: <strong>Taxi service</strong>, <strong>Travel agency</strong>, <strong>Tour operator</strong>, and <strong>Airport shuttle service</strong>.
+                </div>
+              </div>
+            </div>
+
+            {/* Review Sentinel */}
+            <div style={{ background: '#0e1a38', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '16px', padding: '24px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '8px' }}>
+                <div>
+                  <h3 style={{ fontSize: '1.2rem', fontWeight: 800, margin: '0 0 4px', color: '#e8c97a' }}>
+                    💬 Review Sentinel (2 Pending Google Reviews)
+                  </h3>
+                  <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: 0 }}>
+                    Replying immediately boosts your profile velocity and local 3-pack rank. Tap below to copy pre-optimized responses.
+                  </p>
+                </div>
+                <a
+                  href="https://share.google/K8vvkOsIMLLvvZBac"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ background: 'rgba(232,201,122,0.15)', color: '#e8c97a', border: '1px solid rgba(232,201,122,0.4)', padding: '8px 14px', borderRadius: '8px', fontSize: '0.8rem', fontWeight: 700, textDecoration: 'none' }}
+                >
+                  Go to Google Reviews →
+                </a>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '16px' }}>
+                {/* Review 1 */}
+                <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '16px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                    <span style={{ fontWeight: 700, color: '#fff', fontSize: '0.9rem' }}>Recent Customer 1 (Outstation / Cab)</span>
+                    <span style={{ color: '#e8c97a', fontSize: '0.9rem' }}>★★★★★</span>
+                  </div>
+                  <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginBottom: '12px' }}>
+                    Keywords: <em>Kadapa to Tirupati, sanitized AC car, 24/7 service, transparent pricing</em>
+                  </p>
+
+                  <div style={{ background: '#081026', padding: '12px', borderRadius: '8px', fontSize: '0.82rem', color: '#cbd5e1', lineHeight: '1.5', marginBottom: '12px' }}>
+                    Dear traveler, thank you so much for traveling with MANA Tours &amp; Travels Kadapa and for giving us a 5-star rating! We are delighted that you had a smooth journey in our sanitized AC vehicle. Punctuality and passenger safety are always our top priorities. Whenever you plan your next trip to Tirupati, Bangalore, or Gandikota, we are here 24/7. Wishing you safe travels always! — Pavan &amp; Team MANA Tours (+91 99083 00718)
+                  </div>
+
+                  <div style={{ display: 'flex', gap: '8px' }}>
+                    <button
+                      onClick={() => handleCopy('Dear traveler, thank you so much for traveling with MANA Tours & Travels Kadapa and for giving us a 5-star rating! We are delighted that you had a smooth journey in our sanitized AC vehicle. Punctuality and passenger safety are always our top priorities. Whenever you plan your next trip to Tirupati, Bangalore, or Gandikota, we are here 24/7. Wishing you safe travels always! — Pavan & Team MANA Tours (+91 99083 00718)', 'rev1-en')}
+                      style={{ flex: 1, padding: '8px 12px', background: copiedKey === 'rev1-en' ? '#10b981' : '#c9a84c', color: '#fff', border: 'none', borderRadius: '6px', fontSize: '0.8rem', fontWeight: 700, cursor: 'pointer' }}
+                    >
+                      {copiedKey === 'rev1-en' ? 'Copied! ✅' : '📋 Copy English'}
+                    </button>
+                    <button
+                      onClick={() => handleCopy('Namaskaram garu! MANA Tours & Travels Kadapa tho travel chesinanduku mariyu mee viluvaina 5-star review ichinanduku dhanyavadalu. Clean AC car mariyu on-time pickup meeku nachinanduku chala santosham. Next time Tirupati, Bangalore leda Gandikota outstation trip plan chesinappudu maaku call cheyyandi (+91 99083 00718). Subha prayanam! — Pavan & Team MANA Tours', 'rev1-te')}
+                      style={{ flex: 1, padding: '8px 12px', background: copiedKey === 'rev1-te' ? '#10b981' : 'rgba(255,255,255,0.1)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '6px', fontSize: '0.8rem', fontWeight: 700, cursor: 'pointer' }}
+                    >
+                      {copiedKey === 'rev1-te' ? 'Copied! ✅' : '📋 Copy Telugu'}
+                    </button>
+                  </div>
+                </div>
+
+                {/* Review 2 */}
+                <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '16px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                    <span style={{ fontWeight: 700, color: '#fff', fontSize: '0.9rem' }}>Recent Customer 2 (Self-Drive / Weekend)</span>
+                    <span style={{ color: '#e8c97a', fontSize: '0.9rem' }}>★★★★★</span>
+                  </div>
+                  <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginBottom: '12px' }}>
+                    Keywords: <em>Self-Drive car rental Kadapa, Gandikota trip, zero fuel markup, doorstep delivery</em>
+                  </p>
+
+                  <div style={{ background: '#081026', padding: '12px', borderRadius: '8px', fontSize: '0.82rem', color: '#cbd5e1', lineHeight: '1.5', marginBottom: '12px' }}>
+                    Dear customer, thank you for rating MANA Tours &amp; Travels Kadapa 5 stars! We are glad you loved renting our self-drive car for your journey. Providing pristine, sanitized cars with 100% transparent fuel terms and fast doorstep handover is our mission. Looking forward to handing you the keys for your next road trip to Gandikota, Horsley Hills, or Bangalore! — Pavan &amp; Team MANA (+91 99083 00718)
+                  </div>
+
+                  <div style={{ display: 'flex', gap: '8px' }}>
+                    <button
+                      onClick={() => handleCopy('Dear customer, thank you for rating MANA Tours & Travels Kadapa 5 stars! We are glad you loved renting our self-drive car for your journey. Providing pristine, sanitized cars with 100% transparent fuel terms and fast doorstep handover is our mission. Looking forward to handing you the keys for your next road trip to Gandikota, Horsley Hills, or Bangalore! — Pavan & Team MANA (+91 99083 00718)', 'rev2-en')}
+                      style={{ flex: 1, padding: '8px 12px', background: copiedKey === 'rev2-en' ? '#10b981' : '#c9a84c', color: '#fff', border: 'none', borderRadius: '6px', fontSize: '0.8rem', fontWeight: 700, cursor: 'pointer' }}
+                    >
+                      {copiedKey === 'rev2-en' ? 'Copied! ✅' : '📋 Copy English'}
+                    </button>
+                    <button
+                      onClick={() => handleCopy('Namaskaram garu! MANA Tours & Travels Kadapa nunchi self-drive car rent teesukoni 5-star review ichinanduku dhanyavadalu. Clean car mariyu transparent policy meeku nachinanduku chala aanandam. Malli road trip plan chesinappudu direct ga maaku call cheyyandi (+91 99083 00718). Subha prayanam! — Pavan & Team MANA', 'rev2-te')}
+                      style={{ flex: 1, padding: '8px 12px', background: copiedKey === 'rev2-te' ? '#10b981' : 'rgba(255,255,255,0.1)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '6px', fontSize: '0.8rem', fontWeight: 700, cursor: 'pointer' }}
+                    >
+                      {copiedKey === 'rev2-te' ? 'Copied! ✅' : '📋 Copy Telugu'}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Google Posts Campaigns */}
+            <div style={{ background: '#0e1a38', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '16px', padding: '24px' }}>
+              <div style={{ marginBottom: '16px' }}>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: 800, margin: '0 0 4px', color: '#e8c97a' }}>
+                  📢 Weekly Google Posts Engine (Call Now Action)
+                </h3>
+                <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: 0 }}>
+                  Post 1 update every week on Google Maps. Set the button to <strong>&ldquo;Call Now&rdquo;</strong> to route phone calls to +91 99083 00718.
+                </p>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '16px' }}>
+                <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '16px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                    <span style={{ fontWeight: 800, color: '#e8c97a', fontSize: '0.85rem' }}>🛕 TIRUPATI PILGRIMAGE</span>
+                    <span style={{ fontSize: '0.75rem', background: 'rgba(201,168,76,0.2)', color: '#e8c97a', padding: '2px 8px', borderRadius: '4px' }}>Call Now</span>
+                  </div>
+                  <h4 style={{ fontSize: '0.92rem', fontWeight: 700, margin: '0 0 8px', color: '#fff' }}>
+                    Planning Tirupati Balaji Darshan from Kadapa?
+                  </h4>
+                  <div style={{ background: '#081026', padding: '10px', borderRadius: '8px', fontSize: '0.78rem', color: '#cbd5e1', lineHeight: '1.4', marginBottom: '12px' }}>
+                    Heading for sacred Tirumala darshan? MANA Tours &amp; Travels Kadapa offers 24/7 doorstep pickup with experienced chauffeurs who know temple timings and ghat road routes perfectly. Sedans &amp; Innova Crystas available. Early departures (2:00 AM – 4:00 AM). Call Pavan or Jyothi directly for today&apos;s best fare quote! #KadapatoTirupaticab #Tirupatidarshantaxi
+                  </div>
+                  <button
+                    onClick={() => handleCopy("Planning Tirupati Balaji Darshan from Kadapa? 🛕 Travel Stress-Free in Spotless AC Fleet!\n\nHeading for sacred Tirumala darshan? MANA Tours & Travels Kadapa offers 24/7 doorstep pickup with experienced chauffeurs who know temple timings and ghat road routes perfectly.\n\n• Clean, chilled AC Sedans (Etios/Dzire) & 7-Seater Innova Crysta\n• Early morning departures available (2:00 AM – 4:00 AM)\n• Zero hidden costs — transparent upfront fare quotes\n• Doorstep pickup & drop anywhere in Kadapa city\n\nCall Pavan or Jyothi directly for today's discounted fare quote!\n\n#KadapatoTirupaticab #Tirupatidarshantaxi #Kadapatravels #MANAtoursKadapa", 'post-tirupati')}
+                    style={{ width: '100%', padding: '8px 12px', background: copiedKey === 'post-tirupati' ? '#10b981' : '#c9a84c', color: '#fff', border: 'none', borderRadius: '6px', fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}
+                  >
+                    {copiedKey === 'post-tirupati' ? 'Copied! ✅' : '📋 Copy Tirupati Post Text'}
+                  </button>
+                </div>
+
+                <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '16px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                    <span style={{ fontWeight: 800, color: '#e8c97a', fontSize: '0.85rem' }}>🏜️ GANDIKOTA &amp; BELUM</span>
+                    <span style={{ fontSize: '0.75rem', background: 'rgba(201,168,76,0.2)', color: '#e8c97a', padding: '2px 8px', borderRadius: '4px' }}>Call Now</span>
+                  </div>
+                  <h4 style={{ fontSize: '0.92rem', fontWeight: 700, margin: '0 0 8px', color: '#fff' }}>
+                    Weekend Gandikota Grand Canyon &amp; Belum Caves Tour
+                  </h4>
+                  <div style={{ background: '#081026', padding: '10px', borderRadius: '8px', fontSize: '0.78rem', color: '#cbd5e1', lineHeight: '1.4', marginBottom: '12px' }}>
+                    Witness the breathtaking sunset over the Penna River gorge at the Grand Canyon of India, and explore the ancient limestone formations of Belum Caves! Private AC cab with chauffeur-cum-guide. Call our dispatch desk for best custom tour quotes. #GandikotatourfromKadapa #Belumcavescab
+                  </div>
+                  <button
+                    onClick={() => handleCopy("Weekend Road Trip! 🏜️ Gandikota Canyon & Belum Caves Day Tour from Kadapa\n\nWitness the breathtaking sunset over the Penna River gorge at the Grand Canyon of India, and explore the ancient limestone formations of Belum Caves!\n\n• Private AC cab with chauffeur-cum-guide\n• Full-day sightseeing with relaxed photography stops\n• Comfortable seating for couples, families, and friend groups\n• Flexible pickup times from Kadapa, Proddatur, and Pulivendula\n\nBook your weekend slot today! Call our dispatch desk for best custom tour quotes.\n\n#GandikotatourfromKadapa #Belumcavescab #Kadapadaytrips #Rayalaseematourism", 'post-gandikota')}
+                    style={{ width: '100%', padding: '8px 12px', background: copiedKey === 'post-gandikota' ? '#10b981' : '#c9a84c', color: '#fff', border: 'none', borderRadius: '6px', fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}
+                  >
+                    {copiedKey === 'post-gandikota' ? 'Copied! ✅' : '📋 Copy Gandikota Post Text'}
+                  </button>
+                </div>
+
+                <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '16px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                    <span style={{ fontWeight: 800, color: '#e8c97a', fontSize: '0.85rem' }}>✈️ AIRPORT TRANSFERS</span>
+                    <span style={{ fontSize: '0.75rem', background: 'rgba(201,168,76,0.2)', color: '#e8c97a', padding: '2px 8px', borderRadius: '4px' }}>Call Now</span>
+                  </div>
+                  <h4 style={{ fontSize: '0.92rem', fontWeight: 700, margin: '0 0 8px', color: '#fff' }}>
+                    Kadapa to Bangalore &amp; Hyderabad Airport Drops
+                  </h4>
+                  <div style={{ background: '#081026', padding: '10px', borderRadius: '8px', fontSize: '0.78rem', color: '#cbd5e1', lineHeight: '1.4', marginBottom: '12px' }}>
+                    Never miss a flight again. MANA Tours guarantees 100% on-time departures to Kempegowda International Airport (BLR) and RGIA Hyderabad (HYD). Chauffeur arrives 15 minutes before scheduled pickup. Fixed upfront fares. Call 099083 00718. #KadapatoBangaloreairporttaxi
+                  </div>
+                  <button
+                    onClick={() => handleCopy("Catching an Early Morning Flight? ✈️ Fixed-Fare Kadapa to Bangalore & Hyderabad Airport Drops\n\nNever miss a flight again. MANA Tours guarantees 100% on-time departures to Kempegowda International Airport (BLR) and RGIA Hyderabad (HYD).\n\n• Chauffeur arrives 15 minutes before scheduled pickup\n• Smooth highway driving with well-maintained commercial vehicles\n• Fixed upfront fares with zero late-night surcharges\n• Luggage assistance and comfortable AC travel\n\nCall our 24/7 booking desk at 099083 00718 to schedule your airport transfer.\n\n#KadapatoBangaloreairporttaxi #KadapatoHyderabadairportcab #airporttaxiKadapa", 'post-airport')}
+                    style={{ width: '100%', padding: '8px 12px', background: copiedKey === 'post-airport' ? '#10b981' : '#c9a84c', color: '#fff', border: 'none', borderRadius: '6px', fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}
+                  >
+                    {copiedKey === 'post-airport' ? 'Copied! ✅' : '📋 Copy Airport Post Text'}
+                  </button>
+                </div>
+
+                <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '16px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                    <span style={{ fontWeight: 800, color: '#e8c97a', fontSize: '0.85rem' }}>🔑 SELF-DRIVE RENTALS</span>
+                    <span style={{ fontSize: '0.75rem', background: 'rgba(201,168,76,0.2)', color: '#e8c97a', padding: '2px 8px', borderRadius: '4px' }}>Call Now</span>
+                  </div>
+                  <h4 style={{ fontSize: '0.92rem', fontWeight: 700, margin: '0 0 8px', color: '#fff' }}>
+                    Self-Drive Cars in Kadapa from ₹1,499/Day
+                  </h4>
+                  <div style={{ background: '#081026', padding: '10px', borderRadius: '8px', fontSize: '0.78rem', color: '#cbd5e1', lineHeight: '1.4', marginBottom: '12px' }}>
+                    Drive yourself with total freedom! Fully sanitized Swift Dzire, Toyota Etios &amp; Ertiga MPV. 100% transparent: Customer-managed fuel (zero fuel markup). Quick KYC with Driving License &amp; Aadhaar. Call now to reserve your car! #SelfdrivecarsinKadapa
+                  </div>
+                  <button
+                    onClick={() => handleCopy("Drive Yourself with Freedom! 🔑 Premium Self-Drive Car Rentals in Kadapa from ₹1,499/Day\n\nLooking for freedom on your next road trip? Rent a self-drive car in Kadapa with MANA Tours!\n\n• Fully sanitized Swift Dzire, Toyota Etios & Ertiga MPV\n• 100% transparent: Customer-managed fuel (zero fuel markup)\n• Quick KYC with Driving License & Aadhaar\n• Fast, hassle-free doorstep handover in Kadapa city\n\nLimited vehicles available for weekend road trips — Call now to reserve your car!\n\n#SelfdrivecarsinKadapa #carrentalKadapa #rentcarKadapa #MANAselfdrive", 'post-selfdrive')}
+                    style={{ width: '100%', padding: '8px 12px', background: copiedKey === 'post-selfdrive' ? '#10b981' : '#c9a84c', color: '#fff', border: 'none', borderRadius: '6px', fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}
+                  >
+                    {copiedKey === 'post-selfdrive' ? 'Copied! ✅' : '📋 Copy Self-Drive Post Text'}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Google Maps Q&A Pairs */}
+            <div style={{ background: '#0e1a38', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '16px', padding: '24px' }}>
+              <div style={{ marginBottom: '16px' }}>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: 800, margin: '0 0 4px', color: '#e8c97a' }}>
+                  ❓ Google Maps Q&amp;A Seeder (High-Intent Conversion Pairs)
+                </h3>
+                <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: 0 }}>
+                  Adding Q&amp;As to your Google listing directly answers common passenger objections and captures long-tail search traffic.
+                </p>
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {[
+                  {
+                    id: 'qa1',
+                    q: 'How do I book a cab from Kadapa to Tirupati with MANA Tours?',
+                    a: 'You can book directly by calling or sending a WhatsApp message to our 24/7 dispatch desk at +91 99083 00718 or +91 99083 20718. We provide clean AC Sedans (Etios/Dzire) and 7-seater Innova Crystas with doorstep pickup across Kadapa city.',
+                  },
+                  {
+                    id: 'qa2',
+                    q: 'What are the documents needed to rent a self-drive car in Kadapa?',
+                    a: 'To rent a self-drive car at MANA Tours, you need: 1) Original valid Driving License, 2) Aadhaar Card / Govt ID, and 3) A 100% refundable security deposit via UPI or Cash. Handover is provided right at your doorstep in Kadapa.',
+                  },
+                  {
+                    id: 'qa3',
+                    q: 'Do you provide early morning pickups in Kadapa for airport drops to Bangalore or Hyderabad?',
+                    a: 'Yes, absolutely! We operate 24 hours a day, 7 days a week. We specialize in early morning (2:00 AM – 4:00 AM) pickups with guaranteed on-time flight arrival at Kempegowda International Airport (BLR) and Rajiv Gandhi International Airport (HYD). Call 099083 00718.',
+                  },
+                ].map((item) => (
+                  <div key={item.id} style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '10px', padding: '14px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '10px', marginBottom: '8px' }}>
+                      <strong style={{ color: '#fff', fontSize: '0.88rem' }}>Q: {item.q}</strong>
+                      <button
+                        onClick={() => handleCopy(`Question: ${item.q}\nAnswer: ${item.a}`, item.id)}
+                        style={{ padding: '4px 10px', background: copiedKey === item.id ? '#10b981' : 'rgba(232,201,122,0.2)', color: '#e8c97a', border: '1px solid rgba(232,201,122,0.4)', borderRadius: '4px', fontSize: '0.75rem', fontWeight: 700, cursor: 'pointer', whiteSpace: 'nowrap' }}
+                      >
+                        {copiedKey === item.id ? 'Copied! ✅' : '📋 Copy Q&A'}
+                      </button>
+                    </div>
+                    <div style={{ color: '#cbd5e1', fontSize: '0.82rem', lineHeight: '1.4' }}>
+                      <strong>Owner Answer:</strong> {item.a}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* ══ DIRECT MANAGEMENT LAUNCHPAD ══ */}
         <div className={styles.sectionLabel}>🔗 Direct Management Hubs</div>
         <div className={styles.linksGrid}>
+          <a
+            href="https://share.google/K8vvkOsIMLLvvZBac"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.linkCard}
+            style={{ borderColor: 'rgba(16, 185, 129, 0.4)' }}
+          >
+            <span className={styles.linkIcon}>📍</span>
+            <div>
+              <div style={{ color: '#34d399', fontWeight: 700 }}>Google Business Profile</div>
+              <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)', fontWeight: 400 }}>Reviews &amp; Maps Listing</div>
+            </div>
+          </a>
+
+          <Link
+            href="/qr"
+            target="_blank"
+            className={styles.linkCard}
+            style={{ borderColor: 'rgba(201, 168, 76, 0.4)' }}
+          >
+            <span className={styles.linkIcon}>🖨️</span>
+            <div>
+              <div style={{ color: '#e8c97a', fontWeight: 700 }}>In-Car Review QR Stickers</div>
+              <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)', fontWeight: 400 }}>Print A4 Dashboard Sheets</div>
+            </div>
+          </Link>
+
           <a
             href={`https://docs.google.com/spreadsheets/d/${sheetId}/edit`}
             target="_blank"
