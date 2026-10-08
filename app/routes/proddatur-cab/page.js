@@ -66,12 +66,12 @@ const breadcrumbSchema = {
 };
 
 const popularRoutes = [
-  { label: 'Proddatur → Kadapa', km: '70 km', price: '₹999', time: '1.5 hrs' },
-  { label: 'Proddatur → Tirupati', km: '290 km', price: '₹2,499', time: '5 hrs' },
-  { label: 'Proddatur → Hyderabad', km: '400 km', price: '₹5,499', time: '7 hrs' },
-  { label: 'Proddatur → Bangalore', km: '380 km', price: '₹5,999', time: '6.5 hrs' },
-  { label: 'Proddatur → Srisailam', km: '130 km', price: '₹1,799', time: '2.5 hrs' },
-  { label: 'Proddatur → Gandikota', km: '40 km', price: '₹799', time: '1 hr' },
+  { label: 'Proddatur → Kadapa', km: '70 km', price: 'Call for Best Fare', time: '1.5 hrs' },
+  { label: 'Proddatur → Tirupati', km: '290 km', price: 'Call for Best Fare', time: '5 hrs' },
+  { label: 'Proddatur → Hyderabad', km: '400 km', price: 'Call for Best Fare', time: '7 hrs' },
+  { label: 'Proddatur → Bangalore', km: '380 km', price: 'Call for Best Fare', time: '6.5 hrs' },
+  { label: 'Proddatur → Srisailam', km: '130 km', price: 'Call for Best Fare', time: '2.5 hrs' },
+  { label: 'Proddatur → Gandikota', km: '40 km', price: 'Call for Best Fare', time: '1 hr' },
 ];
 
 export default function ProddaturCabPage() {

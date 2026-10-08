@@ -27,7 +27,7 @@ export default function MobileBottomBar() {
           <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--brand-red)">
             <path d="M6.62 10.79a15.1 15.1 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.45 2.33.7 3.58.7a1 1 0 011 1V20a1 1 0 01-1 1C10.49 21 3 13.51 3 4.5A1 1 0 014 3.5h3.5a1 1 0 011 1c0 1.26.25 2.46.7 3.58a1 1 0 01-.24 1.01l-2.34 2.2z" />
           </svg>
-          Call
+          Call 24/7
         </a>
 
         <a

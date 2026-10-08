@@ -16,11 +16,11 @@ export const viewport = {
 
 export const metadata = {
   title: {
-    default: 'MANA Tours & Travels Kadapa — #1 Cab Service, Self-Drive & Taxi in Kadapa',
+    default: 'MANA Tours & Travels Kadapa — 24/7 Cabs, Self-Drive & Taxi | Call 099083 00718',
     template: '%s | MANA Tours & Travels Kadapa',
   },
   description:
-    'MANA Tours & Travels in Kadapa is your #1 trusted travel partner for sacred Tirupati pilgrimage tours, self-drive car rentals from ₹1,499/day, fixed airport transfers, and outstation cabs. 5.0★ Google rated. Call +91 99083 00718.',
+    'MANA Tours & Travels in Kadapa — 5.0★ Google rated. Call +91 99083 00718 for instant quotes on Tirupati pilgrimage cabs, self-drive car rentals from ₹1,499/day, Bangalore & Hyderabad airport drops, and outstation taxis. 24/7 on-time pickup.',
   metadataBase: new URL('https://www.manatoursandtravels.com'),
   alternates: {
     canonical: './',
@@ -53,8 +53,8 @@ export const metadata = {
     ],
   },
   openGraph: {
-    title: 'MANA Tours & Travels Kadapa — Every Journey, A New Experience',
-    description: 'Premier cab, self-drive rentals and pilgrimage travel from Kadapa, Andhra Pradesh. 5.0★ Google Rated. Call +91 99083 00718.',
+    title: 'MANA Tours & Travels Kadapa — 24/7 Cabs & Self-Drive Rentals',
+    description: 'Premier cab, self-drive rentals and pilgrimage travel from Kadapa, Andhra Pradesh. 5.0★ Google Rated. Call +91 99083 00718 for instant quotes.',
     url: 'https://www.manatoursandtravels.com',
     siteName: 'MANA Tours & Travels Kadapa',
     locale: 'en_IN',
@@ -73,8 +73,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'MANA Tours & Travels Kadapa — Every Journey, A New Experience',
-    description: 'Premier cab, self-drive rentals and pilgrimage travel from Kadapa, Andhra Pradesh. 5.0★ Google Rated. Call +91 99083 00718.',
+    title: 'MANA Tours & Travels Kadapa — 24/7 Cabs & Self-Drive Rentals',
+    description: 'Premier cab, self-drive rentals and pilgrimage travel from Kadapa, Andhra Pradesh. Call +91 99083 00718.',
     images: ['/images/hero-car.jpg'],
   },
 };
@@ -103,7 +103,7 @@ export default function RootLayout({ children }) {
                 {
                   '@type': ['TaxiService', 'AutoRental', 'TravelAgency', 'LocalBusiness'],
                   '@id': 'https://www.manatoursandtravels.com/#business',
-                  name: 'MANA Tours & Travels Kadapa',
+                  name: 'MANA Tours & Travels | Kadapa',
                   alternateName: [
                     'MANA Tours and Travels Kadapa',
                     'MANA Tours & Travels',
@@ -111,10 +111,10 @@ export default function RootLayout({ children }) {
                     'MANA Cabs Kadapa',
                   ],
                   description:
-                    'Kadapa\'s #1 premier car rental, self-drive, and taxi service in Rayalaseema. Sacred Tirupati pilgrimage packages, Bangalore & Hyderabad airport drops, Gandikota canyon tours, and self-drive cars from ₹1,499/day.',
+                    'Kadapa\'s #1 premier car rental, self-drive, and taxi service in Rayalaseema. Sacred Tirupati pilgrimage packages, Bangalore & Hyderabad airport drops, Gandikota canyon tours, and self-drive cars from ₹1,499/day. Call +91 99083 00718.',
                   url: 'https://www.manatoursandtravels.com',
                   telephone: '+919908300718',
-                  email: 'contact@manatoursandtravels.com',
+                  email: 'manatoursandtravels@gmail.com',
                   priceRange: '₹₹',
                   currenciesAccepted: 'INR',
                   paymentAccepted: 'Cash, UPI, Credit Card, Net Banking',
@@ -134,7 +134,7 @@ export default function RootLayout({ children }) {
                     longitude: '78.6723772',
                   },
                   hasMap:
-                    'https://www.google.com/maps/place/MANA+Tours+%26+Travels+%7C+Kadapa/@14.4753307,78.8006914,14.5z/data=!4m14!1m7!3m6!1s0x4655d0c639a1eecf:0xb16ecf98c511b010!2sMANA+Tours+%26+Travels+%7C+Kadapa!8m2!3d14.4601018!4d78.6723772',
+                    'https://share.google/K8vvkOsIMLLvvZBac',
                   openingHoursSpecification: {
                     '@type': 'OpeningHoursSpecification',
                     dayOfWeek: [
@@ -152,7 +152,7 @@ export default function RootLayout({ children }) {
                   aggregateRating: {
                     '@type': 'AggregateRating',
                     ratingValue: '5.0',
-                    reviewCount: '50',
+                    reviewCount: '5',
                     bestRating: '5',
                     worstRating: '1',
                   },
@@ -167,7 +167,7 @@ export default function RootLayout({ children }) {
                     },
                   ],
                   sameAs: [
-                    'https://share.google/0sD6bzbqjLt1h1NCZ',
+                    'https://share.google/K8vvkOsIMLLvvZBac',
                     'https://www.youtube.com/@ManaToursTravels',
                     'https://www.indiaonline.in/kadapa/business/mana-tours-and-travels-109381',
                     'https://wa.me/919908300718',
@@ -198,10 +198,12 @@ export default function RootLayout({ children }) {
                         itemOffered: {
                           '@type': 'Service',
                           name: 'Kadapa to Tirupati Temple Darshan Cab',
-                          description: 'Round trip sacred pilgrimage tour with clean AC car and experienced chauffeur.',
+                          description: 'Round trip sacred pilgrimage tour with clean AC car and experienced chauffeur. Call +91 99083 00718 for instant quotes.',
                         },
-                        price: '2099',
-                        priceCurrency: 'INR',
+                        priceSpecification: {
+                          '@type': 'PriceSpecification',
+                          priceCurrency: 'INR',
+                        },
                       },
                       {
                         '@type': 'Offer',
@@ -218,20 +220,24 @@ export default function RootLayout({ children }) {
                         itemOffered: {
                           '@type': 'Service',
                           name: 'Kadapa to Bangalore Airport Fixed Drop',
-                          description: 'Fixed fare on-time airport transfer from Kadapa to Kempegowda International Airport (BLR).',
+                          description: 'Fixed fare on-time airport transfer from Kadapa to Kempegowda International Airport (BLR). Call +91 99083 00718.',
                         },
-                        price: '5499',
-                        priceCurrency: 'INR',
+                        priceSpecification: {
+                          '@type': 'PriceSpecification',
+                          priceCurrency: 'INR',
+                        },
                       },
                       {
                         '@type': 'Offer',
                         itemOffered: {
                           '@type': 'Service',
                           name: 'Gandikota Grand Canyon & Belum Caves Day Tour',
-                          description: 'Private guided day tour to Gandikota fort and Belum Caves from Kadapa.',
+                          description: 'Private guided day tour to Gandikota fort and Belum Caves from Kadapa. Call +91 99083 00718 for instant package quote.',
                         },
-                        price: '2799',
-                        priceCurrency: 'INR',
+                        priceSpecification: {
+                          '@type': 'PriceSpecification',
+                          priceCurrency: 'INR',
+                        },
                       },
                     ],
                   },
@@ -247,7 +253,7 @@ export default function RootLayout({ children }) {
                     'MANA Travels',
                     'MANA Cabs Kadapa',
                   ],
-                  description: 'Kadapa\'s #1 cab, self-drive & pilgrimage travel service in Rayalaseema, Andhra Pradesh.',
+                  description: 'Kadapa\'s #1 cab, self-drive & pilgrimage travel service in Rayalaseema, Andhra Pradesh. Call +91 99083 00718.',
                   publisher: { '@id': 'https://www.manatoursandtravels.com/#business' },
                   potentialAction: {
                     '@type': 'SearchAction',
@@ -284,7 +290,7 @@ export default function RootLayout({ children }) {
                     },
                   ],
                   sameAs: [
-                    'https://share.google/0sD6bzbqjLt1h1NCZ',
+                    'https://share.google/K8vvkOsIMLLvvZBac',
                     'https://www.youtube.com/@ManaToursTravels',
                     'https://www.indiaonline.in/kadapa/business/mana-tours-and-travels-109381',
                   ],

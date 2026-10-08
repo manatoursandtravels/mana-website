@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "gmb:agents": "node scripts/gmb-agents/run-agents.js",
+    "gmb:audit": "node scripts/gmb-agents/local_seo_monitor.js"
   },
   "dependencies": {
     "next": "16.3.1",

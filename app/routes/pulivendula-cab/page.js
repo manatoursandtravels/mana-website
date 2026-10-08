@@ -66,12 +66,12 @@ const breadcrumbSchema = {
 };
 
 const popularRoutes = [
-  { label: 'Pulivendula → Kadapa', km: '90 km', price: '₹1,199', time: '2 hrs' },
-  { label: 'Pulivendula → Tirupati', km: '310 km', price: '₹2,799', time: '5.5 hrs' },
-  { label: 'Pulivendula → Hyderabad', km: '420 km', price: '₹5,799', time: '7.5 hrs' },
-  { label: 'Pulivendula → Bangalore', km: '400 km', price: '₹6,199', time: '7 hrs' },
-  { label: 'Pulivendula → Gandikota', km: '40 km', price: '₹799', time: '1 hr' },
-  { label: 'Pulivendula → Srisailam', km: '120 km', price: '₹1,699', time: '2.5 hrs' },
+  { label: 'Pulivendula → Kadapa', km: '90 km', price: 'Call for Best Fare', time: '2 hrs' },
+  { label: 'Pulivendula → Tirupati', km: '310 km', price: 'Call for Best Fare', time: '5.5 hrs' },
+  { label: 'Pulivendula → Hyderabad', km: '420 km', price: 'Call for Best Fare', time: '7.5 hrs' },
+  { label: 'Pulivendula → Bangalore', km: '400 km', price: 'Call for Best Fare', time: '7 hrs' },
+  { label: 'Pulivendula → Gandikota', km: '40 km', price: 'Call for Best Fare', time: '1 hr' },
+  { label: 'Pulivendula → Srisailam', km: '120 km', price: 'Call for Best Fare', time: '2.5 hrs' },
 ];
 
 export default function PulivendulaPage() {

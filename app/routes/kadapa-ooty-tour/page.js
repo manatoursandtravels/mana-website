@@ -8,13 +8,13 @@ import styles from '../../services/service.module.css';
 import { BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Kadapa to Ooty Tour Package | 3D/2N Nilgiris Holiday Cab',
+  title: 'Kadapa to Ooty Tour Package | 3D/2N Nilgiris Holiday Cab — Call 24/7',
   description:
-    'Book private Kadapa to Ooty 3-Day/2-Night tour package starting at ₹12,499. AC Sedans, Ertiga & Innova Crysta. Tea plantations, Pykara lake, Doddabetta peak. Call +91 99083 00718.',
+    'Book private Kadapa to Ooty 3-Day/2-Night tour package. AC Sedans, Ertiga & Innova Crysta. Tea plantations, Pykara lake, Doddabetta peak. Call +91 99083 00718 for instant quote.',
   alternates: { canonical: '/routes/kadapa-ooty-tour' },
   openGraph: {
     title: 'Kadapa to Ooty Tour Package | 3D/2N Holiday | MANA Tours',
-    description: 'Private 3-Day holiday package from Kadapa to Ooty & Coonoor with dedicated AC cab and experienced hill-driving chauffeur.',
+    description: 'Private 3-Day holiday package from Kadapa to Ooty & Coonoor with dedicated AC cab and experienced hill-driving chauffeur. Call +91 99083 00718.',
     url: 'https://www.manatoursandtravels.com/routes/kadapa-ooty-tour',
     siteName: 'MANA Tours & Travels',
     locale: 'en_IN',
@@ -24,7 +24,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Kadapa to Ooty Tour Package | MANA Tours',
-    description: '3D/2N private holiday tour from Kadapa to Ooty in AC comfort.',
+    description: '3D/2N private holiday tour from Kadapa to Ooty in AC comfort. Call +91 99083 00718.',
     images: ['/images/hero-car.jpg'],
   },
 };
@@ -73,41 +73,50 @@ export default function KadapaOotyTourPage() {
                 <span className="eyebrow">All-Inclusive Holiday Tariff</span>
                 <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.4rem)' }}>Kadapa to Ooty Cab Packages</h2>
                 <div className="divider divider--left" />
-                <p>Fixed 3-day round-trip packages with doorstep Kadapa pickup, fuel, driver allowance, and Ooty/Coonoor sightseeing.</p>
+                <p>Custom 3-day round-trip packages with doorstep Kadapa pickup, fuel, driver allowance, and Ooty/Coonoor sightseeing.</p>
               </div>
 
               {/* Table Card */}
               <div className={styles.tableCard}>
                 <div className={styles.tableHeader}>
-                  <h3>Tiered Vehicle Pricing (3 Days / 2 Nights)</h3>
+                  <h3>Tiered Vehicle Packages (3 Days / 2 Nights)</h3>
                   <p>Covers Kadapa ↔ Ooty round trip distance + local mountain sightseeing.</p>
                 </div>
                 <table className={styles.rateTable}>
                   <thead>
                     <tr>
                       <th>Vehicle Category</th>
-                      <th>3D/2N Fare</th>
+                      <th>3D/2N Package</th>
                       <th>Best For</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td><strong>AC Sedan</strong> (Toyota Etios / Dzire)</td>
-                      <td className={styles.priceCol}>₹12,499</td>
+                      <td className={styles.priceCol}><a href={`tel:${BUSINESS.phone.pavan}`} style={{color:'inherit',textDecoration:'none'}}>📞 Call for Quote</a></td>
                       <td>Couples &amp; Small Families (up to 4 passengers)</td>
                     </tr>
                     <tr>
                       <td><strong>Comfort MPV</strong> (Maruti Suzuki Ertiga)</td>
-                      <td className={styles.priceCol}>₹16,499</td>
+                      <td className={styles.priceCol}><a href={`tel:${BUSINESS.phone.pavan}`} style={{color:'inherit',textDecoration:'none'}}>📞 Call for Quote</a></td>
                       <td>Family Groups (up to 6 passengers + luggage)</td>
                     </tr>
                     <tr>
                       <td><strong>Luxury MPV</strong> (Toyota Innova Crysta)</td>
-                      <td className={styles.priceCol}>₹21,999</td>
+                      <td className={styles.priceCol}><a href={`tel:${BUSINESS.phone.pavan}`} style={{color:'inherit',textDecoration:'none'}}>📞 Call for Quote</a></td>
                       <td>VIP Executive &amp; Luxury Travel (Captain Seats)</td>
                     </tr>
                   </tbody>
                 </table>
+                <div style={{marginTop:'16px'}}>
+                  <a
+                    href={`tel:${BUSINESS.phone.pavan}`}
+                    className="btn btn--primary"
+                    style={{display:'inline-flex',alignItems:'center',gap:'8px',padding:'12px 20px',fontSize:'0.95rem'}}
+                  >
+                    <span>📞 Call Pavan for Today&apos;s Best Ooty Package: {BUSINESS.phone.pavanDisplay}</span>
+                  </a>
+                </div>
               </div>
 
               {/* Highlights List */}

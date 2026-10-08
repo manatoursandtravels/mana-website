@@ -7,12 +7,12 @@ import styles from '../../services/service.module.css';
 import { BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Kadapa to Belum Caves Cab | Day Trip from ₹2,499',
-  description: 'Book a cab from Kadapa to Belum Caves (longest cave network in plains). Full-day tour starting ₹2,499. AC sedan with chauffeur. Call +91 99083 00718.',
+  title: 'Kadapa to Belum Caves Cab | Day Trip Tour Package — Call 24/7',
+  description: 'Book an AC cab from Kadapa to Belum Caves (longest cave network in plains). Full-day tour package. Call +91 99083 00718 for instant quote.',
   alternates: { canonical: '/routes/kadapa-belum-caves' },
   openGraph: {
     title: 'Kadapa to Belum Caves Cab | Day Trip Tour | MANA Tours',
-    description: 'Explore the natural underground limestone formations of Belum Caves with private AC cab from Kadapa.',
+    description: 'Explore the natural underground limestone formations of Belum Caves with private AC cab from Kadapa. Call +91 99083 00718.',
     url: 'https://www.manatoursandtravels.com/routes/kadapa-belum-caves',
     siteName: 'MANA Tours & Travels',
     locale: 'en_IN',
@@ -22,7 +22,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Kadapa to Belum Caves Cab | MANA Tours',
-    description: 'Day trip to Belum Caves from Kadapa in AC comfort.',
+    description: 'Day trip to Belum Caves from Kadapa in AC comfort. Call +91 99083 00718.',
     images: ['/images/hero-car.jpg'],
   },
 };
@@ -31,9 +31,8 @@ const tripSchema = {
   '@context': 'https://schema.org',
   '@type': 'TouristTrip',
   name: 'Kadapa to Belum Caves Day Tour',
-  description: 'Day trip to Belum Caves from Kadapa — the longest natural cave in India.',
-  provider: { '@type': 'LocalBusiness', name: 'MANA Tours & Travels', telephone: '+919908300718' },
-  offers: [{ '@type': 'Offer', name: 'Day Tour', price: '1499', priceCurrency: 'INR' }],
+  description: 'Day trip to Belum Caves from Kadapa — the longest natural cave in India. Call +91 99083 00718.',
+  provider: { '@type': 'LocalBusiness', name: 'MANA Tours & Travels | Kadapa', telephone: '+919908300718' },
 };
 
 const breadcrumbSchema = {
@@ -50,7 +49,8 @@ const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: 'How far is Belum Caves from Kadapa?', acceptedAnswer: { '@type': 'Answer', text: 'Belum Caves are approximately 130 km from Kadapa, around 2.5 hours by road.' } },
+    { '@type': 'Question', name: 'How far is Belum Caves from Kadapa?', acceptedAnswer: { '@type': 'Answer', text: 'Belum Caves are approximately 110 km from Kadapa, around 2 hours by road via Jammalamadugu.' } },
+    { '@type': 'Question', name: 'What is the cab fare from Kadapa to Belum Caves?', acceptedAnswer: { '@type': 'Answer', text: 'MANA Tours offers customized day trip packages for Sedans and Innova Crystas. Call or WhatsApp +91 99083 00718 for today\'s lowest instant quote.' } },
     { '@type': 'Question', name: 'Are Belum Caves the longest cave in India?', acceptedAnswer: { '@type': 'Answer', text: 'Yes! Belum Caves in Kurnool district is the second longest natural cave in the Indian subcontinent (3,229 m) and the longest cave in India open to tourists.' } },
   ],
 };
@@ -82,13 +82,13 @@ export default function Page() {
               <div className={styles.routeInfoLabel}>Drive Time</div>
             </div>
             <div className={styles.routeInfoItem}>
-              <div className={styles.routeInfoValue}>Rs.2,499</div>
-              <div className={styles.routeInfoLabel}>Fare</div>
+              <div className={styles.routeInfoValue}>Best Fare</div>
+              <div className={styles.routeInfoLabel}>Day Tour</div>
             </div>
           </div>
           <div className={styles.heroCtas} style={{ marginTop: '24px' }}>
-            <a href="#book" className="btn btn--primary btn--lg">Book This Cab</a>
-            <a href={`tel:${BUSINESS.phone.pavan}`} className="btn btn--white btn--lg">Call Now</a>
+            <a href={`tel:${BUSINESS.phone.pavan}`} className="btn btn--primary btn--lg">📞 Call for Best Fare: {BUSINESS.phone.pavanDisplay}</a>
+            <a href="#book" className="btn btn--white btn--lg">📅 Book Online</a>
           </div>
         </div>
       </div>
@@ -97,17 +97,26 @@ export default function Page() {
         <div className="container">
           <div className={styles.contentGrid}>
             <div className={styles.mainCol}>
-              <h2>Kadapa to Belum Caves Cab Fare</h2>
+              <h2>Kadapa to Belum Caves Cab Fare &amp; Packages</h2>
               <div className="divider divider--left" style={{ marginBottom: '20px' }} />
               <table className="rate-table">
-                <thead><tr><th>Trip Type</th><th>Price</th><th>Includes</th></tr></thead>
+                <thead><tr><th>Trip Type</th><th>Fare Quote</th><th>Includes</th></tr></thead>
                 <tbody>
-                  <tr><td>One Way / Day Trip</td><td className="price">Rs.2,499</td><td>Driver + AC + Fuel</td></tr>
-                  <tr><td>Round Trip</td><td className="price">Rs.2,499</td><td>Driver + AC + Fuel + Wait</td></tr>
+                  <tr><td>One Way / Day Trip</td><td className="price"><a href={`tel:${BUSINESS.phone.pavan}`} style={{color:'inherit',textDecoration:'none'}}>📞 Call for Quote</a></td><td>Driver + AC + Fuel</td></tr>
+                  <tr><td>Round Trip (Full Day)</td><td className="price"><a href={`tel:${BUSINESS.phone.pavan}`} style={{color:'inherit',textDecoration:'none'}}>📞 Call for Quote</a></td><td>Driver + AC + Fuel + Wait</td></tr>
                 </tbody>
               </table>
+              <div style={{marginTop:'16px'}}>
+                <a
+                  href={`tel:${BUSINESS.phone.pavan}`}
+                  className="btn btn--primary"
+                  style={{display:'inline-flex',alignItems:'center',gap:'8px',padding:'12px 20px',fontSize:'0.95rem'}}
+                >
+                  <span>📞 Call Pavan for Today&apos;s Best Fare: {BUSINESS.phone.pavanDisplay}</span>
+                </a>
+              </div>
               <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '12px' }}>
-                Toll and parking at actual, paid by customer. All prices for AC sedan.
+                Toll and parking at actuals. Sedans and 7-Seater MPVs (Ertiga/Innova Crysta) available.
               </p>
             </div>
             <div className={styles.sideCol}>

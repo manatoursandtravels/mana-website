@@ -8,13 +8,13 @@ import styles from '../../services/service.module.css';
 import { BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Kadapa to Goa Tour Package | 4D/3N Beach & Heritage Holiday Cab',
+  title: 'Kadapa to Goa Tour Package | 4D/3N Beach & Heritage Holiday — Call 24/7',
   description:
-    'Book private Kadapa to Goa 4-Day/3-Night holiday tour package starting at ₹15,999. AC Sedans, Ertiga & Innova Crysta. Baga beach, Fort Aguada, Old Goa & Dudhsagar falls. Call +91 99083 00718.',
+    'Book private Kadapa to Goa 4-Day/3-Night holiday tour package. AC Sedans, Ertiga & Innova Crysta. Baga beach, Fort Aguada, Old Goa & Dudhsagar falls. Call +91 99083 00718 for instant quote.',
   alternates: { canonical: '/routes/kadapa-goa-tour' },
   openGraph: {
     title: 'Kadapa to Goa Tour Package | 4D/3N Holiday | MANA Tours',
-    description: 'Private 4-Day holiday tour from Kadapa to North & South Goa in comfortable AC vehicles with experienced highway chauffeurs.',
+    description: 'Private 4-Day holiday tour from Kadapa to North & South Goa in comfortable AC vehicles with experienced highway chauffeurs. Call +91 99083 00718.',
     url: 'https://www.manatoursandtravels.com/routes/kadapa-goa-tour',
     siteName: 'MANA Tours & Travels',
     locale: 'en_IN',
@@ -24,7 +24,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Kadapa to Goa Tour Package | MANA Tours',
-    description: '4D/3N beach holiday package from Kadapa to Goa in AC comfort.',
+    description: '4D/3N beach holiday package from Kadapa to Goa in AC comfort. Call +91 99083 00718.',
     images: ['/images/hero-car.jpg'],
   },
 };
@@ -73,41 +73,50 @@ export default function KadapaGoaTourPage() {
                 <span className="eyebrow">All-Inclusive Holiday Tariff</span>
                 <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.4rem)' }}>Kadapa to Goa Cab Packages</h2>
                 <div className="divider divider--left" />
-                <p>Fixed 4-day round-trip packages with doorstep Kadapa pickup, fuel, driver allowance, and complete Goa sightseeing.</p>
+                <p>Custom 4-day round-trip packages with doorstep Kadapa pickup, fuel, driver allowance, and complete Goa sightseeing.</p>
               </div>
 
               {/* Table Card */}
               <div className={styles.tableCard}>
                 <div className={styles.tableHeader}>
-                  <h3>Tiered Vehicle Pricing (4 Days / 3 Nights)</h3>
+                  <h3>Tiered Vehicle Packages (4 Days / 3 Nights)</h3>
                   <p>Covers Kadapa ↔ Goa round trip distance + North &amp; South Goa local sightseeing.</p>
                 </div>
                 <table className={styles.rateTable}>
                   <thead>
                     <tr>
                       <th>Vehicle Category</th>
-                      <th>4D/3N Fare</th>
+                      <th>4D/3N Package</th>
                       <th>Best For</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td><strong>AC Sedan</strong> (Toyota Etios / Dzire)</td>
-                      <td className={styles.priceCol}>₹15,999</td>
+                      <td className={styles.priceCol}><a href={`tel:${BUSINESS.phone.pavan}`} style={{color:'inherit',textDecoration:'none'}}>📞 Call for Quote</a></td>
                       <td>Couples &amp; Small Groups (up to 4 passengers)</td>
                     </tr>
                     <tr>
                       <td><strong>Comfort MPV</strong> (Maruti Suzuki Ertiga)</td>
-                      <td className={styles.priceCol}>₹20,999</td>
+                      <td className={styles.priceCol}><a href={`tel:${BUSINESS.phone.pavan}`} style={{color:'inherit',textDecoration:'none'}}>📞 Call for Quote</a></td>
                       <td>Family Holidays (up to 6 passengers + luggage)</td>
                     </tr>
                     <tr>
                       <td><strong>Luxury MPV</strong> (Toyota Innova Crysta)</td>
-                      <td className={styles.priceCol}>₹27,999</td>
+                      <td className={styles.priceCol}><a href={`tel:${BUSINESS.phone.pavan}`} style={{color:'inherit',textDecoration:'none'}}>📞 Call for Quote</a></td>
                       <td>Executive VIP Luxury Travel (Plush Captain Seats)</td>
                     </tr>
                   </tbody>
                 </table>
+                <div style={{marginTop:'16px'}}>
+                  <a
+                    href={`tel:${BUSINESS.phone.pavan}`}
+                    className="btn btn--primary"
+                    style={{display:'inline-flex',alignItems:'center',gap:'8px',padding:'12px 20px',fontSize:'0.95rem'}}
+                  >
+                    <span>📞 Call Pavan for Today&apos;s Best Goa Package: {BUSINESS.phone.pavanDisplay}</span>
+                  </a>
+                </div>
               </div>
 
               {/* Highlights List */}

@@ -118,10 +118,10 @@ const testimonials = [
 ];
 
 const destinations = [
-  { name: 'Tirupati', sub: 'Sri Venkateswara Swamy Temple', img: '/images/tirupati.jpg', price: 'From ₹2,099', href: '/routes/kadapa-tirupati-cab', badge: '👑 Most Popular', km: '~250 km' },
-  { name: 'Gandikota', sub: 'Grand Canyon of India', img: '/images/gandikota.jpg', price: 'From ₹2,799', href: '/routes/kadapa-gandikota-tour', badge: '🏜️ Must Visit', km: '~120 km' },
-  { name: 'Ooty Nilgiris', sub: 'Queen of Hill Stations (3D/2N)', img: '/images/ooty.jpg', price: 'From ₹12,499', href: '/routes/kadapa-ooty-tour', badge: '🌲 Hill Vacation', km: '~560 km' },
-  { name: 'Goa Coastal', sub: 'Beach & Heritage Holiday (4D/3N)', img: '/images/goa.jpg', price: 'From ₹15,999', href: '/routes/kadapa-goa-tour', badge: '🌊 Beach Holiday', km: '~620 km' },
+  { name: 'Tirupati', sub: 'Sri Venkateswara Swamy Temple', img: '/images/tirupati.jpg', price: 'Call for Best Fare', href: '/routes/kadapa-tirupati-cab', badge: '👑 Most Popular', km: '~250 km' },
+  { name: 'Gandikota', sub: 'Grand Canyon of India', img: '/images/gandikota.jpg', price: 'Call for Best Fare', href: '/routes/kadapa-gandikota-tour', badge: '🏜️ Must Visit', km: '~120 km' },
+  { name: 'Ooty Nilgiris', sub: 'Queen of Hill Stations (3D/2N)', img: '/images/ooty.jpg', price: 'Call for Custom Tour', href: '/routes/kadapa-ooty-tour', badge: '🌲 Hill Vacation', km: '~560 km' },
+  { name: 'Goa Coastal', sub: 'Beach & Heritage Holiday (4D/3N)', img: '/images/goa.jpg', price: 'Call for Custom Tour', href: '/routes/kadapa-goa-tour', badge: '🌊 Beach Holiday', km: '~620 km' },
 ];
 
 // Service ID to Vector Illustration map
@@ -181,12 +181,12 @@ export default function HomePage() {
               <Link href="/services/pilgrimage-tours" className={styles.heroQuickChip}>
                 <span className={styles.hqcIcon}>🛕</span>
                 <span className={styles.hqcLabel}>Tirupati Darshan</span>
-                <span className={styles.hqcPrice}>₹2,099</span>
+                <span className={styles.hqcPrice}>Best Fare</span>
               </Link>
               <Link href="/services/airport-transfers" className={styles.heroQuickChip}>
                 <span className={styles.hqcIcon}>✈️</span>
                 <span className={styles.hqcLabel}>Airport Drops</span>
-                <span className={styles.hqcPrice}>Fixed Fare</span>
+                <span className={styles.hqcPrice}>24/7 Desk</span>
               </Link>
               <Link href="/services/self-drive" className={styles.heroQuickChip}>
                 <span className={styles.hqcIcon}>🔑</span>
@@ -274,15 +274,15 @@ export default function HomePage() {
           </div>
           <div className={styles.servicesGrid}>
             {[
-              { id: 'local-cabs',       label: 'Local Cabs',         icon: '🚗', tag: 'City Rides',    from: '₹999',    theme: 'blue',   href: '/services/local-cabs',         desc: '4hr/40km & 8hr/80km city packages. Driver + AC + Fuel included.' },
-              { id: 'outstation-cabs',  label: 'Outstation Cabs',    icon: '🛣️', tag: 'Intercity',    from: '₹2,099',  theme: 'red',    href: '/services/outstation-cabs',    desc: 'One-way & round-trip travel across AP & South India. Fixed upfront fares.' },
-              { id: 'airport-transfers',label: 'Airport Transfers',  icon: '✈️', tag: 'Fixed Fare',   from: '₹2,499',  theme: 'indigo', href: '/services/airport-transfers',  desc: 'Fixed-price pickup & drop to Tirupati, Hyderabad & Bangalore airports.' },
-              { id: 'pilgrimage-tours', label: 'Pilgrimage Tours',   icon: '🛕', tag: 'Sacred Trips', from: '₹2,099',  theme: 'amber',  href: '/services/pilgrimage-tours',   desc: 'Tirupati, Srisailam, Ahobilam & more. Darshan-timed departures.' },
-              { id: 'tour-packages',    label: 'Tour Packages',      icon: '🏔️', tag: 'Curated',      from: '₹2,799',  theme: 'teal',   href: '/services/tour-packages',      desc: 'Gandikota, Belum, Ooty & Goa. Full-day guided packages with expert guide.' },
-              { id: 'corporate-travel', label: 'Corporate Travel',   icon: '🏢', tag: 'GST Ready',    from: '₹1,799',  theme: 'slate',  href: '/services/corporate-travel',   desc: 'GST invoices, flexible monthly accounts, and premium executive vehicles.' },
-              { id: 'local-sightseeing',label: 'Local Sightseeing',  icon: '🗺️', tag: 'Kadapa City', from: '₹1,499',  theme: 'green',  href: '/services/local-sightseeing',  desc: 'Curated Kadapa heritage & sightseeing tours. Full-day city exploration.' },
-              { id: 'wedding-travel',   label: 'Wedding & Events',   icon: '💒', tag: 'VIP Fleet',    from: '₹1,499',  theme: 'rose',   href: '/services/wedding-travel',     desc: 'Decorated premium fleet for weddings, engagements & VIP events.' },
-              { id: 'self-drive',       label: 'Self Drive',         icon: '🔑', tag: 'Drive Yourself',from: '₹1,499', theme: 'brass',  href: '/services/self-drive',         desc: 'Drive yourself in premium sanitized cars. Doorstep handover in Kadapa.' },
+              { id: 'local-cabs',       label: 'Local Cabs',         icon: '🚗', tag: 'City Rides',    from: 'Best Rate',     theme: 'blue',   href: '/services/local-cabs',         desc: '4hr/40km & 8hr/80km city packages. Driver + AC + Fuel included.' },
+              { id: 'outstation-cabs',  label: 'Outstation Cabs',    icon: '🛣️', tag: 'Intercity',    from: 'Call for Fare', theme: 'red',    href: '/services/outstation-cabs',    desc: 'One-way & round-trip travel across AP & South India. Call 24/7 for instant quote.' },
+              { id: 'airport-transfers',label: 'Airport Transfers',  icon: '✈️', tag: '24/7 Drops',   from: 'Instant Quote', theme: 'indigo', href: '/services/airport-transfers',  desc: 'Fixed-price pickup & drop to Tirupati, Hyderabad & Bangalore airports.' },
+              { id: 'pilgrimage-tours', label: 'Pilgrimage Tours',   icon: '🛕', tag: 'Sacred Trips', from: 'Call for Fare', theme: 'amber',  href: '/services/pilgrimage-tours',   desc: 'Tirupati, Srisailam, Ahobilam & more. Darshan-timed departures.' },
+              { id: 'tour-packages',    label: 'Tour Packages',      icon: '🏔️', tag: 'Curated',      from: 'Best Package',  theme: 'teal',   href: '/services/tour-packages',      desc: 'Gandikota, Belum, Ooty & Goa. Full-day guided packages with expert guide.' },
+              { id: 'corporate-travel', label: 'Corporate Travel',   icon: '🏢', tag: 'GST Ready',    from: 'Custom Quote',  theme: 'slate',  href: '/services/corporate-travel',   desc: 'GST invoices, flexible monthly accounts, and premium executive vehicles.' },
+              { id: 'local-sightseeing',label: 'Local Sightseeing',  icon: '🗺️', tag: 'Kadapa City', from: 'Call for Fare', theme: 'green',  href: '/services/local-sightseeing',  desc: 'Curated Kadapa heritage & sightseeing tours. Full-day city exploration.' },
+              { id: 'wedding-travel',   label: 'Wedding & Events',   icon: '💒', tag: 'VIP Fleet',    from: 'VIP Quote',     theme: 'rose',   href: '/services/wedding-travel',     desc: 'Decorated premium fleet for weddings, engagements & VIP events.' },
+              { id: 'self-drive',       label: 'Self Drive',         icon: '🔑', tag: 'Drive Yourself',from: '₹1,499/d',     theme: 'brass',  href: '/services/self-drive',         desc: 'Drive yourself in premium sanitized cars. Doorstep handover in Kadapa.' },
             ].map((s, i) => {
               const ServiceVector = serviceIllustrations[s.id] || LocalCabIllustration;
               return (
@@ -310,11 +310,11 @@ export default function HomePage() {
                   {/* Footer: from-price + cta */}
                   <div className={styles.serviceFooter}>
                     <div className={styles.serviceFromWrap}>
-                      <span className={styles.serviceFromLabel}>From</span>
+                      <span className={styles.serviceFromLabel}>Fare</span>
                       <span className={styles.serviceFromPrice}>{s.from}</span>
                     </div>
                     <div className={styles.serviceCta}>
-                      <span className={styles.serviceLink}>Explore</span>
+                      <span className={styles.serviceLink}>Call Desk</span>
                       <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                         <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>

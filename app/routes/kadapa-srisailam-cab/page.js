@@ -7,12 +7,12 @@ import styles from '../../services/service.module.css';
 import { BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Kadapa to Srisailam Cab | ₹2,299 One Way & ₹3,799 Round Trip',
-  description: 'Book a cab from Kadapa to Srisailam starting ₹2,299 one way, ₹3,799 round trip. Sacred Mallikarjuna Jyotirlinga darshan with experienced chauffeur. Call +91 99083 00718.',
+  title: 'Kadapa to Srisailam Cab | Mallikarjuna Jyotirlinga Pilgrimage Taxi — Call 24/7',
+  description: 'Book an AC pilgrimage cab from Kadapa to Srisailam Mallikarjuna Jyotirlinga temple. Experienced ghat road chauffeurs, 24/7 available. Call +91 99083 00718 for instant quote.',
   alternates: { canonical: '/routes/kadapa-srisailam-cab' },
   openGraph: {
     title: 'Kadapa to Srisailam Cab | Mallikarjuna Jyotirlinga Pilgrimage | MANA Tours',
-    description: 'Sacred pilgrimage cab from Kadapa to Srisailam Mallikarjuna Swamy & Bhramaramba Ammavari Temple. Experienced ghat road drivers.',
+    description: 'Sacred pilgrimage cab from Kadapa to Srisailam Mallikarjuna Swamy & Bhramaramba Ammavari Temple. Experienced ghat road drivers. Call +91 99083 00718.',
     url: 'https://www.manatoursandtravels.com/routes/kadapa-srisailam-cab',
     siteName: 'MANA Tours & Travels',
     locale: 'en_IN',
@@ -22,7 +22,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Kadapa to Srisailam Cab | MANA Tours',
-    description: 'Pilgrimage cab service from Kadapa to Srisailam Jyotirlinga.',
+    description: 'Pilgrimage cab service from Kadapa to Srisailam Jyotirlinga. Call +91 99083 00718.',
     images: ['/images/hero-car.jpg'],
   },
 };
@@ -32,9 +32,8 @@ const tripSchema = {
   '@type': 'Service',
   serviceType: 'Pilgrimage Cab Service',
   name: 'Kadapa to Srisailam Cab Service',
-  description: 'Sacred pilgrimage cab from Kadapa to Srisailam Mallikarjuna Jyotirlinga temple.',
-  provider: { '@type': 'LocalBusiness', name: 'MANA Tours & Travels', telephone: '+919908300718' },
-  offers: [{ '@type': 'Offer', name: 'One Way Pilgrimage', price: '3499', priceCurrency: 'INR' }],
+  description: 'Sacred pilgrimage cab from Kadapa to Srisailam Mallikarjuna Jyotirlinga temple. Call +91 99083 00718.',
+  provider: { '@type': 'LocalBusiness', name: 'MANA Tours & Travels | Kadapa', telephone: '+919908300718' },
   areaServed: [{ '@type': 'City', name: 'Kadapa' }, { '@type': 'City', name: 'Srisailam' }],
 };
 
@@ -53,7 +52,7 @@ const faqSchema = {
   '@type': 'FAQPage',
   mainEntity: [
     { '@type': 'Question', name: 'How far is Srisailam from Kadapa?', acceptedAnswer: { '@type': 'Answer', text: 'Srisailam is approximately 200 km from Kadapa, around 3.5–4 hours by road via the scenic Nallamala forest ghat road.' } },
-    { '@type': 'Question', name: 'What is the cab fare from Kadapa to Srisailam?', acceptedAnswer: { '@type': 'Answer', text: 'MANA Tours charges ₹3,499 for one way and ₹5,499 for round trip to Srisailam in an AC sedan. Toll and forest fees are extra.' } },
+    { '@type': 'Question', name: 'What is the cab fare from Kadapa to Srisailam?', acceptedAnswer: { '@type': 'Answer', text: 'MANA Tours offers customized pilgrimage packages for Sedans and Innova MPVs. Call or WhatsApp +91 99083 00718 for today\'s lowest instant quote.' } },
   ],
 };
 
@@ -72,7 +71,7 @@ export default function Page() {
           <div className={styles.heroIcon}>🛕</div>
           <h1 className={styles.heroTitle}>Kadapa to Srisailam Cab</h1>
           <p className={styles.heroSubtitle}>
-            Comfortable AC cab from Kadapa to Srisailam. Transparent pricing. Experienced driver. Available 24/7.
+            Sacred Mallikarjuna Jyotirlinga darshan cab from Kadapa. Experienced Nallamala ghat road chauffeurs. Available 24/7.
           </p>
           <div className={styles.routeInfo}>
             <div className={styles.routeInfoItem}>
@@ -84,13 +83,13 @@ export default function Page() {
               <div className={styles.routeInfoLabel}>Drive Time</div>
             </div>
             <div className={styles.routeInfoItem}>
-              <div className={styles.routeInfoValue}>Rs.2,299</div>
-              <div className={styles.routeInfoLabel}>Fare</div>
+              <div className={styles.routeInfoValue}>Best Fare</div>
+              <div className={styles.routeInfoLabel}>Darshan Tour</div>
             </div>
           </div>
           <div className={styles.heroCtas} style={{ marginTop: '24px' }}>
-            <a href="#book" className="btn btn--primary btn--lg">Book This Cab</a>
-            <a href={`tel:${BUSINESS.phone.pavan}`} className="btn btn--white btn--lg">Call Now</a>
+            <a href={`tel:${BUSINESS.phone.pavan}`} className="btn btn--primary btn--lg">📞 Call for Best Fare: {BUSINESS.phone.pavanDisplay}</a>
+            <a href="#book" className="btn btn--white btn--lg">📅 Book Online</a>
           </div>
         </div>
       </div>
@@ -99,17 +98,26 @@ export default function Page() {
         <div className="container">
           <div className={styles.contentGrid}>
             <div className={styles.mainCol}>
-              <h2>Kadapa to Srisailam Cab Fare</h2>
+              <h2>Kadapa to Srisailam Cab Fare &amp; Packages</h2>
               <div className="divider divider--left" style={{ marginBottom: '20px' }} />
               <table className="rate-table">
-                <thead><tr><th>Trip Type</th><th>Price</th><th>Includes</th></tr></thead>
+                <thead><tr><th>Trip Type</th><th>Fare Quote</th><th>Includes</th></tr></thead>
                 <tbody>
-                  <tr><td>One Way / Day Trip</td><td className="price">Rs.2,299</td><td>Driver + AC + Fuel</td></tr>
-                  <tr><td>Round Trip</td><td className="price">Rs.3,799</td><td>Driver + AC + Fuel + Wait</td></tr>
+                  <tr><td>One Way Drop</td><td className="price"><a href={`tel:${BUSINESS.phone.pavan}`} style={{color:'inherit',textDecoration:'none'}}>📞 Call for Quote</a></td><td>Driver + AC + Fuel</td></tr>
+                  <tr><td>Round Trip (Darshan Tour)</td><td className="price"><a href={`tel:${BUSINESS.phone.pavan}`} style={{color:'inherit',textDecoration:'none'}}>📞 Call for Quote</a></td><td>Driver + AC + Fuel + Temple Wait</td></tr>
                 </tbody>
               </table>
+              <div style={{marginTop:'16px'}}>
+                <a
+                  href={`tel:${BUSINESS.phone.pavan}`}
+                  className="btn btn--primary"
+                  style={{display:'inline-flex',alignItems:'center',gap:'8px',padding:'12px 20px',fontSize:'0.95rem'}}
+                >
+                  <span>📞 Call Pavan for Today&apos;s Best Fare: {BUSINESS.phone.pavanDisplay}</span>
+                </a>
+              </div>
               <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '12px' }}>
-                Toll and parking at actual, paid by customer. All prices for AC sedan.
+                Toll and parking at actuals. Sedans and 7-Seater MPVs (Ertiga/Innova Crysta) available.
               </p>
             </div>
             <div className={styles.sideCol}>

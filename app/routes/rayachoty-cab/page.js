@@ -65,11 +65,11 @@ const breadcrumbSchema = {
 };
 
 const popularRoutes = [
-  { label: 'Rayachoty → Kadapa', km: '100 km', price: '₹1,299', time: '2 hrs' },
-  { label: 'Rayachoty → Tirupati', km: '180 km', price: '₹1,999', time: '3.5 hrs' },
-  { label: 'Rayachoty → Hyderabad', km: '450 km', price: '₹5,999', time: '8 hrs' },
-  { label: 'Rayachoty → Bangalore', km: '250 km', price: '₹3,999', time: '5 hrs' },
-  { label: 'Rayachoty → Chennai', km: '290 km', price: '₹4,499', time: '5.5 hrs' },
+  { label: 'Rayachoty → Kadapa', km: '100 km', price: 'Call for Best Fare', time: '2 hrs' },
+  { label: 'Rayachoty → Tirupati', km: '180 km', price: 'Call for Best Fare', time: '3.5 hrs' },
+  { label: 'Rayachoty → Hyderabad', km: '450 km', price: 'Call for Best Fare', time: '8 hrs' },
+  { label: 'Rayachoty → Bangalore', km: '250 km', price: 'Call for Best Fare', time: '5 hrs' },
+  { label: 'Rayachoty → Chennai', km: '290 km', price: 'Call for Best Fare', time: '5.5 hrs' },
 ];
 
 export default function RayachotypePage() {

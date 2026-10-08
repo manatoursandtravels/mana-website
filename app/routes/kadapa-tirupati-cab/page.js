@@ -7,12 +7,12 @@ import styles from '../../services/service.module.css';
 import { BUSINESS } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Kadapa to Tirupati Cab | ₹2,099 One Way & ₹3,499 Round Trip',
-  description: 'Book a cab from Kadapa to Tirupati starting ₹2,099 one way, ₹3,499 round trip. AC sedan, experienced driver, on-time pickup. Call +91 99083 00718.',
+  title: 'Kadapa to Tirupati Cab | AC Sedan & Crysta Fleet — Call 24/7',
+  description: 'Book an AC cab from Kadapa to Tirupati temple darshan. Best fare guarantee, experienced chauffeur, on-time pickup. Call +91 99083 00718 for instant quote.',
   alternates: { canonical: '/routes/kadapa-tirupati-cab' },
   openGraph: {
-    title: 'Kadapa to Tirupati Cab | ₹2,099 One Way & ₹3,499 Round Trip | MANA Tours',
-    description: 'Fast, comfortable AC cab from Kadapa to Tirupati Balaji temple. Transparent fixed pricing, zero hidden costs.',
+    title: 'Kadapa to Tirupati Cab | Best Fare & 24/7 Service | MANA Tours',
+    description: 'Fast, comfortable AC cab from Kadapa to Tirupati Balaji temple. Transparent pricing, zero hidden costs. Call +91 99083 00718.',
     url: 'https://www.manatoursandtravels.com/routes/kadapa-tirupati-cab',
     siteName: 'MANA Tours & Travels',
     locale: 'en_IN',
@@ -22,17 +22,17 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Kadapa to Tirupati Cab | MANA Tours',
-    description: 'Book Kadapa to Tirupati cabs from ₹2,099. Doorstep pickup and experienced chauffeurs.',
+    description: 'Book Kadapa to Tirupati cabs with doorstep pickup and experienced chauffeurs. Call +91 99083 00718.',
     images: ['/images/hero-car.jpg'],
   },
 };
 
 const faqs = [
   { q: 'How far is Kadapa from Tirupati?', a: 'Kadapa to Tirupati is approximately 250 km, which takes around 4–5 hours by road depending on traffic.' },
-  { q: 'What is the cab fare from Kadapa to Tirupati?', a: 'MANA Tours charges ₹2,099 for one way and ₹3,499 for round trip in an AC sedan (Toyota Etios or equivalent). Toll is extra.' },
-  { q: 'How do I book a cab from Kadapa to Tirupati?', a: 'Simply fill the booking form on this page or call/WhatsApp +91 99083 00718. We confirm within 30 minutes.' },
-  { q: 'Is toll included in the price?', a: 'No, toll and parking are charged at actual and paid by the customer. We share all receipts.' },
-  { q: 'Can I book for early morning pickup?', a: 'Yes! We are available 24/7. Many customers prefer early starts for Tirupati darshan. Add a note in your booking.' },
+  { q: 'What is the cab fare from Kadapa to Tirupati?', a: 'MANA Tours provides the most competitive fares in Rayalaseema for AC Sedans (Etios/Dzire) and Innova Crysta. Call or WhatsApp +91 99083 00718 for today\'s lowest instant quote.' },
+  { q: 'How do I book a cab from Kadapa to Tirupati?', a: 'Simply call/WhatsApp +91 99083 00718 or fill the booking form on this page. We confirm vehicle and driver details immediately.' },
+  { q: 'Is toll included in the price?', a: 'Toll and parking are charged at actuals and paid transparently. We provide complete receipts with zero markup.' },
+  { q: 'Can I book for early morning pickup?', a: 'Yes! We operate 24/7. Many devotees prefer 2:00 AM – 4:00 AM departures from Kadapa for morning darshan in Tirumala.' },
 ];
 
 const faqSchema = {
@@ -50,17 +50,13 @@ const tripSchema = {
   '@type': 'Service',
   serviceType: 'Intercity Cab Service',
   name: 'Kadapa to Tirupati Cab Service',
-  description: 'Comfortable AC cab from Kadapa to Tirupati. Experienced drivers. On-time pickup. Best price guarantee.',
+  description: 'Comfortable AC cab from Kadapa to Tirupati. Experienced drivers. On-time pickup. Best price guarantee. Call +91 99083 00718.',
   provider: {
     '@type': 'LocalBusiness',
-    name: 'MANA Tours & Travels',
+    name: 'MANA Tours & Travels | Kadapa',
     telephone: '+919908300718',
     address: { '@type': 'PostalAddress', addressLocality: 'Kadapa', addressRegion: 'Andhra Pradesh', postalCode: '516001', addressCountry: 'IN' },
   },
-  offers: [
-    { '@type': 'Offer', name: 'One Way Drop', price: '2099', priceCurrency: 'INR' },
-    { '@type': 'Offer', name: 'Round Trip (Same Day)', price: '3499', priceCurrency: 'INR' },
-  ],
   areaServed: [{ '@type': 'City', name: 'Kadapa' }, { '@type': 'City', name: 'Tirupati' }],
 };
 
@@ -97,17 +93,17 @@ export default function KadapaToTirupatiPage() {
               <div className={styles.routeInfoLabel}>Drive Time</div>
             </div>
             <div className={styles.routeInfoItem}>
-              <div className={styles.routeInfoValue}>₹2,099</div>
-              <div className={styles.routeInfoLabel}>One Way</div>
+              <div className={styles.routeInfoValue}>Best Fare</div>
+              <div className={styles.routeInfoLabel}>One Way Drop</div>
             </div>
             <div className={styles.routeInfoItem}>
-              <div className={styles.routeInfoValue}>₹3,499</div>
+              <div className={styles.routeInfoValue}>Discounted</div>
               <div className={styles.routeInfoLabel}>Round Trip</div>
             </div>
           </div>
           <div className={styles.heroCtas} style={{marginTop:'24px'}}>
-            <a href="#book" className="btn btn--primary btn--lg">📅 Book This Cab</a>
-            <a href={`tel:${BUSINESS.phone.pavan}`} className="btn btn--white btn--lg">📞 Call Now</a>
+            <a href={`tel:${BUSINESS.phone.pavan}`} className="btn btn--primary btn--lg">📞 Call for Best Fare: {BUSINESS.phone.pavanDisplay}</a>
+            <a href="#book" className="btn btn--white btn--lg">📅 Book Online</a>
           </div>
         </div>
       </div>
@@ -117,18 +113,27 @@ export default function KadapaToTirupatiPage() {
           <div className={styles.contentGrid}>
             <div className={styles.mainCol}>
               <div className={styles.priceSection}>
-                <h2>Kadapa to Tirupati Cab Fare</h2>
+                <h2>Kadapa to Tirupati Cab Fare &amp; Packages</h2>
                 <div className="divider divider--left" style={{marginBottom:'20px'}} />
                 <table className="rate-table">
-                  <thead><tr><th>Trip Type</th><th>Price</th><th>Includes</th></tr></thead>
+                  <thead><tr><th>Trip Type</th><th>Fare Quote</th><th>Includes</th></tr></thead>
                   <tbody>
-                    <tr><td>One Way Drop</td><td className="price">₹2,099</td><td>Driver + AC + Fuel</td></tr>
-                    <tr><td>Round Trip (same day)</td><td className="price">₹3,499</td><td>Driver + AC + Fuel + Wait</td></tr>
-                    <tr><td>Round Trip (overnight)</td><td className="price">₹3,799</td><td>Above + driver allowance</td></tr>
-                    <tr><td>Tirupati Airport Drop</td><td className="price">₹2,499</td><td>Fixed all-inclusive</td></tr>
+                    <tr><td>One Way Drop</td><td className="price"><a href={`tel:${BUSINESS.phone.pavan}`} style={{color:'inherit',textDecoration:'none'}}>📞 Call for Quote</a></td><td>Driver + Chilled AC + Fuel</td></tr>
+                    <tr><td>Round Trip (same day)</td><td className="price"><a href={`tel:${BUSINESS.phone.pavan}`} style={{color:'inherit',textDecoration:'none'}}>📞 Call for Quote</a></td><td>Driver + AC + Fuel + Wait</td></tr>
+                    <tr><td>Round Trip (overnight)</td><td className="price"><a href={`tel:${BUSINESS.phone.pavan}`} style={{color:'inherit',textDecoration:'none'}}>📞 Call for Quote</a></td><td>Above + driver allowance</td></tr>
+                    <tr><td>Tirupati Airport Drop</td><td className="price"><a href={`tel:${BUSINESS.phone.pavan}`} style={{color:'inherit',textDecoration:'none'}}>📞 Call for Quote</a></td><td>On-time airport flight drop</td></tr>
                   </tbody>
                 </table>
-                <p style={{fontSize:'0.82rem',color:'var(--text-muted)',marginTop:'12px'}}>Toll and parking at actual. All prices for AC sedan (Toyota Etios / equivalent).</p>
+                <div style={{marginTop:'16px'}}>
+                  <a
+                    href={`tel:${BUSINESS.phone.pavan}`}
+                    className="btn btn--primary"
+                    style={{display:'inline-flex',alignItems:'center',gap:'8px',padding:'12px 20px',fontSize:'0.95rem'}}
+                  >
+                    <span>📞 Call Pavan for Today&apos;s Best Fare: {BUSINESS.phone.pavanDisplay}</span>
+                  </a>
+                </div>
+                <p style={{fontSize:'0.82rem',color:'var(--text-muted)',marginTop:'12px'}}>Toll and parking at actuals. Sedans (Etios/Dzire) and 7-Seater MPVs (Ertiga/Innova Crysta) available.</p>
               </div>
 
               <div className={styles.inExBox}>
