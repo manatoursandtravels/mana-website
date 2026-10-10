@@ -5,6 +5,7 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 import BookingForm from '@/components/BookingForm';
 import FareCalculator from '@/components/FareCalculator';
 import Link from 'next/link';
+import Tilt3D from '@/components/Tilt3D';
 import BookingCTA from '@/components/BookingCTA';
 import GoogleReviews from '@/components/GoogleReviews';
 import ReviewsMarquee from '@/components/ReviewsMarquee';
@@ -286,43 +287,44 @@ export default function HomePage() {
             ].map((s, i) => {
               const ServiceVector = serviceIllustrations[s.id] || LocalCabIllustration;
               return (
-                <Link
-                  key={s.id}
-                  href={s.href}
-                  className={`${styles.serviceCard} ${styles[`serviceCard--${s.theme}`]}`}
-                  id={`service-${s.id}`}
-                  style={{ '--delay': `${i * 50}ms` }}
-                >
-                  {/* Top row: icon + category tag */}
-                  <div className={styles.serviceCardTop}>
-                    <div className={styles.serviceIconWrap}>
-                      <ServiceVector size={48} />
+                <Tilt3D key={s.id} maxTilt={6} scale={1.018} glare={true} style={{ display: 'flex' }}>
+                  <Link
+                    href={s.href}
+                    className={`${styles.serviceCard} ${styles[`serviceCard--${s.theme}`]}`}
+                    id={`service-${s.id}`}
+                    style={{ '--delay': `${i * 50}ms`, width: '100%' }}
+                  >
+                    {/* Top row: icon + category tag */}
+                    <div className={styles.serviceCardTop}>
+                      <div className={styles.serviceIconWrap}>
+                        <ServiceVector size={48} />
+                      </div>
+                      <span className={styles.serviceTag}>{s.tag}</span>
                     </div>
-                    <span className={styles.serviceTag}>{s.tag}</span>
-                  </div>
 
-                  {/* Body */}
-                  <div className={styles.serviceBody}>
-                    <h3 className={styles.serviceName}>{s.label}</h3>
-                    <p className={styles.serviceDesc}>{s.desc}</p>
-                  </div>
-
-                  {/* Footer: from-price + cta */}
-                  <div className={styles.serviceFooter}>
-                    <div className={styles.serviceFromWrap}>
-                      <span className={styles.serviceFromLabel}>Fare</span>
-                      <span className={styles.serviceFromPrice}>{s.from}</span>
+                    {/* Body */}
+                    <div className={styles.serviceBody}>
+                      <h3 className={styles.serviceName}>{s.label}</h3>
+                      <p className={styles.serviceDesc}>{s.desc}</p>
                     </div>
-                    <div className={styles.serviceCta}>
-                      <span className={styles.serviceLink}>Call Desk</span>
-                      <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </div>
-                  </div>
 
-                  <div className={styles.serviceAccent} />
-                </Link>
+                    {/* Footer: from-price + cta */}
+                    <div className={styles.serviceFooter}>
+                      <div className={styles.serviceFromWrap}>
+                        <span className={styles.serviceFromLabel}>Fare</span>
+                        <span className={styles.serviceFromPrice}>{s.from}</span>
+                      </div>
+                      <div className={styles.serviceCta}>
+                        <span className={styles.serviceLink}>Call Desk</span>
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </div>
+                    </div>
+
+                    <div className={styles.serviceAccent} />
+                  </Link>
+                </Tilt3D>
               );
             })}
           </div>
@@ -340,25 +342,27 @@ export default function HomePage() {
           </div>
           <div className={styles.destGrid}>
             {destinations.map((d, i) => (
-              <Link key={i} href={d.href} className={styles.destCard} id={`dest-${i}`}>
-                <div className={styles.destImg}>
-                  <Image src={d.img} alt={d.name} fill quality={85} style={{ objectFit: 'cover' }} />
-                  <div className={styles.destImgOverlay} />
-                  <div className={styles.destTopRow}>
-                    <span className={styles.destBadge}>{d.badge}</span>
-                    <span className={styles.destKm}>{d.km}</span>
+              <Tilt3D key={i} maxTilt={6} scale={1.02} glare={true} style={{ display: 'flex' }}>
+                <Link href={d.href} className={styles.destCard} id={`dest-${i}`} style={{ width: '100%' }}>
+                  <div className={styles.destImg}>
+                    <Image src={d.img} alt={d.name} fill quality={85} style={{ objectFit: 'cover' }} />
+                    <div className={styles.destImgOverlay} />
+                    <div className={styles.destTopRow}>
+                      <span className={styles.destBadge}>{d.badge}</span>
+                      <span className={styles.destKm}>{d.km}</span>
+                    </div>
                   </div>
-                </div>
-                <div className={styles.destBody}>
-                  <div>
-                    <div className={styles.destName}>{d.name}</div>
-                    <div className={styles.destSub}>{d.sub}</div>
+                  <div className={styles.destBody}>
+                    <div>
+                      <div className={styles.destName}>{d.name}</div>
+                      <div className={styles.destSub}>{d.sub}</div>
+                    </div>
+                    <div className={styles.destPrice}>
+                      {d.price} <span>→</span>
+                    </div>
                   </div>
-                  <div className={styles.destPrice}>
-                    {d.price} <span>→</span>
-                  </div>
-                </div>
-              </Link>
+                </Link>
+              </Tilt3D>
             ))}
           </div>
         </div>
@@ -457,13 +461,15 @@ export default function HomePage() {
             {whyUsInfographics.map((item, i) => {
               const Graphic = item.Illustration;
               return (
-                <div key={i} className={styles.whyCard}>
-                  <div className={styles.whyIcon}>
-                    <Graphic size={48} />
+                <Tilt3D key={i} maxTilt={5} scale={1.015} glare={false} style={{ display: 'flex' }}>
+                  <div className={styles.whyCard} style={{ width: '100%' }}>
+                    <div className={styles.whyIcon}>
+                      <Graphic size={48} />
+                    </div>
+                    <h3 className={styles.whyTitle}>{item.title}</h3>
+                    <p className={styles.whyDesc}>{item.desc}</p>
                   </div>
-                  <h3 className={styles.whyTitle}>{item.title}</h3>
-                  <p className={styles.whyDesc}>{item.desc}</p>
-                </div>
+                </Tilt3D>
               );
             })}
           </div>

@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { BUSINESS } from '@/lib/constants';
+import Tilt3D from './Tilt3D';
 import styles from './SelfDriveFleetShowcase.module.css';
 
 const FLEET_VEHICLES = [
@@ -122,7 +123,7 @@ export default function SelfDriveFleetShowcase() {
     <div className={styles.fleetWrapper}>
       <div className={styles.grid}>
         {FLEET_VEHICLES.map((car) => (
-          <div key={car.id} className={styles.card}>
+          <Tilt3D key={car.id} maxTilt={6} scale={1.018} glare={true} className={styles.card}>
             {/* Image Wrap with Floating Badges */}
             <div className={styles.imgContainer}>
               <Image
@@ -220,7 +221,7 @@ export default function SelfDriveFleetShowcase() {
                 </button>
               </div>
             </div>
-          </div>
+          </Tilt3D>
         ))}
       </div>
 

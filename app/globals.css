@@ -95,6 +95,14 @@
   --shadow-blue:   0 10px 36px rgba(11, 78, 162, 0.28), 0 2px 8px rgba(11, 78, 162, 0.15);
   --shadow-card:   0 1px 3px rgba(14, 19, 31, 0.04), 0 12px 32px rgba(14, 19, 31, 0.06);
 
+  /* ── 3D Spatial & Dimensional System ── */
+  --shadow-3d-card:        0 10px 30px -5px rgba(14, 19, 31, 0.07), 0 24px 64px -10px rgba(11, 78, 162, 0.1), inset 0 1.5px 0 rgba(255, 255, 255, 0.95);
+  --shadow-3d-hover:       0 20px 48px -8px rgba(14, 19, 31, 0.12), 0 36px 90px -12px rgba(184, 142, 62, 0.22), inset 0 2px 0 #FFFFFF;
+  --shadow-3d-floating:    0 24px 60px rgba(14, 19, 31, 0.14), 0 8px 20px rgba(184, 142, 62, 0.18);
+  --shadow-btn-primary-3d: 0 4px 0 #073574, 0 10px 24px rgba(11, 78, 162, 0.32);
+  --shadow-btn-brass-3d:   0 4px 0 #805c1b, 0 10px 24px rgba(184, 142, 62, 0.32);
+  --shadow-btn-wa-3d:      0 4px 0 #128c46, 0 10px 24px rgba(37, 211, 102, 0.32);
+
   /* ── Motion ── */
   --ease-luxury:  cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring:  cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -323,62 +331,81 @@ p  { color: var(--charcoal-600); line-height: 1.75; }
   background: linear-gradient(135deg, var(--brand-red) 0%, var(--brand-red-dark) 100%);
   color: #FFFFFF;
   border-color: var(--brand-red);
-  box-shadow: var(--shadow-red);
+  box-shadow: var(--shadow-btn-primary-3d);
 }
 .btn--primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 44px rgba(11, 78, 162, 0.38);
+  box-shadow: 0 6px 0 #073574, 0 16px 36px rgba(11, 78, 162, 0.42);
   background: linear-gradient(135deg, var(--brand-red-light) 0%, var(--brand-red) 100%);
 }
-.btn--primary:active { transform: translateY(0); }
+.btn--primary:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #073574, 0 4px 14px rgba(11, 78, 162, 0.28);
+}
 
 .btn--brass {
   background: linear-gradient(135deg, var(--brass) 0%, var(--brass-dark) 100%);
   color: #FFFFFF;
   border-color: var(--brass);
-  box-shadow: var(--shadow-brass);
+  box-shadow: var(--shadow-btn-brass-3d);
 }
 .btn--brass:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 44px rgba(184, 142, 62, 0.35);
+  box-shadow: 0 6px 0 #805c1b, 0 16px 36px rgba(184, 142, 62, 0.4);
   background: linear-gradient(135deg, var(--brass-light) 0%, var(--brass) 100%);
+}
+.btn--brass:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #805c1b, 0 4px 14px rgba(184, 142, 62, 0.25);
 }
 
 .btn--charcoal {
   background: var(--charcoal-900);
   color: #FFFFFF;
   border-color: var(--charcoal-900);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 0 #05080e, 0 10px 24px rgba(14, 19, 31, 0.22);
 }
 .btn--charcoal:hover {
   transform: translateY(-2px);
   background: var(--charcoal-800);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 6px 0 #05080e, 0 16px 36px rgba(14, 19, 31, 0.3);
+}
+.btn--charcoal:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #05080e, 0 4px 12px rgba(14, 19, 31, 0.18);
 }
 
 .btn--whatsapp {
   background: linear-gradient(135deg, #25D366 0%, #16A34A 100%);
   color: #FFFFFF;
   border-color: #25D366;
-  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+  box-shadow: var(--shadow-btn-wa-3d);
 }
 .btn--whatsapp:hover {
   transform: translateY(-2px);
   background: linear-gradient(135deg, #22C55E 0%, #15803D 100%);
-  box-shadow: 0 12px 32px rgba(37, 211, 102, 0.45);
+  box-shadow: 0 6px 0 #128c46, 0 16px 36px rgba(37, 211, 102, 0.45);
+}
+.btn--whatsapp:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #128c46, 0 4px 12px rgba(37, 211, 102, 0.25);
 }
 
 .btn--white {
   background: #FFFFFF;
   color: var(--charcoal-900);
   border-color: rgba(14, 19, 31, 0.1);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 3px 0 rgba(14, 19, 31, 0.08), var(--shadow-sm);
 }
 .btn--white:hover {
   transform: translateY(-2px);
   background: #FFFFFF;
   border-color: var(--brass);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 5px 0 rgba(14, 19, 31, 0.08), var(--shadow-md);
+}
+.btn--white:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 rgba(14, 19, 31, 0.08), var(--shadow-xs);
 }
 
 .btn--ghost {
@@ -406,6 +433,82 @@ p  { color: var(--charcoal-600); line-height: 1.75; }
 .btn--lg  { font-size: var(--text-base); padding: 15px 34px; }
 .btn--xl  { font-size: var(--text-base); padding: 17px 40px; }
 .btn--sm  { font-size: var(--text-xs);   padding: 9px 20px; }
+
+/* ─── 3D SPATIAL & DIMENSIONAL UTILITIES ─── */
+.stage-3d {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.card-3d {
+  background: var(--pearl-card);
+  border-radius: var(--r-2xl);
+  border: 1.5px solid var(--pearl-border);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.95);
+  box-shadow: var(--shadow-3d-card);
+  transform-style: preserve-3d;
+  transition: transform var(--dur-slow) var(--ease-luxury), box-shadow var(--dur-slow) var(--ease-luxury), border-color var(--dur-base);
+  position: relative;
+}
+
+.card-3d:hover {
+  transform: translateY(-8px) scale(1.012);
+  border-color: var(--pearl-border-hover);
+  box-shadow: var(--shadow-3d-hover);
+}
+
+.floating-3d {
+  animation: float3D 6s ease-in-out infinite;
+}
+
+.pedestal-3d {
+  position: relative;
+}
+
+.pedestal-3d::after {
+  content: '';
+  position: absolute;
+  bottom: -18px;
+  left: 10%;
+  right: 10%;
+  height: 28px;
+  background: radial-gradient(ellipse at center, rgba(14, 19, 31, 0.22) 0%, rgba(14, 19, 31, 0.06) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 50%;
+  filter: blur(4px);
+  transition: transform var(--dur-slow) var(--ease-luxury), opacity var(--dur-slow);
+}
+
+.pedestal-3d:hover::after {
+  transform: scale(0.92);
+  opacity: 0.65;
+}
+
+@keyframes float3D {
+  0%, 100% {
+    transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotateX(1deg) rotateY(-1deg);
+  }
+}
+
+@keyframes specularSheen {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(200%) rotate(25deg); }
+}
+
+@keyframes ambientMeshPulse {
+  0%, 100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.04);
+  }
+}
 
 /* ─── FORM INPUTS ─── */
 .form-group {

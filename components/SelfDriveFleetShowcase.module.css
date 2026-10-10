@@ -11,8 +11,8 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(20px, 2.5vw, 32px);
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 2vw, 26px);
   width: 100%;
 }
 
@@ -21,23 +21,25 @@
   border-radius: var(--r-3xl);
   overflow: hidden;
   border: 1.5px solid rgba(14, 19, 31, 0.08);
-  box-shadow: 0 16px 40px rgba(14, 19, 31, 0.06);
+  border-top: 2px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 16px 40px rgba(14, 19, 31, 0.06), 0 24px 60px rgba(11, 78, 162, 0.06);
   transition: all var(--dur-slow) var(--ease-luxury);
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px);
   border-color: var(--brass);
-  box-shadow: 0 28px 64px rgba(14, 19, 31, 0.14), 0 4px 16px rgba(184, 142, 62, 0.15);
+  box-shadow: 0 28px 68px rgba(14, 19, 31, 0.12), 0 36px 90px rgba(184, 142, 62, 0.18), inset 0 2px 0 #FFFFFF;
 }
 
 /* ── Image Container & Floating Tags ── */
 .imgContainer {
   position: relative;
   height: 240px;
-  background: var(--pearl-subtle);
+  background: radial-gradient(ellipse at 50% 95%, rgba(184, 142, 62, 0.12) 0%, rgba(11, 78, 162, 0.06) 45%, var(--pearl-subtle) 80%);
   overflow: hidden;
 }
 
@@ -351,10 +353,16 @@
 }
 
 /* ── Responsiveness ── */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
   .grid {
     grid-template-columns: 1fr;
-    max-width: 550px;
+    max-width: 520px;
     margin: 0 auto;
   }
   .safetyStrip {
