@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { BUSINESS } from '@/lib/constants';
 
 export default function ReviewRedirectPage() {
-  const gmbUrl = BUSINESS.googleReviewWriteUrl || 'https://share.google/K8vvkOsIMLLvvZBac';
+  const gmbUrl = BUSINESS.googleReviewWriteUrl || 'https://www.reviewsmart.online/r/mana-tours-travels';
 
   useEffect(() => {
     // Attempt instant redirection to Google Business Profile review dialog
@@ -85,7 +85,7 @@ export default function ReviewRedirectPage() {
           }}
         >
           <div style={{ fontSize: '1.05rem', fontWeight: 600, color: '#38BDF8', marginBottom: '4px' }}>
-            Redirecting to Google Reviews...
+            Redirecting to Verified Review Portal...
           </div>
           <p style={{ fontSize: '0.85rem', color: '#CBD5E1', margin: 0, lineHeight: 1.5 }}>
             Thank you for traveling with us! Your feedback takes just 10 seconds and helps our local team immensely.
@@ -112,7 +112,7 @@ export default function ReviewRedirectPage() {
               border: '1px solid rgba(255, 255, 255, 0.15)',
             }}
           >
-            <span>⭐ Tap Here to Review on Google</span>
+            <span>⭐ Tap Here to Leave a Review</span>
           </a>
 
           <Link
