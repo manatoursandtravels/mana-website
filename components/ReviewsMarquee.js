@@ -2,6 +2,11 @@
 
 import { useRef, useState, useEffect } from 'react';
 import { GOOGLE_REVIEWS_DATA, BUSINESS } from '@/lib/constants';
+import liveReviewsData from '@/data/google_reviews.json';
+
+const activeReviews = (liveReviewsData && Array.isArray(liveReviewsData.reviews) && liveReviewsData.reviews.length > 0)
+  ? liveReviewsData.reviews
+  : GOOGLE_REVIEWS_DATA.reviews;
 import { GoogleGIcon } from './GoogleReviews';
 import styles from './ReviewsMarquee.module.css';
 
@@ -137,7 +142,7 @@ function MarqueeRow({ reviews, direction = 'left', speed = 35 }) {
 
 /* ─── Main exported component ─── */
 export default function ReviewsMarquee() {
-  const [row1, row2] = splitRows(GOOGLE_REVIEWS_DATA.reviews);
+  const [row1, row2] = splitRows(activeReviews);
 
   return (
     <section className={styles.section} id="google-reviews" aria-label="Customer Reviews">

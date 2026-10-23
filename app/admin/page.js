@@ -1329,6 +1329,34 @@ export default function AdminAnalyticsDashboard() {
               </div>
             </div>
 
+            {/* Live Google Reviews Automated Sync Card */}
+            <div style={{ background: 'linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(11, 78, 162, 0.15))', border: '1px solid rgba(56, 189, 248, 0.3)', borderRadius: '16px', padding: '20px 24px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
+                <div>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#0284c7', color: '#fff', fontSize: '0.75rem', fontWeight: 700, padding: '3px 10px', borderRadius: '999px', marginBottom: '8px' }}>
+                    <span>⚡ Live GitHub Actions Sync · 100% Free Forever</span>
+                  </div>
+                  <h3 style={{ fontSize: '1.15rem', fontWeight: 800, margin: '0 0 4px', color: '#fff' }}>
+                    Google Business Reviews Showcase Engine
+                  </h3>
+                  <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: 0 }}>
+                    Place ID: <code style={{ color: '#38bdf8', background: 'rgba(56, 189, 248, 0.15)', padding: '2px 6px', borderRadius: '4px' }}>ChIJz-6hOcbQVaYRELARxZjPbrE</code> • Schedule: <strong>Weekly Cron (Sunday Midnight UTC)</strong> • Cache: <strong>data/google_reviews.json</strong>
+                  </p>
+                </div>
+
+                <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                  <a
+                    href="https://github.com/manatoursandtravels/mana-website/actions/workflows/sync-reviews.yml"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ background: '#0284c7', color: '#fff', padding: '8px 16px', borderRadius: '8px', fontWeight: 700, fontSize: '0.82rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                  >
+                    🚀 Trigger Manual Sync on GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+
             {/* Review Sentinel */}
             <div style={{ background: '#0e1a38', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '16px', padding: '24px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '8px' }}>

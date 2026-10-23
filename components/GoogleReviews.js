@@ -3,6 +3,11 @@
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { GOOGLE_REVIEWS_DATA, BUSINESS } from '@/lib/constants';
+import liveReviewsData from '@/data/google_reviews.json';
+
+const activeReviewsData = (liveReviewsData && Array.isArray(liveReviewsData.reviews) && liveReviewsData.reviews.length > 0)
+  ? liveReviewsData
+  : GOOGLE_REVIEWS_DATA;
 import styles from './GoogleReviews.module.css';
 
 // Official Google "G" Icon SVG
@@ -44,9 +49,9 @@ export default function GoogleReviews({ title, subtitle, filterCategory = null }
 
   const filteredReviews = useMemo(() => {
     if (selectedCategory === 'all') {
-      return GOOGLE_REVIEWS_DATA.reviews;
+      return activeReviewsData.reviews;
     }
-    return GOOGLE_REVIEWS_DATA.reviews.filter((r) => r.category === selectedCategory);
+    return activeReviewsData.reviews.filter((r) => r.category === selectedCategory);
   }, [selectedCategory]);
 
   const handleToggleLike = (id) => {
@@ -93,11 +98,11 @@ export default function GoogleReviews({ title, subtitle, filterCategory = null }
           {/* Left Column: Rating Summary Box */}
           <aside className={styles.summaryCard}>
             <div className={styles.summaryTop}>
-              <div className={styles.bigScore}>{GOOGLE_REVIEWS_DATA.overallRating.toFixed(1)}</div>
+              <div className={styles.bigScore}>{activeReviewsData.overallRating.toFixed(1)}</div>
               <div className={styles.summaryMeta}>
                 <div className={styles.starsBig}>★★★★★</div>
                 <div className={styles.scoreLabel}>
-                  Based on <strong>{GOOGLE_REVIEWS_DATA.totalReviewsCount}</strong> verified reviews
+                  Based on <strong>{activeReviewsData.totalReviewsCount}</strong> verified reviews
                 </div>
                 <div className={styles.verifiedLabel}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
@@ -111,7 +116,7 @@ export default function GoogleReviews({ title, subtitle, filterCategory = null }
             {/* Rating Breakdown Distribution Bars */}
             <div className={styles.breakdownList}>
               {[5, 4, 3, 2, 1].map((stars) => {
-                const percent = GOOGLE_REVIEWS_DATA.ratingBreakdown[stars] || 0;
+                const percent = (activeReviewsData.ratingBreakdown && activeReviewsData.ratingBreakdown[stars]) || 0;
                 return (
                   <div key={stars} className={styles.breakdownRow}>
                     <span className={styles.starCount}>{stars} ★</span>
@@ -147,7 +152,7 @@ export default function GoogleReviews({ title, subtitle, filterCategory = null }
             {/* Actions */}
             <div className={styles.summaryActions}>
               <a
-                href={GOOGLE_REVIEWS_DATA.googleReviewWriteUrl}
+                href={activeReviewsData.googleReviewWriteUrl || GOOGLE_REVIEWS_DATA.googleReviewWriteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.writeReviewBtn}
@@ -157,7 +162,7 @@ export default function GoogleReviews({ title, subtitle, filterCategory = null }
               </a>
 
               <a
-                href={GOOGLE_REVIEWS_DATA.googleMapsUrl}
+                href={activeReviewsData.googleMapsUrl || GOOGLE_REVIEWS_DATA.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.viewGoogleBtn}
@@ -261,7 +266,7 @@ export default function GoogleReviews({ title, subtitle, filterCategory = null }
                       </button>
 
                       <a
-                        href={GOOGLE_REVIEWS_DATA.googleMapsUrl}
+                        href={activeReviewsData.googleMapsUrl || GOOGLE_REVIEWS_DATA.googleMapsUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={styles.sourceGoogle}
@@ -283,7 +288,7 @@ export default function GoogleReviews({ title, subtitle, filterCategory = null }
                   Help fellow devotees, families, and travelers in Kadapa by sharing your 5-star Google review!
                 </p>
                 <a
-                  href={GOOGLE_REVIEWS_DATA.googleReviewWriteUrl}
+                  href={activeReviewsData.googleReviewWriteUrl || GOOGLE_REVIEWS_DATA.googleReviewWriteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.inviteBtn}
@@ -310,7 +315,7 @@ export default function GoogleReviews({ title, subtitle, filterCategory = null }
           </div>
 
           <a
-            href={GOOGLE_REVIEWS_DATA.googleReviewWriteUrl}
+            href={activeReviewsData.googleReviewWriteUrl || GOOGLE_REVIEWS_DATA.googleReviewWriteUrl}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.calloutBtn}

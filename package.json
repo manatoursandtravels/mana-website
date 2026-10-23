@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "gmb:agents": "node scripts/gmb-agents/run-agents.js",
-    "gmb:audit": "node scripts/gmb-agents/local_seo_monitor.js"
+    "gmb:audit": "node scripts/gmb-agents/local_seo_monitor.js",
+    "reviews:sync": "node scripts/sync-google-reviews.js"
   },
   "dependencies": {
     "next": "16.3.1",
