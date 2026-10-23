@@ -19,7 +19,7 @@ const POST_CAMPAIGNS = [
 • Zero hidden costs — transparent upfront fare quotes
 • Doorstep pickup & drop anywhere in Kadapa city
 
-Call Pavan or Jyothi directly for today's discounted fare quote!`,
+Call Pavan or Helpdesk directly for today's discounted fare quote!`,
     suggestedImage: 'public/images/tirupati.jpg',
     keywords: ['Kadapa to Tirupati cab', 'Tirupati darshan taxi', 'Kadapa travels', 'MANA tours Kadapa'],
   },
@@ -88,7 +88,7 @@ Limited vehicles available for weekend road trips — Call now to reserve your c
 • Instant 2-minute digital KYC with DL & Aadhaar
 • Free doorstep handover anywhere in Kadapa city
 
-Turn heads wherever you drive. Call Pavan or Jyothi directly at 099083 00718 to book your dates!`,
+Turn heads wherever you drive. Call Pavan or Helpdesk directly at 099083 00718 to book your dates!`,
     suggestedImage: 'public/images/fleet-xuv-3xo.png',
     keywords: ['Mahindra XUV 3XO Kadapa', 'Self drive SUV Kadapa', 'Self drive cars in Kadapa', 'MANA tours Kadapa'],
   },

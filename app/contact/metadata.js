@@ -4,7 +4,7 @@
 export const contactMetadata = {
   title: 'Contact Us — 24/7 Booking Desk & Fleet Concierge',
   description:
-    'Contact MANA Tours & Travels in Kadapa, Andhra Pradesh. Call or WhatsApp Jyothi (Booking Desk) at +91 99083 20718 or Pavan (Fleet Partner) at +91 99083 00718. Available 24/7 for instant cab bookings & self-drive rentals.',
+    'Contact MANA Tours & Travels in Kadapa, Andhra Pradesh. Call or WhatsApp our 24/7 Helpdesk at +91 99083 20718 or Pavan (Fleet Partner) at +91 99083 00718. Available 24/7 for instant cab bookings & self-drive rentals.',
   alternates: {
     canonical: '/contact',
   },

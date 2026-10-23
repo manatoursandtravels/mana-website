@@ -90,7 +90,7 @@ export function Rotating3DHeadset({ className }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════════
-   2. 3D CENTRAL DISPATCH & BOOKING DESK (JYOTHI - BOOKINGS)
+   2. 3D CENTRAL DISPATCH & BOOKING DESK (HELPDESK - BOOKINGS)
    Glossy 3D Gold Telephone Console with active ringing vibration & live beacon
    ═══════════════════════════════════════════════════════════════════ */
 export function Glowing3DTelephoneDesk({ className }) {
@@ -109,7 +109,7 @@ export function Glowing3DTelephoneDesk({ className }) {
             <stop offset="50%" stopColor="#F6F3EB" />
             <stop offset="100%" stopColor="#DFD8C8" />
           </linearGradient>
-          <radialGradient id="jyothiHalo" cx="50%" cy="50%" r="50%">
+          <radialGradient id="helpdeskHalo" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="#D4AF37" stopOpacity="0.25" />
             <stop offset="60%" stopColor="#B88E3E" stopOpacity="0.08" />
             <stop offset="100%" stopColor="#B88E3E" stopOpacity="0" />
@@ -117,7 +117,7 @@ export function Glowing3DTelephoneDesk({ className }) {
         </defs>
 
         {/* Ambient Halo Glow */}
-        <circle cx="40" cy="40" r="36" fill="url(#jyothiHalo)" />
+        <circle cx="40" cy="40" r="36" fill="url(#helpdeskHalo)" />
 
         {/* 3D Dispatch Console Base */}
         <g transform="translate(16, 32)">

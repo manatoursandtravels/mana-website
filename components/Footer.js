@@ -106,10 +106,10 @@ export default function Footer() {
 
               {/* Direct Concierge Contact Pills */}
               <div className={styles.execContacts}>
-                <a href={`tel:${BUSINESS.phone.jyothi}`} className={styles.contactPill} aria-label={`Call Jyothi for Instant Bookings at ${BUSINESS.phone.jyothiDisplay}`}>
+                <a href={`tel:${BUSINESS.phone.jyothi}`} className={styles.contactPill} aria-label={`Call Helpdesk for Instant Bookings at ${BUSINESS.phone.jyothiDisplay}`}>
                   <div className={styles.contactIconWrap} aria-hidden="true">💬</div>
                   <div className={styles.contactText}>
-                    <span className={styles.contactRoleTitle}>Jyothi · Booking Desk &amp; Instant Quotes</span>
+                    <span className={styles.contactRoleTitle}>Helpdesk · Booking Desk &amp; Instant Quotes</span>
                     <span className={styles.contactPhoneNum}>{BUSINESS.phone.jyothiDisplay}</span>
                   </div>
                 </a>

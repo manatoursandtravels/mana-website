@@ -17,11 +17,11 @@ import styles from './about.module.css';
 export const metadata = {
   title: 'About Us — Our Story, Founders & Mission',
   description:
-    'Learn about MANA Tours & Travels in Kadapa — founded by Pavan and Jyothi. Built on trust, punctuality, and family-style travel care across Andhra Pradesh. Call +91 99083 00718.',
+    'Learn about MANA Tours & Travels in Kadapa — built on trust, punctuality, and family-style travel care across Andhra Pradesh. Call +91 99083 00718.',
   alternates: { canonical: '/about' },
   openGraph: {
     title: 'About MANA Tours & Travels Kadapa | Our Story & Founders',
-    description: 'Meet Pavan and Jyothi, the founders behind Kadapa\'s highest-rated cab and self-drive travel company.',
+    description: "Meet the leadership and 24/7 helpdesk team behind Kadapa's highest-rated cab and self-drive travel company.",
     url: 'https://www.manatoursandtravels.com/about',
     siteName: 'MANA Tours & Travels',
     locale: 'en_IN',
@@ -45,11 +45,11 @@ const founders = [
     bio: 'With over a decade of hands-on commercial driving and fleet management experience, Pavan personally oversees vehicle maintenance, route logistics, and customer comfort. He frequently pilots flagship outstation tours, ensuring unmatched punctuality and genuine hospitality.',
   },
   {
-    name: 'Jyothi',
-    role: 'Co-Founder & Booking Operations Head',
-    avatar: '👩‍💼',
+    name: 'Helpdesk',
+    role: '24/7 Central Booking & Customer Care',
+    avatar: '🎧',
     phone: BUSINESS.phone.jyothiDisplay,
-    bio: 'The organizational backbone of MANA Tours & Travels. Jyothi manages 24/7 customer bookings, WhatsApp dispatch, custom pilgrimage itineraries, and partner driver coordination, ensuring every traveler receives prompt, transparent, and empathetic service.',
+    bio: 'The organizational backbone of MANA Tours & Travels. Our 24/7 Helpdesk manages customer bookings, WhatsApp dispatch, custom pilgrimage itineraries, and partner driver coordination, ensuring every traveler receives prompt, transparent, and empathetic service.',
   },
 ];
 
@@ -106,7 +106,7 @@ export default function AboutPage() {
           </h1>
 
           <p className={styles.heroSubtitle}>
-            Born in Kadapa, Andhra Pradesh. Built from the ground up by <strong>Pavan</strong> and <strong>Jyothi</strong> on a foundation of uncompromising safety, transparent pricing, and genuine Telugu hospitality.
+            Born in Kadapa, Andhra Pradesh. Built from the ground up by <strong>Pavan</strong> and the <strong>Helpdesk Operations Team</strong> on a foundation of uncompromising safety, transparent pricing, and genuine Telugu hospitality.
           </p>
 
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>

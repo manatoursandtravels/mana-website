@@ -703,7 +703,8 @@ p  { color: var(--charcoal-600); line-height: 1.75; }
   }
   /* Prevent orphan hero text on small screens */
   h1, h2, h3 {
-    word-break: break-word;
+    word-break: normal;
+    hyphens: none;
     overflow-wrap: break-word;
   }
 }

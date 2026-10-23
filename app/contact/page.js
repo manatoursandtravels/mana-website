@@ -40,7 +40,7 @@ const contactChannels = [
     badgeType: 'active',
     category: 'Bookings',
     roleTag: 'Central Booking & Dispatch',
-    name: 'Jyothi (Bookings)',
+    name: 'Helpdesk (Bookings)',
     value: BUSINESS.phone.jyothiDisplay,
     href: `tel:${BUSINESS.phone.jyothi}`,
     action: 'Call Dispatch Desk',

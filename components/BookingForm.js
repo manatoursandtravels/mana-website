@@ -489,7 +489,7 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
       </button>
 
       <p className={styles.submitNote}>
-        Direct confirmation with Pavan &amp; Jyothi • 24/7 Fast Support
+        Direct confirmation with 24/7 Helpdesk • Instant Support
       </p>
     </form>
   );

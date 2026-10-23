@@ -168,7 +168,7 @@ def generate_endcard_frames(logo_path, output_dir, scene_idx):
         
         draw.line([(130, 1090), (W - 130, 1090)], fill=(40, 60, 100), width=2)
         
-        draw.text((130, 1120), "💬 Jyothi (Booking Desk):", font=font_tag, fill=(180, 200, 230))
+        draw.text((130, 1120), "💬 Helpdesk (Booking Desk):", font=font_tag, fill=(180, 200, 230))
         draw.text((130, 1170), "+91 99083 20718", font=font_phone, fill=(255, 255, 255))
         
         draw.line([(130, 1240), (W - 130, 1240)], fill=(40, 60, 100), width=2)

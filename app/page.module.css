@@ -483,7 +483,7 @@
 
 .serviceTitleRow {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 10px;
 }
@@ -495,6 +495,9 @@
   color: #FFFFFF;
   margin: 0;
   line-height: 1.25;
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
 }
 
 .serviceBadgePill {
@@ -1865,6 +1868,35 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
+  .serviceVisualStage {
+    height: 110px;
+  }
+  .serviceBody {
+    padding: 12px 14px 16px;
+    gap: 6px;
+  }
+  .serviceTitleRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    width: 100%;
+  }
+  .serviceName {
+    font-size: clamp(0.92rem, 3.4vw, 1.05rem);
+    line-height: 1.25;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+  }
+  .serviceBadgePill {
+    font-size: 0.68rem;
+    padding: 2px 7px;
+    align-self: flex-start;
+  }
+  .serviceDesc {
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
   .packagesGrid {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -1913,8 +1945,15 @@
     font-size: 0.62rem;
     padding: 2px 7px;
   }
+  .serviceBody {
+    padding: 12px 12px 14px;
+  }
   .serviceName {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.25;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
   }
   .serviceDesc {
     font-size: 0.8rem;

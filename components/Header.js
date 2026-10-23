@@ -292,7 +292,7 @@ export default function Header() {
               📞 {BUSINESS.phone.pavanDisplay} — Pavan
             </a>
             <a href={`tel:${BUSINESS.phone.jyothi}`} className="btn btn--navy btn--lg" style={{width:'100%', justifyContent:'center'}}>
-              📞 {BUSINESS.phone.jyothiDisplay} — Jyothi
+              📞 {BUSINESS.phone.jyothiDisplay} — Helpdesk
             </a>
             <a href={`https://wa.me/${BUSINESS.whatsapp}`} target="_blank" rel="noopener noreferrer" className="btn btn--lg" style={{width:'100%', justifyContent:'center', background:'#25D366', color:'white'}}>
               💬 WhatsApp Us

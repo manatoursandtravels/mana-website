@@ -348,7 +348,7 @@ export default function HomePage() {
               <a href={`tel:${BUSINESS.phone.jyothi}`} className={styles.heroContact} id="hero-jyothi">
                 <div className={styles.heroContactIcon}>📞</div>
                 <div className={styles.heroContactInfo}>
-                  <div className={styles.heroContactName}>Call Jyothi (Booking Desk)</div>
+                  <div className={styles.heroContactName}>Helpdesk (Booking Desk)</div>
                   <div className={styles.heroContactNum}>{BUSINESS.phone.jyothiDisplay}</div>
                 </div>
               </a>
@@ -770,7 +770,7 @@ export default function HomePage() {
               <div className={styles.bookingCallBox}>
                 <p className={styles.bookingCallTitle}>Prefer to speak directly?</p>
                 <a href={`tel:${BUSINESS.phone.jyothi}`} className={styles.bookingPhone}>
-                  <span aria-hidden="true">💬</span> {BUSINESS.phone.jyothiDisplay} <span>— Jyothi (Booking Desk &amp; Quotes)</span>
+                  <span aria-hidden="true">💬</span> {BUSINESS.phone.jyothiDisplay} <span>— Helpdesk (Booking Desk &amp; Quotes)</span>
                 </a>
                 <a href={`tel:${BUSINESS.phone.pavan}`} className={styles.bookingPhone}>
                   <span aria-hidden="true">📞</span> {BUSINESS.phone.pavanDisplay} <span>— Pavan (Managing Partner · Fleet)</span>

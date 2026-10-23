@@ -40,7 +40,7 @@ export default function OfflinePage() {
             <div className={styles.callIcon}>📞</div>
             <div className={styles.callDetails}>
               <div className={styles.callRole}>Customer Support & Booking</div>
-              <div className={styles.callName}>Call Jyothi</div>
+              <div className={styles.callName}>Helpdesk (24/7)</div>
               <div className={styles.callNum}>{BUSINESS.phone.jyothiDisplay}</div>
             </div>
             <span className={styles.tapCallBadge}>Tap to Call</span>
