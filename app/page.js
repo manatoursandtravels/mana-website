@@ -9,7 +9,7 @@ import BookingCTA from '@/components/BookingCTA';
 import ReviewsMarquee from '@/components/ReviewsMarquee';
 import YouTubeChannel from '@/components/YouTubeChannel';
 import SelfDriveFleetShowcase from '@/components/SelfDriveFleetShowcase';
-import { BUSINESS, SERVICES, RATES } from '@/lib/constants';
+import { BUSINESS, SERVICES } from '@/lib/constants';
 import {
   LocalCabIllustration,
   OutstationIllustration,
@@ -688,68 +688,7 @@ export default function HomePage() {
           </div>
 
           {/* Interactive Calculator Component */}
-          <div style={{ marginBottom: '44px' }}>
-            <FareCalculator />
-          </div>
-
-          <div className="section-header" style={{ marginBottom: '28px' }}>
-            <h3 style={{ fontSize: '1.45rem', fontWeight: 800, color: 'var(--charcoal-900)' }}>
-              Standard Route Rate Breakdown
-            </h3>
-          </div>
-          <div className={styles.ratesGrid}>
-            {[
-              {
-                icon: '🏙️',
-                title: 'Local Kadapa Packages',
-                rows: RATES.local.map((r) => ({ label: r.label, val: r.price, note: r.extras })),
-                footer: 'Driver + AC + Fuel included. Toll at actuals.',
-              },
-              {
-                icon: '🛣️',
-                title: 'Outstation Routes',
-                rows: RATES.routes.slice(0, 5).map((r) => ({ label: `${r.from} → ${r.to}`, val: r.oneWay, alt: `${r.roundTrip} RT` })),
-                footer: 'Toll & parking at actuals. Driver allowance for overnight.',
-              },
-              {
-                icon: '🏔️',
-                title: 'Day Trips & Airport Drops',
-                rows: [...RATES.dayTrips, ...RATES.airports.slice(0, 2)].map((r) => ({
-                  label: r.label || r.route,
-                  val: r.price,
-                })),
-                footer: 'Entry tickets extra. 24/7 on-time pickup guaranteed.',
-              },
-            ].map((card, ci) => (
-              <div key={ci} className={styles.rateCard}>
-                <div className={styles.rateCardHead}>
-                  <span className={styles.rateCardIcon}>{card.icon}</span>
-                  <span className={styles.rateCardTitle}>{card.title}</span>
-                </div>
-                <div className={styles.rateCardBody}>
-                  {card.rows.map((row, ri) => (
-                    <div key={ri} className={styles.rateRow}>
-                      <span className={styles.rateLabel}>{row.label}</span>
-                      <div className={styles.rateVals}>
-                        <span className={styles.rateVal}>{row.val}</span>
-                        {row.alt && (
-                          <>
-                            <span className={styles.rateSep}>|</span>
-                            <span className={styles.rateAlt}>{row.alt}</span>
-                          </>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className={styles.rateCardFoot}>{card.footer}</div>
-              </div>
-            ))}
-          </div>
-          <p className={styles.ratesDisclaimer}>
-            💡 All fares include commercial vehicle, licensed chauffeur &amp; fuel. Toll and parking are paid at actuals.
-            Custom itineraries are available on WhatsApp 24/7.
-          </p>
+          <FareCalculator />
         </div>
       </section>
 
