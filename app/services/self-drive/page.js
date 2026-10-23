@@ -353,7 +353,7 @@ export default function SelfDriveLandingPage() {
       </section>
 
       {/* ══ 2. RENTAL PACKAGES & INTERACTIVE PRICING MATRIX ══ */}
-      <section className="section" style={{ background: '#FFFFFF' }} id="pricing">
+      <section className="section" style={{ background: 'var(--obsidian-surface)' }} id="pricing">
         <div className="container">
           <div className="section-header">
             <span className="eyebrow">Transparent Pricing — Zero Surprises</span>
@@ -478,7 +478,7 @@ export default function SelfDriveLandingPage() {
       </section>
 
       {/* ══ 4. HOW SELF DRIVE WORKS (4 EASY STEPS) ══ */}
-      <section className="section" style={{ background: '#FFFFFF' }}>
+      <section className="section" style={{ background: 'var(--obsidian-surface)' }}>
         <div className="container">
           <div className="section-header">
             <span className="eyebrow">Seamless Process</span>
@@ -529,7 +529,7 @@ export default function SelfDriveLandingPage() {
       </section>
 
       {/* ══ 6. DEDICATED BOOKING FORM & FAQ ══ */}
-      <section className="section" style={{ background: '#FFFFFF' }} id="booking">
+      <section className="section" style={{ background: 'var(--obsidian-surface)' }} id="booking">
         <div className="container">
           <div className={styles.heroGrid} style={{ alignItems: 'start' }}>
             {/* Left FAQ */}
@@ -613,7 +613,7 @@ export default function SelfDriveLandingPage() {
       </section>
 
       {/* ══ GOOGLE MAPS HUB CARD FOR GMB CITATION & LOCAL PROXIMITY ══ */}
-      <section style={{ padding: '0 0 60px', background: 'var(--charcoal-900)' }}>
+      <section style={{ padding: '0 0 60px', background: 'var(--obsidian-base)' }}>
         <div className="container">
           <div
             style={{

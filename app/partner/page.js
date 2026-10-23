@@ -276,7 +276,7 @@ export default function PartnerPage() {
       </section>
 
       {/* ══ 2. 3 PARTNERSHIP MODELS ══ */}
-      <section className="section" style={{ background: '#FFFFFF' }}>
+      <section className="section" style={{ background: 'var(--obsidian-surface)' }}>
         <div className="container">
           <div className="section-header">
             <span className="eyebrow">Three Paths to Passive Income</span>
@@ -347,7 +347,7 @@ export default function PartnerPage() {
       </section>
 
       {/* ══ 4. 6 FOUNDATIONAL PARTNER GUARANTEES ══ */}
-      <section className="section" style={{ background: '#FFFFFF' }}>
+      <section className="section" style={{ background: 'var(--obsidian-surface)' }}>
         <div className="container">
           <div className="section-header">
             <span className="eyebrow">The MANA Trust Standard</span>
@@ -396,7 +396,7 @@ export default function PartnerPage() {
       </section>
 
       {/* ══ 6. APPLICATION FORM & ELIGIBILITY CHECKLIST ══ */}
-      <section className="section" style={{ background: '#FFFFFF' }} id="attach-form">
+      <section className="section" style={{ background: 'var(--obsidian-surface)' }} id="attach-form">
         <div className="container">
           <div className={styles.regLayout}>
             {/* Left Registration Form */}
@@ -566,7 +566,7 @@ export default function PartnerPage() {
 
               <div
                 style={{
-                  background: 'linear-gradient(135deg, var(--brass-subtle) 0%, #FFFFFF 100%)',
+                  background: 'rgba(16, 22, 34, 0.85)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)',
                   border: '1.5px solid var(--brass-border)',
                   borderRadius: 'var(--r-2xl)',
                   padding: '28px',

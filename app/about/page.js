@@ -121,7 +121,7 @@ export default function AboutPage() {
       </section>
 
       {/* ══ 2. OUR STORY & ROOTS ══ */}
-      <section className="section" id="our-story" style={{ background: '#FFFFFF' }}>
+      <section className="section" id="our-story" style={{ background: 'var(--obsidian-surface)' }}>
         <div className="container">
           <div className={styles.storyLayout}>
             <div className={styles.storyContent}>
@@ -216,7 +216,7 @@ export default function AboutPage() {
       </div>
 
       {/* ══ 4. 4 PILLARS OF EXCELLENCE ══ */}
-      <section className="section" style={{ background: '#FFFFFF' }}>
+      <section className="section" style={{ background: 'var(--obsidian-surface)' }}>
         <div className="container">
           <div className="section-header">
             <span className="eyebrow">Uncompromising Quality</span>

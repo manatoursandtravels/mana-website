@@ -21,9 +21,9 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(250, 249, 245, 0.93) 0%,
-    rgba(250, 249, 245, 0.88) 55%,
-    rgba(250, 249, 245, 0.98) 100%
+    rgba(7, 9, 14, 0.92) 0%,
+    rgba(11, 15, 23, 0.88) 55%,
+    rgba(7, 9, 14, 0.98) 100%
   );
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);

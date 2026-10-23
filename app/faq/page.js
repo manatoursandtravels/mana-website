@@ -142,7 +142,7 @@ export default function FaqPage() {
       </section>
 
       {/* ══ FAQ ACCORDION LIST ══ */}
-      <section className="section" style={{ background: '#FFFFFF' }}>
+      <section className="section" style={{ background: 'var(--obsidian-surface)' }}>
         <div className="container">
           {filteredFaqs.length === 0 ? (
             <div style={{ textAlign: 'center', padding: '40px 20px', color: 'var(--charcoal-500)' }}>
