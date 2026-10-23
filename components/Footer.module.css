@@ -1,12 +1,12 @@
 /* ═══════════════════════════════════════════════════════════════════
-   MANA Tours & Travels — Ultra-Modern Executive Luxury Footer
+   MANA Tours & Travels — Obsidian & Champagne Gold Luxury Footer v5.0
    ═══════════════════════════════════════════════════════════════════ */
 
 .footer {
   position: relative;
-  background: #FFFFFF;
+  background: #07090E;
   overflow: hidden;
-  border-top: 1.5px solid var(--pearl-border);
+  border-top: 1.5px solid rgba(229, 192, 123, 0.25);
 }
 
 /* Ambient Subtle Radial Glow on Top Edge */
@@ -19,7 +19,7 @@
   width: 90%;
   max-width: 1200px;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--brass), var(--brand-blue), transparent);
+  background: linear-gradient(90deg, transparent, var(--brass), var(--brass-light), transparent);
   z-index: 2;
 }
 
@@ -33,19 +33,19 @@
 .ctaCard {
   position: relative;
   border-radius: var(--r-3xl);
-  background: linear-gradient(135deg, #091C3E 0%, #0B4EA2 55%, #072D6B 100%);
+  background: radial-gradient(ellipse at 50% 0%, #162032 0%, #0B0F17 65%, #07090E 100%);
   padding: clamp(32px, 4.5vw, 48px) clamp(24px, 4vw, 56px);
-  box-shadow: 0 24px 60px rgba(11, 78, 162, 0.25), 0 4px 16px rgba(14, 19, 31, 0.1);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.8), 0 0 24px rgba(229, 192, 123, 0.2);
   overflow: hidden;
-  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  border: 1.5px solid rgba(229, 192, 123, 0.35);
 }
 
 .ctaCardBgMesh {
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(circle at 90% 10%, rgba(212, 175, 55, 0.25) 0%, transparent 45%),
-    radial-gradient(circle at 10% 90%, rgba(255, 255, 255, 0.1) 0%, transparent 45%);
+    radial-gradient(circle at 90% 10%, rgba(229, 192, 123, 0.22) 0%, transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(255, 255, 255, 0.06) 0%, transparent 45%);
   pointer-events: none;
 }
 
@@ -67,11 +67,11 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(229, 192, 123, 0.15);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: #FFF8E7;
+  border: 1px solid rgba(229, 192, 123, 0.35);
+  color: var(--brass-light);
   padding: 5px 14px;
   border-radius: var(--r-pill);
   font-family: var(--font-body);
@@ -86,14 +86,14 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #25D366;
-  box-shadow: 0 0 10px #25D366;
+  background: #10B981;
+  box-shadow: 0 0 10px #10B981;
   animation: pulseRadar 2s infinite;
 }
 
 @keyframes pulseRadar {
   0% { transform: scale(0.95); opacity: 0.9; }
-  50% { transform: scale(1.35); opacity: 1; box-shadow: 0 0 16px #25D366; }
+  50% { transform: scale(1.35); opacity: 1; box-shadow: 0 0 16px #10B981; }
   100% { transform: scale(0.95); opacity: 0.9; }
 }
 
@@ -108,7 +108,7 @@
 }
 
 .ctaDesc {
-  color: rgba(255, 255, 255, 0.88);
+  color: #CBD5E1;
   font-size: clamp(0.92rem, 1.15vw, 1.02rem);
   line-height: 1.55;
 }
@@ -125,22 +125,22 @@
   align-items: center;
   gap: 10px;
   padding: 14px 26px;
-  background: #FFFFFF;
-  color: var(--brand-blue);
+  background: linear-gradient(135deg, #FFF0D0 0%, #E5C07B 45%, #D4AF37 100%);
+  color: #07090E !important;
   font-family: var(--font-display);
   font-size: var(--text-sm);
   font-weight: 800;
   letter-spacing: 0.02em;
   border-radius: var(--r-pill);
   text-decoration: none;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 16px rgba(229, 192, 123, 0.4);
   transition: all var(--dur-base) var(--ease-luxury);
 }
 
 .ctaPhoneBtn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
-  background: #FFFDF8;
+  box-shadow: 0 12px 28px rgba(229, 192, 123, 0.6);
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFF0D0 45%, #E5C07B 100%);
 }
 
 .ctaWhatsAppBtn {
@@ -169,7 +169,7 @@
 /* ─── 2. MAIN FOOTER BODY ─── */
 .mainFooter {
   padding: clamp(56px, 7vw, 80px) 0 clamp(40px, 5vw, 60px);
-  background: linear-gradient(180deg, #FAF9F5 0%, #FFFFFF 100%);
+  background: #07090E;
   position: relative;
 }
 
@@ -203,20 +203,20 @@
 
 .footerLogoAnchor:hover .logoDisplayWrap {
   transform: translateY(-2px);
-  filter: drop-shadow(0 6px 16px rgba(11, 78, 162, 0.2));
+  filter: drop-shadow(0 6px 16px rgba(229, 192, 123, 0.3));
 }
 
 .brandTagline {
   font-family: var(--font-display);
   font-size: 1.02rem;
   font-weight: 800;
-  color: var(--brass-dark);
+  color: var(--brass-light);
   letter-spacing: -0.01em;
   font-style: italic;
 }
 
 .brandDescription {
-  color: var(--charcoal-600);
+  color: #94A3B8;
   font-size: 0.88rem;
   line-height: 1.65;
   max-width: 360px;
@@ -235,19 +235,19 @@
   align-items: center;
   gap: 12px;
   padding: 10px 16px;
-  background: #FFFFFF;
-  border: 1.5px solid var(--pearl-border);
+  background: rgba(16, 22, 34, 0.85);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--r-xl);
   text-decoration: none;
   transition: all var(--dur-fast) var(--ease-luxury);
-  box-shadow: 0 2px 8px rgba(14, 19, 31, 0.04);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .contactPill:hover {
-  border-color: var(--brand-blue);
+  border-color: var(--brass);
   transform: translateX(4px);
-  box-shadow: 0 6px 18px rgba(11, 78, 162, 0.12);
-  background: var(--brand-blue-dim);
+  box-shadow: 0 6px 18px rgba(229, 192, 123, 0.2);
+  background: rgba(22, 29, 43, 0.95);
 }
 
 .contactIconWrap {
@@ -330,7 +330,7 @@
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--charcoal-900);
+  color: #FFFFFF;
   position: relative;
   padding-bottom: 10px;
 }
@@ -342,7 +342,7 @@
   left: 0;
   width: 32px;
   height: 2px;
-  background: linear-gradient(90deg, var(--brand-blue), var(--brass));
+  background: linear-gradient(90deg, var(--brass), var(--brass-light));
   border-radius: var(--r-pill);
 }
 
@@ -359,7 +359,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--charcoal-600);
+  color: #94A3B8;
   text-decoration: none;
   font-size: 0.86rem;
   font-weight: 600;
@@ -368,27 +368,27 @@
 }
 
 .navLinkItem:hover {
-  color: var(--brand-blue);
+  color: var(--brass-light);
   transform: translateX(4px);
 }
 
 .linkArrow {
-  color: var(--brass-dark);
+  color: var(--brass);
   font-size: 0.82rem;
   transition: transform var(--dur-fast);
 }
 
 .navLinkItem:hover .linkArrow {
-  color: var(--brand-blue);
+  color: var(--brass-light);
   transform: translateX(3px);
 }
 
 .partnerHighlightPill {
   display: inline-flex;
   align-items: center;
-  background: rgba(184, 142, 62, 0.12);
-  color: var(--brass-dark);
-  border: 1px solid var(--brass-border);
+  background: rgba(229, 192, 123, 0.14);
+  color: var(--brass-light);
+  border: 1px solid rgba(229, 192, 123, 0.35);
   padding: 2px 8px;
   border-radius: var(--r-pill);
   font-size: 0.68rem;
@@ -398,11 +398,11 @@
 
 /* ── 4TH COLUMN: HUB INFO & TRUST BOX ── */
 .hubInfoCard {
-  background: #FFFFFF;
-  border: 1.5px solid var(--brass-border);
+  background: rgba(16, 22, 34, 0.88);
+  border: 1.5px solid rgba(229, 192, 123, 0.28);
   border-radius: var(--r-2xl);
   padding: 20px;
-  box-shadow: 0 10px 30px rgba(14, 19, 31, 0.05);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -412,7 +412,7 @@
   font-family: var(--font-display);
   font-size: 0.84rem;
   font-weight: 800;
-  color: var(--charcoal-900);
+  color: #FFFFFF;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   display: flex;
@@ -422,7 +422,7 @@
 
 .hubAddress {
   font-size: 0.82rem;
-  color: var(--charcoal-600);
+  color: #CBD5E1;
   line-height: 1.55;
 }
 
@@ -431,9 +431,9 @@
   align-items: center;
   gap: 8px;
   padding-top: 10px;
-  border-top: 1px solid var(--pearl-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   font-size: 0.78rem;
-  color: #065F46;
+  color: #10B981;
   font-weight: 800;
 }
 
@@ -450,14 +450,14 @@
   flex-direction: column;
   gap: 6px;
   padding-top: 8px;
-  border-top: 1px solid var(--pearl-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .payLabel {
   font-size: 0.68rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--charcoal-500);
+  color: #94A3B8;
   letter-spacing: 0.04em;
 }
 
@@ -472,18 +472,18 @@
   font-size: 0.68rem;
   font-weight: 800;
   padding: 3px 8px;
-  background: var(--pearl-bg);
-  border: 1px solid var(--pearl-border);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--r-sm);
-  color: var(--charcoal-700);
+  color: #CBD5E1;
   text-transform: uppercase;
 }
 
 /* ── 2.5 LOCAL GEO AUTHORITY & GMB VERIFICATION STRIP ── */
 .geoCoverageBand {
-  background: #F8FAFC;
-  border-top: 1px solid rgba(11, 78, 162, 0.12);
-  border-bottom: 1px solid rgba(11, 78, 162, 0.12);
+  background: rgba(11, 15, 23, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding: 24px 0;
 }
 
@@ -504,7 +504,7 @@
   font-family: var(--font-display);
   font-size: 0.9rem;
   font-weight: 800;
-  color: #0A1128;
+  color: #FFFFFF;
   margin-bottom: 6px;
   display: flex;
   align-items: center;
@@ -513,7 +513,7 @@
 
 .geoDesc {
   font-size: 0.8rem;
-  color: #4B5563;
+  color: #94A3B8;
   line-height: 1.6;
 }
 

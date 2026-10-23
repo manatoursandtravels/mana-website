@@ -1,60 +1,69 @@
 /* ═══════════════════════════════════════════════════════════════════
-   MANA TOURS & TRAVELS — Luminous High-End Design System v4.0
-   Pearl · Rich Charcoal · Brushed Brass · Ultra-Wide Fluid Grid
+   MANA TOURS & TRAVELS — Obsidian & Champagne Gold Luxury Theme v5.0
+   Direction A: Ultra-Luxury Exotic Mobility (Turo / Sixt Exotic Vibe)
+   Deep Obsidian Carbon · Liquid Champagne Gold · Frosted Smoky Glass
    ═══════════════════════════════════════════════════════════════════ */
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap');
 
 :root {
-  /* ── Luminous Pearl & Alabaster Surfaces ── */
-  --pearl-bg:        #FAF9F5;   /* ultra-clean pearl page background */
-  --pearl-subtle:    #F4F2EB;   /* subtle section alt background */
-  --pearl-card:      #FFFFFF;   /* pristine card surface */
-  --pearl-card-alt:  #FDFCFA;   /* elevated card */
-  --pearl-border:    rgba(22, 28, 45, 0.08); /* crisp subtle border */
-  --pearl-border-hover: rgba(184, 142, 62, 0.35); /* brass border on hover */
-  --pearl-glow:      rgba(255, 255, 255, 0.9);
+  /* ── Deep Obsidian & Midnight Carbon Surfaces ── */
+  --obsidian-base:   #07090E;   /* Deepest obsidian carbon canvas */
+  --obsidian-surface:#0B0F17;   /* Elevated surface / section alt */
+  --obsidian-card:   #101622;   /* Smoky frosted glass card base */
+  --obsidian-card-hi:#161E2E;   /* Elevated interactive card */
+  --obsidian-border: rgba(255, 255, 255, 0.08); /* Crisp 1px hairline border */
+  --obsidian-border-hi: rgba(229, 192, 123, 0.45); /* Champagne gold border on hover */
+  --obsidian-glow:   rgba(229, 192, 123, 0.25);
 
-  /* ── Rich Charcoal Typography & Elements ── */
-  --charcoal-900:    #0E131F;   /* primary titles & commanding headlines */
-  --charcoal-800:    #1A202C;   /* secondary headlines & cards */
-  --charcoal-700:    #2D3748;   /* body text high contrast */
-  --charcoal-600:    #4A5568;   /* paragraph & descriptions */
-  --charcoal-500:    #718096;   /* subtitles & metadata */
-  --charcoal-400:    #A0AEC0;   /* borders & ghost text */
-  --charcoal-100:    #EDF2F7;   /* light divider */
+  /* ── Backward-Compatible Surface Aliases (Map to Obsidian) ── */
+  --pearl-bg:        var(--obsidian-base);
+  --pearl-subtle:    var(--obsidian-surface);
+  --pearl-card:      var(--obsidian-card);
+  --pearl-card-alt:  var(--obsidian-card-hi);
+  --pearl-border:    var(--obsidian-border);
+  --pearl-border-hover: var(--obsidian-border-hi);
+  --pearl-glow:      var(--obsidian-glow);
 
-  /* ── Brushed Brass & Warm Gold Accents ── */
-  --brass:           #B88E3E;   /* primary brushed brass */
-  --brass-dark:      #99732B;   /* brass hover / active */
-  --brass-light:     #D4AF37;   /* glowing brass highlight */
-  --brass-subtle:    #F6F0E4;   /* brass soft tinted background */
-  --brass-dim:       rgba(184, 142, 62, 0.12); /* badge background */
-  --brass-border:    rgba(184, 142, 62, 0.28); /* brass accent line */
-  --brass-glow:      rgba(184, 142, 62, 0.25); /* brass shadow */
+  /* ── Crisp Platinum & Starlight High-Contrast Typography ── */
+  --charcoal-900:    #FFFFFF;   /* Pure white commanding headlines */
+  --charcoal-800:    #F8FAFC;   /* Secondary titles & cards */
+  --charcoal-700:    #E2E8F0;   /* High-contrast body text */
+  --charcoal-600:    #94A3B8;   /* Paragraphs & descriptions */
+  --charcoal-500:    #64748B;   /* Subtitles & metadata */
+  --charcoal-400:    #475569;   /* Subtle borders & ghost text */
+  --charcoal-100:    #1E293B;   /* Dark divider line */
 
-  /* ── Brand Royal Sapphire Blue (Signature Primary Accent from Logo) ── */
-  --brand-blue:       #0B4EA2;   /* Royal sapphire blue from MANA logo */
-  --brand-blue-dark:  #073574;   /* Deep cobalt / navy for hover & active */
-  --brand-blue-light: #1A6CD4;   /* Vibrant sapphire glow */
-  --brand-blue-dim:   rgba(11, 78, 162, 0.08); /* Soft tinted background */
-  --brand-blue-glow:  rgba(11, 78, 162, 0.28); /* Subtle glow shadow */
+  /* ── Liquid Champagne Gold & Amber Accents ── */
+  --brass:           #E5C07B;   /* Liquid Champagne Gold */
+  --brass-dark:      #D4AF37;   /* Rich warm gold */
+  --brass-light:     #F7E7C4;   /* Glowing champagne highlight */
+  --brass-subtle:    rgba(229, 192, 123, 0.08); /* Soft tinted background */
+  --brass-dim:       rgba(229, 192, 123, 0.14); /* Badge pill background */
+  --brass-border:    rgba(229, 192, 123, 0.32); /* Gold accent line */
+  --brass-glow:      rgba(229, 192, 123, 0.35); /* Shimmering gold shadow */
 
-  /* ── Brand Primary Color Mapping ── */
+  /* ── Signature Brand Accent Mappings (Champagne Gold Replaces Cold Blue) ── */
+  --brand-blue:       #D4AF37;   /* Rich warm champagne gold */
+  --brand-blue-dark:  #B88E3E;   /* Burnished deep gold */
+  --brand-blue-light: #F7E7C4;   /* Radiant champagne glow */
+  --brand-blue-dim:   rgba(212, 175, 55, 0.12);
+  --brand-blue-glow:  rgba(212, 175, 55, 0.35);
+
   --brand-red:       var(--brand-blue);
   --brand-red-dark:  var(--brand-blue-dark);
   --brand-red-light: var(--brand-blue-light);
   --brand-red-dim:   var(--brand-blue-dim);
   --brand-red-glow:  var(--brand-blue-glow);
 
-  /* ── Glassmorphism (Luminous Light) ── */
-  --glass-pearl:       rgba(255, 255, 255, 0.82);
-  --glass-pearl-heavy: rgba(255, 255, 255, 0.94);
-  --glass-border:      rgba(255, 255, 255, 0.9);
-  --glass-border-dark: rgba(14, 19, 31, 0.07);
+  /* ── Frosted Smoky Glassmorphism ── */
+  --glass-pearl:       rgba(16, 22, 34, 0.75);
+  --glass-pearl-heavy: rgba(11, 15, 23, 0.92);
+  --glass-border:      rgba(255, 255, 255, 0.10);
+  --glass-border-dark: rgba(229, 192, 123, 0.28);
 
   /* ── Semantic ── */
-  --success:  #0D9488;
+  --success:  #10B981;
   --whatsapp: #25D366;
 
   /* ── Typography Tokens ── */
@@ -83,25 +92,25 @@
   --r-3xl:  44px;
   --r-pill: 100px;
 
-  /* ── Shadows (Silky Multi-Layered) ── */
-  --shadow-xs:     0 1px 3px rgba(14, 19, 31, 0.04), 0 1px 2px rgba(14, 19, 31, 0.02);
-  --shadow-sm:     0 2px 8px rgba(14, 19, 31, 0.05), 0 1px 3px rgba(14, 19, 31, 0.03);
-  --shadow-md:     0 8px 24px rgba(14, 19, 31, 0.06), 0 2px 6px rgba(14, 19, 31, 0.04);
-  --shadow-lg:     0 16px 48px rgba(14, 19, 31, 0.08), 0 4px 12px rgba(14, 19, 31, 0.05);
-  --shadow-xl:     0 28px 72px rgba(14, 19, 31, 0.1), 0 8px 24px rgba(14, 19, 31, 0.06);
-  --shadow-2xl:    0 40px 100px rgba(14, 19, 31, 0.12), 0 12px 36px rgba(14, 19, 31, 0.08);
-  --shadow-brass:  0 10px 36px rgba(184, 142, 62, 0.22), 0 2px 8px rgba(184, 142, 62, 0.15);
-  --shadow-red:    0 10px 36px rgba(11, 78, 162, 0.28), 0 2px 8px rgba(11, 78, 162, 0.15);
-  --shadow-blue:   0 10px 36px rgba(11, 78, 162, 0.28), 0 2px 8px rgba(11, 78, 162, 0.15);
-  --shadow-card:   0 1px 3px rgba(14, 19, 31, 0.04), 0 12px 32px rgba(14, 19, 31, 0.06);
+  /* ── Deep Obsidian Multi-Layered Shadows ── */
+  --shadow-xs:     0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-sm:     0 2px 8px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md:     0 8px 24px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.35);
+  --shadow-lg:     0 16px 48px rgba(0, 0, 0, 0.6), 0 4px 12px rgba(0, 0, 0, 0.45);
+  --shadow-xl:     0 28px 72px rgba(0, 0, 0, 0.7), 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-2xl:    0 40px 100px rgba(0, 0, 0, 0.8), 0 12px 36px rgba(0, 0, 0, 0.6);
+  --shadow-brass:  0 10px 36px rgba(229, 192, 123, 0.3), 0 2px 8px rgba(229, 192, 123, 0.2);
+  --shadow-red:    var(--shadow-brass);
+  --shadow-blue:   var(--shadow-brass);
+  --shadow-card:   0 16px 40px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
 
-  /* ── 3D Spatial & Dimensional System ── */
-  --shadow-3d-card:        0 10px 30px -5px rgba(14, 19, 31, 0.07), 0 24px 64px -10px rgba(11, 78, 162, 0.1), inset 0 1.5px 0 rgba(255, 255, 255, 0.95);
-  --shadow-3d-hover:       0 20px 48px -8px rgba(14, 19, 31, 0.12), 0 36px 90px -12px rgba(184, 142, 62, 0.22), inset 0 2px 0 #FFFFFF;
-  --shadow-3d-floating:    0 24px 60px rgba(14, 19, 31, 0.14), 0 8px 20px rgba(184, 142, 62, 0.18);
-  --shadow-btn-primary-3d: 0 4px 0 #073574, 0 10px 24px rgba(11, 78, 162, 0.32);
-  --shadow-btn-brass-3d:   0 4px 0 #805c1b, 0 10px 24px rgba(184, 142, 62, 0.32);
-  --shadow-btn-wa-3d:      0 4px 0 #128c46, 0 10px 24px rgba(37, 211, 102, 0.32);
+  /* ── 3D Spatial & Dimensional System (Obsidian & Gold) ── */
+  --shadow-3d-card:        0 16px 40px -8px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  --shadow-3d-hover:       0 28px 72px -10px rgba(0, 0, 0, 0.85), 0 0 32px rgba(229, 192, 123, 0.28), 0 0 0 1px rgba(229, 192, 123, 0.5), inset 0 1px 0 rgba(229, 192, 123, 0.4);
+  --shadow-3d-floating:    0 24px 60px rgba(0, 0, 0, 0.8), 0 8px 20px rgba(229, 192, 123, 0.25);
+  --shadow-btn-primary-3d: 0 4px 0 #99732B, 0 12px 28px rgba(212, 175, 55, 0.4);
+  --shadow-btn-brass-3d:   0 4px 0 #805c1b, 0 12px 28px rgba(229, 192, 123, 0.4);
+  --shadow-btn-wa-3d:      0 4px 0 #128c46, 0 12px 28px rgba(37, 211, 102, 0.4);
 
   /* ── Motion ── */
   --ease-luxury:  cubic-bezier(0.16, 1, 0.3, 1);
@@ -129,11 +138,11 @@
   --gold-light:   var(--brass-light);
   --white:        #FFFFFF;
   --off-white:    var(--pearl-bg);
-  --grey:         rgba(14, 19, 31, 0.08);
+  --grey:         rgba(255, 255, 255, 0.08);
   --grey-mid:     var(--charcoal-500);
   --text-dark:    var(--charcoal-900);
   --text-body:    var(--charcoal-700);
-  --text-muted:   var(--charcoal-500);
+  --text-muted:   var(--charcoal-600);
   --text-primary: var(--charcoal-900);
   --text-secondary: var(--charcoal-600);
   --surface-0:    var(--pearl-bg);
@@ -289,16 +298,16 @@ p  { color: var(--charcoal-600); line-height: 1.75; }
   box-shadow: 0 0 12px rgba(184, 142, 62, 0.5);
 }
 
-/* ─── HIGH-END BUTTONS ─── */
+/* ─── HIGH-END LUXURY BUTTONS ─── */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 800;
   font-size: var(--text-sm);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   padding: 13px 28px;
   border-radius: var(--r-pill);
@@ -315,76 +324,78 @@ p  { color: var(--charcoal-600); line-height: 1.75; }
   text-decoration: none;
 }
 
-/* Subtle gloss sweep effect on hover */
+/* Shimmer sweep effect on hover */
 .btn::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.3) 50%, transparent 65%);
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.4) 50%, transparent 65%);
   transform: translateX(-100%);
-  transition: transform 550ms var(--ease-luxury);
+  transition: transform 600ms var(--ease-luxury);
   pointer-events: none;
 }
 .btn:hover::before { transform: translateX(100%); }
 
+/* ── Primary Luxury Button: Liquid Champagne Gold with Obsidian Text ── */
 .btn--primary {
-  background: linear-gradient(135deg, var(--brand-red) 0%, var(--brand-red-dark) 100%);
-  color: #FFFFFF;
-  border-color: var(--brand-red);
-  box-shadow: var(--shadow-btn-primary-3d);
+  background: linear-gradient(135deg, #FFF0D0 0%, #E5C07B 45%, #D4AF37 100%);
+  color: #07090E !important;
+  border-color: #E5C07B;
+  box-shadow: 0 4px 0 #99732B, 0 12px 28px rgba(229, 192, 123, 0.45);
 }
 .btn--primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 0 #073574, 0 16px 36px rgba(11, 78, 162, 0.42);
-  background: linear-gradient(135deg, var(--brand-red-light) 0%, var(--brand-red) 100%);
+  box-shadow: 0 6px 0 #99732B, 0 18px 40px rgba(229, 192, 123, 0.6);
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFF0D0 45%, #E5C07B 100%);
 }
 .btn--primary:active {
   transform: translateY(2px);
-  box-shadow: 0 1px 0 #073574, 0 4px 14px rgba(11, 78, 162, 0.28);
+  box-shadow: 0 1px 0 #99732B, 0 4px 14px rgba(229, 192, 123, 0.3);
 }
 
 .btn--brass {
-  background: linear-gradient(135deg, var(--brass) 0%, var(--brass-dark) 100%);
-  color: #FFFFFF;
-  border-color: var(--brass);
-  box-shadow: var(--shadow-btn-brass-3d);
+  background: linear-gradient(135deg, #E5C07B 0%, #D4AF37 55%, #B88E3E 100%);
+  color: #07090E !important;
+  border-color: #E5C07B;
+  box-shadow: 0 4px 0 #805c1b, 0 12px 28px rgba(229, 192, 123, 0.4);
 }
 .btn--brass:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 0 #805c1b, 0 16px 36px rgba(184, 142, 62, 0.4);
-  background: linear-gradient(135deg, var(--brass-light) 0%, var(--brass) 100%);
+  box-shadow: 0 6px 0 #805c1b, 0 18px 40px rgba(229, 192, 123, 0.55);
+  background: linear-gradient(135deg, #F7E7C4 0%, #E5C07B 100%);
 }
 .btn--brass:active {
   transform: translateY(2px);
-  box-shadow: 0 1px 0 #805c1b, 0 4px 14px rgba(184, 142, 62, 0.25);
+  box-shadow: 0 1px 0 #805c1b, 0 4px 14px rgba(229, 192, 123, 0.25);
 }
 
 .btn--charcoal {
-  background: var(--charcoal-900);
+  background: rgba(16, 22, 34, 0.9);
   color: #FFFFFF;
-  border-color: var(--charcoal-900);
-  box-shadow: 0 4px 0 #05080e, 0 10px 24px rgba(14, 19, 31, 0.22);
+  border: 1.5px solid rgba(229, 192, 123, 0.35);
+  box-shadow: 0 4px 0 #000000, 0 10px 24px rgba(0, 0, 0, 0.6);
 }
 .btn--charcoal:hover {
   transform: translateY(-2px);
-  background: var(--charcoal-800);
-  box-shadow: 0 6px 0 #05080e, 0 16px 36px rgba(14, 19, 31, 0.3);
+  background: rgba(22, 29, 43, 0.95);
+  border-color: var(--brass);
+  box-shadow: 0 6px 0 #000000, 0 16px 36px rgba(229, 192, 123, 0.25);
 }
 .btn--charcoal:active {
   transform: translateY(2px);
-  box-shadow: 0 1px 0 #05080e, 0 4px 12px rgba(14, 19, 31, 0.18);
+  box-shadow: 0 1px 0 #000000, 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .btn--whatsapp {
   background: linear-gradient(135deg, #25D366 0%, #16A34A 100%);
   color: #FFFFFF;
   border-color: #25D366;
-  box-shadow: var(--shadow-btn-wa-3d);
+  box-shadow: 0 4px 0 #128c46, 0 12px 28px rgba(37, 211, 102, 0.4);
 }
 .btn--whatsapp:hover {
   transform: translateY(-2px);
   background: linear-gradient(135deg, #22C55E 0%, #15803D 100%);
-  box-shadow: 0 6px 0 #128c46, 0 16px 36px rgba(37, 211, 102, 0.45);
+  box-shadow: 0 6px 0 #128c46, 0 18px 36px rgba(37, 211, 102, 0.55);
 }
 .btn--whatsapp:active {
   transform: translateY(2px);
@@ -392,37 +403,39 @@ p  { color: var(--charcoal-600); line-height: 1.75; }
 }
 
 .btn--white {
-  background: #FFFFFF;
-  color: var(--charcoal-900);
-  border-color: rgba(14, 19, 31, 0.1);
-  box-shadow: 0 3px 0 rgba(14, 19, 31, 0.08), var(--shadow-sm);
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+  border: 1.5px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.5), var(--shadow-sm);
 }
 .btn--white:hover {
   transform: translateY(-2px);
-  background: #FFFFFF;
+  background: rgba(255, 255, 255, 0.16);
   border-color: var(--brass);
-  box-shadow: 0 5px 0 rgba(14, 19, 31, 0.08), var(--shadow-md);
+  color: var(--brass-light);
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.5), 0 0 16px rgba(229, 192, 123, 0.25);
 }
 .btn--white:active {
   transform: translateY(2px);
-  box-shadow: 0 1px 0 rgba(14, 19, 31, 0.08), var(--shadow-xs);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5), var(--shadow-xs);
 }
 
 .btn--ghost {
-  background: rgba(255, 255, 255, 0.65);
-  color: var(--charcoal-800);
-  border-color: rgba(14, 19, 31, 0.12);
-  backdrop-filter: blur(12px);
+  background: rgba(16, 22, 34, 0.7);
+  color: #E2E8F0;
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
 }
 .btn--ghost:hover {
-  background: #FFFFFF;
+  background: rgba(22, 29, 43, 0.9);
   border-color: var(--brass);
-  color: var(--charcoal-900);
+  color: #FFFFFF;
 }
 
 .btn--outline-brass {
   background: transparent;
-  color: var(--brass-dark);
+  color: var(--brass);
   border-color: var(--brass);
 }
 .btn--outline-brass:hover {
@@ -441,10 +454,12 @@ p  { color: var(--charcoal-600); line-height: 1.75; }
 }
 
 .card-3d {
-  background: var(--pearl-card);
+  background: rgba(16, 22, 34, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: var(--r-2xl);
-  border: 1.5px solid var(--pearl-border);
-  border-top: 1.5px solid rgba(255, 255, 255, 0.95);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.14);
   box-shadow: var(--shadow-3d-card);
   transform-style: preserve-3d;
   transition: transform var(--dur-slow) var(--ease-luxury), box-shadow var(--dur-slow) var(--ease-luxury), border-color var(--dur-base);
@@ -453,7 +468,7 @@ p  { color: var(--charcoal-600); line-height: 1.75; }
 
 .card-3d:hover {
   transform: translateY(-8px) scale(1.012);
-  border-color: var(--pearl-border-hover);
+  border-color: var(--obsidian-border-hi);
   box-shadow: var(--shadow-3d-hover);
 }
 
@@ -472,17 +487,17 @@ p  { color: var(--charcoal-600); line-height: 1.75; }
   left: 10%;
   right: 10%;
   height: 28px;
-  background: radial-gradient(ellipse at center, rgba(14, 19, 31, 0.22) 0%, rgba(14, 19, 31, 0.06) 45%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(229, 192, 123, 0.25) 0%, rgba(229, 192, 123, 0.05) 50%, transparent 75%);
   pointer-events: none;
   z-index: 0;
   border-radius: 50%;
-  filter: blur(4px);
+  filter: blur(6px);
   transition: transform var(--dur-slow) var(--ease-luxury), opacity var(--dur-slow);
 }
 
 .pedestal-3d:hover::after {
-  transform: scale(0.92);
-  opacity: 0.65;
+  transform: scale(1.05);
+  opacity: 0.9;
 }
 
 @keyframes float3D {
@@ -510,7 +525,7 @@ p  { color: var(--charcoal-600); line-height: 1.75; }
   }
 }
 
-/* ─── FORM INPUTS ─── */
+/* ─── FORM INPUTS (Dark Obsidian Cockpit) ─── */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -523,17 +538,17 @@ p  { color: var(--charcoal-600); line-height: 1.75; }
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--charcoal-700);
+  color: #CBD5E1;
 }
 
 .form-input {
   padding: 12px 16px;
-  border: 1.5px solid rgba(14, 19, 31, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--r-md);
   font-family: var(--font-body);
   font-size: var(--text-base);
-  color: var(--charcoal-900);
-  background: #FFFFFF;
+  color: #FFFFFF;
+  background: rgba(11, 15, 23, 0.9);
   transition: all var(--dur-fast);
   outline: none;
   width: 100%;
@@ -541,11 +556,12 @@ p  { color: var(--charcoal-600); line-height: 1.75; }
 
 .form-input:focus {
   border-color: var(--brass);
-  box-shadow: 0 0 0 3px var(--brass-dim);
+  box-shadow: 0 0 0 3px rgba(229, 192, 123, 0.25);
+  background: rgba(16, 22, 34, 0.95);
 }
 
 .form-input::placeholder {
-  color: var(--charcoal-400);
+  color: #64748B;
 }
 
 /* ─── CHECKLIST ─── */
@@ -561,7 +577,7 @@ p  { color: var(--charcoal-600); line-height: 1.75; }
   align-items: flex-start;
   gap: 12px;
   font-size: var(--text-base);
-  color: var(--charcoal-700);
+  color: #CBD5E1;
   line-height: 1.6;
 }
 
@@ -570,8 +586,8 @@ p  { color: var(--charcoal-600); line-height: 1.75; }
   flex-shrink: 0;
   width: 22px;
   height: 22px;
-  background: var(--brass-dim);
-  color: var(--brass-dark);
+  background: rgba(229, 192, 123, 0.15);
+  color: var(--brass);
   border: 1px solid var(--brass-border);
   border-radius: 50%;
   display: flex;
@@ -582,16 +598,18 @@ p  { color: var(--charcoal-600); line-height: 1.75; }
   margin-top: 2px;
 }
 
-/* ─── RATE TABLE (Luminous Pearl) ─── */
+/* ─── RATE TABLE (Obsidian & Gold) ─── */
 .rate-table {
   width: 100%;
   border-collapse: collapse;
   font-size: var(--text-sm);
+  background: rgba(11, 15, 23, 0.6);
 }
 
 .rate-table th {
-  background: var(--charcoal-900);
-  color: #FFFFFF;
+  background: #07090E;
+  color: var(--brass);
+  border-bottom: 2px solid rgba(229, 192, 123, 0.3);
   font-family: var(--font-body);
   font-size: var(--text-xs);
   font-weight: 700;
@@ -606,16 +624,16 @@ p  { color: var(--charcoal-600); line-height: 1.75; }
 
 .rate-table td {
   padding: 13px 18px;
-  border-bottom: 1px solid rgba(14, 19, 31, 0.07);
-  color: var(--charcoal-700);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  color: #CBD5E1;
 }
 
 .rate-table tr:last-child td { border-bottom: none; }
-.rate-table tr:hover td { background: var(--brass-dim); }
+.rate-table tr:hover td { background: rgba(229, 192, 123, 0.08); color: #FFFFFF; }
 .rate-table .price {
   font-family: var(--font-display);
   font-weight: 800;
-  color: var(--brand-red);
+  color: var(--brass);
   white-space: nowrap;
 }
 

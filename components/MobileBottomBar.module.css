@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════════════
    MANA Mobile Floating Quick-Action Booking Bar
-   High-converting sticky bottom drawer for mobile viewports
+   Obsidian & Champagne Gold Luxury Theme v5.0
    ═══════════════════════════════════════════════════════════════════ */
 
 .mobileBar {
@@ -9,14 +9,14 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-top: 1.5px solid var(--brass-border);
+  background: rgba(7, 9, 14, 0.94);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-top: 1.5px solid rgba(229, 192, 123, 0.32);
   padding: 10px 16px;
   padding-bottom: max(10px, env(safe-area-inset-bottom));
   z-index: 9999;
-  box-shadow: 0 -8px 28px rgba(14, 19, 31, 0.12);
+  box-shadow: 0 -8px 28px rgba(0, 0, 0, 0.75);
 }
 
 .barInner {
@@ -36,25 +36,25 @@
   justify-content: center;
   gap: 6px;
   padding: 11px 12px;
-  background: #FFFFFF;
-  border: 1.5px solid var(--brass-border);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.16);
   border-radius: var(--r-pill);
-  color: var(--charcoal-900);
+  color: #FFFFFF;
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 0.84rem;
   text-decoration: none;
-  box-shadow: 0 3px 0 rgba(14, 19, 31, 0.08), 0 4px 10px rgba(14, 19, 31, 0.05);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.5), 0 4px 10px rgba(0, 0, 0, 0.3);
   white-space: nowrap;
   transition: all 0.15s ease;
 }
 
 .callBtn:active {
   transform: translateY(2px);
-  box-shadow: 0 1px 0 rgba(14, 19, 31, 0.08);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
 }
 
-/* Book Now Button — Primary Blue */
+/* Book Now Button — Shimmering Champagne Gold */
 .bookBtn {
   flex: 1.2;
   display: inline-flex;
@@ -62,14 +62,14 @@
   justify-content: center;
   gap: 6px;
   padding: 11px 14px;
-  background: linear-gradient(135deg, var(--brand-blue) 0%, #0a3d8f 100%);
+  background: linear-gradient(135deg, #FFF0D0 0%, #E5C07B 45%, #D4AF37 100%);
   border-radius: var(--r-pill);
-  color: #FFFFFF;
+  color: #07090E;
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 0.84rem;
   text-decoration: none;
-  box-shadow: 0 3px 0 #073574, 0 6px 18px rgba(11, 78, 162, 0.38);
+  box-shadow: 0 3px 0 #99732B, 0 6px 18px rgba(229, 192, 123, 0.45);
   white-space: nowrap;
   cursor: pointer;
   border: none;
@@ -78,7 +78,7 @@
 
 .bookBtn:active {
   transform: translateY(2px);
-  box-shadow: 0 1px 0 #073574, 0 2px 6px rgba(11, 78, 162, 0.2);
+  box-shadow: 0 1px 0 #99732B, 0 2px 6px rgba(229, 192, 123, 0.2);
 }
 
 /* WhatsApp Button */
@@ -89,7 +89,7 @@
   justify-content: center;
   gap: 6px;
   padding: 11px 12px;
-  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  background: linear-gradient(135deg, #25D366 0%, #16A34A 100%);
   border-radius: var(--r-pill);
   color: #FFFFFF;
   font-family: var(--font-display);

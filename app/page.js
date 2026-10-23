@@ -295,16 +295,16 @@ export default function HomePage() {
               <span className={styles.heroPillDot} />
               <span className={styles.pillHighlight}>⭐ 5.0 Google Rated</span>
               <span className={styles.pillDivider}>·</span>
-              <span className={styles.pillSub}>Kadapa&apos;s #1 Self-Drive Cars from ₹1,499/Day</span>
+              <span className={styles.pillSub}>Kadapa&apos;s #1 Luxury Mobility &amp; Self-Drive Fleet</span>
             </a>
 
             <h1 className={styles.heroH1}>
               <span className={styles.heroH1Line1}>Drive Yourself with Freedom.</span><br />
-              <span className={styles.heroH1Line2}>Kadapa&apos;s #1 Self-Drive Hub.</span>
+              <span className={styles.heroH1Line2}>Kadapa&apos;s #1 Luxury Mobility Hub.</span>
             </h1>
 
             <p className={styles.heroP}>
-              Experience the open road with complete freedom. Rent clean, insured, sanitized cars with 100% transparent pricing. Featuring the brand-new Stealth Black Mahindra XUV 3XO Turbo SUV with Panoramic Sunroof, Toyota Innova Crysta, Maruti Ertiga 7-Seater, and Swift Dzire. Instant 2-minute digital KYC, customer-managed fuel (zero fuel markup), and free doorstep delivery across Kadapa city.
+              Experience the open road with complete freedom. Featuring the brand-new <strong>Stealth Black Mahindra XUV 3XO Turbo SUV with Panoramic Sunroof &amp; ADAS</strong>, executive Toyota Innova Crystas, and Ertiga 7-seaters. <strong>100% customer-managed fuel (zero fuel markup)</strong>, instant 2-minute digital KYC, and free doorstep handover across Kadapa.
             </p>
 
             {/* Mobile-Friendly Quick Service Shortcuts */}
