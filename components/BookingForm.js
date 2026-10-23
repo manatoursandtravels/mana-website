@@ -112,9 +112,9 @@ const SERVICE_OPTIONS = {
 
 export default function BookingForm({ compact = false, defaultService = '' }) {
   const [form, setForm] = useState({
-    service: defaultService || 'Outstation Cabs',
-    tripType: 'Round Trip Journey',
-    vehicleChoice: 'Executive Sedan',
+    service: defaultService || 'Self Drive',
+    tripType: 'Daily Rental (24 Hours) — ₹1,499',
+    vehicleChoice: 'Mahindra XUV 3XO Black Edition (Compact SUV - 5 Seats)',
     pickup: '',
     destination: '',
     date: '',
@@ -127,7 +127,7 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
   });
 
   const [submitted, setSubmitted] = useState(false);
-  const opts = SERVICE_OPTIONS[form.service] || SERVICE_OPTIONS['Outstation Cabs'];
+  const opts = SERVICE_OPTIONS[form.service] || SERVICE_OPTIONS['Self Drive'];
 
   // Keep tripType and vehicleChoice in sync when service changes
   useEffect(() => {

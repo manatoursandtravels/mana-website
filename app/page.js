@@ -8,6 +8,7 @@ import Link from 'next/link';
 import BookingCTA from '@/components/BookingCTA';
 import ReviewsMarquee from '@/components/ReviewsMarquee';
 import YouTubeChannel from '@/components/YouTubeChannel';
+import SelfDriveFleetShowcase from '@/components/SelfDriveFleetShowcase';
 import { BUSINESS, SERVICES, RATES } from '@/lib/constants';
 import {
   LocalCabIllustration,
@@ -37,10 +38,10 @@ import styles from './page.module.css';
 
 export const metadata = {
   title: {
-    absolute: 'MANA Tours & Travels Kadapa — #1 Cab Service, Holiday Packages & Self-Drive in Kadapa',
+    absolute: 'MANA Tours & Travels Kadapa — #1 Self-Drive Car Rentals, SUVs & Outstation Cabs',
   },
   description:
-    'MANA Tours & Travels in Kadapa — 5.0★ Google Rated. Kadapa to Tirupati package from ₹2,099, self-drive cars from ₹1,499/day, Bangalore & Hyderabad airport taxi drops, Gandikota tours & outstation cabs. Clean AC vehicles, zero hidden costs. Call +91 99083 00718.',
+    'Kadapa\'s #1 Self-Drive Car Rental Agency. Rent the brand-new Stealth Black Mahindra XUV 3XO Turbo SUV with Panoramic Sunroof from ₹1,499/day. 100% customer-managed fuel, 2-minute paperless KYC, and free doorstep delivery across Kadapa. Also offering Tirupati Balaji pilgrimage packages & outstation cabs. Call +91 99083 00718.',
   alternates: {
     canonical: '/',
   },
@@ -69,10 +70,10 @@ export const metadata = {
 };
 
 const stats = [
-  { num: '5.0', label: 'Google Rating', sub: '50+ Verified Reviews', Component: HolographicGoldStar },
-  { num: '24/7', label: 'Available All Hours', sub: 'Live Dispatch Desk', Component: SweepingClockHand },
-  { num: '₹0', label: 'Hidden Charges', sub: '100% Upfront Quotes', Component: ShimmeringRupeeCascade },
-  { num: '9+', label: 'Specialized Fleets', sub: 'Sedans, MPVs & SUVs', Component: AnimatedLuxuryFleet },
+  { num: '₹1,499', label: 'Self-Drive from / Day', sub: 'Lowest Rates in Kadapa', Component: ShimmeringRupeeCascade },
+  { num: '2 Mins', label: 'Paperless Digital KYC', sub: 'DL + Aadhaar Instant Check', Component: SweepingClockHand },
+  { num: '0%', label: 'Fuel Surcharge Markup', sub: '100% Customer-Managed', Component: HolographicGoldStar },
+  { num: '24/7', label: 'Doorstep Car Delivery', sub: 'Free Handover in Kadapa City', Component: AnimatedLuxuryFleet },
 ];
 
 const tourPackages = [
@@ -290,38 +291,43 @@ export default function HomePage() {
 
         <div className={`container ${styles.heroInner}`}>
           <div className={styles.heroContent}>
-            <a href="#google-reviews" className={styles.heroPill} title="View Google Reviews & Rating">
+            <a href="#self-drive-fleet" className={styles.heroPill} title="Explore Self-Drive Fleet & Rates">
               <span className={styles.heroPillDot} />
               <span className={styles.pillHighlight}>⭐ 5.0 Google Rated</span>
               <span className={styles.pillDivider}>·</span>
-              <span className={styles.pillSub}>Kadapa&apos;s Premier Tours &amp; Holiday Travel Partner</span>
+              <span className={styles.pillSub}>Kadapa&apos;s #1 Self-Drive Cars from ₹1,499/Day</span>
             </a>
 
             <h1 className={styles.heroH1}>
-              <span className={styles.heroH1Line1}>Every Journey,</span><br />
-              <span className={styles.heroH1Line2}>A New Experience.</span>
+              <span className={styles.heroH1Line1}>Drive Yourself with Freedom.</span><br />
+              <span className={styles.heroH1Line2}>Kadapa&apos;s #1 Self-Drive Hub.</span>
             </h1>
 
             <p className={styles.heroP}>
-              Your trusted travel partner in Kadapa for sacred temple pilgrimages, curated holiday packages, fixed airport taxi drops, and self-drive car rentals. Clean AC vehicles, verified chauffeurs, and upfront transparent fares.
+              Experience the open road with complete freedom. Rent clean, insured, sanitized cars with 100% transparent pricing. Featuring the brand-new Stealth Black Mahindra XUV 3XO Turbo SUV with Panoramic Sunroof, Toyota Innova Crysta, Maruti Ertiga 7-Seater, and Swift Dzire. Instant 2-minute digital KYC, customer-managed fuel (zero fuel markup), and free doorstep delivery across Kadapa city.
             </p>
 
             {/* Mobile-Friendly Quick Service Shortcuts */}
             <div className={styles.heroQuickChips} aria-label="Popular travel shortcuts">
-              <Link href="#tour-packages" className={styles.heroQuickChip}>
-                <span className={styles.hqcIcon}>🛕</span>
-                <span className={styles.hqcLabel}>Tirupati Darshan</span>
-                <span className={styles.hqcPrice}>Best Fare</span>
+              <Link href="#self-drive-fleet" className={`${styles.heroQuickChip} ${styles.heroQuickChipActive}`}>
+                <span className={styles.hqcIcon}>🔑</span>
+                <span className={styles.hqcLabel}>Self-Drive (Black XUV 3XO)</span>
+                <span className={styles.hqcPrice}>from ₹1,499/d</span>
+              </Link>
+              <Link href="#self-drive-fleet" className={styles.heroQuickChip}>
+                <span className={styles.hqcIcon}>👨‍👩‍👧‍👦</span>
+                <span className={styles.hqcLabel}>7-Seater Ertiga / Innova</span>
+                <span className={styles.hqcPrice}>Family Fleet</span>
               </Link>
               <Link href="#tour-packages" className={styles.heroQuickChip}>
                 <span className={styles.hqcIcon}>🏜️</span>
                 <span className={styles.hqcLabel}>Gandikota Canyon</span>
                 <span className={styles.hqcPrice}>Day Tour</span>
               </Link>
-              <Link href="/services/self-drive" className={styles.heroQuickChip}>
-                <span className={styles.hqcIcon}>🔑</span>
-                <span className={styles.hqcLabel}>Self Drive (XUV 3XO)</span>
-                <span className={styles.hqcPrice}>₹1,499/d</span>
+              <Link href="#tour-packages" className={styles.heroQuickChip}>
+                <span className={styles.hqcIcon}>🛕</span>
+                <span className={styles.hqcLabel}>Tirupati Balaji</span>
+                <span className={styles.hqcPrice}>Best Fare</span>
               </Link>
               <Link href="/services/airport-transfers" className={styles.heroQuickChip}>
                 <span className={styles.hqcIcon}>✈️</span>
@@ -334,7 +340,7 @@ export default function HomePage() {
               <a href={`tel:${BUSINESS.phone.pavan}`} className={styles.heroContact} id="hero-pavan">
                 <div className={styles.heroContactIcon}>📞</div>
                 <div className={styles.heroContactInfo}>
-                  <div className={styles.heroContactName}>Call Pavan</div>
+                  <div className={styles.heroContactName}>Call Pavan (Self-Drive Fleet)</div>
                   <div className={styles.heroContactNum}>{BUSINESS.phone.pavanDisplay}</div>
                 </div>
               </a>
@@ -342,16 +348,18 @@ export default function HomePage() {
               <a href={`tel:${BUSINESS.phone.jyothi}`} className={styles.heroContact} id="hero-jyothi">
                 <div className={styles.heroContactIcon}>📞</div>
                 <div className={styles.heroContactInfo}>
-                  <div className={styles.heroContactName}>Call Jyothi</div>
+                  <div className={styles.heroContactName}>Call Jyothi (Booking Desk)</div>
                   <div className={styles.heroContactNum}>{BUSINESS.phone.jyothiDisplay}</div>
                 </div>
               </a>
             </div>
 
             <div className={styles.heroCtas}>
-              <BookingCTA className="btn btn--primary btn--xl" id="hero-book" label="🚗 Plan Your Journey" />
+              <a href="#self-drive-fleet" className="btn btn--primary btn--xl" id="hero-book">
+                🔑 Reserve Self-Drive Car
+              </a>
               <a
-                href={`https://wa.me/${BUSINESS.whatsapp}?text=${encodeURIComponent('Hi Pavan, I want to enquire about tour packages and cab booking from Kadapa.')}`}
+                href={`https://wa.me/${BUSINESS.whatsapp}?text=${encodeURIComponent('Hi Pavan, I want to rent a self-drive car in Kadapa.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.heroWaBtn}
@@ -393,14 +401,87 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══ 2. TRENDING TOUR & PILGRIMAGE PACKAGES (Tours Category Showcase) ══ */}
+      {/* ══ 2. CORE FLAGSHIP SERVICE: SELF-DRIVE CAR RENTALS ══ */}
+      <section className={`section ${styles.selfDriveCoreSection}`} id="self-drive-fleet">
+        <div className="container">
+          <div className="section-header">
+            <span className="eyebrow">✦ Core Flagship Service · 100% Customer-Managed Fuel ✦</span>
+            <h2>Drive What You Love — Premium Self-Drive Cars in Kadapa</h2>
+            <div className="divider" />
+            <p>
+              Experience complete driving freedom with our spotless, commercially insured fleet. From the turbocharged <strong>Stealth Black Mahindra XUV 3XO SUV with Panoramic Sunroof</strong> to executive 7-seater Innova Crystas and budget sedans. <strong>Zero hidden charges, 100% customer-managed fuel, 2-minute paperless KYC</strong>, and free doorstep handover anywhere in Kadapa city.
+            </p>
+          </div>
+
+          <SelfDriveFleetShowcase />
+
+          {/* Self-Drive 4-Pillar Transparency Grid */}
+          <div className={styles.selfDriveTrustGrid}>
+            <div className={styles.sdtCard}>
+              <div className={styles.sdtIcon}>⛽</div>
+              <h3 className={styles.sdtTitle}>100% Customer-Managed Fuel</h3>
+              <p className={styles.sdtDesc}>Zero inflated fuel surcharges. Receive your car with fuel and return it at the same level. Complete transparency.</p>
+            </div>
+            <div className={styles.sdtCard}>
+              <div className={styles.sdtIcon}>⚡</div>
+              <h3 className={styles.sdtTitle}>2-Minute Digital KYC</h3>
+              <p className={styles.sdtDesc}>Instant paperless approval with original Driving License &amp; Aadhaar Card. Zero security delays.</p>
+            </div>
+            <div className={styles.sdtCard}>
+              <div className={styles.sdtIcon}>🛡️</div>
+              <h3 className={styles.sdtTitle}>Commercial Insurance &amp; 24/7 RSA</h3>
+              <p className={styles.sdtDesc}>All vehicles carry full commercial insurance with 24/7 roadside assistance across AP, Telangana &amp; Karnataka.</p>
+            </div>
+            <div className={styles.sdtCard}>
+              <div className={styles.sdtIcon}>🏡</div>
+              <h3 className={styles.sdtTitle}>Free Doorstep Handover</h3>
+              <p className={styles.sdtDesc}>Pavan personally delivers the sanitized vehicle to your home, railway station, bus stand, or hotel in Kadapa.</p>
+            </div>
+          </div>
+
+          {/* Multi-Day Rental Savings Banner */}
+          <div className={styles.multiDayBanner}>
+            <div className={styles.mdbLeft}>
+              <span className={styles.mdbBadge}>🎁 Extended Rental Savings</span>
+              <h3 className={styles.mdbTitle}>Planning a Long Road Trip or Monthly Subscription?</h3>
+              <p className={styles.mdbDesc}>Get special discounted packages on 3-day weekend getaways, 7-day weekly rentals, and monthly subscriptions in Kadapa.</p>
+            </div>
+            <div className={styles.mdbRight}>
+              <div className={styles.mdbPlans}>
+                <div className={styles.mdbPlanItem}>
+                  <span className={styles.mdbPlanDuration}>3-Day Weekend</span>
+                  <span className={styles.mdbPlanPrice}>from ₹4,199</span>
+                </div>
+                <div className={styles.mdbPlanItem}>
+                  <span className={styles.mdbPlanDuration}>7-Day Weekly + T-Shirt</span>
+                  <span className={styles.mdbPlanPrice}>from ₹9,693</span>
+                </div>
+                <div className={styles.mdbPlanItem}>
+                  <span className={styles.mdbPlanDuration}>30-Day Monthly</span>
+                  <span className={styles.mdbPlanPrice}>from ₹24,999</span>
+                </div>
+              </div>
+              <a
+                href={`https://wa.me/${BUSINESS.whatsapp}?text=${encodeURIComponent('Hi Pavan, I want to inquire about multi-day / weekly self-drive rental discounts in Kadapa.')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn--primary"
+              >
+                💬 Claim Rental Discount
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══ 3. TRENDING CHAUFFEUR & PILGRIMAGE PACKAGES (For Travelers Wanting a Driver) ══ */}
       <section className={`section ${styles.packagesSection}`} id="tour-packages">
         <div className="container">
           <div className="section-header">
             <span className="eyebrow">✦ Curated South India Holidays &amp; Pilgrimages ✦</span>
-            <h2>Trending Tour Packages from Kadapa</h2>
+            <h2>Prefer a Chauffeur? Trending Tour Packages from Kadapa</h2>
             <div className="divider" />
-            <p>South India&apos;s most revered sacred temple shrines, dramatic red gorges, and serene hill retreats — all hosted in private sanitized AC vehicles with professional chauffeurs.</p>
+            <p>South India&apos;s most revered sacred temple shrines, dramatic red gorges, and serene hill retreats — all hosted in private sanitized AC vehicles with professional chauffeurs if you prefer relaxing in the back seat.</p>
           </div>
 
           <div className={styles.packagesGrid}>
@@ -540,6 +621,7 @@ export default function HomePage() {
           </div>
           <div className={styles.servicesGrid}>
             {[
+              { id: 'self-drive',       label: 'Self Drive Cars',    icon: '🔑', tag: 'Core Service · XUV 3XO', from: 'from ₹1,499/d', theme: 'brass',  href: '/services/self-drive',         desc: 'Drive yourself in sanitized cars: New Black XUV 3XO SUV, Innova Crysta, Ertiga & Dzire. Free doorstep handover in Kadapa.' },
               { id: 'local-cabs',       label: 'Local Cabs',         icon: '🚗', tag: 'City Rides',    from: 'Best Rate',     theme: 'blue',   href: '/services/local-cabs',         desc: '4hr/40km & 8hr/80km city packages. Driver + AC + Fuel included.' },
               { id: 'outstation-cabs',  label: 'Outstation Cabs',    icon: '🛣️', tag: 'Intercity',    from: 'Call for Fare', theme: 'red',    href: '/services/outstation-cabs',    desc: 'One-way & round-trip travel across AP & South India. Call 24/7 for instant quote.' },
               { id: 'airport-transfers',label: 'Airport Transfers',  icon: '✈️', tag: '24/7 Drops',   from: 'Instant Quote', theme: 'indigo', href: '/services/airport-transfers',  desc: 'Fixed-price pickup & drop to Tirupati, Hyderabad & Bangalore airports.' },
@@ -548,7 +630,6 @@ export default function HomePage() {
               { id: 'corporate-travel', label: 'Corporate Travel',   icon: '🏢', tag: 'GST Ready',    from: 'Custom Quote',  theme: 'slate',  href: '/services/corporate-travel',   desc: 'GST invoices, flexible monthly accounts, and premium executive vehicles.' },
               { id: 'local-sightseeing',label: 'Local Sightseeing',  icon: '🗺️', tag: 'Kadapa City', from: 'Call for Fare', theme: 'green',  href: '/services/local-sightseeing',  desc: 'Curated Kadapa heritage & sightseeing tours. Full-day city exploration.' },
               { id: 'wedding-travel',   label: 'Wedding & Events',   icon: '💒', tag: 'VIP Fleet',    from: 'VIP Quote',     theme: 'rose',   href: '/services/wedding-travel',     desc: 'Decorated premium fleet for weddings, engagements & VIP events.' },
-              { id: 'self-drive',       label: 'Self Drive',         icon: '🔑', tag: 'New XUV 3XO SUV',from: '₹1,499/d',     theme: 'brass',  href: '/services/self-drive',         desc: 'Drive yourself in sanitized cars: Swift Dzire, New Black XUV 3XO SUV & Ertiga. Doorstep handover in Kadapa.' },
             ].map((s, i) => {
               const ServiceVector = serviceIllustrations[s.id] || LocalCabIllustration;
               return (

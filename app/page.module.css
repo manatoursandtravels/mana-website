@@ -649,6 +649,154 @@
 .serviceCard--brass .serviceFromPrice { color: var(--brass-dark); }
 .serviceCard--brass .serviceAccent { background: linear-gradient(90deg, var(--brass-dark), var(--brass-light)); }
 
+/* ─── CORE SELF-DRIVE SECTION ─── */
+.selfDriveCoreSection {
+  background: var(--pearl-bg);
+  position: relative;
+  padding: clamp(64px, 8vw, 110px) 0;
+  border-bottom: 1.5px solid var(--pearl-border);
+}
+
+.selfDriveTrustGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 2vw, 24px);
+  margin-top: 48px;
+}
+
+.sdtCard {
+  background: #FFFFFF;
+  border: 1.5px solid var(--pearl-border);
+  border-radius: var(--r-2xl);
+  padding: 24px 20px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform var(--dur-base) var(--ease-luxury), border-color var(--dur-fast), box-shadow var(--dur-base);
+}
+
+.sdtCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--brass);
+  box-shadow: var(--shadow-md);
+}
+
+.sdtIcon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.sdtTitle {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: var(--charcoal-900);
+  line-height: 1.25;
+}
+
+.sdtDesc {
+  font-size: 0.85rem;
+  color: var(--charcoal-600);
+  line-height: 1.55;
+}
+
+/* Multi-Day Extended Savings Banner */
+.multiDayBanner {
+  margin-top: 36px;
+  background: linear-gradient(135deg, #0B1B3D 0%, #071228 100%);
+  color: #FFFFFF;
+  border-radius: var(--r-3xl);
+  padding: clamp(28px, 4vw, 42px) clamp(24px, 4vw, 48px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  box-shadow: 0 20px 50px rgba(11, 27, 61, 0.25);
+  border: 1.5px solid rgba(212, 175, 55, 0.35);
+}
+
+.mdbLeft {
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mdbBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  color: #FBBF24;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+  width: fit-content;
+}
+
+.mdbTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.25;
+}
+
+.mdbDesc {
+  font-size: 0.9rem;
+  color: #CBD5E1;
+  line-height: 1.55;
+}
+
+.mdbRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.mdbPlans {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.mdbPlanItem {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--r-xl);
+  padding: 12px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.mdbPlanDuration {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #94A3B8;
+  text-transform: uppercase;
+}
+
+.mdbPlanPrice {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #FBBF24;
+}
+
+.heroQuickChipActive {
+  background: linear-gradient(135deg, rgba(184, 142, 62, 0.18) 0%, rgba(245, 158, 11, 0.22) 100%) !important;
+  border-color: var(--brass) !important;
+  box-shadow: 0 4px 14px rgba(184, 142, 62, 0.25) !important;
+}
+
 /* ─── TRENDING TOUR PACKAGES (Core Tours & Travel Category) ─── */
 .packagesSection {
   background: var(--pearl-bg);
@@ -1771,6 +1919,38 @@
   }
   .serviceFromPrice {
     font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .selfDriveTrustGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .mdbRight {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 680px) {
+  .selfDriveTrustGrid {
+    grid-template-columns: 1fr;
+  }
+  .multiDayBanner {
+    padding: 24px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .mdbRight {
+    width: 100%;
+  }
+  .mdbPlans {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .mdbPlanItem {
+    width: 100%;
   }
 }
 

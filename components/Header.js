@@ -7,6 +7,7 @@ import { BUSINESS } from '@/lib/constants';
 import styles from './Header.module.css';
 
 const SERVICES_LINKS = [
+  { href: '/services/self-drive',       label: 'Self Drive Cars',    icon: '🔑', desc: 'New Black XUV 3XO from ₹1,499/d' },
   { href: '/services/local-cabs',       label: 'Local Cabs',         icon: '🚗', desc: '4hr & 8hr city packages' },
   { href: '/services/outstation-cabs',  label: 'Outstation Cabs',    icon: '🛣️', desc: 'One-way & round trips'    },
   { href: '/services/airport-transfers',label: 'Airport Transfers',  icon: '✈️', desc: 'Fixed price, on-time'      },
@@ -15,7 +16,7 @@ const SERVICES_LINKS = [
   { href: '/services/corporate-travel', label: 'Corporate Travel',   icon: '🏢', desc: 'GST invoices, accounts'    },
   { href: '/services/local-sightseeing',label: 'Local Sightseeing',  icon: '🗺️', desc: 'Kadapa city tours'         },
   { href: '/services/wedding-travel',   label: 'Wedding & Events',   icon: '💒', desc: 'Fleet for special days'    },
-  { href: '/services/self-drive',       label: 'Self Drive',         icon: '🔑', desc: 'Drive it yourself'          },
+
   { href: '/used-cars#sell-car-section',label: 'Certified Used Cars',icon: '🚘', desc: 'Sell your car & verified fleet' },
 ];
 
