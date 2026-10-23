@@ -176,12 +176,13 @@ async function run() {
   console.log('====================================================');
 
   let currentData = {
-    profileName: 'MANA Tours & Travels',
+    profileName: 'MANA Tours & Travels | Kadapa',
     category: 'Car Rental Agency · Tours & Travels',
     location: 'Kadapa, Andhra Pradesh (Rayalaseema)',
     placeId: PLACE_ID,
     overallRating: 5.0,
-    totalReviewsCount: 'Verified 5.0 ★ Google Business Rating',
+    reviewCount: 17,
+    totalReviewsCount: '17 Verified 5.0 ★ Google Business Reviews',
     reviews: [],
   };
 

@@ -102,7 +102,7 @@ export default function GoogleReviews({ title, subtitle, filterCategory = null }
               <div className={styles.summaryMeta}>
                 <div className={styles.starsBig}>★★★★★</div>
                 <div className={styles.scoreLabel}>
-                  Based on <strong>{activeReviewsData.totalReviewsCount}</strong> verified reviews
+                  Based on <strong>{activeReviewsData.reviewCount || 17}</strong> verified Google reviews
                 </div>
                 <div className={styles.verifiedLabel}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
