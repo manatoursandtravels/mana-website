@@ -299,8 +299,8 @@ export default function HomePage() {
             </a>
 
             <h1 className={styles.heroH1}>
-              <span className={styles.heroH1Line1}>Drive Yourself with Freedom.</span><br />
-              <span className={styles.heroH1Line2}>Kadapa&apos;s #1 Luxury Mobility Hub.</span>
+              <span className={styles.heroH1Line1}>THE ROAD IS YOURS.</span><br />
+              <span className={styles.heroH1Line2}>Kadapa&apos;s Premier Self-Drive &amp; Luxury Travel Fleet.</span>
             </h1>
 
             <p className={styles.heroP}>
