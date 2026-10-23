@@ -40,7 +40,7 @@
   width: 100%;
 }
 
-/* ─── Logo (Seamless Transparent PNG Integration) ─── */
+/* ─── Logo (Luminous Gold-Framed Luxury Capsule) ─── */
 .logo {
   flex-shrink: 0;
   display: flex;
@@ -50,16 +50,21 @@
 }
 
 .logoImgWrap {
-  height: 48px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: flex-start;
-  transition: transform var(--dur-base) var(--ease-luxury), filter var(--dur-fast);
+  justify-content: center;
+  padding: 4px 14px;
+  background: #FFFFFF;
+  border-radius: var(--r-pill);
+  border: 1.5px solid rgba(229, 192, 123, 0.55);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45), 0 0 14px rgba(229, 192, 123, 0.2);
+  transition: all var(--dur-base) var(--ease-luxury);
 }
 
 .logo:hover .logoImgWrap {
   transform: translateY(-1px) scale(1.02);
-  filter: drop-shadow(0 4px 12px rgba(229, 192, 123, 0.3));
+  border-color: var(--brass);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.6), 0 0 22px rgba(229, 192, 123, 0.35);
 }
 
 /* ─── Nav ─── */
@@ -462,7 +467,7 @@
 }
 
 .mobileSection {
-  border-bottom: 1px solid rgba(14, 19, 31, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .mobileServicesToggle {
@@ -503,7 +508,7 @@
 .mobileNavLink {
   display: block;
   padding: 18px 0;
-  border-bottom: 1px solid rgba(14, 19, 31, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   font-family: var(--font-display);
   font-size: 1.1rem;
   font-weight: 700;
@@ -612,6 +617,12 @@
   .actions .ctaBtn,
   .ctaBtn {
     display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .logoImgWrap {
+    padding: 3px 10px;
   }
 }
 

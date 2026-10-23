@@ -83,7 +83,7 @@
 }
 
 .form :global(.form-input::placeholder) {
-  color: #64748B;
+  color: #94A3B8;
   font-size: 0.84rem;
 }
 
@@ -138,7 +138,7 @@
 .submitNote {
   text-align: center;
   font-size: 0.72rem;
-  color: var(--charcoal-500);
+  color: #94A3B8;
   margin-top: 1px;
   font-weight: 600;
 }

@@ -87,7 +87,7 @@ export default function Footer() {
                     height={90}
                     priority
                     style={{
-                      height: '68px',
+                      height: '52px',
                       width: 'auto',
                       objectFit: 'contain',
                       display: 'block',

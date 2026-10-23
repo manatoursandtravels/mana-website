@@ -53,7 +53,7 @@
   align-items: center;
   gap: 8px;
   background: rgba(232, 93, 4, 0.1);
-  color: #C2410C;
+  color: #FB923C;
   font-family: var(--font-body);
   font-size: 0.76rem;
   font-weight: 800;
@@ -76,7 +76,7 @@
   font-family: var(--font-display);
   font-size: clamp(1.4rem, 4.5vw, 1.85rem);
   font-weight: 900;
-  color: #0A1128;
+  color: #FFFFFF;
   line-height: 1.25;
   margin-bottom: 12px;
 }
@@ -145,7 +145,7 @@
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 1rem;
-  color: #0A1128;
+  color: #FFFFFF;
 }
 
 .callNum {
@@ -178,7 +178,7 @@
   font-family: var(--font-display);
   font-size: 0.85rem;
   font-weight: 800;
-  color: #0A1128;
+  color: var(--brass-light);
   margin-bottom: 12px;
 }
 

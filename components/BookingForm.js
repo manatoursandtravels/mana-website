@@ -249,8 +249,8 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
       {/* 🎁 Promo Dynamic Highlights */}
       {opts.isSelfDrive && (
         <div style={{
-          background: 'linear-gradient(135deg, rgba(11,78,162,0.08) 0%, rgba(56,189,248,0.05) 100%)',
-          border: '1px solid rgba(11,78,162,0.2)',
+          background: 'linear-gradient(135deg, rgba(229,192,123,0.12) 0%, rgba(212,175,55,0.06) 100%)',
+          border: '1px solid rgba(229,192,123,0.35)',
           borderRadius: '12px',
           padding: '10px 14px',
           marginBottom: '16px',
@@ -260,7 +260,7 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
           flexWrap: 'wrap',
           gap: '8px'
         }}>
-          <span style={{ fontSize: '0.82rem', color: '#0B4EA2', fontWeight: 700 }}>
+          <span style={{ fontSize: '0.82rem', color: 'var(--brass-light)', fontWeight: 700 }}>
             ⚡ Want 1-Minute Doorstep Car Key Handover?
           </span>
           <Link
@@ -268,7 +268,7 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
             style={{
               fontSize: '0.78rem',
               fontWeight: 800,
-              color: '#0B4EA2',
+              color: 'var(--brass)',
               textDecoration: 'underline',
               display: 'inline-flex',
               alignItems: 'center',

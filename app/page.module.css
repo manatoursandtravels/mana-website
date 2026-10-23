@@ -559,66 +559,66 @@
 
 /* BRASS / GOLD — Self Drive */
 .serviceCard--brass:hover { border-color: #F59E0B; }
-.serviceCard--brass .serviceVisualStage { background: radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.22) 0%, rgba(254, 243, 199, 0.45) 100%); }
-.serviceCard--brass .serviceBadgePill { background: #FEF3C7; color: #B45309; }
-.serviceCard--brass:hover .serviceActionText { color: #D97706; }
-.serviceCard--brass:hover .serviceArrowCircle { background: #D97706; }
+.serviceCard--brass .serviceVisualStage { background: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.18) 0%, rgba(11, 15, 23, 0.95) 100%); }
+.serviceCard--brass .serviceBadgePill { background: rgba(245, 158, 11, 0.15); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.3); }
+.serviceCard--brass:hover .serviceActionText { color: #FBBF24; }
+.serviceCard--brass:hover .serviceArrowCircle { background: #F59E0B; color: #07090E; }
 
 /* BLUE — Local Cabs */
-.serviceCard--blue:hover { border-color: #3B82F6; }
-.serviceCard--blue .serviceVisualStage { background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.2) 0%, rgba(239, 246, 255, 0.45) 100%); }
-.serviceCard--blue .serviceBadgePill { background: #EFF6FF; color: #1D4ED8; }
-.serviceCard--blue:hover .serviceActionText { color: #1D4ED8; }
-.serviceCard--blue:hover .serviceArrowCircle { background: #1D4ED8; }
+.serviceCard--blue:hover { border-color: #38BDF8; }
+.serviceCard--blue .serviceVisualStage { background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.18) 0%, rgba(11, 15, 23, 0.95) 100%); }
+.serviceCard--blue .serviceBadgePill { background: rgba(56, 189, 248, 0.15); color: #38BDF8; border: 1px solid rgba(56, 189, 248, 0.3); }
+.serviceCard--blue:hover .serviceActionText { color: #38BDF8; }
+.serviceCard--blue:hover .serviceArrowCircle { background: #38BDF8; color: #07090E; }
 
 /* RED — Outstation Cabs */
 .serviceCard--red:hover { border-color: #EF4444; }
-.serviceCard--red .serviceVisualStage { background: radial-gradient(circle at 50% 50%, rgba(239, 68, 68, 0.18) 0%, rgba(254, 242, 242, 0.45) 100%); }
-.serviceCard--red .serviceBadgePill { background: #FEF2F2; color: #DC2626; }
-.serviceCard--red:hover .serviceActionText { color: #DC2626; }
-.serviceCard--red:hover .serviceArrowCircle { background: #DC2626; }
+.serviceCard--red .serviceVisualStage { background: radial-gradient(circle at 50% 50%, rgba(239, 68, 68, 0.18) 0%, rgba(11, 15, 23, 0.95) 100%); }
+.serviceCard--red .serviceBadgePill { background: rgba(239, 68, 68, 0.15); color: #F87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+.serviceCard--red:hover .serviceActionText { color: #F87171; }
+.serviceCard--red:hover .serviceArrowCircle { background: #EF4444; color: #FFFFFF; }
 
 /* INDIGO — Airport Transfers */
-.serviceCard--indigo:hover { border-color: #6366F1; }
-.serviceCard--indigo .serviceVisualStage { background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.2) 0%, rgba(238, 242, 255, 0.45) 100%); }
-.serviceCard--indigo .serviceBadgePill { background: #EEF2FF; color: #4F46E5; }
-.serviceCard--indigo:hover .serviceActionText { color: #4F46E5; }
-.serviceCard--indigo:hover .serviceArrowCircle { background: #4F46E5; }
+.serviceCard--indigo:hover { border-color: #818CF8; }
+.serviceCard--indigo .serviceVisualStage { background: radial-gradient(circle at 50% 50%, rgba(129, 140, 248, 0.18) 0%, rgba(11, 15, 23, 0.95) 100%); }
+.serviceCard--indigo .serviceBadgePill { background: rgba(129, 140, 248, 0.15); color: #A5B4FC; border: 1px solid rgba(129, 140, 248, 0.3); }
+.serviceCard--indigo:hover .serviceActionText { color: #A5B4FC; }
+.serviceCard--indigo:hover .serviceArrowCircle { background: #818CF8; color: #07090E; }
 
 /* AMBER — Pilgrimage Tours */
-.serviceCard--amber:hover { border-color: #F59E0B; }
-.serviceCard--amber .serviceVisualStage { background: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.22) 0%, rgba(254, 243, 199, 0.5) 100%); }
-.serviceCard--amber .serviceBadgePill { background: #FEF3C7; color: #92400E; }
-.serviceCard--amber:hover .serviceActionText { color: #92400E; }
-.serviceCard--amber:hover .serviceArrowCircle { background: #92400E; }
+.serviceCard--amber:hover { border-color: var(--brass); }
+.serviceCard--amber .serviceVisualStage { background: radial-gradient(circle at 50% 50%, rgba(229, 192, 123, 0.18) 0%, rgba(11, 15, 23, 0.95) 100%); }
+.serviceCard--amber .serviceBadgePill { background: rgba(229, 192, 123, 0.15); color: var(--brass-light); border: 1px solid rgba(229, 192, 123, 0.3); }
+.serviceCard--amber:hover .serviceActionText { color: var(--brass-light); }
+.serviceCard--amber:hover .serviceArrowCircle { background: var(--brass); color: #07090E; }
 
 /* TEAL — Tour Packages */
-.serviceCard--teal:hover { border-color: #14B8A6; }
-.serviceCard--teal .serviceVisualStage { background: radial-gradient(circle at 50% 50%, rgba(20, 184, 166, 0.2) 0%, rgba(240, 253, 250, 0.45) 100%); }
-.serviceCard--teal .serviceBadgePill { background: #F0FDFA; color: #0D9488; }
-.serviceCard--teal:hover .serviceActionText { color: #0D9488; }
-.serviceCard--teal:hover .serviceArrowCircle { background: #0D9488; }
+.serviceCard--teal:hover { border-color: #2DD4BF; }
+.serviceCard--teal .serviceVisualStage { background: radial-gradient(circle at 50% 50%, rgba(45, 212, 191, 0.18) 0%, rgba(11, 15, 23, 0.95) 100%); }
+.serviceCard--teal .serviceBadgePill { background: rgba(45, 212, 191, 0.15); color: #2DD4BF; border: 1px solid rgba(45, 212, 191, 0.3); }
+.serviceCard--teal:hover .serviceActionText { color: #2DD4BF; }
+.serviceCard--teal:hover .serviceArrowCircle { background: #2DD4BF; color: #07090E; }
 
 /* SLATE — Corporate Travel */
-.serviceCard--slate:hover { border-color: #64748B; }
-.serviceCard--slate .serviceVisualStage { background: radial-gradient(circle at 50% 50%, rgba(100, 116, 139, 0.18) 0%, rgba(248, 250, 252, 0.45) 100%); }
-.serviceCard--slate .serviceBadgePill { background: #F1F5F9; color: #334155; }
-.serviceCard--slate:hover .serviceActionText { color: #334155; }
-.serviceCard--slate:hover .serviceArrowCircle { background: #334155; }
+.serviceCard--slate:hover { border-color: #94A3B8; }
+.serviceCard--slate .serviceVisualStage { background: radial-gradient(circle at 50% 50%, rgba(148, 163, 184, 0.18) 0%, rgba(11, 15, 23, 0.95) 100%); }
+.serviceCard--slate .serviceBadgePill { background: rgba(148, 163, 184, 0.15); color: #E2E8F0; border: 1px solid rgba(148, 163, 184, 0.3); }
+.serviceCard--slate:hover .serviceActionText { color: #E2E8F0; }
+.serviceCard--slate:hover .serviceArrowCircle { background: #94A3B8; color: #07090E; }
 
 /* GREEN — Local Sightseeing */
-.serviceCard--green:hover { border-color: #10B981; }
-.serviceCard--green .serviceVisualStage { background: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.2) 0%, rgba(236, 253, 245, 0.45) 100%); }
-.serviceCard--green .serviceBadgePill { background: #ECFDF5; color: #059669; }
-.serviceCard--green:hover .serviceActionText { color: #059669; }
-.serviceCard--green:hover .serviceArrowCircle { background: #059669; }
+.serviceCard--green:hover { border-color: #34D399; }
+.serviceCard--green .serviceVisualStage { background: radial-gradient(circle at 50% 50%, rgba(52, 211, 153, 0.18) 0%, rgba(11, 15, 23, 0.95) 100%); }
+.serviceCard--green .serviceBadgePill { background: rgba(52, 211, 153, 0.15); color: #34D399; border: 1px solid rgba(52, 211, 153, 0.3); }
+.serviceCard--green:hover .serviceActionText { color: #34D399; }
+.serviceCard--green:hover .serviceArrowCircle { background: #34D399; color: #07090E; }
 
 /* ROSE — Wedding & Events */
-.serviceCard--rose:hover { border-color: #F43F5E; }
-.serviceCard--rose .serviceVisualStage { background: radial-gradient(circle at 50% 50%, rgba(244, 63, 94, 0.2) 0%, rgba(255, 241, 242, 0.45) 100%); }
-.serviceCard--rose .serviceBadgePill { background: #FFF1F2; color: #E11D48; }
-.serviceCard--rose:hover .serviceActionText { color: #E11D48; }
-.serviceCard--rose:hover .serviceArrowCircle { background: #E11D48; }
+.serviceCard--rose:hover { border-color: #FB7185; }
+.serviceCard--rose .serviceVisualStage { background: radial-gradient(circle at 50% 50%, rgba(251, 113, 133, 0.18) 0%, rgba(11, 15, 23, 0.95) 100%); }
+.serviceCard--rose .serviceBadgePill { background: rgba(251, 113, 133, 0.15); color: #FB7185; border: 1px solid rgba(251, 113, 133, 0.3); }
+.serviceCard--rose:hover .serviceActionText { color: #FB7185; }
+.serviceCard--rose:hover .serviceArrowCircle { background: #FB7185; color: #07090E; }
 
 /* ─── CORE SELF-DRIVE SECTION ─── */
 .selfDriveCoreSection {

@@ -294,7 +294,7 @@ export default function SelfDriveLandingPage() {
                 <a href="#booking" className="btn btn--primary btn--xl">
                   🚗 Reserve Your Car — Check Availability
                 </a>
-                <Link href="/self-drive-kyc" className="btn btn--white btn--xl" style={{ borderColor: '#0B4EA2', color: '#0B4EA2' }}>
+                <Link href="/self-drive-kyc" className="btn btn--white btn--xl" style={{ borderColor: 'var(--brass-border)', color: 'var(--brass-light)' }}>
                   ⚡ Fast-Track 2-Min Digital KYC
                 </Link>
                 <a

@@ -77,7 +77,7 @@ export default function Header() {
                 alt="MANA Tours & Travels"
                 width={185}
                 height={50}
-                style={{ objectFit: 'contain', height: '44px', width: 'auto', display: 'block' }}
+                style={{ objectFit: 'contain', height: '36px', width: 'auto', display: 'block' }}
                 priority
               />
             </div>

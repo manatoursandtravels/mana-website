@@ -40,14 +40,14 @@
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 900;
-  color: #0A1128;
+  color: #FFFFFF;
   line-height: 1.2;
   margin-bottom: 10px;
 }
 
 .portalSubtitle {
   font-size: 0.98rem;
-  color: #4B5563;
+  color: #94A3B8;
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.5;
@@ -68,7 +68,7 @@
   left: 30px;
   right: 30px;
   height: 3px;
-  background: #E5E7EB;
+  background: rgba(255, 255, 255, 0.12);
   z-index: 1;
 }
 
@@ -124,7 +124,7 @@
 .stepLabel {
   font-size: 0.76rem;
   font-weight: 700;
-  color: #6B7280;
+  color: #94A3B8;
   text-align: center;
 }
 
@@ -151,7 +151,7 @@
   gap: 12px;
   margin-bottom: 24px;
   padding-bottom: 14px;
-  border-bottom: 1.5px solid #F3F4F6;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.08);
 }
 
 .sectionIcon {
@@ -162,12 +162,12 @@
   font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 800;
-  color: #0A1128;
+  color: #FFFFFF;
 }
 
 .sectionSub {
   font-size: 0.82rem;
-  color: #6B7280;
+  color: #94A3B8;
   margin-top: 2px;
 }
 
@@ -195,7 +195,7 @@
 .inputLabel {
   font-size: 0.84rem;
   font-weight: 700;
-  color: #374151;
+  color: #CBD5E1;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -210,13 +210,15 @@
   width: 100%;
   padding: 12px 16px;
   background: rgba(7, 9, 14, 0.45); border-color: rgba(229, 192, 123, 0.35);
-  border: 1.5px solid #E5E7EB;
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
   font-family: var(--font-body);
   font-size: 0.95rem;
-  color: #111827;
+  color: #FFFFFF;
   transition: all 0.2s ease;
 }
+
+.textInput::placeholder, .selectInput::placeholder { color: #94A3B8; }
 
 .textInput:focus,
 .selectInput:focus {
@@ -249,8 +251,8 @@
 }
 
 .uploadBox:hover {
-  border-color: #0B4EA2;
-  background: #F0F7FF;
+  border-color: var(--brass-light);
+  background: rgba(229, 192, 123, 0.08);
 }
 
 .uploadBoxActive {
@@ -266,13 +268,13 @@
 .uploadTitle {
   font-weight: 700;
   font-size: 0.88rem;
-  color: #1F2937;
+  color: #FFFFFF;
   margin-bottom: 4px;
 }
 
 .uploadHint {
   font-size: 0.74rem;
-  color: #6B7280;
+  color: #94A3B8;
 }
 
 .previewImage {
@@ -295,7 +297,7 @@
 /* ── Fuel Gauge Visualizer ── */
 .fuelSliderWrap {
   background: rgba(7, 9, 14, 0.45); border-color: rgba(229, 192, 123, 0.35);
-  border: 1.5px solid #E5E7EB;
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
   padding: 24px;
   margin-bottom: 24px;
@@ -312,14 +314,14 @@
   font-family: var(--font-display);
   font-size: 1.8rem;
   font-weight: 900;
-  color: #0B4EA2;
+  color: var(--brass-light);
 }
 
 .fuelSlider {
   width: 100%;
   height: 10px;
   border-radius: 5px;
-  background: #E5E7EB;
+  background: rgba(255, 255, 255, 0.12);
   outline: none;
   -webkit-appearance: none;
   appearance: none;
@@ -343,7 +345,7 @@
   justify-content: space-between;
   font-size: 0.76rem;
   font-weight: 700;
-  color: #6B7280;
+  color: #94A3B8;
   margin-top: 8px;
 }
 
@@ -360,26 +362,26 @@
   align-items: center;
   gap: 10px;
   background: rgba(7, 9, 14, 0.45); border-color: rgba(229, 192, 123, 0.35);
-  border: 1.5px solid #E5E7EB;
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
   padding: 12px 14px;
   border-radius: 12px;
   cursor: pointer;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #374151;
+  color: #CBD5E1;
   transition: all 0.2s ease;
 }
 
 .checkItemActive {
-  background: #EFF6FF;
-  border-color: #3B82F6;
-  color: #1E40AF;
+  background: rgba(229, 192, 123, 0.15);
+  border-color: var(--brass);
+  color: #FFFFFF;
 }
 
 /* ── Digital Signature Canvas Pad ── */
 .signaturePadWrap {
   background: rgba(7, 9, 14, 0.45); border-color: rgba(229, 192, 123, 0.35);
-  border: 2px dashed #CBD5E1;
+  border: 2px dashed rgba(229, 192, 123, 0.35);
   border-radius: 16px;
   padding: 16px;
   text-align: center;
@@ -405,8 +407,8 @@
 
 .sigClearBtn {
   background: transparent;
-  border: 1px solid #D1D5DB;
-  color: #6B7280;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #94A3B8;
   padding: 6px 14px;
   border-radius: 8px;
   font-size: 0.78rem;
@@ -415,8 +417,8 @@
 }
 
 .sigClearBtn:hover {
-  background: #F3F4F6;
-  color: #111827;
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
 }
 
 /* ── Terms Box ── */
@@ -435,9 +437,9 @@
 }
 
 .backBtn {
-  background: #F3F4F6;
+  background: rgba(255, 255, 255, 0.08);
   border: 1px solid #E5E7EB;
-  color: #4B5563;
+  color: #94A3B8;
   padding: 12px 24px;
   border-radius: 12px;
   font-weight: 700;
@@ -447,8 +449,8 @@
 }
 
 .backBtn:hover {
-  background: #E5E7EB;
-  color: #111827;
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
 }
 
 .nextBtn {

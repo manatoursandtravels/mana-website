@@ -451,10 +451,10 @@ _Submitted via MANA Tours & Travels 2-Minute Digital Handover Portal_`;
               <div className={styles.fuelSliderWrap}>
                 <div className={styles.fuelMeterDisplay}>
                   <div>
-                    <div style={{ fontWeight: 800, fontSize: '0.95rem', color: '#111827' }}>
+                    <div style={{ fontWeight: 800, fontSize: '0.95rem', color: '#FFFFFF' }}>
                       Initial Fuel Tank Level:
                     </div>
-                    <div style={{ fontSize: '0.78rem', color: '#6B7280' }}>
+                    <div style={{ fontSize: '0.78rem', color: '#94A3B8' }}>
                       Zero fuel markup. Return car at approximately the same level.
                     </div>
                   </div>
@@ -493,7 +493,7 @@ _Submitted via MANA Tours & Travels 2-Minute Digital Handover Portal_`;
               </div>
 
               {/* Vehicle Checklist */}
-              <div style={{ fontWeight: 800, fontSize: '0.9rem', color: '#1F2937', marginBottom: '10px' }}>
+              <div style={{ fontWeight: 800, fontSize: '0.9rem', color: '#FFFFFF', marginBottom: '10px' }}>
                 Pre-Trip Handover Confirmation:
               </div>
               <div className={styles.checklistGrid}>
