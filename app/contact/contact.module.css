@@ -24,9 +24,9 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: #FFFFFF;
-  border: 1px solid var(--brass-border);
-  color: var(--brass-dark);
+  background: rgba(16, 22, 34, 0.92);
+  border: 1px solid rgba(229, 192, 123, 0.35);
+  color: var(--brass-light);
   padding: 6px 18px;
   border-radius: var(--r-pill);
   font-family: var(--font-body);
@@ -35,7 +35,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 16px;
-  box-shadow: var(--shadow-xs);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
 }
 
 .heroTitle {
@@ -340,11 +340,14 @@
 }
 
 .formCard {
-  background: #FFFFFF;
-  border: 1.5px solid var(--pearl-border);
+  background: rgba(16, 22, 34, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--r-3xl);
   padding: clamp(32px, 4vw, 48px);
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
 }
 
 .formHeader {
@@ -385,11 +388,14 @@
 }
 
 .infoCard {
-  background: #FFFFFF;
-  border: 1px solid var(--pearl-border);
+  background: rgba(16, 22, 34, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--r-2xl);
   padding: 28px;
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
   display: flex;
   gap: 18px;
   align-items: flex-start;
@@ -421,7 +427,7 @@
 
 /* Response Guarantee Badge */
 .guaranteeBanner {
-  background: linear-gradient(135deg, var(--brass-subtle) 0%, #FFFFFF 100%);
+  background: rgba(16, 22, 34, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
   border: 1.5px solid var(--brass-border);
   border-radius: var(--r-2xl);
   padding: 22px 26px;

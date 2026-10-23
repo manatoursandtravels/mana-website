@@ -19,10 +19,7 @@
 
 .togglePill {
   display: inline-flex;
-  background: #FFFFFF;
-  padding: 6px;
-  border-radius: var(--r-pill);
-  border: 1.5px solid var(--brass-border);
+  background: rgba(16, 22, 34, 0.9); padding: 6px; border-radius: var(--r-pill); border: 1.5px solid rgba(229, 192, 123, 0.35);
   box-shadow: 0 8px 24px rgba(14, 19, 31, 0.06);
   gap: 6px;
 }
@@ -44,7 +41,7 @@
 }
 
 .toggleBtnActive {
-  background: linear-gradient(135deg, var(--charcoal-900) 0%, var(--charcoal-800) 100%);
+  background: linear-gradient(135deg, var(--brass) 0%, var(--brass-dark) 100%); color: #07090E !important;
   color: #FFFFFF;
   box-shadow: 0 4px 14px rgba(14, 19, 31, 0.25);
 }
@@ -109,8 +106,11 @@
 
 /* ── Base Card ── */
 .card {
-  background: #FFFFFF;
-  border: 1.5px solid rgba(14, 19, 31, 0.08);
+  background: rgba(16, 22, 34, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--r-2xl);
   padding: clamp(22px, 2.2vw, 28px);
   display: flex;
@@ -118,7 +118,7 @@
   gap: 14px;
   position: relative;
   transition: all var(--dur-slow) var(--ease-luxury);
-  box-shadow: 0 12px 32px rgba(14, 19, 31, 0.04);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
 }
 
 .card:hover {
@@ -130,7 +130,7 @@
 /* Featured Weekly Plan Card */
 .cardFeatured {
   border-color: var(--brass);
-  background: linear-gradient(180deg, #FFFFFF 0%, #FFFDF9 100%);
+  background: rgba(22, 30, 46, 0.95);
   box-shadow: 0 20px 48px rgba(184, 142, 62, 0.14);
   transform: translateY(-4px);
 }
@@ -404,11 +404,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
-  background: #FFFFFF;
-  border: 1.5px solid var(--brass-border);
-  border-radius: var(--r-2xl);
-  padding: clamp(18px, 2.5vw, 24px);
-  box-shadow: 0 10px 30px rgba(14, 19, 31, 0.05);
+  background: rgba(16, 22, 34, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1.5px solid rgba(229, 192, 123, 0.32); border-radius: var(--r-2xl); padding: clamp(18px, 2.5vw, 24px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
 }
 
 .guaranteeItem {

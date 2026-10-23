@@ -151,14 +151,7 @@
 }
 
 .filterBtn {
-  background: #FFFFFF;
-  border: 1.5px solid #CBD5E1;
-  border-radius: var(--r-pill);
-  padding: 7px 14px;
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  font-weight: 800;
-  color: var(--charcoal-700);
+  background: rgba(16, 22, 34, 0.85); border: 1.5px solid rgba(255, 255, 255, 0.12); border-radius: var(--r-pill); padding: 7px 14px; font-family: var(--font-body); font-size: 0.8rem; font-weight: 800; color: #CBD5E1;
   cursor: pointer;
   transition: all var(--dur-fast);
   white-space: nowrap;
@@ -170,10 +163,10 @@
 }
 
 .filterBtnActive {
-  background: var(--navy);
-  color: #FFFFFF;
-  border-color: var(--navy);
-  box-shadow: 0 4px 12px rgba(14, 19, 31, 0.2);
+  background: var(--brass);
+  color: #07090E;
+  border-color: var(--brass);
+  box-shadow: 0 4px 14px rgba(229, 192, 123, 0.35);
 }
 
 .resultCountBadge {
@@ -188,7 +181,7 @@
 /* ══ INVENTORY SHOWCASE GRID ══ */
 .inventorySection {
   padding: 56px 0 72px;
-  background: #FFFFFF;
+  background: var(--pearl-bg);
 }
 
 .inventoryGrid {
@@ -213,7 +206,7 @@
 
 /* ══ PROMISE & GUARANTEE SECTION ══ */
 .promiseSection {
-  background: #F8FAFC;
+  background: var(--pearl-subtle);
   padding: 80px 0;
   position: relative;
 }
@@ -226,11 +219,14 @@
 }
 
 .promiseCard {
-  background: #FFFFFF;
+  background: rgba(16, 22, 34, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: var(--r-2xl);
   padding: 28px 24px;
-  border: 1.5px solid rgba(14, 19, 31, 0.08);
-  box-shadow: 0 8px 24px rgba(14, 19, 31, 0.04);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -271,7 +267,7 @@
 /* ══ EMI CALCULATOR SECTION ══ */
 .calcSection {
   padding: 80px 0;
-  background: #FFFFFF;
+  background: var(--pearl-bg);
 }
 
 /* ══ SELL CAR VALUATION SECTION ══ */
@@ -283,7 +279,7 @@
 /* ══ FAQS ACCORDION ══ */
 .faqSection {
   padding: 80px 0 96px;
-  background: #FFFFFF;
+  background: var(--pearl-subtle);
 }
 
 .faqGrid {
@@ -295,17 +291,17 @@
 }
 
 .faqItem {
-  background: #F8FAFC;
-  border: 1.5px solid rgba(14, 19, 31, 0.08);
+  background: rgba(16, 22, 34, 0.85);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--r-xl);
   overflow: hidden;
   transition: all var(--dur-fast);
 }
 
 .faqItemOpen {
-  background: #FFFFFF;
+  background: rgba(22, 30, 46, 0.95);
   border-color: var(--brass);
-  box-shadow: 0 8px 24px rgba(184, 142, 62, 0.08);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65);
 }
 
 .faqQuestion {

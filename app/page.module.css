@@ -783,10 +783,13 @@
 }
 
 .pkgCard {
-  background: #FFFFFF;
+  background: rgba(16, 22, 34, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: var(--r-2xl);
-  border: 1.5px solid var(--pearl-border);
-  box-shadow: var(--shadow-sm);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -796,7 +799,7 @@
 
 .pkgCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 18px 44px rgba(14, 19, 31, 0.09), 0 4px 16px rgba(184, 142, 62, 0.12);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85), 0 0 24px rgba(229, 192, 123, 0.22);
   border-color: var(--brass);
 }
 
@@ -804,7 +807,7 @@
   position: relative;
   height: 220px;
   overflow: hidden;
-  background: var(--pearl-subtle);
+  background: rgba(11, 15, 23, 0.95);
 }
 
 .pkgImg {
@@ -819,7 +822,7 @@
 .pkgImgOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(14, 19, 31, 0.35) 0%, transparent 40%, rgba(14, 19, 31, 0.65) 100%);
+  background: linear-gradient(180deg, rgba(7, 9, 14, 0.35) 0%, transparent 40%, rgba(7, 9, 14, 0.85) 100%);
   pointer-events: none;
 }
 
@@ -842,13 +845,13 @@
   text-transform: uppercase;
   padding: 5px 12px;
   border-radius: var(--r-pill);
-  background: var(--brand-blue);
-  color: #FFFFFF;
-  box-shadow: 0 4px 12px rgba(11, 78, 162, 0.35);
+  background: linear-gradient(135deg, var(--brass) 0%, var(--brass-dark) 100%);
+  color: #07090E;
+  box-shadow: 0 4px 12px rgba(229, 192, 123, 0.35);
 }
 
 .pkgDurationBadge {
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -867,8 +870,9 @@
   font-family: var(--font-body);
   font-size: 0.72rem;
   font-weight: 700;
-  color: #FFFFFF;
-  background: rgba(14, 19, 31, 0.75);
+  color: var(--brass-light);
+  background: rgba(7, 9, 14, 0.85);
+  border: 1px solid rgba(229, 192, 123, 0.3);
   padding: 3px 9px;
   border-radius: var(--r-pill);
   backdrop-filter: blur(6px);
@@ -886,14 +890,14 @@
   font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 800;
-  color: var(--charcoal-900);
+  color: #FFFFFF;
   letter-spacing: -0.015em;
   line-height: 1.25;
 }
 
 .pkgSub {
   font-size: 0.84rem;
-  color: var(--charcoal-500);
+  color: var(--brass);
   line-height: 1.45;
 }
 
@@ -902,8 +906,8 @@
   flex-direction: column;
   gap: 6px;
   padding: 10px 0;
-  border-top: 1px solid var(--pearl-border);
-  border-bottom: 1px solid var(--pearl-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .pkgIncItem {
@@ -911,12 +915,12 @@
   align-items: center;
   gap: 8px;
   font-size: 0.8rem;
-  color: var(--charcoal-700);
+  color: #CBD5E1;
 }
 
 .pkgIncItem::before {
   content: '✓';
-  color: var(--brass-dark);
+  color: var(--brass-light);
   font-weight: 800;
 }
 
@@ -932,12 +936,12 @@
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 1.22rem;
-  color: var(--brand-blue);
+  color: var(--brass-light);
 }
 
 .pkgPriceSub {
   font-size: 0.74rem;
-  color: var(--charcoal-500);
+  color: #94A3B8;
 }
 
 .pkgActions {
@@ -954,18 +958,20 @@
   justify-content: center;
   gap: 6px;
   padding: 10px 14px;
-  background: #25D366;
+  background: linear-gradient(135deg, #25D366 0%, #16A34A 100%);
   color: #FFFFFF;
   font-family: var(--font-display);
   font-size: 0.8rem;
   font-weight: 800;
   border-radius: var(--r-pill);
   text-decoration: none;
-  transition: background 0.15s ease;
+  transition: all 0.15s ease;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
 }
 
 .pkgWaBtn:hover {
-  background: #1eb956;
+  background: linear-gradient(135deg, #28e871 0%, #18b753 100%);
+  transform: translateY(-1px);
 }
 
 .pkgBookBtn {
@@ -975,18 +981,22 @@
   justify-content: center;
   gap: 4px;
   padding: 10px 14px;
-  background: var(--charcoal-900);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.16);
   color: #FFFFFF;
   font-family: var(--font-display);
   font-size: 0.8rem;
   font-weight: 800;
   border-radius: var(--r-pill);
   text-decoration: none;
-  transition: background 0.15s ease;
+  transition: all 0.15s ease;
 }
 
 .pkgBookBtn:hover {
-  background: var(--brand-blue);
+  background: rgba(229, 192, 123, 0.15);
+  border-color: var(--brass);
+  color: var(--brass-light);
+  transform: translateY(-1px);
 }
 
 /* ─── LUXURY FLEET SHOWCASE SECTION ─── */
@@ -1003,10 +1013,13 @@
 }
 
 .fleetCard {
-  background: #FFFFFF;
+  background: rgba(16, 22, 34, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: var(--r-2xl);
-  border: 1.5px solid var(--pearl-border);
-  box-shadow: var(--shadow-sm);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -1014,15 +1027,15 @@
 }
 
 .fleetCard:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   border-color: var(--brass);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85), 0 0 28px rgba(229, 192, 123, 0.25);
 }
 
 .fleetImgWrap {
   position: relative;
   height: 200px;
-  background: radial-gradient(ellipse at center 90%, rgba(184, 142, 62, 0.12) 0%, rgba(11, 78, 162, 0.06) 45%, var(--pearl-subtle) 80%);
+  background: radial-gradient(ellipse at center 90%, rgba(229, 192, 123, 0.15) 0%, rgba(16, 22, 34, 0.6) 60%, rgba(7, 9, 14, 0.9) 100%);
   overflow: hidden;
 }
 
@@ -1046,10 +1059,11 @@
   text-transform: uppercase;
   padding: 4px 10px;
   border-radius: var(--r-pill);
-  background: var(--charcoal-900);
-  color: #FFFFFF;
+  background: rgba(7, 9, 14, 0.85);
+  border: 1px solid rgba(229, 192, 123, 0.35);
+  color: var(--brass-light);
   z-index: 2;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .fleetRatingBadge {
@@ -1059,7 +1073,8 @@
   font-size: 0.72rem;
   font-weight: 800;
   color: #FFFFFF;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   padding: 3px 8px;
   border-radius: var(--r-pill);
   backdrop-filter: blur(6px);
@@ -1076,31 +1091,31 @@
 
 .fleetName {
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 1.18rem;
   font-weight: 800;
-  color: var(--charcoal-900);
+  color: #FFFFFF;
   letter-spacing: -0.015em;
   line-height: 1.25;
 }
 
 .fleetSubtitle {
-  font-size: 0.8rem;
-  color: var(--charcoal-500);
+  font-size: 0.82rem;
+  color: #94A3B8;
   line-height: 1.4;
 }
 
 .fleetSpecsGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6px;
-  padding: 8px 0;
-  border-top: 1px solid var(--pearl-border);
-  border-bottom: 1px solid var(--pearl-border);
+  gap: 8px;
+  padding: 10px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .fleetSpecItem {
-  font-size: 0.76rem;
-  color: var(--charcoal-700);
+  font-size: 0.78rem;
+  color: #CBD5E1;
   font-weight: 600;
 }
 
@@ -1113,14 +1128,14 @@
 
 .fleetRateVal {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 900;
-  color: var(--brand-blue);
+  color: var(--brass);
 }
 
 .fleetRateLabel {
-  font-size: 0.72rem;
-  color: var(--charcoal-500);
+  font-size: 0.74rem;
+  color: #94A3B8;
   font-weight: 600;
 }
 
@@ -1145,11 +1160,13 @@
   font-weight: 800;
   border-radius: var(--r-pill);
   text-decoration: none;
-  transition: background 0.15s ease;
+  transition: background 0.15s ease, transform 0.15s ease;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
 }
 
 .fleetWaBtn:hover {
   background: #1eb956;
+  transform: translateY(-1px);
 }
 
 .fleetDetailBtn {
@@ -1157,22 +1174,25 @@
   align-items: center;
   justify-content: center;
   padding: 10px 14px;
-  background: var(--charcoal-100);
-  color: var(--charcoal-900);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
   font-family: var(--font-display);
   font-size: 0.8rem;
   font-weight: 700;
   border-radius: var(--r-pill);
   text-decoration: none;
-  transition: background 0.15s ease;
+  transition: all 0.15s ease;
 }
 
 .fleetDetailBtn:hover {
-  background: var(--brass-dim);
-  color: var(--brass-dark);
+  background: rgba(229, 192, 123, 0.18);
+  border-color: var(--brass);
+  color: var(--brass-light);
+  transform: translateY(-1px);
 }
 
-/* ─── RATES SECTION (Luminous Pearl) ─── */
+/* ─── RATES SECTION (Dark Obsidian) ─── */
 .ratesSection {
   position: relative;
   background: var(--pearl-bg);
@@ -1184,8 +1204,8 @@
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(circle at 20% 50%, rgba(184, 142, 62, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 80% 50%, rgba(11, 78, 162, 0.03) 0%, transparent 50%);
+    radial-gradient(circle at 20% 50%, rgba(229, 192, 123, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(16, 22, 34, 0.6) 0%, transparent 50%);
 }
 
 .ratesGrid {
@@ -1196,21 +1216,22 @@
 }
 
 .rateCard {
-  background: #FFFFFF;
-  border: 1.5px solid var(--pearl-border);
-  border-top: 2px solid rgba(255, 255, 255, 0.95);
+  background: rgba(16, 22, 34, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.16);
   border-radius: var(--r-2xl);
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(14, 19, 31, 0.05), 0 16px 40px rgba(11, 78, 162, 0.05);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
   transition: all var(--dur-base) var(--ease-luxury);
   display: flex;
   flex-direction: column;
-  transform-style: preserve-3d;
 }
 
 .rateCard:hover {
   border-color: var(--brass);
-  box-shadow: 0 18px 48px rgba(14, 19, 31, 0.1), 0 24px 60px rgba(184, 142, 62, 0.14);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85), 0 0 28px rgba(229, 192, 123, 0.22);
   transform: translateY(-6px);
 }
 
@@ -1219,8 +1240,8 @@
   align-items: center;
   gap: 12px;
   padding: 20px 24px;
-  border-bottom: 1px solid var(--pearl-border);
-  background: var(--brass-subtle);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(229, 192, 123, 0.08);
 }
 
 .rateCardIcon {
@@ -1230,8 +1251,8 @@
 .rateCardTitle {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 1.05rem;
-  color: var(--charcoal-900);
+  font-size: 1.1rem;
+  color: #FFFFFF;
   letter-spacing: -0.01em;
 }
 
@@ -1248,7 +1269,7 @@
   align-items: center;
   gap: 12px;
   padding: 13px 0;
-  border-bottom: 1px solid rgba(14, 19, 31, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .rateRow:last-child {
@@ -1257,7 +1278,7 @@
 
 .rateLabel {
   font-size: 0.94rem;
-  color: var(--charcoal-700);
+  color: #CBD5E1;
   font-weight: 500;
 }
 
@@ -1270,13 +1291,13 @@
 .rateVal {
   font-family: var(--font-display);
   font-weight: 800;
-  color: var(--brand-red);
-  font-size: 1rem;
+  color: var(--brass);
+  font-size: 1.05rem;
   white-space: nowrap;
 }
 
 .rateSep {
-  color: var(--charcoal-400);
+  color: rgba(255, 255, 255, 0.3);
   font-size: 0.75rem;
 }
 
@@ -1284,25 +1305,25 @@
   font-family: var(--font-body);
   font-size: 0.82rem;
   font-weight: 600;
-  color: var(--charcoal-500);
+  color: #94A3B8;
   white-space: nowrap;
 }
 
 .rateCardFoot {
   padding: 14px 24px 18px;
   font-size: 0.82rem;
-  color: var(--charcoal-500);
-  border-top: 1px solid var(--pearl-border);
-  background: var(--pearl-bg);
+  color: #94A3B8;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(7, 9, 14, 0.5);
 }
 
 .ratesDisclaimer {
   text-align: center;
   font-size: 0.95rem;
-  color: var(--charcoal-600);
+  color: #CBD5E1;
   padding: 18px 28px;
-  background: var(--brass-subtle);
-  border: 1px solid var(--brass-border);
+  background: rgba(229, 192, 123, 0.08);
+  border: 1px solid rgba(229, 192, 123, 0.28);
   border-radius: var(--r-xl);
   max-width: 900px;
   margin-inline: auto;
@@ -1325,14 +1346,14 @@
   min-height: 520px;
   border-radius: var(--r-3xl);
   overflow: hidden;
-  border: 1px solid var(--pearl-border);
-  box-shadow: var(--shadow-2xl);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
 }
 
 .testimonialImgOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(14, 19, 31, 0.75) 0%, transparent 65%);
+  background: linear-gradient(to top, rgba(7, 9, 14, 0.85) 0%, transparent 65%);
   z-index: 1;
 }
 
@@ -1341,14 +1362,14 @@
   bottom: 28px;
   left: 28px;
   z-index: 2;
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(16, 22, 34, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--brass-border);
+  border: 1.5px solid rgba(229, 192, 123, 0.35);
   border-radius: var(--r-2xl);
   padding: 20px 28px;
   text-align: center;
-  box-shadow: var(--shadow-xl);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(229, 192, 123, 0.15);
 }
 
 .tibStars {
@@ -1361,7 +1382,7 @@
   font-family: var(--font-display);
   font-weight: 900;
   font-size: 2.6rem;
-  color: var(--charcoal-900);
+  color: #FFFFFF;
   line-height: 1.05;
 }
 
@@ -1371,7 +1392,7 @@
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--charcoal-500);
+  color: var(--brass);
   margin-top: 4px;
 }
 
@@ -1382,11 +1403,14 @@
 }
 
 .testimonialCard {
-  background: #FFFFFF;
+  background: rgba(16, 22, 34, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: var(--r-2xl);
   padding: 26px;
-  box-shadow: var(--shadow-card);
-  border: 1px solid var(--pearl-border);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.14);
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -1394,7 +1418,7 @@
 }
 
 .testimonialCard:hover {
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85), 0 0 28px rgba(229, 192, 123, 0.22);
   transform: translateY(-6px);
   border-color: var(--brass);
 }
@@ -1406,7 +1430,7 @@
 }
 
 .tCardText {
-  color: var(--charcoal-700);
+  color: #CBD5E1;
   font-size: 0.94rem;
   line-height: 1.75;
   font-style: italic;
@@ -1439,12 +1463,12 @@
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 0.98rem;
-  color: var(--charcoal-900);
+  color: #FFFFFF;
 }
 
 .tCardCity {
   font-size: 0.8rem;
-  color: var(--charcoal-500);
+  color: var(--brass);
   margin-top: 1px;
 }
 
@@ -1460,32 +1484,31 @@
 }
 
 .whyCard {
-  background: #FFFFFF;
+  background: rgba(16, 22, 34, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: var(--r-2xl);
   padding: clamp(32px, 3.2vw, 42px);
-  border: 1.5px solid var(--pearl-border);
-  border-top: 2px solid rgba(255, 255, 255, 0.95);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.16);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 10px 28px rgba(14, 19, 31, 0.05), 0 18px 44px rgba(11, 78, 162, 0.05);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
   transition: all var(--dur-slow) var(--ease-luxury);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   cursor: default;
   transform-style: preserve-3d;
 }
 
-.whyCard:nth-child(odd):hover {
-  background: linear-gradient(160deg, #FFFFFF 60%, var(--brass-subtle) 100%);
-}
-
+.whyCard:nth-child(odd):hover,
 .whyCard:nth-child(even):hover {
-  background: linear-gradient(160deg, #FFFFFF 60%, var(--brand-blue-dim) 100%);
+  background: rgba(22, 30, 46, 0.95);
 }
 
 .whyCard:hover {
-  box-shadow: 0 22px 54px rgba(14, 19, 31, 0.1), 0 32px 75px rgba(184, 142, 62, 0.18);
+  box-shadow: 0 28px 72px rgba(0, 0, 0, 0.85), 0 0 32px rgba(229, 192, 123, 0.25);
   transform: translateY(-8px) scale(1.015);
   border-color: var(--brass);
 }
@@ -1497,7 +1520,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--brass), var(--brand-red));
+  background: linear-gradient(90deg, var(--brass), var(--brass-light));
   transform: scaleX(0);
   transform-origin: left;
   transition: transform var(--dur-slow) var(--ease-luxury);
@@ -1513,18 +1536,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #FFFFFF 0%, var(--brass-subtle) 100%);
-  border: 1.5px solid var(--brass-border);
+  background: rgba(229, 192, 123, 0.12);
+  border: 1.5px solid rgba(229, 192, 123, 0.32);
   border-radius: var(--r-xl);
-  box-shadow: 0 4px 16px rgba(184, 142, 62, 0.12), 0 1px 0 #FFFFFF inset;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.12);
   margin-bottom: 6px;
+  color: var(--brass);
+  font-size: 1.8rem;
   transition: all var(--dur-base) var(--ease-luxury);
 }
 
 .whyCard:hover .whyIcon {
   transform: scale(1.08);
   border-color: var(--brass);
-  box-shadow: 0 8px 24px rgba(184, 142, 62, 0.24);
+  box-shadow: 0 12px 30px rgba(229, 192, 123, 0.35);
+  background: rgba(229, 192, 123, 0.22);
 }
 
 .whyTitle {
@@ -1532,11 +1558,11 @@
   font-weight: 800;
   font-size: 1.25rem;
   letter-spacing: -0.015em;
-  color: var(--charcoal-900);
+  color: #FFFFFF;
 }
 
 .whyDesc {
-  color: var(--charcoal-600);
+  color: #CBD5E1;
   font-size: 0.95rem;
   line-height: 1.7;
 }
@@ -1551,9 +1577,9 @@
 .partnerBannerBg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--pearl-subtle) 0%, var(--brass-subtle) 55%, #FFFFFF 100%);
-  border-top: 1px solid var(--brass-border);
-  border-bottom: 1px solid var(--brass-border);
+  background: linear-gradient(135deg, rgba(16, 22, 34, 0.95) 0%, rgba(11, 15, 23, 0.98) 55%, #07090E 100%);
+  border-top: 1px solid rgba(229, 192, 123, 0.25);
+  border-bottom: 1px solid rgba(229, 192, 123, 0.25);
 }
 
 .partnerBannerBg::after {
@@ -1563,7 +1589,7 @@
   right: -150px;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(184, 142, 62, 0.12) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(229, 192, 123, 0.12) 0%, transparent 65%);
   border-radius: 50%;
 }
 
@@ -1587,9 +1613,9 @@
 
 .partnerPill {
   display: inline-flex;
-  background: var(--brass-dim);
-  color: var(--brass-dark);
-  border: 1px solid var(--brass-border);
+  background: rgba(229, 192, 123, 0.14);
+  color: var(--brass-light);
+  border: 1px solid rgba(229, 192, 123, 0.32);
   font-family: var(--font-body);
   font-size: var(--text-xs);
   font-weight: 800;
@@ -1601,7 +1627,7 @@
 }
 
 .partnerH2 {
-  color: var(--charcoal-900);
+  color: #FFFFFF;
   font-size: clamp(2rem, 3.5vw, 2.8rem);
   font-weight: 900;
   letter-spacing: -0.03em;
@@ -1609,7 +1635,7 @@
 }
 
 .partnerP {
-  color: var(--charcoal-600);
+  color: #CBD5E1;
   font-size: 1.05rem;
   line-height: 1.8;
 }
@@ -1627,22 +1653,22 @@
   align-items: center;
   gap: 12px;
   font-size: 0.98rem;
-  color: var(--charcoal-700);
+  color: #F8FAFC;
 }
 
 .partnerChecks li::before {
   content: '✓';
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   flex-shrink: 0;
-  background: var(--brass-dim);
-  color: var(--brass-dark);
-  border: 1px solid var(--brass-border);
+  background: rgba(229, 192, 123, 0.18);
+  color: var(--brass-light);
+  border: 1px solid rgba(229, 192, 123, 0.38);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 900;
 }
 
@@ -1654,12 +1680,12 @@
 }
 
 .partnerContact {
-  color: var(--charcoal-500);
+  color: #94A3B8;
   font-size: 0.9rem;
 }
 
 .partnerContact a {
-  color: var(--brand-red);
+  color: var(--brass);
   font-weight: 700;
 }
 
@@ -1682,11 +1708,14 @@
 
 .bookingCallBox {
   margin-top: 36px;
-  background: #FFFFFF;
+  background: rgba(16, 22, 34, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: var(--r-2xl);
   padding: 28px 30px;
-  border: 1px solid var(--pearl-border);
-  box-shadow: var(--shadow-card);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -1696,7 +1725,7 @@
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 1.05rem;
-  color: var(--charcoal-900);
+  color: #FFFFFF;
 }
 
 .bookingPhone {
@@ -1706,7 +1735,7 @@
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 1.15rem;
-  color: var(--brand-red);
+  color: var(--brass);
   transition: opacity var(--dur-fast);
 }
 
@@ -1714,11 +1743,11 @@
   font-family: var(--font-body);
   font-weight: 500;
   font-size: 0.88rem;
-  color: var(--charcoal-500);
+  color: #94A3B8;
 }
 
 .bookingPhone:hover {
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .bookingFormWrap {
@@ -1789,8 +1818,9 @@
     width: 100%;
     max-width: 100%;
     border-radius: var(--r-xl);
-    background: #FFFFFF;
-    box-shadow: 0 4px 18px rgba(14, 19, 31, 0.08);
+    background: rgba(16, 22, 34, 0.92);
+    border: 1px solid rgba(229, 192, 123, 0.28);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
     overflow: hidden;
     box-sizing: border-box;
   }

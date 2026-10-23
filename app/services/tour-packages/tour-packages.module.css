@@ -157,11 +157,14 @@
 }
 
 .tourCard {
-  background: #FFFFFF;
-  border: 1.5px solid var(--pearl-border);
+  background: rgba(16, 22, 34, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--r-2xl);
   overflow: hidden;
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
   display: flex;
   flex-direction: column;
   transition: all var(--dur-slow) var(--ease-luxury);
@@ -366,11 +369,13 @@
 
 /* ── 3. INCLUSIONS & TRANSPARENCY SECTION ── */
 .transparencyBox {
-  background: #FFFFFF;
-  border: 1.5px solid var(--brass-border);
+  background: rgba(16, 22, 34, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(229, 192, 123, 0.32);
   border-radius: var(--r-2xl);
   padding: clamp(28px, 4vw, 40px);
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
   margin-top: 24px;
 }
 
@@ -499,11 +504,14 @@
 }
 
 .stepCard {
-  background: #FFFFFF;
-  border: 1.5px solid var(--pearl-border);
+  background: rgba(16, 22, 34, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--r-2xl);
   padding: 28px 22px;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -521,8 +529,8 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #1A6CD4 0%, #0B4EA2 100%);
-  color: #FFFFFF;
+  background: linear-gradient(135deg, var(--brass-light) 0%, var(--brass) 50%, var(--brass-dark) 100%);
+  color: #07090E;
   font-family: var(--font-display);
   font-size: 1.2rem;
   font-weight: 900;

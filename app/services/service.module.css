@@ -219,11 +219,14 @@
 }
 
 .packageCard {
-  background: #FFFFFF;
-  border: 1.5px solid var(--pearl-border);
+  background: rgba(16, 22, 34, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--r-2xl);
   padding: 26px 24px;
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
   display: flex;
   flex-direction: column;
   transition: all var(--dur-slow) var(--ease-luxury);
@@ -354,11 +357,13 @@
 
 /* ── 4. TABLE SECTION (Outstation & Airport Rates) ── */
 .tableCard {
-  background: #FFFFFF;
-  border: 1.5px solid var(--pearl-border);
+  background: rgba(16, 22, 34, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--r-2xl);
   overflow: hidden;
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
 }
 
 .tableHeader {
@@ -392,9 +397,9 @@
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--charcoal-600);
-  background: #FFFFFF;
-  border-bottom: 1.5px solid var(--pearl-border);
+  color: var(--brass);
+  background: rgba(16, 22, 34, 0.9);
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.1);
 }
 
 .rateTable td {
@@ -422,11 +427,13 @@
 
 /* ── 5. INCLUSIONS & TRANSPARENCY MATRIX ── */
 .inExBox {
-  background: #FFFFFF;
-  border: 1.5px solid var(--brass-border);
+  background: rgba(16, 22, 34, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(229, 192, 123, 0.32);
   border-radius: var(--r-2xl);
   padding: clamp(24px, 3.5vw, 36px);
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(24px, 3vw, 36px);
@@ -486,17 +493,17 @@
 }
 
 .useCaseItem {
-  background: #FFFFFF;
-  border: 1px solid var(--pearl-border);
+  background: rgba(16, 22, 34, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--r-lg);
   padding: 12px 16px;
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--charcoal-800);
+  color: #F8FAFC;
   display: flex;
   align-items: center;
   gap: 10px;
-  box-shadow: var(--shadow-xs);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
   transition: all var(--dur-fast);
 }
 
@@ -570,11 +577,14 @@
 }
 
 .stepCard {
-  background: #FFFFFF;
-  border: 1.5px solid var(--pearl-border);
+  background: rgba(16, 22, 34, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--r-2xl);
   padding: 24px 20px;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -624,11 +634,13 @@
 }
 
 .faqItem {
-  background: #FFFFFF;
-  border: 1.5px solid var(--pearl-border);
+  background: rgba(16, 22, 34, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--r-xl);
   padding: 20px 24px;
-  box-shadow: var(--shadow-xs);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
   transition: border-color var(--dur-fast);
 }
 
@@ -653,11 +665,13 @@
 
 /* ── PRICE SECTION ── */
 .priceSection {
-  background: #FFFFFF;
-  border: 1.5px solid var(--pearl-border);
+  background: rgba(16, 22, 34, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--r-2xl);
   padding: clamp(20px, 3vw, 32px);
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
   overflow: hidden; /* contain table */
 }
 

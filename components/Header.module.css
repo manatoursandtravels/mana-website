@@ -394,7 +394,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  background: linear-gradient(135deg, var(--brass-subtle) 0%, #FFFFFF 100%);
+  background: rgba(16, 22, 34, 0.95);
   border: 1.5px solid var(--brass-border);
   border-radius: var(--r-xl);
   padding: 16px 18px;
@@ -438,7 +438,7 @@
 }
 
 .mobileFeaturedUsedCars {
-  background: linear-gradient(135deg, #FFFDF0 0%, #FEF3C7 100%);
+  background: rgba(22, 30, 46, 0.95);
   border: 1.5px solid #F59E0B;
   border-radius: var(--r-xl);
   padding: 14px 16px;

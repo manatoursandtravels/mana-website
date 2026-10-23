@@ -39,9 +39,9 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: #FFFFFF;
-  border: 1px solid var(--brass-border);
-  color: var(--brass-dark);
+  background: rgba(16, 22, 34, 0.92);
+  border: 1px solid rgba(229, 192, 123, 0.35);
+  color: var(--brass-light);
   padding: 6px 16px;
   border-radius: var(--r-pill);
   font-family: var(--font-body);
@@ -50,7 +50,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   width: fit-content;
-  box-shadow: var(--shadow-xs);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
 }
 
 .heroTitle {
@@ -85,11 +85,13 @@
 
 /* 3D Pricing Highlight Card in Hero */
 .heroOfferCard {
-  background: #FFFFFF;
-  border: 2px solid var(--brass-border);
+  background: rgba(16, 22, 34, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 2px solid rgba(229, 192, 123, 0.35);
   border-radius: var(--r-3xl);
   padding: clamp(28px, 3.5vw, 38px);
-  box-shadow: var(--shadow-2xl);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -190,7 +192,7 @@
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 1.05rem;
-  color: #92400E;
+  color: var(--brass-light);
 }
 
 .ncobDesc {
@@ -202,7 +204,7 @@
 
 .ncobTerms {
   font-size: 0.78rem;
-  color: #92400E;
+  color: var(--brass-light);
   margin-top: 8px;
   padding-top: 6px;
   border-top: 1px dashed rgba(217, 119, 6, 0.35);
@@ -240,21 +242,22 @@
 
 /* Fuel Policy Highlight Box (Critical) */
 .fuelPolicyBanner {
-  background: linear-gradient(135deg, #FFF9F0 0%, #FFFFFF 100%);
-  border: 2px solid #F59E0B;
+  background: rgba(16, 22, 34, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(229, 192, 123, 0.35);
   border-radius: var(--r-2xl);
   padding: 24px 28px;
   display: flex;
   align-items: flex-start;
   gap: 18px;
-  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.12);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65);
 }
 
 .fuelIconWrap {
   width: 48px;
   height: 48px;
-  background: #FEF3C7;
-  border: 1.5px solid #F59E0B;
+  background: rgba(229, 192, 123, 0.15); border: 1.5px solid rgba(229, 192, 123, 0.35);
   border-radius: var(--r-lg);
   display: flex;
   align-items: center;
@@ -267,7 +270,7 @@
   font-family: var(--font-display);
   font-size: 1.15rem;
   font-weight: 800;
-  color: #92400E;
+  color: var(--brass-light);
   margin-bottom: 6px;
 }
 
@@ -489,11 +492,14 @@
 }
 
 .pricingCard {
-  background: #FFFFFF;
+  background: rgba(16, 22, 34, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: var(--r-3xl);
   padding: clamp(32px, 3.5vw, 42px);
-  border: 1.5px solid var(--pearl-border);
-  box-shadow: var(--shadow-card);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -509,8 +515,8 @@
 
 .pricingCardFeatured {
   border-color: var(--brass);
-  background: linear-gradient(180deg, #FFFFFF 0%, var(--brass-subtle) 100%);
-  box-shadow: var(--shadow-xl);
+  background: rgba(22, 30, 46, 0.95);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85), 0 0 24px rgba(229, 192, 123, 0.22);
   transform: translateY(-4px);
 }
 
@@ -593,11 +599,14 @@
 }
 
 .fleetCard {
-  background: #FFFFFF;
+  background: rgba(16, 22, 34, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: var(--r-2xl);
   overflow: hidden;
-  border: 1px solid var(--pearl-border);
-  box-shadow: var(--shadow-card);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
   transition: all var(--dur-slow) var(--ease-luxury);
   display: flex;
   flex-direction: column;
@@ -671,11 +680,14 @@
 }
 
 .stepCard {
-  background: #FFFFFF;
-  border: 1px solid var(--pearl-border);
+  background: rgba(16, 22, 34, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--r-2xl);
   padding: 28px 24px;
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -724,11 +736,13 @@
 }
 
 .reqCard {
-  background: #FFFFFF;
-  border: 1px solid var(--pearl-border);
+  background: rgba(16, 22, 34, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(229, 192, 123, 0.32);
   border-radius: var(--r-2xl);
   padding: 32px;
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
 }
 
 .reqCardTitle {

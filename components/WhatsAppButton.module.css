@@ -45,8 +45,7 @@
   right: calc(100% + 14px);
   top: 50%;
   transform: translateY(-50%) translateX(0);
-  background: #FFFFFF;
-  color: var(--charcoal-900);
+  background: rgba(16, 22, 34, 0.95); backdrop-filter: blur(16px); color: #FFFFFF;
   font-family: var(--font-body);
   font-size: 0.82rem;
   font-weight: 700;
@@ -68,7 +67,7 @@
   transform: translateY(-50%);
   border: 6px solid transparent;
   border-right: none;
-  border-left-color: #FFFFFF;
+  border-left-color: rgba(16, 22, 34, 0.95);
 }
 
 .pulse {
