@@ -1,256 +1,459 @@
 import React from 'react';
 
 /* ═══════════════════════════════════════════════════════════════════
-   MANA Bespoke Vector Illustrations & Glossy 3D Vector Iconography
-   Brushed Brass (#B88E3E, #DDB86C) · Pearl & Charcoal · Brand Red
+   MANA Bespoke 3D Vector Illustrations (High-End Isometric & Depth)
+   Brushed Brass, Luminous Gold, Royal Blue, Emerald & Sacred Amber
    ═══════════════════════════════════════════════════════════════════ */
 
-// 1. Local Cabs — 3D City Route & Sedan Vector
-export function LocalCabIllustration({ className, size = 64 }) {
+// 1. Local Cabs — 3D Isometric City Sedan & Navigation Beacon
+export function LocalCabIllustration({ className, size = 80 }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
       <defs>
-        <linearGradient id="brassGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#F5E4C0" />
-          <stop offset="50%" stopColor="#C89E4E" />
-          <stop offset="100%" stopColor="#9A7426" />
+        <radialGradient id="lcGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.3" />
+          <stop offset="100%" stopColor="#3B82F6" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id="lcRoad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#E2E8F0" />
+          <stop offset="100%" stopColor="#CBD5E1" />
         </linearGradient>
-        <linearGradient id="glossPearl1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient id="lcCabBody" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#FBBF24" />
+          <stop offset="40%" stopColor="#F59E0B" />
+          <stop offset="100%" stopColor="#D97706" />
+        </linearGradient>
+        <linearGradient id="lcGlass" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#60A5FA" />
+          <stop offset="100%" stopColor="#1E3A8A" />
+        </linearGradient>
+        <filter id="lc3dShadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="6" stdDeviation="5" floodColor="#0F172A" floodOpacity="0.25" />
+        </filter>
+      </defs>
+      <circle cx="50" cy="50" r="46" fill="url(#lcGlow)" />
+      <ellipse cx="50" cy="72" rx="42" ry="16" fill="url(#lcRoad)" stroke="#94A3B8" strokeWidth="1.5" />
+      <ellipse cx="50" cy="71" rx="34" ry="11" fill="none" stroke="#FFFFFF" strokeWidth="1.5" strokeDasharray="6 4" opacity="0.8" />
+      <g filter="url(#lc3dShadow)">
+        <ellipse cx="48" cy="68" rx="28" ry="8" fill="#0F172A" opacity="0.35" />
+        <path d="M20 54L28 46H68L80 54C82 56 82 59 80 61L74 63H26L20 61C18 59 18 56 20 54Z" fill="url(#lcCabBody)" stroke="#B45309" strokeWidth="1.2" />
+        <path d="M30 46L38 34H62L70 46H30Z" fill="url(#lcCabBody)" stroke="#B45309" strokeWidth="1" />
+        <path d="M39 36L33 45H67L61 36H39Z" fill="url(#lcGlass)" />
+        <path d="M41 37L35 44H49L53 37H41Z" fill="#FFFFFF" opacity="0.3" />
+        <rect x="44" y="29" width="14" height="6" rx="2" fill="#FFFFFF" stroke="#0F172A" strokeWidth="1" />
+        <rect x="46" y="31" width="10" height="2" fill="#F59E0B" />
+        <circle cx="32" cy="63" r="6" fill="#0F172A" />
+        <circle cx="32" cy="63" r="3" fill="#E2E8F0" stroke="#64748B" strokeWidth="1" />
+        <circle cx="68" cy="63" r="6" fill="#0F172A" />
+        <circle cx="68" cy="63" r="3" fill="#E2E8F0" stroke="#64748B" strokeWidth="1" />
+        <ellipse cx="23" cy="55" rx="3" ry="2" fill="#FEF08A" />
+        <ellipse cx="77" cy="55" rx="3" ry="2" fill="#FEF08A" />
+      </g>
+      <g transform="translate(68, 14)" filter="url(#lc3dShadow)">
+        <path d="M10 0C4.5 0 0 4.5 0 10C0 17.5 10 26 10 26C10 26 20 17.5 20 10C20 4.5 15.5 0 10 0Z" fill="#3B82F6" stroke="#FFFFFF" strokeWidth="1.5" />
+        <circle cx="10" cy="10" r="4" fill="#FFFFFF" />
+      </g>
+    </svg>
+  );
+}
+
+// 2. Outstation Cabs — 3D Highway Perspective & Milestone
+export function OutstationIllustration({ className, size = 80 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <defs>
+        <radialGradient id="osGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#10B981" stopOpacity="0.3" />
+          <stop offset="100%" stopColor="#10B981" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id="osHwy" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#334155" />
+          <stop offset="100%" stopColor="#0F172A" />
+        </linearGradient>
+        <linearGradient id="osStone" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#FFFFFF" />
-          <stop offset="100%" stopColor="#EDE9DF" />
+          <stop offset="100%" stopColor="#E2E8F0" />
         </linearGradient>
-        <linearGradient id="redGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#1A6CD4" />
-          <stop offset="100%" stopColor="#0B4EA2" />
-        </linearGradient>
-        <filter id="glow3D1" x="-10%" y="-10%" width="120%" height="120%">
-          <feDropShadow dx="0" dy="4" stdDeviation="4" floodColor="#B88E3E" floodOpacity="0.25" />
+        <filter id="os3dShadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="6" stdDeviation="5" floodColor="#0F172A" floodOpacity="0.3" />
         </filter>
       </defs>
-      <rect x="6" y="6" width="68" height="68" rx="20" fill="url(#glossPearl1)" stroke="url(#brassGrad1)" strokeWidth="1.5" filter="url(#glow3D1)" />
-      <circle cx="40" cy="40" r="26" fill="rgba(184, 142, 62, 0.08)" />
-      <rect x="22" y="32" width="6" height="18" rx="1.5" fill="#C89E4E" opacity="0.4" />
-      <rect x="30" y="24" width="8" height="26" rx="1.5" fill="#C89E4E" opacity="0.6" />
-      <rect x="40" y="28" width="7" height="22" rx="1.5" fill="#C89E4E" opacity="0.5" />
-      <rect x="49" y="34" width="8" height="16" rx="1.5" fill="#C89E4E" opacity="0.4" />
-      <path d="M22 52L26 44C27 42 29 41 32 41H48C51 41 53 42 54 44L58 52C60 52 61 53.5 61 55.5V58C61 59 60 60 59 60H57C57 58 55.5 56.5 53.5 56.5C51.5 56.5 50 58 50 60H30C30 58 28.5 56.5 26.5 56.5C24.5 56.5 23 58 23 60H21C20 60 19 59 19 58V55.5C19 53.5 20 52 22 52Z" fill="url(#redGrad1)" />
-      <path d="M28 44.5L30 49H50L52 44.5C51.5 43.5 50 43 48.5 43H31.5C30 43 28.5 43.5 28 44.5Z" fill="#FFFFFF" opacity="0.9" />
-      <circle cx="26.5" cy="59" r="3.5" fill="#0E131F" stroke="url(#brassGrad1)" strokeWidth="1.5" />
-      <circle cx="53.5" cy="59" r="3.5" fill="#0E131F" stroke="url(#brassGrad1)" strokeWidth="1.5" />
-      <path d="M12 18C20 10 60 10 68 18" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" opacity="0.8" />
+      <circle cx="50" cy="50" r="46" fill="url(#osGlow)" />
+      <ellipse cx="50" cy="74" rx="42" ry="14" fill="#E2E8F0" />
+      <path d="M12 84L40 42H60L88 84H12Z" fill="url(#osHwy)" />
+      <path d="M50 44V50M50 54V62M50 68V80" stroke="#FBBF24" strokeWidth="2.5" strokeDasharray="4 4" strokeLinecap="round" />
+      <path d="M12 84L40 42" stroke="#94A3B8" strokeWidth="2" />
+      <path d="M88 84L60 42" stroke="#94A3B8" strokeWidth="2" />
+      <g transform="translate(36, 52)" filter="url(#os3dShadow)">
+        <path d="M4 14L8 6H20L24 14C25 15 25 17 24 18H4C3 17 3 15 4 14Z" fill="#2563EB" stroke="#1D4ED8" strokeWidth="1" />
+        <path d="M8 6L11 2H17L20 6H8Z" fill="#1E40AF" />
+        <circle cx="8" cy="18" r="2.5" fill="#0F172A" />
+        <circle cx="20" cy="18" r="2.5" fill="#0F172A" />
+        <polygon points="4,13 0,16 5,16" fill="#FEF08A" opacity="0.8" />
+        <polygon points="24,13 28,16 23,16" fill="#FEF08A" opacity="0.8" />
+      </g>
+      <g transform="translate(68, 48)" filter="url(#os3dShadow)">
+        <rect x="0" y="8" width="18" height="24" rx="2" fill="url(#osStone)" stroke="#94A3B8" strokeWidth="1" />
+        <path d="M0 8C0 2 18 2 18 8H0Z" fill="#10B981" />
+        <rect x="3" y="13" width="12" height="2" rx="1" fill="#0F172A" />
+        <rect x="5" y="18" width="8" height="2" rx="1" fill="#0F172A" />
+        <rect x="6" y="24" width="6" height="3" rx="1" fill="#EF4444" />
+      </g>
+      <circle cx="50" cy="38" r="8" fill="#F59E0B" opacity="0.4" />
+      <path d="M30 42C36 36 44 38 50 42C56 38 64 36 70 42H30Z" fill="#64748B" opacity="0.5" />
     </svg>
   );
 }
 
-// 2. Outstation Cabs — Highway Vector & Navigation Milestone
-export function OutstationIllustration({ className, size = 64 }) {
+// 3. Airport Transfers — 3D Jetliner & On-Time Clock
+export function AirportIllustration({ className, size = 80 }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
       <defs>
-        <linearGradient id="brassGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#F5E4C0" />
-          <stop offset="50%" stopColor="#C89E4E" />
-          <stop offset="100%" stopColor="#9A7426" />
-        </linearGradient>
-        <linearGradient id="glossPearl2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <radialGradient id="apGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#6366F1" stopOpacity="0.3" />
+          <stop offset="100%" stopColor="#6366F1" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id="apFuselage" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#FFFFFF" />
-          <stop offset="100%" stopColor="#EDE9DF" />
+          <stop offset="60%" stopColor="#E2E8F0" />
+          <stop offset="100%" stopColor="#94A3B8" />
         </linearGradient>
-        <filter id="glow3D2" x="-10%" y="-10%" width="120%" height="120%">
-          <feDropShadow dx="0" dy="4" stdDeviation="4" floodColor="#B88E3E" floodOpacity="0.25" />
+        <linearGradient id="apWing" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#4F46E5" />
+          <stop offset="100%" stopColor="#312E81" />
+        </linearGradient>
+        <filter id="ap3dShadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="2" dy="8" stdDeviation="6" floodColor="#1E1B4B" floodOpacity="0.3" />
         </filter>
       </defs>
-      <rect x="6" y="6" width="68" height="68" rx="20" fill="url(#glossPearl2)" stroke="url(#brassGrad2)" strokeWidth="1.5" filter="url(#glow3D2)" />
-      <path d="M28 62L36 24H44L52 62H46L41 32H39L34 62H28Z" fill="#1A202C" />
-      <path d="M40 28V36M40 42V50M40 54V60" stroke="#F5E4C0" strokeWidth="2" strokeDasharray="3 3" strokeLinecap="round" />
-      <g transform="translate(48, 16)">
-        <circle cx="10" cy="10" r="10" fill="#0B4EA2" />
-        <circle cx="10" cy="10" r="4.5" fill="#FFFFFF" />
-        <path d="M10 20L7 16H13L10 20Z" fill="#0B4EA2" />
+      <circle cx="50" cy="50" r="46" fill="url(#apGlow)" />
+      <ellipse cx="50" cy="78" rx="40" ry="12" fill="#1E293B" stroke="#475569" strokeWidth="1" />
+      <ellipse cx="50" cy="78" rx="30" ry="7" fill="none" stroke="#FBBF24" strokeWidth="1.5" strokeDasharray="5 4" />
+      <path d="M14 62C14 56 22 56 25 60C28 54 38 54 40 60C44 60 48 64 48 68H14V62Z" fill="#F1F5F9" opacity="0.75" />
+      <path d="M62 48C62 44 68 44 70 46C73 42 81 42 83 46C86 46 89 49 89 52H62V48Z" fill="#F1F5F9" opacity="0.6" />
+      <g transform="translate(18, 14) rotate(-24)" filter="url(#ap3dShadow)">
+        <path d="M10 40C-4 44 -12 50 -20 54" stroke="#818CF8" strokeWidth="2.5" strokeLinecap="round" opacity="0.6" />
+        <path d="M22 44C8 48 0 54 -8 58" stroke="#818CF8" strokeWidth="2.5" strokeLinecap="round" opacity="0.6" />
+        <path d="M38 10C42 16 42 46 36 56C34 59 30 60 28 60C26 60 22 59 20 56C14 46 14 16 18 10C22 4 34 4 38 10Z" fill="url(#apFuselage)" stroke="#64748B" strokeWidth="1" />
+        <path d="M25 8C26 6 30 6 31 8L32 12H24L25 8Z" fill="#0F172A" />
+        <path d="M8 32L-12 44L-10 48L12 40L8 32Z" fill="url(#apWing)" />
+        <path d="M48 32L68 44L66 48L44 40L48 32Z" fill="url(#apWing)" />
+        <path d="M-12 44L-14 38L-10 40L-12 44Z" fill="#F59E0B" />
+        <path d="M68 44L70 38L66 40L68 44Z" fill="#F59E0B" />
+        <path d="M22 54L10 64V67L24 60V54H22Z" fill="url(#apWing)" />
+        <path d="M34 54L46 64V67L32 60V54H34Z" fill="url(#apWing)" />
+        <path d="M27 50H29V62H27V50Z" fill="#F59E0B" />
       </g>
-      <path d="M18 42H26M14 48H22M56 46H66M54 52H62" stroke="#B88E3E" strokeWidth="2" strokeLinecap="round" opacity="0.6" />
-      <path d="M12 18C20 10 60 10 68 18" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" opacity="0.8" />
-    </svg>
-  );
-}
-
-// 3. Airport Transfers — Modern Jetway & On-Time Vector
-export function AirportIllustration({ className, size = 64 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <defs>
-        <linearGradient id="brassGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#F5E4C0" />
-          <stop offset="50%" stopColor="#C89E4E" />
-          <stop offset="100%" stopColor="#9A7426" />
-        </linearGradient>
-        <linearGradient id="blueJetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#2563EB" />
-          <stop offset="100%" stopColor="#0D2B6B" />
-        </linearGradient>
-        <filter id="glow3D3" x="-10%" y="-10%" width="120%" height="120%">
-          <feDropShadow dx="0" dy="4" stdDeviation="4" floodColor="#B88E3E" floodOpacity="0.25" />
-        </filter>
-      </defs>
-      <rect x="6" y="6" width="68" height="68" rx="20" fill="#FFFFFF" stroke="url(#brassGrad3)" strokeWidth="1.5" filter="url(#glow3D3)" />
-      <circle cx="40" cy="40" r="24" stroke="rgba(184, 142, 62, 0.2)" strokeWidth="1.5" strokeDasharray="4 4" />
-      <path d="M42 22L47 34L61 36L48 44L52 58L40 49L28 58L32 44L19 36L33 34L38 22H42Z" fill="url(#blueJetGrad)" />
-      <path d="M37 54C34 57 26 62 20 64" stroke="#FF9933" strokeWidth="2" strokeLinecap="round" />
-      <path d="M43 54C46 57 54 62 60 64" stroke="#138808" strokeWidth="2" strokeLinecap="round" />
-      <path d="M12 18C20 10 60 10 68 18" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" opacity="0.9" />
-    </svg>
-  );
-}
-
-// 4. Pilgrimage Tours — Sacred Gopuram / Temple Dome Vector
-export function PilgrimageIllustration({ className, size = 64 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <defs>
-        <linearGradient id="goldDomeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#FFF2D6" />
-          <stop offset="40%" stopColor="#E5B25D" />
-          <stop offset="100%" stopColor="#B37E22" />
-        </linearGradient>
-        <filter id="glow3D4" x="-10%" y="-10%" width="120%" height="120%">
-          <feDropShadow dx="0" dy="4" stdDeviation="4" floodColor="#B88E3E" floodOpacity="0.25" />
-        </filter>
-      </defs>
-      <rect x="6" y="6" width="68" height="68" rx="20" fill="#FFFFFF" stroke="url(#goldDomeGrad)" strokeWidth="1.5" filter="url(#glow3D4)" />
-      <path d="M40 16V22M38 22H42" stroke="#B88E3E" strokeWidth="2" strokeLinecap="round" />
-      <path d="M36 22H44L46 28H34L36 22Z" fill="url(#goldDomeGrad)" />
-      <path d="M32 29H48L51 37H29L32 29Z" fill="url(#goldDomeGrad)" />
-      <path d="M27 38H53L56 48H24L27 38Z" fill="url(#goldDomeGrad)" />
-      <path d="M22 49H58L62 62H18L22 49Z" fill="url(#goldDomeGrad)" />
-      <path d="M35 62V53C35 50.5 37 49 40 49C43 49 45 50.5 45 53V62H35Z" fill="#0E131F" />
-      <circle cx="40" cy="54" r="1.5" fill="#F5E4C0" />
-      <path d="M20 28L14 26M60 28L66 26M20 40L12 40M60 40L68 40" stroke="#E5B25D" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
-    </svg>
-  );
-}
-
-// 5. Tour Packages — Gandikota Canyon & Adventure Vector
-export function TourPackageIllustration({ className, size = 64 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <defs>
-        <linearGradient id="brassGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#F5E4C0" />
-          <stop offset="50%" stopColor="#C89E4E" />
-          <stop offset="100%" stopColor="#9A7426" />
-        </linearGradient>
-        <filter id="glow3D5" x="-10%" y="-10%" width="120%" height="120%">
-          <feDropShadow dx="0" dy="4" stdDeviation="4" floodColor="#B88E3E" floodOpacity="0.25" />
-        </filter>
-      </defs>
-      <rect x="6" y="6" width="68" height="68" rx="20" fill="#FFFFFF" stroke="url(#brassGrad5)" strokeWidth="1.5" filter="url(#glow3D5)" />
-      <circle cx="40" cy="28" r="10" fill="#FFA500" opacity="0.3" />
-      <circle cx="40" cy="28" r="6" fill="#FFA500" />
-      <path d="M16 62L32 36L44 50L54 38L64 62H16Z" fill="url(#brassGrad5)" />
-      <path d="M32 36L38 46L32 62H24L16 62L32 36Z" fill="#9A7426" opacity="0.7" />
-      <path d="M54 38L58 48L52 62H46L44 50L54 38Z" fill="#9A7426" opacity="0.5" />
-      <path d="M34 62C36 56 42 54 44 62" stroke="#2563EB" strokeWidth="3" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-// 6. Corporate Travel — Executive Fleet & Business Briefcase Vector
-export function CorporateIllustration({ className, size = 64 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <defs>
-        <linearGradient id="brassGrad6" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#F5E4C0" />
-          <stop offset="50%" stopColor="#C89E4E" />
-          <stop offset="100%" stopColor="#9A7426" />
-        </linearGradient>
-        <filter id="glow3D6" x="-10%" y="-10%" width="120%" height="120%">
-          <feDropShadow dx="0" dy="4" stdDeviation="4" floodColor="#B88E3E" floodOpacity="0.25" />
-        </filter>
-      </defs>
-      <rect x="6" y="6" width="68" height="68" rx="20" fill="#FFFFFF" stroke="url(#brassGrad6)" strokeWidth="1.5" filter="url(#glow3D6)" />
-      <rect x="22" y="24" width="16" height="36" rx="2" fill="#1A202C" />
-      <rect x="42" y="32" width="16" height="28" rx="2" fill="#2D3748" />
-      <rect x="26" y="28" width="3" height="3" fill="#C89E4E" />
-      <rect x="31" y="28" width="3" height="3" fill="#C89E4E" />
-      <rect x="26" y="34" width="3" height="3" fill="#C89E4E" />
-      <rect x="31" y="34" width="3" height="3" fill="#C89E4E" />
-      <rect x="26" y="40" width="3" height="3" fill="#C89E4E" />
-      <rect x="31" y="40" width="3" height="3" fill="#C89E4E" />
-      <rect x="46" y="36" width="3" height="3" fill="#F5E4C0" />
-      <rect x="51" y="36" width="3" height="3" fill="#F5E4C0" />
-      <rect x="46" y="42" width="3" height="3" fill="#F5E4C0" />
-      <rect x="51" y="42" width="3" height="3" fill="#F5E4C0" />
-      <g transform="translate(30, 44)">
-        <rect x="0" y="4" width="20" height="14" rx="2.5" fill="#0B4EA2" stroke="#FFFFFF" strokeWidth="1" />
-        <path d="M6 4V2C6 1.5 6.5 1 7 1H13C13.5 1 14 1.5 14 2V4" stroke="#FFFFFF" strokeWidth="1.5" />
-        <circle cx="10" cy="11" r="1.5" fill="#C89E4E" />
+      <g transform="translate(68, 22)" filter="url(#ap3dShadow)">
+        <circle cx="11" cy="11" r="11" fill="#FFFFFF" stroke="#F59E0B" strokeWidth="2" />
+        <circle cx="11" cy="11" r="9" fill="#FEF3C7" />
+        <path d="M11 6V11L15 13" stroke="#B45309" strokeWidth="1.8" strokeLinecap="round" />
       </g>
     </svg>
   );
 }
 
-// 7. Local Sightseeing — Kadapa Exploration Compass Vector
-export function SightseeingIllustration({ className, size = 64 }) {
+// 4. Pilgrimage Tours — 3D Sacred Golden Temple & Gopuram
+export function PilgrimageIllustration({ className, size = 80 }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
       <defs>
-        <linearGradient id="brassGrad7" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#F5E4C0" />
-          <stop offset="50%" stopColor="#C89E4E" />
-          <stop offset="100%" stopColor="#9A7426" />
+        <radialGradient id="pilGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#F59E0B" stopOpacity="0.4" />
+          <stop offset="100%" stopColor="#F59E0B" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id="pilGold" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#FEF08A" />
+          <stop offset="35%" stopColor="#FBBF24" />
+          <stop offset="70%" stopColor="#F59E0B" />
+          <stop offset="100%" stopColor="#B45309" />
         </linearGradient>
+        <linearGradient id="pilBase" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#FFFBEB" />
+          <stop offset="100%" stopColor="#FDE68A" />
+        </linearGradient>
+        <filter id="pil3dShadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="6" stdDeviation="6" floodColor="#78350F" floodOpacity="0.35" />
+        </filter>
       </defs>
-      <rect x="6" y="6" width="68" height="68" rx="20" fill="#FFFFFF" stroke="url(#brassGrad7)" strokeWidth="1.5" />
-      <path d="M22 28L34 24L46 28L58 24V54L46 58L34 54L22 58V28Z" fill="#F6F0E4" stroke="#C89E4E" strokeWidth="1.5" strokeLinejoin="round" />
-      <g transform="translate(40, 40)">
-        <circle cx="0" cy="0" r="12" fill="#FFFFFF" stroke="#1A202C" strokeWidth="1.5" />
-        <polygon points="0,-9 3,0 -3,0" fill="#0B4EA2" />
-        <polygon points="0,9 3,0 -3,0" fill="#1A202C" />
-        <circle cx="0" cy="0" r="2" fill="#C89E4E" />
+      <circle cx="50" cy="50" r="46" fill="url(#pilGlow)" />
+      <g opacity="0.4" stroke="#F59E0B" strokeWidth="1.5">
+        <line x1="50" y1="8" x2="50" y2="16" />
+        <line x1="28" y1="16" x2="34" y2="22" />
+        <line x1="72" y1="16" x2="66" y2="22" />
+        <line x1="16" y1="36" x2="24" y2="38" />
+        <line x1="84" y1="36" x2="76" y2="38" />
+      </g>
+      <ellipse cx="50" cy="80" rx="38" ry="11" fill="url(#pilBase)" stroke="#B45309" strokeWidth="1.5" />
+      <g filter="url(#pil3dShadow)">
+        <path d="M22 80L26 66H74L78 80H22Z" fill="url(#pilGold)" stroke="#92400E" strokeWidth="1" />
+        <path d="M44 80V70C44 67 47 65 50 65C53 65 56 67 56 70V80H44Z" fill="#1E293B" />
+        <circle cx="50" cy="69" r="1.5" fill="#FEF08A" />
+        <path d="M28 66L32 54H68L72 66H28Z" fill="url(#pilGold)" stroke="#92400E" strokeWidth="1" />
+        <rect x="36" y="58" width="5" height="5" rx="1" fill="#78350F" />
+        <rect x="47" y="58" width="6" height="5" rx="1" fill="#78350F" />
+        <rect x="59" y="58" width="5" height="5" rx="1" fill="#78350F" />
+        <path d="M34 54L38 43H62L66 54H34Z" fill="url(#pilGold)" stroke="#92400E" strokeWidth="1" />
+        <rect x="42" y="47" width="4" height="4" rx="1" fill="#78350F" />
+        <rect x="54" y="47" width="4" height="4" rx="1" fill="#78350F" />
+        <path d="M40 43L43 33H57L60 43H40Z" fill="url(#pilGold)" stroke="#92400E" strokeWidth="1" />
+        <path d="M42 33C42 27 58 27 58 33H42Z" fill="url(#pilGold)" stroke="#92400E" strokeWidth="1" />
+        <path d="M49 20V27M50 20V27M51 20V27" stroke="#FEF08A" strokeWidth="2" strokeLinecap="round" />
+        <circle cx="50" cy="19" r="2.5" fill="#FEF08A" />
+        <path d="M44 23V27M45 23V27" stroke="#FEF08A" strokeWidth="1.5" strokeLinecap="round" />
+        <circle cx="44.5" cy="22.5" r="2" fill="#FEF08A" />
+        <path d="M55 23V27M56 23V27" stroke="#FEF08A" strokeWidth="1.5" strokeLinecap="round" />
+        <circle cx="55.5" cy="22.5" r="2" fill="#FEF08A" />
+      </g>
+      <path d="M18 68C14 62 18 56 24 58C24 64 22 68 18 68Z" fill="#F43F5E" opacity="0.75" />
+      <path d="M82 68C86 62 82 56 76 58C76 64 78 68 82 68Z" fill="#F43F5E" opacity="0.75" />
+    </svg>
+  );
+}
+
+// 5. Tour Packages — 3D Gandikota Canyon & Explorer Compass
+export function TourPackageIllustration({ className, size = 80 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <defs>
+        <radialGradient id="tpGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#0D9488" stopOpacity="0.3" />
+          <stop offset="100%" stopColor="#0D9488" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id="tpCanyonLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#F87171" />
+          <stop offset="50%" stopColor="#DC2626" />
+          <stop offset="100%" stopColor="#7F1D1D" />
+        </linearGradient>
+        <linearGradient id="tpCanyonRight" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#FCA5A5" />
+          <stop offset="50%" stopColor="#EF4444" />
+          <stop offset="100%" stopColor="#991B1B" />
+        </linearGradient>
+        <linearGradient id="tpRiver" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="#38BDF8" />
+          <stop offset="100%" stopColor="#0369A1" />
+        </linearGradient>
+        <filter id="tp3dShadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="6" stdDeviation="5" floodColor="#134E4A" floodOpacity="0.3" />
+        </filter>
+      </defs>
+      <circle cx="50" cy="50" r="46" fill="url(#tpGlow)" />
+      <circle cx="50" cy="36" r="13" fill="#FBBF24" />
+      <circle cx="50" cy="36" r="16" fill="#FBBF24" opacity="0.3" />
+      <g filter="url(#tp3dShadow)">
+        <polygon points="10,80 28,42 42,56 46,72 44,80" fill="url(#tpCanyonLeft)" />
+        <polygon points="10,80 20,54 28,42 22,80" fill="#991B1B" opacity="0.6" />
+        <polygon points="90,80 72,40 58,54 54,72 56,80" fill="url(#tpCanyonRight)" />
+        <polygon points="90,80 80,52 72,40 78,80" fill="#7F1D1D" opacity="0.6" />
+        <path d="M42 56C46 62 54 64 48 72C46 76 48 80 50 82H54C56 78 52 74 54 70C58 64 54 60 58 54L42 56Z" fill="url(#tpRiver)" />
+      </g>
+      <g transform="translate(64, 18)" filter="url(#tp3dShadow)">
+        <circle cx="14" cy="14" r="14" fill="#FFFFFF" stroke="#D97706" strokeWidth="2" />
+        <circle cx="14" cy="14" r="11" fill="#FEF3C7" />
+        <polygon points="14,4 17,14 14,12 11,14" fill="#DC2626" />
+        <polygon points="14,24 17,14 14,16 11,14" fill="#1E293B" />
+        <polygon points="24,14 14,17 16,14 14,11" fill="#D97706" />
+        <polygon points="4,14 14,17 12,14 14,11" fill="#D97706" />
+        <circle cx="14" cy="14" r="2.5" fill="#F59E0B" />
       </g>
     </svg>
   );
 }
 
-// 8. Wedding & Events — Royal Procession Ribbon Vector
-export function WeddingIllustration({ className, size = 64 }) {
+// 6. Corporate Travel — 3D Glass Towers & Executive Briefcase
+export function CorporateIllustration({ className, size = 80 }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
       <defs>
-        <linearGradient id="brassGrad8" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#F5E4C0" />
-          <stop offset="50%" stopColor="#C89E4E" />
-          <stop offset="100%" stopColor="#9A7426" />
+        <radialGradient id="corGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#475569" stopOpacity="0.3" />
+          <stop offset="100%" stopColor="#475569" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id="corTower1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#38BDF8" />
+          <stop offset="50%" stopColor="#1E40AF" />
+          <stop offset="100%" stopColor="#0F172A" />
         </linearGradient>
+        <linearGradient id="corTower2" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#94A3B8" />
+          <stop offset="50%" stopColor="#475569" />
+          <stop offset="100%" stopColor="#1E293B" />
+        </linearGradient>
+        <filter id="cor3dShadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="6" stdDeviation="5" floodColor="#0F172A" floodOpacity="0.3" />
+        </filter>
       </defs>
-      <rect x="6" y="6" width="68" height="68" rx="20" fill="#FFFFFF" stroke="url(#brassGrad8)" strokeWidth="1.5" />
-      <circle cx="34" cy="38" r="12" stroke="url(#brassGrad8)" strokeWidth="3" />
-      <circle cx="46" cy="38" r="12" stroke="#0B4EA2" strokeWidth="3" />
-      <polygon points="34,22 37,26 34,30 31,26" fill="#F5E4C0" stroke="#B88E3E" strokeWidth="0.8" />
-      <path d="M20 58C24 48 56 48 60 58" stroke="url(#brassGrad8)" strokeWidth="2" strokeLinecap="round" strokeDasharray="3 3" />
+      <circle cx="50" cy="50" r="46" fill="url(#corGlow)" />
+      <ellipse cx="50" cy="78" rx="40" ry="12" fill="#E2E8F0" stroke="#94A3B8" strokeWidth="1" />
+      <g filter="url(#cor3dShadow)">
+        <rect x="22" y="34" width="18" height="42" rx="2" fill="url(#corTower2)" stroke="#64748B" strokeWidth="1" />
+        <g fill="#F1F5F9" opacity="0.6">
+          <rect x="25" y="38" width="4" height="4" rx="0.5" />
+          <rect x="33" y="38" width="4" height="4" rx="0.5" />
+          <rect x="25" y="46" width="4" height="4" rx="0.5" />
+          <rect x="33" y="46" width="4" height="4" rx="0.5" />
+          <rect x="25" y="54" width="4" height="4" rx="0.5" />
+          <rect x="33" y="54" width="4" height="4" rx="0.5" />
+        </g>
+        <rect x="38" y="20" width="24" height="56" rx="3" fill="url(#corTower1)" stroke="#38BDF8" strokeWidth="1.2" />
+        <line x1="50" y1="20" x2="50" y2="76" stroke="#60A5FA" strokeWidth="1" opacity="0.5" />
+        <line x1="38" y1="32" x2="62" y2="32" stroke="#60A5FA" strokeWidth="0.8" opacity="0.5" />
+        <line x1="38" y1="44" x2="62" y2="44" stroke="#60A5FA" strokeWidth="0.8" opacity="0.5" />
+        <line x1="38" y1="56" x2="62" y2="56" stroke="#60A5FA" strokeWidth="0.8" opacity="0.5" />
+        <rect x="60" y="38" width="18" height="38" rx="2" fill="url(#corTower2)" stroke="#64748B" strokeWidth="1" />
+        <g fill="#F1F5F9" opacity="0.6">
+          <rect x="64" y="44" width="4" height="4" rx="0.5" />
+          <rect x="71" y="44" width="4" height="4" rx="0.5" />
+          <rect x="64" y="52" width="4" height="4" rx="0.5" />
+          <rect x="71" y="52" width="4" height="4" rx="0.5" />
+        </g>
+      </g>
+      <g transform="translate(18, 56)" filter="url(#cor3dShadow)">
+        <rect x="0" y="5" width="26" height="18" rx="3" fill="#0F172A" stroke="#F59E0B" strokeWidth="1.2" />
+        <rect x="1" y="6" width="24" height="16" rx="2" fill="#1E293B" />
+        <path d="M8 5V2C8 1 9 0 10 0H16C17 0 18 1 18 2V5" stroke="#F59E0B" strokeWidth="1.8" fill="none" />
+        <rect x="11" y="11" width="4" height="4" rx="1" fill="#F59E0B" />
+      </g>
     </svg>
   );
 }
 
-// 9. Self Drive — Key & Freedom Vector
-export function SelfDriveIllustration({ className, size = 64 }) {
+// 7. Local Sightseeing — 3D Topographical Map & Ruby Beacon
+export function SightseeingIllustration({ className, size = 80 }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
       <defs>
-        <linearGradient id="brassGrad9" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#F5E4C0" />
-          <stop offset="50%" stopColor="#C89E4E" />
-          <stop offset="100%" stopColor="#9A7426" />
+        <radialGradient id="ssGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#059669" stopOpacity="0.3" />
+          <stop offset="100%" stopColor="#059669" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id="ssMap1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#FEF3C7" />
+          <stop offset="100%" stopColor="#FDE68A" />
         </linearGradient>
+        <linearGradient id="ssMap2" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#FDE68A" />
+          <stop offset="100%" stopColor="#FCD34D" />
+        </linearGradient>
+        <filter id="ss3dShadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="6" stdDeviation="5" floodColor="#064E3B" floodOpacity="0.3" />
+        </filter>
       </defs>
-      <rect x="6" y="6" width="68" height="68" rx="20" fill="#FFFFFF" stroke="url(#brassGrad9)" strokeWidth="1.5" />
-      <g transform="translate(40, 40) rotate(-45)">
-        <rect x="-8" y="-18" width="16" height="24" rx="8" fill="#1A202C" stroke="url(#brassGrad9)" strokeWidth="1.5" />
-        <circle cx="0" cy="-10" r="3" fill="#0B4EA2" />
-        <path d="M-2 6V18H2V14H6V11H2V6H-2Z" fill="url(#brassGrad9)" />
+      <circle cx="50" cy="50" r="46" fill="url(#ssGlow)" />
+      <g filter="url(#ss3dShadow)">
+        <polygon points="14,40 38,32 38,76 14,84" fill="url(#ssMap1)" stroke="#D97706" strokeWidth="1" />
+        <polygon points="38,32 62,40 62,84 38,76" fill="url(#ssMap2)" stroke="#D97706" strokeWidth="1" />
+        <polygon points="62,40 86,32 86,76 62,84" fill="url(#ssMap1)" stroke="#D97706" strokeWidth="1" />
+        <path d="M18 56C24 50 30 58 38 52C46 46 54 54 62 50C70 46 78 52 82 48" stroke="#059669" strokeWidth="2" strokeLinecap="round" opacity="0.75" />
+        <path d="M22 68C28 64 34 68 38 64C42 60 50 64 62 60" stroke="#D97706" strokeWidth="1.5" strokeDasharray="3 3" opacity="0.6" />
       </g>
-      <path d="M22 40C22 50 30 58 40 58C50 58 58 50 58 40" stroke="url(#brassGrad9)" strokeWidth="2" strokeLinecap="round" strokeDasharray="4 3" />
+      <g transform="translate(42, 14)" filter="url(#ss3dShadow)">
+        <path d="M16 0C7.2 0 0 7.2 0 16C0 27.5 16 40 16 40C16 40 32 27.5 32 16C32 7.2 24.8 0 16 0Z" fill="#DC2626" stroke="#FFFFFF" strokeWidth="2" />
+        <circle cx="16" cy="16" r="6" fill="#FFFFFF" />
+        <circle cx="16" cy="16" r="3" fill="#DC2626" />
+      </g>
+      <ellipse cx="58" cy="62" rx="8" ry="4" fill="none" stroke="#DC2626" strokeWidth="1.5" opacity="0.5" />
+    </svg>
+  );
+}
+
+// 8. Wedding & Events — 3D Interlocking Diamond Rings
+export function WeddingIllustration({ className, size = 80 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <defs>
+        <radialGradient id="wedGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#FB7185" stopOpacity="0.35" />
+          <stop offset="100%" stopColor="#FB7185" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id="wedGold" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#FEF08A" />
+          <stop offset="40%" stopColor="#F59E0B" />
+          <stop offset="100%" stopColor="#B45309" />
+        </linearGradient>
+        <filter id="wed3dShadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="6" stdDeviation="5" floodColor="#881337" floodOpacity="0.25" />
+        </filter>
+      </defs>
+      <circle cx="50" cy="50" r="46" fill="url(#wedGlow)" />
+      <g opacity="0.3" transform="translate(18, 56)">
+        <path d="M6 14L14 6H50L58 14H62C64 14 64 18 62 19H2C0 19 0 14 2 14H6Z" fill="#E11D48" />
+        <circle cx="14" cy="19" r="4" fill="#881337" />
+        <circle cx="50" cy="19" r="4" fill="#881337" />
+      </g>
+      <g filter="url(#wed3dShadow)">
+        <ellipse cx="38" cy="46" rx="20" ry="20" fill="none" stroke="url(#wedGold)" strokeWidth="6" />
+        <ellipse cx="38" cy="45" rx="19" ry="19" fill="none" stroke="#FFFFFF" strokeWidth="1.2" opacity="0.6" />
+        <ellipse cx="60" cy="46" rx="20" ry="20" fill="none" stroke="url(#wedGold)" strokeWidth="6" />
+        <ellipse cx="60" cy="45" rx="19" ry="19" fill="none" stroke="#FFFFFF" strokeWidth="1.2" opacity="0.6" />
+        <g transform="translate(38, 26)">
+          <polygon points="0,-10 6,-3 0,5 -6,-3" fill="#FFFFFF" stroke="#93C5FD" strokeWidth="1" />
+          <polygon points="0,-10 3,-3 0,5 -3,-3" fill="#E0F2FE" />
+          <polygon points="0,-10 6,-3 0,-3" fill="#BAE6FD" />
+        </g>
+        <line x1="38" y1="12" x2="38" y2="16" stroke="#F59E0B" strokeWidth="1.5" strokeLinecap="round" />
+        <line x1="32" y1="14" x2="35" y2="17" stroke="#F59E0B" strokeWidth="1.5" strokeLinecap="round" />
+        <line x1="44" y1="14" x2="41" y2="17" stroke="#F59E0B" strokeWidth="1.5" strokeLinecap="round" />
+      </g>
+      <path d="M22 68C34 76 66 76 78 68" stroke="#E11D48" strokeWidth="3" strokeLinecap="round" strokeDasharray="2 6" />
+      <circle cx="50" cy="73" r="3.5" fill="#FB7185" />
+      <circle cx="42" cy="71" r="3" fill="#F43F5E" />
+      <circle cx="58" cy="71" r="3" fill="#F43F5E" />
+    </svg>
+  );
+}
+
+// 9. Self Drive — 3D Gold Steering Wheel & Smart Key Fob
+export function SelfDriveIllustration({ className, size = 80 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <defs>
+        <radialGradient id="sdGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#F59E0B" stopOpacity="0.35" />
+          <stop offset="100%" stopColor="#F59E0B" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id="sdSteerRing" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#FDE68A" />
+          <stop offset="50%" stopColor="#D97706" />
+          <stop offset="100%" stopColor="#78350F" />
+        </linearGradient>
+        <linearGradient id="sdKeyBody" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#334155" />
+          <stop offset="50%" stopColor="#1E293B" />
+          <stop offset="100%" stopColor="#0F172A" />
+        </linearGradient>
+        <linearGradient id="sdKeyBlade" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#FFFFFF" />
+          <stop offset="50%" stopColor="#CBD5E1" />
+          <stop offset="100%" stopColor="#64748B" />
+        </linearGradient>
+        <filter id="sd3dShadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="8" stdDeviation="6" floodColor="#000000" floodOpacity="0.3" />
+        </filter>
+      </defs>
+      <circle cx="50" cy="50" r="46" fill="url(#sdGlow)" />
+      <g filter="url(#sd3dShadow)">
+        <ellipse cx="48" cy="46" rx="34" ry="24" fill="none" stroke="url(#sdSteerRing)" strokeWidth="6" />
+        <ellipse cx="48" cy="45" rx="33" ry="23" fill="none" stroke="#FEF3C7" strokeWidth="1.5" opacity="0.6" />
+        <ellipse cx="48" cy="46" rx="14" ry="10" fill="#0F172A" stroke="url(#sdSteerRing)" strokeWidth="2.5" />
+        <polygon points="48,40 52,48 48,46 44,48" fill="#F59E0B" />
+        <path d="M14 46H34M62 46H82M48 56V70" stroke="url(#sdSteerRing)" strokeWidth="4" strokeLinecap="round" />
+      </g>
+      <g transform="translate(48, 30) rotate(-18)" filter="url(#sd3dShadow)">
+        <rect x="0" y="0" width="22" height="34" rx="8" fill="url(#sdKeyBody)" stroke="#F59E0B" strokeWidth="1.5" />
+        <rect x="2" y="2" width="18" height="30" rx="6" fill="none" stroke="#FFFFFF" strokeWidth="0.8" opacity="0.25" />
+        <circle cx="11" cy="11" r="4.5" fill="#10B981" />
+        <path d="M9.5 11L10.5 12L12.5 10" stroke="#FFFFFF" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="11" cy="22" r="4" fill="#334155" />
+        <circle cx="11" cy="22" r="1.5" fill="#F59E0B" />
+        <path d="M8 34V46L11 48L14 46V34H8Z" fill="url(#sdKeyBlade)" stroke="#475569" strokeWidth="0.8" />
+        <rect x="9" y="38" width="2" height="2" fill="#334155" />
+        <rect x="11" y="42" width="2" height="2" fill="#334155" />
+      </g>
+      <circle cx="24" cy="28" r="2" fill="#FDE68A" />
+      <polygon points="76,22 78,25 81,22 78,19" fill="#FDE68A" />
     </svg>
   );
 }

@@ -621,15 +621,15 @@ export default function HomePage() {
           </div>
           <div className={styles.servicesGrid}>
             {[
-              { id: 'self-drive',       label: 'Self Drive Cars',    icon: '🔑', tag: 'Core Service · XUV 3XO', from: 'from ₹1,499/d', theme: 'brass',  href: '/services/self-drive',         desc: 'Drive yourself in sanitized cars: New Black XUV 3XO SUV, Innova Crysta, Ertiga & Dzire. Free doorstep handover in Kadapa.' },
-              { id: 'local-cabs',       label: 'Local Cabs',         icon: '🚗', tag: 'City Rides',    from: 'Best Rate',     theme: 'blue',   href: '/services/local-cabs',         desc: '4hr/40km & 8hr/80km city packages. Driver + AC + Fuel included.' },
-              { id: 'outstation-cabs',  label: 'Outstation Cabs',    icon: '🛣️', tag: 'Intercity',    from: 'Call for Fare', theme: 'red',    href: '/services/outstation-cabs',    desc: 'One-way & round-trip travel across AP & South India. Call 24/7 for instant quote.' },
-              { id: 'airport-transfers',label: 'Airport Transfers',  icon: '✈️', tag: '24/7 Drops',   from: 'Instant Quote', theme: 'indigo', href: '/services/airport-transfers',  desc: 'Fixed-price pickup & drop to Tirupati, Hyderabad & Bangalore airports.' },
-              { id: 'pilgrimage-tours', label: 'Pilgrimage Tours',   icon: '🛕', tag: 'Sacred Trips', from: 'Call for Fare', theme: 'amber',  href: '/services/pilgrimage-tours',   desc: 'Tirupati, Srisailam, Ahobilam & more. Darshan-timed departures.' },
-              { id: 'tour-packages',    label: 'Tour Packages',      icon: '🏔️', tag: 'Curated',      from: 'Best Package',  theme: 'teal',   href: '/services/tour-packages',      desc: 'Gandikota, Belum, Ooty & Goa. Full-day guided packages with expert guide.' },
-              { id: 'corporate-travel', label: 'Corporate Travel',   icon: '🏢', tag: 'GST Ready',    from: 'Custom Quote',  theme: 'slate',  href: '/services/corporate-travel',   desc: 'GST invoices, flexible monthly accounts, and premium executive vehicles.' },
-              { id: 'local-sightseeing',label: 'Local Sightseeing',  icon: '🗺️', tag: 'Kadapa City', from: 'Call for Fare', theme: 'green',  href: '/services/local-sightseeing',  desc: 'Curated Kadapa heritage & sightseeing tours. Full-day city exploration.' },
-              { id: 'wedding-travel',   label: 'Wedding & Events',   icon: '💒', tag: 'VIP Fleet',    from: 'VIP Quote',     theme: 'rose',   href: '/services/wedding-travel',     desc: 'Decorated premium fleet for weddings, engagements & VIP events.' },
+              { id: 'self-drive',       label: 'Self Drive Cars',    icon: '🔑', tag: 'Core Service · XUV 3XO', from: 'from ₹1,499/d', action: 'Rent Self-Drive Car', theme: 'brass',  href: '/services/self-drive',         desc: 'Drive yourself in sanitized cars: New Black XUV 3XO SUV, Innova Crysta, Ertiga & Dzire. Free doorstep handover in Kadapa.' },
+              { id: 'local-cabs',       label: 'Local Cabs',         icon: '🚗', tag: 'City Rides',            from: 'Best Rate',      action: 'Book City Cab',        theme: 'blue',   href: '/services/local-cabs',         desc: '4hr/40km & 8hr/80km city packages. Chilled AC, sanitized vehicles & fuel included.' },
+              { id: 'outstation-cabs',  label: 'Outstation Cabs',    icon: '🛣️', tag: 'Intercity AP & South',  from: 'Call for Fare',  action: 'Book Outstation',      theme: 'red',    href: '/services/outstation-cabs',    desc: 'One-way & round-trip travel across AP & South India with seasoned highway chauffeurs.' },
+              { id: 'airport-transfers',label: 'Airport Transfers',  icon: '✈️', tag: '24/7 Guaranteed',       from: 'Instant Quote',  action: 'Book Airport Taxi',    theme: 'indigo', href: '/services/airport-transfers',  desc: 'Punctual pickup & drop to Tirupati (TIR), Hyderabad (HYD) & Bangalore (BLR) airports.' },
+              { id: 'pilgrimage-tours', label: 'Pilgrimage Tours',   icon: '🛕', tag: 'Sacred Yatras',         from: 'Call for Fare',  action: 'Plan Darshan Yatra',   theme: 'amber',  href: '/services/pilgrimage-tours',   desc: 'Tirupati Balaji, Srisailam, Ahobilam & more with peaceful darshan-timed departures.' },
+              { id: 'tour-packages',    label: 'Tour Packages',      icon: '🏔️', tag: 'Curated Holidays',      from: 'Best Package',   action: 'Explore Packages',     theme: 'teal',   href: '/services/tour-packages',      desc: 'Gandikota Grand Canyon, Belum Caves, Horsley Hills, Ooty & Goa holiday packages.' },
+              { id: 'corporate-travel', label: 'Corporate Travel',   icon: '🏢', tag: 'GST Billing Ready',     from: 'Custom Quote',   action: 'Corporate Desk',       theme: 'slate',  href: '/services/corporate-travel',   desc: 'GST invoices, flexible monthly employee mobility accounts & premium executive cars.' },
+              { id: 'local-sightseeing',label: 'Local Sightseeing',  icon: '🗺️', tag: 'Kadapa Heritage',       from: 'Call for Fare',  action: 'Discover Kadapa',      theme: 'green',  href: '/services/local-sightseeing',  desc: 'Curated city tours: Ameen Peer Dargah, Pushpagiri, Devuni Kadapa & historic forts.' },
+              { id: 'wedding-travel',   label: 'Wedding & Events',   icon: '💒', tag: 'VIP Fleet',             from: 'VIP Quote',      action: 'Reserve Wedding Fleet',theme: 'rose',   href: '/services/wedding-travel',     desc: 'Decorated Innova Crysta & luxury sedans for weddings, engagements & family events.' },
             ].map((s, i) => {
               const ServiceVector = serviceIllustrations[s.id] || LocalCabIllustration;
               return (
@@ -640,39 +640,35 @@ export default function HomePage() {
                   id={`service-${s.id}`}
                   style={{ '--delay': `${i * 50}ms` }}
                 >
-                  {/* Top row: icon + category tag */}
-                  <div className={styles.serviceCardTop}>
-                    <div className={styles.serviceIconWrap}>
-                      <ServiceVector size={48} />
+                  {/* 3D Visual Stage */}
+                  <div className={styles.serviceVisualStage}>
+                    <div className={styles.serviceVectorWrap}>
+                      <ServiceVector size={76} />
                     </div>
                     <span className={styles.serviceTag}>{s.tag}</span>
                   </div>
 
                   {/* Body */}
                   <div className={styles.serviceBody}>
-                    <h3 className={styles.serviceName}>{s.label}</h3>
+                    <div className={styles.serviceTitleRow}>
+                      <h3 className={styles.serviceName}>{s.label}</h3>
+                      <span className={styles.serviceBadgePill}>{s.from}</span>
+                    </div>
                     <p className={styles.serviceDesc}>{s.desc}</p>
-                  </div>
 
-                  {/* Footer: from-price + cta */}
-                  <div className={styles.serviceFooter}>
-                    <div className={styles.serviceFromWrap}>
-                      <span className={styles.serviceFromLabel}>Fare</span>
-                      <span className={styles.serviceFromPrice}>{s.from}</span>
-                    </div>
-                    <div className={styles.serviceCta}>
-                      <span className={styles.serviceLink}>Call Desk</span>
-                      <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
+                    {/* Micro-Action Row */}
+                    <div className={styles.serviceActionRow}>
+                      <span className={styles.serviceActionText}>{s.action}</span>
+                      <span className={styles.serviceArrowCircle}>
+                        <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+                          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </span>
                     </div>
                   </div>
-
-                  <div className={styles.serviceAccent} />
                 </Link>
               );
-            })}
-          </div>
+            })}          </div>
         </div>
       </section>
 
