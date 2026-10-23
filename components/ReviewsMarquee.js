@@ -176,7 +176,7 @@ export default function ReviewsMarquee() {
           </div>
           <div className={styles.statDivider} />
           <div className={styles.stat}>
-            <span className={styles.statNum}>50+</span>
+            <span className={styles.statNum}>17</span>
             <span className={styles.statLabel}>Reviews</span>
           </div>
           <div className={styles.statDivider} />
