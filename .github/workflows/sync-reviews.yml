@@ -1,0 +1,44 @@
+name: Sync Live Google Reviews
+
+on:
+  schedule:
+    # Runs automatically every Sunday at midnight UTC (05:30 AM IST)
+    - cron: '0 0 * * 0'
+  workflow_dispatch: # Allows manual 1-click run anytime from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    name: Scrape & Sync Google Business Reviews
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Puppeteer for CI Scraper
+        run: npm install puppeteer --no-save
+
+      - name: Run Review Sync Script
+        run: node scripts/sync-google-reviews.js
+
+      - name: Commit & Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain data/google_reviews.json)" ]; then
+            git add data/google_reviews.json
+            git commit -m "chore(reviews): auto-sync latest Google Business reviews [skip ci]"
+            git push
+            echo "Successfully synced and committed new Google reviews!"
+          else
+            echo "No review changes detected. Google reviews cache is up to date."
+          fi
