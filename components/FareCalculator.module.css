@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════
-   MANA Interactive Route & Fare Estimator Widget
+   MANA Interactive Route & Travel Estimator Widget
    Luminous 3D Glassmorphism, Brushed Brass & Brand Red Styling
    ═══════════════════════════════════════════════════════════════════ */
 
@@ -128,13 +128,13 @@
   color: var(--charcoal-500);
 }
 
-/* ── Result & Fare Breakdown Bar ── */
+/* ── Result & Estimation Bar ── */
 .resultBox {
   background: linear-gradient(135deg, var(--pearl-bg) 0%, #FFFFFF 100%);
   border: 1.5px solid var(--brass-border);
   border-top: 2px solid rgba(255, 255, 255, 0.95);
   border-radius: var(--r-2xl);
-  padding: 24px 28px;
+  padding: clamp(20px, 2.8vw, 30px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -146,76 +146,153 @@
 .resultLeft {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
+  flex: 1;
+  min-width: 280px;
 }
 
-.resultLabel {
-  font-size: var(--text-xs);
+.routeBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
   font-weight: 800;
   text-transform: uppercase;
   color: var(--charcoal-500);
   letter-spacing: 0.08em;
 }
 
-.farePriceWrap {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
+.pulseDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+  animation: pulseAnim 2s infinite;
 }
 
-.farePrice {
+@keyframes pulseAnim {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.selectedRouteTitle {
   font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(2.2rem, 3.5vw, 3rem);
-  color: var(--brand-blue);
-  line-height: 1;
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  font-weight: 800;
+  color: var(--charcoal-900);
+  line-height: 1.25;
 }
 
-.fareNote {
-  font-size: 0.85rem;
-  color: var(--charcoal-600);
+.selectedDetailsRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 2px 0;
+}
+
+.detailPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(11, 78, 162, 0.06);
+  border: 1px solid rgba(11, 78, 162, 0.15);
+  color: var(--brand-blue);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
 }
 
 .fareIncludes {
   display: flex;
   gap: 14px;
-  font-size: 0.82rem;
-  color: var(--charcoal-700);
+  font-size: 0.8rem;
+  color: var(--charcoal-600);
   margin-top: 4px;
   flex-wrap: wrap;
 }
 
 .fareIncludes span::before {
   content: '✓ ';
-  color: var(--brass-dark);
+  color: #10B981;
   font-weight: 800;
 }
 
-.bookBtn {
+.actionButtonsCol {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 290px;
+}
+
+.actionHint {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--charcoal-500);
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+.callBtn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  padding: 16px 28px;
+  padding: 14px 24px;
   border-radius: var(--r-pill);
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 800;
-  background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-blue-dark) 100%);
-  color: #FFFFFF;
+  background: linear-gradient(135deg, #0B4EA2 0%, #073574 100%);
+  color: #FFFFFF !important;
   text-decoration: none;
-  box-shadow: 0 4px 0 #073574, 0 10px 24px rgba(11, 78, 162, 0.35);
+  box-shadow: 0 4px 0 #052654, 0 8px 20px rgba(11, 78, 162, 0.35);
   transition: all var(--dur-base) var(--ease-luxury);
   white-space: nowrap;
 }
 
-.bookBtn:hover {
+.callBtn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 0 #073574, 0 16px 36px rgba(11, 78, 162, 0.45);
+  box-shadow: 0 6px 0 #052654, 0 12px 28px rgba(11, 78, 162, 0.45);
+  color: #FFFFFF !important;
 }
 
-.bookBtn:active {
+.callBtn:active {
   transform: translateY(2px);
-  box-shadow: 0 1px 0 #073574, 0 4px 12px rgba(11, 78, 162, 0.25);
+  box-shadow: 0 1px 0 #052654, 0 4px 10px rgba(11, 78, 162, 0.25);
+}
+
+.whatsappBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border-radius: var(--r-pill);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #FFFFFF !important;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 0 #0D665B, 0 8px 20px rgba(37, 211, 102, 0.32);
+  transition: all var(--dur-base) var(--ease-luxury);
+  white-space: nowrap;
+}
+
+.whatsappBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #0D665B, 0 12px 28px rgba(37, 211, 102, 0.42);
+}
+
+.whatsappBtn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #0D665B, 0 4px 10px rgba(37, 211, 102, 0.22);
 }
 
 /* ── Responsive ── */
@@ -223,5 +300,6 @@
   .calcGrid { grid-template-columns: 1fr; }
   .vehicleGrid { grid-template-columns: 1fr; }
   .resultBox { flex-direction: column; align-items: stretch; }
-  .bookBtn { justify-content: center; width: 100%; }
+  .actionButtonsCol { width: 100%; min-width: unset; }
+  .callBtn, .whatsappBtn { width: 100%; }
 }

@@ -681,10 +681,10 @@ export default function HomePage() {
         <div className={styles.ratesBg} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-header">
-            <span className="eyebrow">నమస్కారం · Real-Time Fare Estimator</span>
-            <h2>Estimate Your Fare in 5 Seconds</h2>
+            <span className="eyebrow">నమస్కారం · Custom Route &amp; Travel Estimator</span>
+            <h2>Plan Your Route &amp; Get Best Rate</h2>
             <div className="divider" />
-            <p>రాయలసీమలో నమ్మకమైన ట్రావెల్ పార్టనర్ — Upfront, all-inclusive pricing with zero hidden surcharges.</p>
+            <p>రాయలసీమలో నమ్మకమైన ట్రావెల్ పార్టనర్ — Select your destination and car, then connect directly for our best guaranteed all-inclusive rate.</p>
           </div>
 
           {/* Interactive Calculator Component */}
