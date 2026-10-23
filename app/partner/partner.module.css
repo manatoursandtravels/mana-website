@@ -57,14 +57,14 @@
   font-family: var(--font-display);
   font-size: clamp(2.4rem, 4.8vw, 4.2rem);
   font-weight: 900;
-  color: var(--charcoal-900);
+  color: #FFFFFF !important;
   line-height: 1.1;
   letter-spacing: -0.035em;
   margin-bottom: 16px;
 }
 
 .heroTitleGradient {
-  background: linear-gradient(135deg, var(--brand-red) 0%, var(--brass-dark) 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFF0D0 25%, #E5C07B 65%, #D4AF37 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

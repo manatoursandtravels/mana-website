@@ -42,21 +42,21 @@
   font-family: var(--font-display);
   font-size: clamp(2.4rem, 4.8vw, 4rem);
   font-weight: 900;
-  color: var(--charcoal-900);
+  color: #FFFFFF !important;
   line-height: 1.1;
   letter-spacing: -0.035em;
   margin-bottom: 14px;
 }
 
 .heroTitleGradient {
-  background: linear-gradient(135deg, var(--brand-red) 0%, var(--brass-dark) 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFF0D0 25%, #E5C07B 65%, #D4AF37 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .heroSubtitle {
-  color: var(--charcoal-600);
+  color: #CBD5E1;
   font-size: clamp(1.02rem, 1.3vw, 1.18rem);
   max-width: 680px;
   margin: 0 auto;
@@ -74,13 +74,13 @@
 }
 
 .contactCard {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(16, 22, 34, 0.88);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1.5px solid var(--pearl-border);
+  border: 1.5px solid rgba(229, 192, 123, 0.32);
   border-radius: var(--r-2xl);
-  padding: 26px 22px 22px;
-  box-shadow: 0 10px 30px rgba(14, 19, 31, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+  padding: 26px 20px 22px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75), 0 0 20px rgba(229, 192, 123, 0.12);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -117,8 +117,8 @@
 
 .contactCard:hover {
   transform: translateY(-8px);
-  border-color: var(--brass-border);
-  box-shadow: 0 20px 50px rgba(14, 19, 31, 0.12), 0 4px 12px rgba(11, 78, 162, 0.08);
+  border-color: var(--brass);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 30px rgba(229, 192, 123, 0.3);
 }
 
 .contactCard:hover::before {
@@ -141,9 +141,10 @@
   font-family: var(--font-body);
   font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   padding: 3px 10px;
+  white-space: nowrap;
   border-radius: var(--r-pill);
 }
 
@@ -160,47 +161,48 @@
 }
 
 .statusPill_live {
-  background: rgba(11, 78, 162, 0.08);
-  color: var(--brand-blue);
-  border: 1px solid rgba(11, 78, 162, 0.2);
+  background: rgba(56, 189, 248, 0.15);
+  color: #38BDF8;
+  border: 1px solid rgba(56, 189, 248, 0.35);
 }
 .statusPill_live .statusDot {
-  background: var(--brand-blue);
+  background: #38BDF8;
 }
 
 .statusPill_active {
-  background: rgba(184, 142, 62, 0.1);
-  color: var(--brass-dark);
-  border: 1px solid rgba(184, 142, 62, 0.25);
+  background: rgba(229, 192, 123, 0.15);
+  color: var(--brass-light);
+  border: 1px solid rgba(229, 192, 123, 0.35);
 }
 .statusPill_active .statusDot {
   background: var(--brass);
 }
 
 .statusPill_whatsapp {
-  background: rgba(37, 211, 102, 0.1);
-  color: #15803d;
-  border: 1px solid rgba(37, 211, 102, 0.3);
+  background: rgba(37, 211, 102, 0.15);
+  color: #34D399;
+  border: 1px solid rgba(37, 211, 102, 0.35);
 }
 .statusPill_whatsapp .statusDot {
-  background: #25d366;
+  background: #25D366;
 }
 
 .statusPill_email {
-  background: rgba(14, 19, 31, 0.06);
-  color: var(--charcoal-700);
-  border: 1px solid rgba(14, 19, 31, 0.15);
+  background: rgba(148, 163, 184, 0.15);
+  color: #CBD5E1;
+  border: 1px solid rgba(148, 163, 184, 0.35);
 }
 .statusPill_email .statusDot {
-  background: var(--charcoal-600);
+  background: #CBD5E1;
 }
 
 .cardCategory {
   font-size: 0.72rem;
   font-weight: 700;
-  color: var(--charcoal-400);
+  color: #94A3B8;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  white-space: nowrap;
 }
 
 /* 3D Illustration Dock */
@@ -224,15 +226,15 @@
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--brass-dark);
-  margin-bottom: 2px;
+  color: var(--brass-light);
+  margin-bottom: 4px;
 }
 
 .cardPersonTitle {
   font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 900;
-  color: var(--charcoal-900);
+  color: #FFFFFF !important;
   line-height: 1.2;
   letter-spacing: -0.02em;
   margin-bottom: 4px;
@@ -242,14 +244,14 @@
   font-family: var(--font-display);
   font-size: 1.05rem;
   font-weight: 800;
-  color: var(--brand-blue);
+  color: var(--brass);
   text-decoration: none;
   margin-bottom: 8px;
   transition: color var(--dur-fast);
 }
 
 .cardContactValue:hover {
-  color: var(--brand-blue-dark);
+  color: var(--brass-light);
   text-decoration: underline;
 }
 
@@ -257,7 +259,7 @@
   font-family: var(--font-body);
   font-size: 0.8rem;
   line-height: 1.45;
-  color: var(--charcoal-500);
+  color: #CBD5E1;
   margin-bottom: 18px;
   min-height: 38px;
 }
@@ -293,8 +295,9 @@
 }
 
 .btnTheme_brass {
-  background: linear-gradient(135deg, #C59A44 0%, #9E7728 100%);
-  color: #FFFFFF;
+  background: linear-gradient(135deg, var(--brass) 0%, var(--brass-dark) 100%);
+  color: #07090E;
+  font-weight: 800;
 }
 .btnTheme_brass:hover {
   background: linear-gradient(135deg, #D4AF37 0%, #B88E3E 100%);
@@ -313,8 +316,9 @@
 }
 
 .btnTheme_charcoal {
-  background: linear-gradient(135deg, #1E293B 0%, #0E1A2B 100%);
-  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(229, 192, 123, 0.35);
+  color: var(--brass-light);
 }
 .btnTheme_charcoal:hover {
   background: linear-gradient(135deg, #334155 0%, #1E293B 100%);

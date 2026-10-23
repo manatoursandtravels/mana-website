@@ -35,7 +35,7 @@ const contactChannels = [
     Illustration: Rotating3DHeadset,
   },
   {
-    id: 'jyothi',
+    id: 'helpdesk',
     badge: '24/7 Desk',
     badgeType: 'active',
     category: 'Bookings',

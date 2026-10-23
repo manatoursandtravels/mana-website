@@ -57,20 +57,20 @@
   font-family: var(--font-display);
   font-size: clamp(2.4rem, 5vw, 4.2rem);
   font-weight: 900;
-  color: var(--charcoal-900);
+  color: #FFFFFF !important;
   line-height: 1.08;
   letter-spacing: -0.035em;
 }
 
 .heroTitleGradient {
-  background: linear-gradient(135deg, var(--brand-red) 0%, var(--brass-dark) 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFF0D0 25%, #E5C07B 65%, #D4AF37 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .heroSubtitle {
-  color: var(--charcoal-600);
+  color: #CBD5E1;
   font-size: clamp(1.05rem, 1.35vw, 1.22rem);
   line-height: 1.8;
 }
@@ -328,12 +328,14 @@
 }
 
 .subCard {
-  background: rgba(255, 255, 255, 0.98);
-  color: var(--charcoal-900);
+  background: rgba(16, 22, 34, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: #FFFFFF;
   border-radius: var(--r-3xl);
   padding: clamp(28px, 3vw, 36px);
-  border: 2px solid rgba(184, 142, 62, 0.3);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+  border: 1.5px solid rgba(229, 192, 123, 0.32);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75), 0 0 20px rgba(229, 192, 123, 0.1);
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -344,7 +346,7 @@
 .subCard:hover {
   transform: translateY(-8px);
   border-color: var(--brass);
-  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 24px rgba(229, 192, 123, 0.25);
 }
 
 .subCardBadge {
@@ -369,13 +371,13 @@
 
 .subCardModels {
   font-size: 0.85rem;
-  color: var(--charcoal-500);
+  color: #94A3B8;
   font-weight: 600;
 }
 
 .subPriceBlock {
-  background: var(--pearl-bg);
-  border: 1px solid var(--pearl-border);
+  background: rgba(11, 15, 23, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--r-xl);
   padding: 16px 18px;
   display: flex;
@@ -387,13 +389,13 @@
   font-family: var(--font-display);
   font-weight: 900;
   font-size: 1.8rem;
-  color: var(--brand-blue);
+  color: var(--brass-light);
   line-height: 1;
 }
 
 .subPriceSub {
   font-size: 0.82rem;
-  color: var(--charcoal-600);
+  color: #CBD5E1;
   display: flex;
   justify-content: space-between;
   align-items: center;
