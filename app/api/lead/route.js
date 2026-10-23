@@ -24,11 +24,11 @@ export async function POST(request) {
       sourceUrl,
     } = body;
 
-    // 1. If lead is claiming the New Customer 2-for-1 Deal, record and track in database
+    // 1. If lead is claiming the New Customer Welcome Deal (Flat ₹150 OFF), record and track in database
     let offerClaimInfo = null;
     const isNewCustomerDeal =
-      (tripType && tripType.includes('Pay 1 Day, Drive 2 Days')) ||
-      (promoOffer && promoOffer.includes('Pay 1 Day for 2 Days'));
+      (tripType && (tripType.includes('Flat ₹150 OFF') || tripType.includes('First-Time Customer') || tripType.includes('Pay 1 Day, Drive 2 Days'))) ||
+      (promoOffer && (promoOffer.includes('Flat ₹150 OFF') || promoOffer.includes('First-Time Customer') || promoOffer.includes('Pay 1 Day for 2 Days')));
 
     if (isNewCustomerDeal) {
       const claimResult = recordOfferClaim({
@@ -40,7 +40,7 @@ export async function POST(request) {
         date,
       });
       if (claimResult.success) {
-        offerClaimInfo = `🎁 Verified New Customer Claim #${claimResult.claimNumber || '1'} (Slots Remaining: ${claimResult.slotsRemaining ?? 'N/A'}/50)`;
+        offerClaimInfo = `🎁 Verified New Customer Claim #${claimResult.claimNumber || '1'} (Flat ₹150 OFF Welcome Deal)`;
       }
     }
 

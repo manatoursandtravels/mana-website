@@ -10,7 +10,7 @@ import styles from './BookingForm.module.css';
 const SERVICE_OPTIONS = {
   'Self Drive': {
     tripTypes: [
-      '🎁 New Customer Deal: Pay 1 Day, Drive 2 Days! — ₹1,499',
+      '🎁 First-Time Customer Deal: Flat ₹150 OFF on 1st Booking!',
       'Daily Rental (24 Hours) — ₹1,499',
       '3-Day Weekend — ₹4,199',
       'Weekly Plan (7 Days) + Free MANA T-Shirt! — ₹9,693 (Save ₹800)',
@@ -113,7 +113,7 @@ const SERVICE_OPTIONS = {
 export default function BookingForm({ compact = false, defaultService = '' }) {
   const [form, setForm] = useState({
     service: defaultService || 'Self Drive',
-    tripType: 'Daily Rental (24 Hours) — ₹1,499',
+    tripType: '🎁 First-Time Customer Deal: Flat ₹150 OFF on 1st Booking!',
     vehicleChoice: 'Mahindra XUV 3XO Black Edition (Compact SUV - 5 Seats)',
     pickup: '',
     destination: '',
@@ -152,8 +152,8 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
     let promoOffer = null;
     let tshirtSizeToSend = null;
     if (opts.isSelfDrive) {
-      if (form.tripType.includes('Pay 1 Day, Drive 2 Days')) {
-        promoOffer = 'Pay 1 Day for 2 Days (New Customer Welcome Deal)';
+      if (form.tripType.includes('Flat ₹150 OFF') || form.tripType.includes('First-Time Customer') || form.tripType.includes('Pay 1 Day, Drive 2 Days')) {
+        promoOffer = 'First-Time Customer Welcome Deal (Flat ₹150 OFF)';
       } else if (form.tripType.includes('Weekly') || form.tripType.includes('Monthly') || form.tripType.includes('T-Shirt')) {
         promoOffer = 'Weekly VIP Deal (Free Branded T-Shirt)';
         tshirtSizeToSend = `Size ${form.tshirtSize}`;
@@ -280,13 +280,13 @@ export default function BookingForm({ compact = false, defaultService = '' }) {
         </div>
       )}
 
-      {opts.isSelfDrive && form.tripType.includes('Pay 1 Day, Drive 2 Days') && (
+      {opts.isSelfDrive && (form.tripType.includes('Flat ₹150 OFF') || form.tripType.includes('First-Time Customer') || form.tripType.includes('Pay 1 Day, Drive 2 Days')) && (
         <div className={styles.promoAlertBox}>
           <span className={styles.pabIcon}>🎁</span>
           <div>
             <strong className={styles.pabTitle}>First-Time Customer Special Applied!</strong>
             <p className={styles.pabText}>
-              Pay just 1-day rate (₹1,499) and drive for 2 full days (48 hours)! Limited to the <strong>first 50 new customers</strong> • Valid till <strong>Sept 30, 2026</strong>.
+              Enjoy an instant <strong>Flat ₹150 OFF</strong> on your first booking with MANA Tours &amp; Travels! Valid for new customers across Kadapa.
             </p>
           </div>
         </div>

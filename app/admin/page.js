@@ -58,7 +58,7 @@ export default function AdminAnalyticsDashboard() {
   });
   const [activeModalCar, setActiveModalCar] = useState(null);
 
-  // New Customer 2-for-1 Promo Tracker (50 Slots / Sept 30, 2026)
+  // New Customer Welcome Deal (Flat ₹150 OFF) Tracker
   const [promoStatus, setPromoStatus] = useState(null);
 
   const fetchPromoStatus = async () => {
@@ -304,7 +304,7 @@ export default function AdminAnalyticsDashboard() {
             className={`${styles.logoutBtn} ${activeTab === 'promo-tracker' ? styles.activeTabBtn : ''}`}
             style={activeTab === 'promo-tracker' ? { background: 'linear-gradient(135deg, #c9a84c, #a07830)', color: '#fff', fontWeight: 700, borderColor: '#e8c97a' } : {}}
           >
-            🎁 2-for-1 Promo Tracker ({promoStatus?.totalClaimed ?? 0}/50)
+            🎁 ₹150 OFF Welcome Deal Tracker ({promoStatus?.totalClaimed ?? 0})
           </button>
           <button
             onClick={() => setActiveTab('kyc-ledger')}
@@ -353,10 +353,10 @@ export default function AdminAnalyticsDashboard() {
             </div>
             <div className={styles.kpiChange}>
               {promoStatus?.isExpired
-                ? '🔴 Expired (Sept 30)'
+                ? '🔴 Expired'
                 : promoStatus?.isSoldOut
                 ? '🔴 50/50 Claimed'
-                : `🟢 ${promoStatus?.slotsRemaining ?? 50} Slots Left (Sept 30)`}
+                : `🟢 Active (Flat ₹150 OFF)`}
             </div>
           </div>
 
@@ -588,7 +588,7 @@ export default function AdminAnalyticsDashboard() {
           </section>
         )}
 
-        {/* ══ TAB: 2-FOR-1 NEW CUSTOMER PROMOTION TRACKER (50 SLOTS / SEPT 30) ══ */}
+        {/* ══ TAB: FIRST-TIME CUSTOMER ₹150 OFF WELCOME DEAL TRACKER ══ */}
         {activeTab === 'promo-tracker' && (
           <section style={{ marginBottom: '32px' }}>
             <div style={{
@@ -605,10 +605,10 @@ export default function AdminAnalyticsDashboard() {
             }}>
               <div>
                 <div style={{ color: '#e8c97a', fontWeight: 800, fontSize: '1.2rem', marginBottom: '6px' }}>
-                  🎁 New Customer 2-for-1 Deal — Real-Time Database Tracker
+                  🎁 First-Time Customer ₹150 OFF Welcome Deal — Real-Time Database Tracker
                 </div>
                 <div style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.88rem', lineHeight: '1.5' }}>
-                  Offer: <strong>Pay 1 Day Price for 2 Days</strong> (₹1,499 for 48 Hours) • Hard Cap: <strong>50 Verified Customers</strong> • Deadline: <strong>September 30th, 2026</strong>
+                  Offer: <strong>Flat ₹150 OFF</strong> on First Booking • Status: <strong>Active Welcome Deal for New Customers</strong>
                 </div>
               </div>
 
@@ -675,7 +675,7 @@ export default function AdminAnalyticsDashboard() {
                         </td>
                         <td style={{ padding: '12px 10px' }}>
                           <a
-                            href={`https://wa.me/91${(claim.phone || '').replace(/\D/g, '').slice(-10)}?text=${encodeURIComponent(`Hi ${claim.name}, this is Pavan from MANA Tours & Travels Kadapa regarding your New Customer 2-for-1 Self-Drive deal!`)}`}
+                            href={`https://wa.me/91${(claim.phone || '').replace(/\D/g, '').slice(-10)}?text=${encodeURIComponent(`Hi ${claim.name}, this is Pavan from MANA Tours & Travels Kadapa regarding your First-Time Customer ₹150 OFF Welcome deal!`)}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className={styles.logoutBtn}
