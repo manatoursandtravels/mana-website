@@ -186,16 +186,16 @@
 }
 
 .heroQuickChip:hover {
-  background: rgba(22, 29, 43, 0.95);
-  border-color: var(--brass);
-  transform: translateY(-3px);
-  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.6), 0 10px 20px rgba(229, 192, 123, 0.25);
+  background: rgba(22, 29, 43, 0.98);
+  border-color: rgba(229, 192, 123, 0.5);
+  transform: translateY(-1.5px);
   color: var(--brass-light);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5), 0 0 12px rgba(229, 192, 123, 0.15);
 }
 
 .heroQuickChip:active {
-  transform: translateY(2px);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  transform: scale(0.965);
+  transition: transform var(--dur-micro) var(--ease-out-quad);
 }
 
 .hqcIcon {
@@ -280,28 +280,30 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 15px 30px;
+  padding: 14px 28px;
   background: linear-gradient(135deg, #25d366 0%, #16a34a 100%);
   color: #ffffff;
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
   font-size: var(--text-sm);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   border-radius: var(--r-pill);
-  transition: all var(--dur-base) var(--ease-luxury);
-  box-shadow: 0 4px 0 #128c46, 0 12px 28px rgba(37, 211, 102, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  transition: transform var(--dur-micro) var(--ease-out-quad), box-shadow var(--dur-fast);
+  box-shadow: 0 4px 16px -2px rgba(37, 211, 102, 0.35);
+  user-select: none;
 }
 
 .heroWaBtn:hover {
   background: linear-gradient(135deg, #2ef379 0%, #20ba58 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 0 #128c46, 0 18px 36px rgba(37, 211, 102, 0.55);
+  transform: translateY(-1.5px);
+  box-shadow: 0 8px 24px -4px rgba(37, 211, 102, 0.5);
 }
 
 .heroWaBtn:active {
-  transform: translateY(2px);
-  box-shadow: 0 1px 0 #128c46, 0 4px 12px rgba(37, 211, 102, 0.25);
+  transform: scale(0.972);
+  transition: transform var(--dur-micro) var(--ease-out-quad);
 }
 
 .heroFormWrap {
@@ -353,20 +355,14 @@
 }
 
 .statItem:hover {
-  background: linear-gradient(180deg, rgba(229, 192, 123, 0.05) 0%, rgba(229, 192, 123, 0.12) 100%);
-  transform: translateY(-3px);
+  background: rgba(229, 192, 123, 0.03);
 }
 
 .statIconWrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 4px;
-  transition: transform var(--dur-base) var(--ease-spring);
-}
-
-.statItem:hover .statIconWrap {
-  transform: scale(1.12);
+  margin-bottom: 6px;
 }
 
 .statNum {
@@ -424,9 +420,13 @@
 }
 
 .serviceCard:hover {
-  transform: translateY(-6px);
-  border-color: var(--brass);
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85), 0 0 24px rgba(229, 192, 123, 0.25);
+  transform: translateY(-2.5px);
+  border-color: rgba(229, 192, 123, 0.5);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.7);
+}
+
+.serviceCard:active {
+  transform: scale(0.988);
 }
 
 /* ── 3D Illustration Showcase Stage ── */
@@ -652,9 +652,13 @@
 }
 
 .sdtCard:hover {
-  transform: translateY(-4px);
-  border-color: var(--brass);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 24px rgba(229, 192, 123, 0.25);
+  transform: translateY(-2.5px);
+  border-color: rgba(229, 192, 123, 0.5);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.7);
+}
+
+.sdtCard:active {
+  transform: scale(0.988);
 }
 
 .sdtIcon {
@@ -801,9 +805,13 @@
 }
 
 .pkgCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85), 0 0 24px rgba(229, 192, 123, 0.22);
-  border-color: var(--brass);
+  transform: translateY(-2.5px);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.7);
+  border-color: rgba(229, 192, 123, 0.5);
+}
+
+.pkgCard:active {
+  transform: scale(0.988);
 }
 
 .pkgImgWrap {
@@ -1030,9 +1038,13 @@
 }
 
 .fleetCard:hover {
-  transform: translateY(-6px);
-  border-color: var(--brass);
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85), 0 0 28px rgba(229, 192, 123, 0.25);
+  transform: translateY(-2.5px);
+  border-color: rgba(229, 192, 123, 0.5);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.7);
+}
+
+.fleetCard:active {
+  transform: scale(0.988);
 }
 
 .fleetImgWrap {
@@ -1233,9 +1245,13 @@
 }
 
 .rateCard:hover {
-  border-color: var(--brass);
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85), 0 0 28px rgba(229, 192, 123, 0.22);
-  transform: translateY(-6px);
+  border-color: rgba(229, 192, 123, 0.5);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.7);
+  transform: translateY(-2.5px);
+}
+
+.rateCard:active {
+  transform: scale(0.988);
 }
 
 .rateCardHead {
@@ -1421,9 +1437,13 @@
 }
 
 .testimonialCard:hover {
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85), 0 0 28px rgba(229, 192, 123, 0.22);
-  transform: translateY(-6px);
-  border-color: var(--brass);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.7);
+  transform: translateY(-2.5px);
+  border-color: rgba(229, 192, 123, 0.5);
+}
+
+.testimonialCard:active {
+  transform: scale(0.988);
 }
 
 .tCardStars {
@@ -1511,9 +1531,13 @@
 }
 
 .whyCard:hover {
-  box-shadow: 0 28px 72px rgba(0, 0, 0, 0.85), 0 0 32px rgba(229, 192, 123, 0.25);
-  transform: translateY(-8px) scale(1.015);
-  border-color: var(--brass);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.7);
+  transform: translateY(-2.5px);
+  border-color: rgba(229, 192, 123, 0.5);
+}
+
+.whyCard:active {
+  transform: scale(0.988);
 }
 
 .whyCard::before {

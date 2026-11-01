@@ -1,0 +1,24 @@
+{
+  "status": "CONNECTED",
+  "pairedPhone": "+919908300718",
+  "businessName": "MANA Tours & Travels",
+  "autoPilot": true,
+  "autoReplyDelayMs": 1800,
+  "defaultAdvanceCab": 500,
+  "defaultAdvanceOutstation": 1000,
+  "defaultAdvanceTour": 2000,
+  "upiId": "9908300718@upi",
+  "upiPayeeName": "MANA Tours and Travels",
+  "qrDataUrl": null,
+  "pairingCode": null,
+  "pairingMethod": "code",
+  "lastUpdated": "2026-11-01T02:41:02.259Z",
+  "stats": {
+    "totalChats": 4,
+    "autoQuotesSent": 48,
+    "leadsCaptured": 4,
+    "paymentRequestsSent": 12,
+    "activeBookings": 7
+  },
+  "codeGeneratedAt": 1793500556280
+}

@@ -6,6 +6,7 @@ import AnalyticsTracker from '@/components/AnalyticsTracker';
 import ServiceWorkerRegister from '@/components/ServiceWorkerRegister';
 import PWAInstallBanner from '@/components/PWAInstallBanner';
 import { GA_TRACKING_ID } from '@/lib/analytics';
+import { SEO_KEYWORDS_FLAT } from '@/lib/constants';
 
 export const viewport = {
   themeColor: '#0B1B3D',
@@ -20,6 +21,7 @@ export const metadata = {
   },
   description:
     'MANA Tours & Travels in Kadapa — 5.0★ Google rated. Call +91 99083 00718 for instant quotes on Tirupati pilgrimage cabs, self-drive car rentals from ₹1,499/day, Bangalore & Hyderabad airport drops, and outstation taxis. 24/7 on-time pickup.',
+  keywords: SEO_KEYWORDS_FLAT,
   metadataBase: new URL('https://www.manatoursandtravels.com'),
   alternates: {
     canonical: './',
@@ -103,6 +105,7 @@ export default function RootLayout({ children }) {
                   '@type': ['TaxiService', 'AutoRental', 'TravelAgency', 'LocalBusiness'],
                   '@id': 'https://www.manatoursandtravels.com/#business',
                   name: 'MANA Tours & Travels | Kadapa',
+                  knowsAbout: ['Self-Drive Car Rental in Kadapa', 'Outstation Cab Services', 'Tirupati Balaji Pilgrimage Tours', 'Bangalore Airport (BLR) & Hyderabad Airport (HYD) Transfers', 'Gandikota Grand Canyon & Belum Caves Guided Day Tours', 'Mahindra XUV 3XO SUV & Toyota Innova Crysta Rental', 'Rayalaseema Tourism & Local Sightseeing'],
                   alternateName: [
                     'MANA Tours and Travels Kadapa',
                     'MANA Tours & Travels',
@@ -151,7 +154,7 @@ export default function RootLayout({ children }) {
                   aggregateRating: {
                     '@type': 'AggregateRating',
                     ratingValue: '5.0',
-                    reviewCount: '5',
+                    reviewCount: '23',
                     bestRating: '5',
                     worstRating: '1',
                   },

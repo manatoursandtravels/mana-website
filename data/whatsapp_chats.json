@@ -1,0 +1,150 @@
+[
+  {
+    "id": "chat-919848012345",
+    "phone": "+91 98480 12345",
+    "name": "Suresh Kumar",
+    "category": "pilgrimage",
+    "route": "Kadapa → Tirupati",
+    "vehicle": "Executive AC Sedan",
+    "language": "Telugu",
+    "lastMessage": "కడప నుండి తిరుపతి క్రిస్టా రేట్ ఎంతండి?",
+    "lastMessageTime": "Just now",
+    "unread": false,
+    "status": "Quote Sent",
+    "estimatedFare": 2099,
+    "messages": [
+      {
+        "id": "m1",
+        "sender": "customer",
+        "text": "కడప నుండి తిరుపతి క్రిస్టా రేట్ ఎంతండి? రేపు మార్నింగ్ 5 AM కి కావాలి.",
+        "time": "07:22 AM",
+        "timestamp": 1793498845493
+      },
+      {
+        "id": "m2",
+        "sender": "bot",
+        "text": "నమస్కారం సురేష్ గారు! MANA Tours & Travels Kadapa కు స్వాగతం.\n\n📍 రూట్: Kadapa → Tirupati\n🚗 వాహనం: Toyota Innova Crysta (7+1 Luxury)\n💰 బేస్ ఫేర్: ₹3,499 (Same-Day Round Trip Base)\n✨ ఫీచర్లు: డ్రైవర్ బాటా & AC ఇంక్లూడెడ్, క్లీన్ వెహికల్.\n\nమీ బుకింగ్ కన్ఫర్మ్ చేయడానికి ₹500 అడ్వాన్స్ పే చేయవచ్చు. పేమెంట్ లింక్ కావాలా?",
+        "time": "07:22 AM",
+        "timestamp": 1793498855493
+      },
+      {
+        "id": "m-cust-1793499445514",
+        "sender": "customer",
+        "text": "కడప నుండి తిరుపతి క్రిస్టా రేట్ ఎంతండి?",
+        "time": "07:47 AM",
+        "timestamp": 1793499445514
+      },
+      {
+        "id": "m-bot-1793499445515",
+        "sender": "bot",
+        "text": "నమస్కారం Suresh Kumar గారు! మీ ప్రయాణ అంచనా కోట్:\n\n📍 రూట్: Kadapa → Tirupati\n🚗 వెహికల్: Executive AC Sedan (4+1 Seats)\n📋 ట్రిప్ రకం: One Way Intercity Drop (Est. Base)\n💰 అంచనా బేస్ ఫేర్: ₹2,099 నుండి ప్రారంభం\n✨ చేర్చబడినవి: Commercial AC Vehicle, Professional Chauffeur\n\nమీ ప్రయాణ సమయం లేదా పిక్-అప్ లొకేషన్ పంపితే ఖచ్చితమైన పూర్తి కొటేషన్ మరియు డ్రైవర్ వివరాలు పంపిస్తాము.",
+        "time": "07:47 AM",
+        "timestamp": 1793499446514
+      }
+    ]
+  },
+  {
+    "id": "chat-919440156789",
+    "phone": "+91 94401 56789",
+    "name": "Anand Reddy",
+    "category": "self-drive",
+    "route": "Self-Drive Car Handover in Kadapa",
+    "vehicle": "Self-Drive Car (Customer Managed Fuel)",
+    "language": "English",
+    "lastMessage": "Need self drive Mahindra XUV 3XO for 2 days in Kadapa",
+    "lastMessageTime": "Just now",
+    "unread": false,
+    "status": "Follow-up Due",
+    "estimatedFare": 1499,
+    "messages": [
+      {
+        "id": "m3",
+        "sender": "customer",
+        "text": "Is the Stealth Black XUV 3XO available for this weekend? What is the deposit?",
+        "time": "06:50 AM",
+        "timestamp": 1793496745493
+      },
+      {
+        "id": "m4",
+        "sender": "bot",
+        "text": "Hello Anand! Welcome to MANA Tours & Travels Kadapa.\n\n🔑 *Mahindra XUV 3XO (Stealth Black Sunroof SUV)* is available!\n💰 Tariff: ₹2,199/day (24 Hours)\n🛡️ Security Deposit: ₹10,000 (100% Refundable within 2 hours of return) or Zero-Deposit VIP scheme with approved KYC.\n🚀 Inclusions: Doorstep delivery in Kadapa, FASTag enabled, sanitized cabin.\n\nWould you like us to reserve this vehicle for Saturday?",
+        "time": "06:51 AM",
+        "timestamp": 1793496805493
+      },
+      {
+        "id": "m-cust-1793499445519",
+        "sender": "customer",
+        "text": "Need self drive Mahindra XUV 3XO for 2 days in Kadapa",
+        "time": "07:47 AM",
+        "timestamp": 1793499445519
+      },
+      {
+        "id": "m-bot-1793499445520",
+        "sender": "bot",
+        "text": "Namaste Anand Reddy! Welcome to MANA Self-Drive Cars Kadapa:\n\n🔑 Vehicle: Self-Drive Car (Customer Managed Fuel)\n💰 Daily Tariff: ₹1,499/day (24 Hours)\n🛡️ Deposit: ₹10,000 (100% Refundable within 2 hours of return) or Zero-Deposit VIP Scheme with verified KYC\n✨ Highlights: Customer-managed fuel (0% fuel markup), doorstep delivery in Kadapa, sanitized cabin.\n\nWould you like to reserve your car today?",
+        "time": "07:47 AM",
+        "timestamp": 1793499446519
+      }
+    ]
+  },
+  {
+    "id": "chat-919701234567",
+    "phone": "+91 97012 34567",
+    "name": "Pooja Sharma",
+    "category": "tour-packages",
+    "route": "Kadapa → Gandikota & Belum Caves",
+    "vehicle": "Swift Dzire Sedan",
+    "language": "English",
+    "lastMessage": "Can you please share Gandikota 1-day itinerary with sunrise gorge view?",
+    "lastMessageTime": "2 hours ago",
+    "unread": false,
+    "status": "Advance Paid",
+    "estimatedFare": 3299,
+    "messages": [
+      {
+        "id": "m5",
+        "sender": "customer",
+        "text": "Can you please share Gandikota 1-day itinerary with sunrise gorge view?",
+        "time": "05:30 AM",
+        "timestamp": 1793492245493
+      },
+      {
+        "id": "m6",
+        "sender": "bot",
+        "text": "Hello Pooja! Here is our curated Gandikota + Belum Caves 1-Day Itinerary:\n\n06:00 AM: Pickup from Kadapa\n07:30 AM: Gandikota Fort, Pennar Gorge viewpoint & Mylavaram Dam\n01:00 PM: Traditional lunch break\n02:30 PM: Belum Caves underground exploration\n07:00 PM: Return drop to Kadapa\n\nPackage: ₹3,299 all-inclusive (Sedan AC + Chauffeur + Fuel). Advance received: ₹1,000. Booking Confirmed!",
+        "time": "05:32 AM",
+        "timestamp": 1793492345493
+      }
+    ]
+  },
+  {
+    "id": "chat-919123456780",
+    "phone": "+91 91234 56780",
+    "name": "Kiran Varma",
+    "category": "airport-transfers",
+    "route": "Kadapa → Bangalore Airport (BLR)",
+    "vehicle": "Toyota Etios Sedan",
+    "language": "English",
+    "lastMessage": "Need flight pickup tomorrow midnight from Kempegowda Airport to Kadapa.",
+    "lastMessageTime": "3 hours ago",
+    "unread": false,
+    "status": "Confirmed",
+    "estimatedFare": 5999,
+    "messages": [
+      {
+        "id": "m7",
+        "sender": "customer",
+        "text": "Need flight pickup tomorrow midnight from Kempegowda Airport to Kadapa.",
+        "time": "04:15 AM",
+        "timestamp": 1793488645493
+      },
+      {
+        "id": "m8",
+        "sender": "bot",
+        "text": "Namaste Kiran! Kempegowda International Airport (BLR) to Kadapa door pickup:\n\n🚗 Vehicle: Dedicated AC Sedan (Etios)\n💰 Fixed Airport Fare: ₹5,999 (Including Toll & Parking Buffer)\n✈️ Driver tracks flight number for zero wait hassle.\n\nBooking assigned to Chauffeur Desk. Have a pleasant flight!",
+        "time": "04:16 AM",
+        "timestamp": 1793488705493
+      }
+    ]
+  }
+]

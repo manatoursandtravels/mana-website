@@ -1,5 +1,5 @@
 /**
- * MANA Tours & Travels | Kadapa - Local SEO & GEO Audit Agent
+ * MANA Tours & Travels | Kadapa — Local SEO & GEO Audit Agent
  * 
  * Inspects website NAP consistency, Structured Schema markup,
  * high-intent keyword presence, phone call triggers, and GMB alignment.
@@ -7,6 +7,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { SEO_KEYWORDS_FLAT, SEO_KEYWORD_CLUSTERS } = require('../../lib/constants.js');
 
 const ROOT_DIR = path.resolve(__dirname, '../..');
 
@@ -20,20 +21,9 @@ const REQUIRED_NAP = {
   gmbShareUrl: 'https://share.google/K8vvkOsIMLLvvZBac',
 };
 
-const TARGET_KEYWORDS = [
-  'cab service in kadapa',
-  'car rental kadapa',
-  'taxi service in kadapa',
-  'self drive cars in kadapa',
-  'kadapa to tirupati cab',
-  'kadapa to bangalore cab',
-  'gandikota tour from kadapa',
-  'belum caves cab',
-];
-
 function runAudit() {
   console.log('====================================================');
-  console.log('🔍 MANA TOURS & TRAVELS - LOCAL SEO & GEO AUDIT');
+  console.log('🔍 MANA TOURS & TRAVELS — LOCAL SEO & GEO AUDIT');
   console.log('====================================================\n');
 
   const issues = [];
@@ -58,7 +48,7 @@ function runAudit() {
     issues.push('❌ lib/constants.js not found');
   }
 
-  // 2. Check Schema markup in app/layout.js
+  // 2. Check Schema markup & metadata in app/layout.js
   const layoutPath = path.join(ROOT_DIR, 'app/layout.js');
   if (fs.existsSync(layoutPath)) {
     const layoutContent = fs.readFileSync(layoutPath, 'utf8');
@@ -72,6 +62,18 @@ function runAudit() {
       passes.push('✅ Exact GMB name match ("MANA Tours & Travels | Kadapa") verified in layout');
     } else {
       issues.push('❌ Business name in layout does not match exact GMB name');
+    }
+
+    if (layoutContent.includes('SEO_KEYWORDS_FLAT') || layoutContent.includes('keywords:')) {
+      passes.push(`✅ Global meta keywords verified (${SEO_KEYWORDS_FLAT.length} high-intent search queries mapped)`);
+    } else {
+      issues.push('❌ Global meta keywords missing from layout.js');
+    }
+
+    if (layoutContent.includes('knowsAbout')) {
+      passes.push('✅ Schema entity "knowsAbout" verified for Google Knowledge Graph');
+    } else {
+      issues.push('❌ Schema entity "knowsAbout" missing from layout.js');
     }
   }
 
@@ -103,8 +105,14 @@ function runAudit() {
     passes.push(`✅ Direct Phone CTAs verified across ${routesWithCallCTA}/${routesChecked} destination route pages`);
   }
 
+  // 5. Keyword Density & Cluster Overview
+  console.log('\n--- 🎯 Active SEO Keyword Clusters (' + SEO_KEYWORD_CLUSTERS.length + ' Clusters / ' + SEO_KEYWORDS_FLAT.length + ' Keywords) ---');
+  SEO_KEYWORD_CLUSTERS.forEach((cluster, idx) => {
+    console.log(`[${idx + 1}] ${cluster.category} (${cluster.keywords.length} queries) — Intent: ${cluster.intent}`);
+  });
+
   // Summary Report
-  console.log('--- Passed Checks (' + passes.length + ') ---');
+  console.log('\n--- Passed Checks (' + passes.length + ') ---');
   passes.forEach(p => console.log(p));
 
   if (issues.length > 0) {

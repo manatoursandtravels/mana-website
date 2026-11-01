@@ -8,14 +8,19 @@
     "start": "next start",
     "gmb:agents": "node scripts/gmb-agents/run-agents.js",
     "gmb:audit": "node scripts/gmb-agents/local_seo_monitor.js",
-    "reviews:sync": "node scripts/sync-google-reviews.js"
+    "reviews:sync": "node scripts/sync-google-reviews.js",
+    "wa:gateway": "node scripts/whatsapp-gateway/gateway.mjs"
   },
   "dependencies": {
+    "@whiskeysockets/baileys": "^7.0.0-rc14",
     "next": "16.3.1",
+    "pino": "^10.4.0",
+    "qrcode": "^1.5.4",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },
   "devDependencies": {
     "puppeteer": "^24.43.1"
-  }
+  },
+  "type": "module"
 }

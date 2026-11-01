@@ -53,7 +53,7 @@ Book your weekend slot today! Call our dispatch desk for best custom tour quotes
 • Fixed upfront fares with zero late-night surcharges
 • Luggage assistance and comfortable AC travel
 
-Call our 24/7 booking desk at 099083 00718 to schedule your airport transfer.`,
+Tap the 'Call now' button below to schedule your airport transfer with our 24/7 booking desk!`,
     suggestedImage: 'public/images/hero-car.jpg',
     keywords: ['Kadapa to Bangalore airport taxi', 'Kadapa to Hyderabad airport cab', 'airport taxi Kadapa'],
   },
@@ -67,10 +67,10 @@ Call our 24/7 booking desk at 099083 00718 to schedule your airport transfer.`,
 
 • Fully sanitized Swift Dzire, Toyota Etios & Ertiga MPV
 • 100% transparent: Customer-managed fuel (zero fuel markup)
-• Quick KYC with Driving License & Aadhaar
+• Quick digital verification with Driving License
 • Fast, hassle-free doorstep handover in Kadapa city
 
-Limited vehicles available for weekend road trips — Call now to reserve your car!`,
+Limited vehicles available for weekend road trips — tap 'Call now' to reserve your car!`,
     suggestedImage: 'public/images/silver-fleet-hero.jpg',
     keywords: ['Self drive cars in Kadapa', 'car rental Kadapa', 'rent car Kadapa', 'MANA self drive'],
   },
@@ -85,10 +85,10 @@ Limited vehicles available for weekend road trips — Call now to reserve your c
 • Panoramic Skyroof & Dual-Zone Climate Control
 • Turbocharged performance for Gandikota, Tirupati & highway road trips
 • 100% transparent: Customer-managed fuel (zero fuel markup)
-• Instant 2-minute digital KYC with DL & Aadhaar
+• Instant 2-minute digital verification
 • Free doorstep handover anywhere in Kadapa city
 
-Turn heads wherever you drive. Call Pavan or Helpdesk directly at 099083 00718 to book your dates!`,
+Turn heads wherever you drive. Tap the 'Call now' button below to speak with Pavan or Helpdesk and reserve your dates!`,
     suggestedImage: 'public/images/fleet-xuv-3xo.png',
     keywords: ['Mahindra XUV 3XO Kadapa', 'Self drive SUV Kadapa', 'Self drive cars in Kadapa', 'MANA tours Kadapa'],
   },

@@ -42,6 +42,18 @@ export const metadata = {
   },
   description:
     'Kadapa\'s #1 Self-Drive Car Rental Agency. Rent the brand-new Stealth Black Mahindra XUV 3XO Turbo SUV with Panoramic Sunroof from ₹1,499/day. 100% customer-managed fuel, 2-minute paperless KYC, and free doorstep delivery across Kadapa. Also offering Tirupati Balaji pilgrimage packages & outstation cabs. Call +91 99083 00718.',
+  keywords: [
+    'self drive cars in kadapa',
+    'car rental kadapa',
+    'cab service in kadapa',
+    'taxi service in kadapa',
+    'kadapa to tirupati cab',
+    'kadapa to bangalore airport taxi',
+    'mahindra xuv 3xo on rent in kadapa',
+    'gandikota tour from kadapa',
+    'innova crysta rental kadapa',
+    'best travels in kadapa',
+  ],
   alternates: {
     canonical: '/',
   },

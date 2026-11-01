@@ -1,0 +1,953 @@
+/* components/WhatsAppCrmHub.module.css
+   MANA Tours & Travels — WhatsApp Business Automation & CRM Hub (GoWhats Engine)
+   Strict Emil Kowalski motion physics, tactile scale(0.972), luxury obsidian & champagne gold
+*/
+
+.hubContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   1. TOP CONTROL BAR & SYSTEM TELEMETRY
+   ═══════════════════════════════════════════════════════════════════ */
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 18px 24px;
+  background: rgba(16, 22, 34, 0.95);
+  border: 1px solid rgba(229, 192, 123, 0.28);
+  border-radius: var(--r-2xl);
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.6);
+}
+
+.deviceInfo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.deviceIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-xl);
+  background: rgba(37, 211, 102, 0.12);
+  border: 1px solid rgba(37, 211, 102, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: #25D366;
+}
+
+.deviceMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.deviceTitle {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.phonePill {
+  font-family: monospace;
+  font-size: 0.82rem;
+  background: rgba(229, 192, 123, 0.15);
+  color: var(--brass-light);
+  padding: 2px 8px;
+  border-radius: var(--r-pill);
+  border: 1px solid rgba(229, 192, 123, 0.3);
+}
+
+.connectionStatus {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.dotOnline {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+}
+
+.dotWaiting {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #F59E0B;
+  box-shadow: 0 0 8px #F59E0B;
+}
+
+.dotOffline {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #EF4444;
+}
+
+.topActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.autoPilotToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(11, 15, 23, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 8px 14px;
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease-out-quad);
+}
+
+.autoPilotToggle:active {
+  transform: scale(0.972);
+}
+
+.toggleLabel {
+  font-size: 0.80rem;
+  font-weight: 700;
+  color: #CBD5E1;
+}
+
+.switch {
+  width: 36px;
+  height: 20px;
+  background: #334155;
+  border-radius: var(--r-pill);
+  position: relative;
+  transition: background var(--dur-fast);
+}
+
+.switchOn {
+  background: #10B981;
+}
+
+.knob {
+  width: 16px;
+  height: 16px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform var(--dur-fast) var(--ease-out-quad);
+}
+
+.knobOn {
+  transform: translateX(16px);
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 0.80rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #FFFFFF;
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: transform var(--dur-micro) var(--ease-out-quad), background var(--dur-fast);
+}
+
+.btnSecondary:hover {
+  background: rgba(229, 192, 123, 0.12);
+  border-color: rgba(229, 192, 123, 0.4);
+}
+
+.btnSecondary:active {
+  transform: scale(0.972);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   2. KPI METRICS CARDS
+   ═══════════════════════════════════════════════════════════════════ */
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.metricCard {
+  background: rgba(16, 22, 34, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--r-xl);
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metricLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.metricValRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.metricVal {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1;
+}
+
+.metricTrend {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #10B981;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   3. QR PAIRING MODAL / CARD
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════════════
+   3. PAIRING CODE CARD (NO CAMERA NEEDED)
+   ═══════════════════════════════════════════════════════════════════ */
+.pairingCard {
+  background: radial-gradient(ellipse at 50% 0%, #16243A 0%, #0B111C 70%, #07090E 100%);
+  border: 1.5px solid var(--brass);
+  border-radius: var(--r-2xl);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.8), 0 0 24px rgba(229, 192, 123, 0.15);
+}
+
+.pairingHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pairingBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+  background: rgba(37, 211, 102, 0.15);
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  color: #25D366;
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.codeDisplayRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 18px 24px;
+  background: rgba(7, 9, 14, 0.85);
+  border: 1.5px dashed rgba(229, 192, 123, 0.4);
+  border-radius: var(--r-xl);
+}
+
+.codeDigits {
+  font-family: monospace;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  color: var(--brass-light);
+  text-shadow: 0 0 16px rgba(229, 192, 123, 0.4);
+}
+
+.copyCodeBtn {
+  padding: 10px 18px;
+  border-radius: var(--r-pill);
+  background: linear-gradient(135deg, var(--brass) 0%, var(--brass-dark) 100%);
+  color: #07090E;
+  font-family: var(--font-display);
+  font-size: 0.84rem;
+  font-weight: 900;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform var(--dur-micro) var(--ease-out-quad);
+}
+
+.copyCodeBtn:active {
+  transform: scale(0.972);
+}
+
+.qrCard {
+  background: radial-gradient(ellipse at 50% 0%, #161F30 0%, #0B0F17 100%);
+  border: 1.5px solid var(--brass);
+  border-radius: var(--r-2xl);
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 28px;
+  align-items: center;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+}
+
+.qrImageWrap {
+  background: #FFFFFF;
+  padding: 12px;
+  border-radius: var(--r-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.qrImage {
+  width: 100%;
+  height: auto;
+  border-radius: var(--r-md);
+  display: block;
+}
+
+.qrInstructions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.qrTitle {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #FFFFFF;
+}
+
+.qrDesc {
+  font-size: 0.86rem;
+  color: #CBD5E1;
+  line-height: 1.5;
+}
+
+.qrSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: #94A3B8;
+}
+
+.qrStepItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stepNum {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(229, 192, 123, 0.15);
+  border: 1px solid var(--brass);
+  color: var(--brass-light);
+  font-size: 0.72rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   4. TWO-COLUMN CRM WORKSPACE
+   ═══════════════════════════════════════════════════════════════════ */
+.workspace {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 16px;
+  min-height: 620px;
+}
+
+/* Left Column: Conversations List */
+.leftCol {
+  background: rgba(16, 22, 34, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--r-2xl);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.searchHeader {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 8px 14px;
+  background: rgba(11, 15, 23, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--r-pill);
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  outline: none;
+}
+
+.searchInput:focus {
+  border-color: var(--brass);
+}
+
+.filterChips {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.chip {
+  padding: 4px 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94A3B8;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--dur-micro) var(--ease-out-quad);
+}
+
+.chip:active {
+  transform: scale(0.972);
+}
+
+.chipActive {
+  background: rgba(229, 192, 123, 0.2);
+  border-color: var(--brass);
+  color: var(--brass-light);
+}
+
+.chatList {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatItem {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: background var(--dur-fast);
+}
+
+.chatItem:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.chatItemActive {
+  background: rgba(229, 192, 123, 0.08);
+  border-left: 3px solid var(--brass);
+}
+
+.chatItemTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatName {
+  font-weight: 800;
+  font-size: 0.86rem;
+  color: #FFFFFF;
+}
+
+.chatTime {
+  font-size: 0.70rem;
+  color: #64748B;
+}
+
+.chatRoute {
+  font-size: 0.76rem;
+  color: var(--brass-light);
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chatPreview {
+  font-size: 0.78rem;
+  color: #94A3B8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chatBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.badgeStatus {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.06);
+  color: #CBD5E1;
+}
+
+.badgePaid {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10B981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badgeFollowup {
+  background: rgba(245, 158, 11, 0.15);
+  color: #F59E0B;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* Right Column: Chat Inspector & Controls */
+.rightCol {
+  background: rgba(16, 22, 34, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--r-2xl);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chatHeader {
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brass) 0%, var(--brass-dark) 100%);
+  color: #07090E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 0.95rem;
+}
+
+.headerMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.customerName {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.customerPhone {
+  font-size: 0.78rem;
+  color: #94A3B8;
+  font-family: monospace;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btnAction {
+  padding: 6px 12px;
+  border-radius: var(--r-pill);
+  font-size: 0.76rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all var(--dur-micro) var(--ease-out-quad);
+}
+
+.btnAction:hover {
+  background: rgba(229, 192, 123, 0.15);
+  border-color: var(--brass);
+}
+
+.btnAction:active {
+  transform: scale(0.972);
+}
+
+.btnActionPrimary {
+  background: linear-gradient(135deg, var(--brass) 0%, var(--brass-dark) 100%);
+  color: #07090E;
+  border: none;
+}
+
+.btnActionPrimary:hover {
+  filter: brightness(1.1);
+}
+
+/* Chat Transcript */
+.chatMessages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: rgba(7, 9, 14, 0.5);
+}
+
+.msgRow {
+  display: flex;
+  width: 100%;
+}
+
+.msgRowCustomer {
+  justify-content: flex-start;
+}
+
+.msgRowAgent {
+  justify-content: flex-end;
+}
+
+.bubble {
+  max-width: 76%;
+  padding: 12px 16px;
+  border-radius: var(--r-xl);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  white-space: pre-line;
+}
+
+.bubbleCustomer {
+  background: rgba(30, 41, 59, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #F8FAFC;
+  border-bottom-left-radius: 4px;
+}
+
+.bubbleAgent {
+  background: rgba(16, 22, 34, 0.95);
+  border: 1px solid rgba(229, 192, 123, 0.35);
+  color: #FFFFFF;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.bubbleTime {
+  font-size: 0.68rem;
+  color: #64748B;
+  align-self: flex-end;
+}
+
+/* Quick Action Toolbar */
+.quickActionsRow {
+  padding: 10px 16px;
+  background: rgba(11, 15, 23, 0.9);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+}
+
+.quickPill {
+  padding: 6px 12px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #CBD5E1;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all var(--dur-micro) var(--ease-out-quad);
+}
+
+.quickPill:hover {
+  background: rgba(229, 192, 123, 0.12);
+  border-color: rgba(229, 192, 123, 0.4);
+  color: var(--brass-light);
+}
+
+.quickPill:active {
+  transform: scale(0.972);
+}
+
+/* Chat Input Bar */
+.inputBar {
+  padding: 14px 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  gap: 10px;
+  background: rgba(16, 22, 34, 0.95);
+}
+
+.chatTextarea {
+  flex: 1;
+  padding: 10px 14px;
+  background: rgba(11, 15, 23, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--r-lg);
+  color: #FFFFFF;
+  font-size: 0.84rem;
+  resize: none;
+  height: 44px;
+  outline: none;
+}
+
+.chatTextarea:focus {
+  border-color: var(--brass);
+}
+
+.sendBtn {
+  padding: 0 18px;
+  background: linear-gradient(135deg, var(--brass) 0%, var(--brass-dark) 100%);
+  color: #07090E;
+  font-weight: 800;
+  font-size: 0.82rem;
+  border: none;
+  border-radius: var(--r-lg);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform var(--dur-micro) var(--ease-out-quad);
+}
+
+.sendBtn:active {
+  transform: scale(0.972);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   5. CATALOGUE & FOLLOW-UP TEMPLATES TABS
+   ═══════════════════════════════════════════════════════════════════ */
+.catalogueGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.catalogueCard {
+  background: rgba(16, 22, 34, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--r-xl);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform var(--dur-micro) var(--ease-out-quad), border-color var(--dur-fast);
+}
+
+.catalogueCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(229, 192, 123, 0.5);
+}
+
+.catTitle {
+  font-size: 0.86rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.catRate {
+  font-size: 0.78rem;
+  color: var(--brass);
+  font-weight: 800;
+}
+
+.catBtn {
+  margin-top: auto;
+  padding: 6px 10px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  cursor: pointer;
+  text-align: center;
+  transition: all var(--dur-micro);
+}
+
+.catBtn:active {
+  transform: scale(0.972);
+}
+
+.catBtn:hover {
+  background: rgba(229, 192, 123, 0.15);
+  border-color: var(--brass);
+}
+
+/* Simulator Drawer */
+.simBox {
+  background: rgba(11, 15, 23, 0.95);
+  border: 1px solid rgba(229, 192, 123, 0.28);
+  border-radius: var(--r-xl);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (max-width: 900px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+  .metricsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+/* ═══════════════════════════════════════════════════════════════════
+   3. PAIRING CODE CARD (NO CAMERA NEEDED)
+   ═══════════════════════════════════════════════════════════════════ */
+.pairingCard {
+  background: radial-gradient(ellipse at 50% 0%, #16243A 0%, #0B111C 70%, #07090E 100%);
+  border: 1.5px solid var(--brass);
+  border-radius: var(--r-2xl);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.8), 0 0 24px rgba(229, 192, 123, 0.15);
+}
+
+.pairingHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pairingBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+  background: rgba(37, 211, 102, 0.15);
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  color: #25D366;
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.codeDisplayRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 18px 24px;
+  background: rgba(7, 9, 14, 0.85);
+  border: 1.5px dashed rgba(229, 192, 123, 0.4);
+  border-radius: var(--r-xl);
+}
+
+.codeDigits {
+  font-family: monospace;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  color: var(--brass-light);
+  text-shadow: 0 0 16px rgba(229, 192, 123, 0.4);
+}
+
+.copyCodeBtn {
+  padding: 10px 18px;
+  border-radius: var(--r-pill);
+  background: linear-gradient(135deg, var(--brass) 0%, var(--brass-dark) 100%);
+  color: #07090E;
+  font-family: var(--font-display);
+  font-size: 0.84rem;
+  font-weight: 900;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform var(--dur-micro) var(--ease-out-quad);
+}
+
+.copyCodeBtn:active {
+  transform: scale(0.972);
+}
+
+.qrCard {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .qrImageWrap {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+}

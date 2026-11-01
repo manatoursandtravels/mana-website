@@ -3,8 +3,9 @@
 import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { BUSINESS, USED_CARS_INVENTORY, buildUsedCarWhatsAppMessage, buildSellCarWhatsAppMessage } from '@/lib/constants';
+import { BUSINESS, USED_CARS_INVENTORY, SEO_KEYWORD_CLUSTERS, SEO_KEYWORDS_FLAT, buildUsedCarWhatsAppMessage, buildSellCarWhatsAppMessage } from '@/lib/constants';
 import UsedCarDetailModal from '@/components/UsedCarDetailModal';
+import WhatsAppCrmHub from '@/components/WhatsAppCrmHub';
 import styles from './admin.module.css';
 
 // Default PIN for admin access
@@ -326,6 +327,13 @@ export default function AdminAnalyticsDashboard() {
             style={activeTab === 'overview' ? { background: 'linear-gradient(135deg, #c9a84c, #a07830)', color: '#fff', fontWeight: 700, borderColor: '#e8c97a' } : {}}
           >
             📊 Executive Overview &amp; KPIs
+          </button>
+          <button
+            onClick={() => setActiveTab('gowhats')}
+            className={`${styles.logoutBtn} ${activeTab === 'gowhats' ? styles.activeTabBtn : ''}`}
+            style={activeTab === 'gowhats' ? { background: 'linear-gradient(135deg, #25D366, #128C7E)', color: '#fff', fontWeight: 700, borderColor: '#4ade80' } : {}}
+          >
+            💬 WhatsApp AI CRM (GoWhats)
           </button>
           <button
             onClick={() => setActiveTab('gmb-hub')}
@@ -1500,10 +1508,10 @@ export default function AdminAnalyticsDashboard() {
                     Kadapa to Bangalore &amp; Hyderabad Airport Drops
                   </h4>
                   <div style={{ background: '#081026', padding: '10px', borderRadius: '8px', fontSize: '0.78rem', color: '#cbd5e1', lineHeight: '1.4', marginBottom: '12px' }}>
-                    Never miss a flight again. MANA Tours guarantees 100% on-time departures to Kempegowda International Airport (BLR) and RGIA Hyderabad (HYD). Chauffeur arrives 15 minutes before scheduled pickup. Fixed upfront fares. Call 099083 00718. #KadapatoBangaloreairporttaxi
+                    Never miss a flight again. MANA Tours guarantees 100% on-time departures to Kempegowda International Airport (BLR) and RGIA Hyderabad (HYD). Chauffeur arrives 15 minutes before scheduled pickup. Fixed upfront fares. Tap Call Now below. #KadapatoBangaloreairporttaxi
                   </div>
                   <button
-                    onClick={() => handleCopy("Catching an Early Morning Flight? ✈️ Fixed-Fare Kadapa to Bangalore & Hyderabad Airport Drops\n\nNever miss a flight again. MANA Tours guarantees 100% on-time departures to Kempegowda International Airport (BLR) and RGIA Hyderabad (HYD).\n\n• Chauffeur arrives 15 minutes before scheduled pickup\n• Smooth highway driving with well-maintained commercial vehicles\n• Fixed upfront fares with zero late-night surcharges\n• Luggage assistance and comfortable AC travel\n\nCall our 24/7 booking desk at 099083 00718 to schedule your airport transfer.\n\n#KadapatoBangaloreairporttaxi #KadapatoHyderabadairportcab #airporttaxiKadapa", 'post-airport')}
+                    onClick={() => handleCopy("Catching an Early Morning Flight? ✈️ Fixed-Fare Kadapa to Bangalore & Hyderabad Airport Drops\n\nNever miss a flight again. MANA Tours guarantees 100% on-time departures to Kempegowda International Airport (BLR) and RGIA Hyderabad (HYD).\n\n• Chauffeur arrives 15 minutes before scheduled pickup\n• Smooth highway driving with well-maintained commercial vehicles\n• Fixed upfront fares with zero late-night surcharges\n• Luggage assistance and comfortable AC travel\n\nTap the Call now button below to schedule your airport transfer.\n\n#KadapatoBangaloreairporttaxi #KadapatoHyderabadairportcab #airporttaxiKadapa", 'post-airport')}
                     style={{ width: '100%', padding: '8px 12px', background: copiedKey === 'post-airport' ? '#10b981' : '#c9a84c', color: '#fff', border: 'none', borderRadius: '6px', fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}
                   >
                     {copiedKey === 'post-airport' ? 'Copied! ✅' : '📋 Copy Airport Post Text'}
@@ -1539,10 +1547,10 @@ export default function AdminAnalyticsDashboard() {
                     New Stealth Black Mahindra XUV 3XO Self-Drive SUV
                   </h4>
                   <div style={{ background: '#081026', padding: '10px', borderRadius: '8px', fontSize: '0.78rem', color: '#cbd5e1', lineHeight: '1.4', marginBottom: '12px' }}>
-                    Experience the Thrill! Upgrade your road trip with our brand-new Stealth Black Mahindra XUV 3XO. Panoramic Skyroof, Turbocharged power &amp; Dual-Zone AC. 100% transparent customer-managed fuel. Doorstep handover across Kadapa city. Call 099083 00718. #MahindraXUV3XOKadapa
+                    Experience the Thrill! Upgrade your road trip with our brand-new Stealth Black Mahindra XUV 3XO. Panoramic Skyroof, Turbocharged power &amp; Dual-Zone AC. 100% transparent customer-managed fuel. Doorstep handover across Kadapa city. Tap Call Now below. #MahindraXUV3XOKadapa
                   </div>
                   <button
-                    onClick={() => handleCopy("Experience the Thrill! 🔑 New Stealth Black Mahindra XUV 3XO Self-Drive SUV in Kadapa\n\nUpgrade your road trip with our brand-new Mahindra XUV 3XO!\n\n• Panoramic Skyroof & Dual-Zone Climate Control\n• Turbocharged performance for Gandikota, Tirupati & highway road trips\n• 100% transparent: Customer-managed fuel (zero fuel markup)\n• Instant 2-minute digital KYC with DL & Aadhaar\n• Free doorstep handover anywhere in Kadapa city\n\nTurn heads wherever you drive. Call Pavan or Helpdesk directly at 099083 00718 to book your dates!\n\n#MahindraXUV3XOKadapa #SelfDriveSUV #SelfdrivecarsinKadapa #MANAselfdrive #Kadapatravels", 'post-xuv3xo')}
+                    onClick={() => handleCopy("Experience the Thrill! 🔑 New Stealth Black Mahindra XUV 3XO Self-Drive SUV in Kadapa\n\nUpgrade your road trip with our brand-new Mahindra XUV 3XO!\n\n• Panoramic Skyroof & Dual-Zone Climate Control\n• Turbocharged performance for Gandikota, Tirupati & highway road trips\n• 100% transparent: Customer-managed fuel (zero fuel markup)\n• Instant 2-minute digital KYC with Driving License\n• Free doorstep handover anywhere in Kadapa city\n\nTurn heads wherever you drive. Tap the Call now button below to speak with Pavan or Helpdesk and reserve your dates!\n\n#MahindraXUV3XOKadapa #SelfDriveSUV #SelfdrivecarsinKadapa #MANAselfdrive #Kadapatravels", 'post-xuv3xo')}
                     style={{ width: '100%', padding: '8px 12px', background: copiedKey === 'post-xuv3xo' ? '#10b981' : '#c9a84c', color: '#fff', border: 'none', borderRadius: '6px', fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}
                   >
                     {copiedKey === 'post-xuv3xo' ? 'Copied! ✅' : '📋 Copy XUV 3XO Post Text'}
@@ -1577,7 +1585,7 @@ export default function AdminAnalyticsDashboard() {
                   {
                     id: 'qa3',
                     q: 'Do you provide early morning pickups in Kadapa for airport drops to Bangalore or Hyderabad?',
-                    a: 'Yes, absolutely! We operate 24 hours a day, 7 days a week. We specialize in early morning (2:00 AM – 4:00 AM) pickups with guaranteed on-time flight arrival at Kempegowda International Airport (BLR) and Rajiv Gandhi International Airport (HYD). Call 099083 00718.',
+                    a: 'Yes, absolutely! We operate 24 hours a day, 7 days a week. We specialize in early morning (2:00 AM – 4:00 AM) pickups with guaranteed on-time flight arrival at Kempegowda International Airport (BLR) and Rajiv Gandhi International Airport (HYD). Tap Call Now below.',
                   },
                 ].map((item) => (
                   <div key={item.id} style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '10px', padding: '14px' }}>
@@ -1597,6 +1605,66 @@ export default function AdminAnalyticsDashboard() {
                 ))}
               </div>
             </div>
+          
+            {/* Google Search Keyword Bank & Intent Clusters */}
+            <div style={{ background: '#0e1a38', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '16px', padding: '24px', marginTop: '24px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px', marginBottom: '20px' }}>
+                <div>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(232,201,122,0.15)', color: '#e8c97a', border: '1px solid rgba(232,201,122,0.3)', fontSize: '0.75rem', fontWeight: 700, padding: '3px 10px', borderRadius: '999px', marginBottom: '8px' }}>
+                    <span>🎯 Google Search Engine Optimization (SEO) Bank</span>
+                  </div>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, margin: '0 0 6px', color: '#fff' }}>
+                    Google Search Keywords Driving Traffic (68 Target Queries)
+                  </h3>
+                  <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: 0, maxWidth: '640px' }}>
+                    Categorized by search volume and commercial intent. Copy any cluster below with 1 tap to use in Google Ads, GMB posts, or blog updates.
+                  </p>
+                </div>
+
+                <button
+                  onClick={() => handleCopy(SEO_KEYWORDS_FLAT.join(', '), 'all-keywords')}
+                  style={{ background: copiedKey === 'all-keywords' ? '#10b981' : 'linear-gradient(135deg, #c9a84c, #a07830)', color: '#fff', border: 'none', padding: '10px 18px', borderRadius: '8px', fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                >
+                  {copiedKey === 'all-keywords' ? 'All 68 Copied! ✅' : '📋 Copy All 68 Keywords'}
+                </button>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '16px' }}>
+                {SEO_KEYWORD_CLUSTERS.map((cluster, cIdx) => (
+                  <div key={cIdx} style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '12px', padding: '16px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                    <div>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
+                        <span style={{ fontWeight: 800, color: '#e8c97a', fontSize: '0.88rem' }}>{cluster.category}</span>
+                        <span style={{ fontSize: '0.7rem', padding: '2px 8px', borderRadius: '4px', background: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', fontWeight: 600 }}>{cluster.intent}</span>
+                      </div>
+                      <p style={{ color: '#94a3b8', fontSize: '0.78rem', margin: '0 0 12px', lineHeight: '1.4' }}>{cluster.description}</p>
+                      
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '16px' }}>
+                        {cluster.keywords.map((kw, kIdx) => (
+                          <span key={kIdx} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: '#f1f5f9', fontSize: '0.75rem', padding: '3px 8px', borderRadius: '6px' }}>
+                            {kw}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={() => handleCopy(cluster.keywords.join(', '), 'cluster-' + cIdx)}
+                      style={{ width: '100%', padding: '8px', background: copiedKey === 'cluster-' + cIdx ? '#10b981' : 'rgba(255,255,255,0.08)', color: '#fff', border: '1px solid rgba(255,255,255,0.15)', borderRadius: '6px', fontSize: '0.78rem', fontWeight: 700, cursor: 'pointer' }}
+                    >
+                      {copiedKey === 'cluster-' + cIdx ? 'Copied Cluster! ✅' : '📋 Copy This Cluster'}
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+</div>
+        )}
+
+        {/* ══ GOWHATS WHATSAPP AUTOMATION & CRM HUB ══ */}
+        {activeTab === 'gowhats' && (
+          <div style={{ marginBottom: '32px' }}>
+            <WhatsAppCrmHub />
           </div>
         )}
 
