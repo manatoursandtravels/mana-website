@@ -525,6 +525,35 @@ export default function SelfDriveLandingPage() {
               </ul>
             </div>
           </div>
+
+          <div style={{
+            marginTop: '28px',
+            background: 'var(--obsidian-surface)',
+            border: '1px solid var(--brass-border)',
+            borderRadius: 'var(--r-xl)',
+            padding: '20px 24px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '16px'
+          }}>
+            <div>
+              <div style={{ color: 'var(--brass-light)', fontWeight: 800, fontSize: '1.05rem', marginBottom: '4px' }}>
+                📄 Official Self-Drive Rental Agreement &amp; Vehicle Handover Terms
+              </div>
+              <div style={{ color: 'var(--charcoal-400)', fontSize: '0.88rem' }}>
+                100% legal transparency under Motor Vehicles Act, 1988. Inspect our standard terms, FASTag policies, and A4 print checklist before booking.
+              </div>
+            </div>
+            <Link
+              href="/self-drive-agreement"
+              className="btn btn--primary"
+              style={{ padding: '10px 20px', fontSize: '0.88rem', textDecoration: 'none' }}
+            >
+              View Official Rental Agreement ↗
+            </Link>
+          </div>
         </div>
       </section>
 

@@ -729,13 +729,23 @@ export default function AdminAnalyticsDashboard() {
                 </div>
               </div>
 
-              <button
-                onClick={fetchKycRecords}
-                className={styles.pinBtn}
-                style={{ width: 'auto', padding: '8px 18px', fontSize: '0.85rem' }}
-              >
-                🔄 Refresh KYC DB
-              </button>
+              <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                <Link
+                  href="/self-drive-agreement"
+                  target="_blank"
+                  className={styles.pinBtn}
+                  style={{ width: 'auto', padding: '8px 16px', fontSize: '0.85rem', textDecoration: 'none', background: 'linear-gradient(135deg, #10B981, #059669)', borderColor: '#34D399' }}
+                >
+                  📄 Printable A4 Agreement &amp; Handover Desk ↗
+                </Link>
+                <button
+                  onClick={fetchKycRecords}
+                  className={styles.logoutBtn}
+                  style={{ fontSize: '0.85rem' }}
+                >
+                  🔄 Refresh KYC DB
+                </button>
+              </div>
             </div>
 
             {/* KYC Ledger Table */}
