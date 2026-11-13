@@ -736,7 +736,15 @@ export default function AdminAnalyticsDashboard() {
                   className={styles.pinBtn}
                   style={{ width: 'auto', padding: '8px 16px', fontSize: '0.85rem', textDecoration: 'none', background: 'linear-gradient(135deg, #10B981, #059669)', borderColor: '#34D399' }}
                 >
-                  📄 Printable A4 Agreement &amp; Handover Desk ↗
+                  📄 Self-Drive A4 Desk ↗
+                </Link>
+                <Link
+                  href="/partner-agreement"
+                  target="_blank"
+                  className={styles.pinBtn}
+                  style={{ width: 'auto', padding: '8px 16px', fontSize: '0.85rem', textDecoration: 'none', background: 'linear-gradient(135deg, #0284C7, #0369A1)', borderColor: '#38BDF8' }}
+                >
+                  🤝 Partner Attachment Agreement (Ertiga) ↗
                 </Link>
                 <button
                   onClick={fetchKycRecords}

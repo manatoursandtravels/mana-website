@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
@@ -391,6 +392,35 @@ export default function PartnerPage() {
                 <p className={styles.stepDesc}>{s.desc}</p>
               </div>
             ))}
+          </div>
+
+          <div style={{
+            marginTop: '28px',
+            background: 'var(--obsidian-surface)',
+            border: '1px solid var(--brass-border)',
+            borderRadius: 'var(--r-xl)',
+            padding: '20px 24px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '16px'
+          }}>
+            <div>
+              <div style={{ color: 'var(--brass-light)', fontWeight: 800, fontSize: '1.05rem', marginBottom: '4px' }}>
+                📄 Standard Commercial Vehicle Attachment Agreement
+              </div>
+              <div style={{ color: 'var(--charcoal-400)', fontSize: '0.88rem' }}>
+                Total legal clarity under Motor Vehicles Act, 1988: 70/30 revenue share terms, zero personal damage liability, and 24/7 telematics access.
+              </div>
+            </div>
+            <Link
+              href="/partner-agreement"
+              className="btn btn--primary"
+              style={{ padding: '10px 20px', fontSize: '0.88rem', textDecoration: 'none' }}
+            >
+              Inspect Agreement Format ↗
+            </Link>
           </div>
         </div>
       </section>
